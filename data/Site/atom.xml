@@ -1,4 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:f1bab40a-b13f-4156-9ef6-99b4de588396;id=1</id><updated>2020-07-13T11:10:44Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:1b7ed729-4ded-45c9-8bd2-1072b06673f1;id=1</id><updated>2020-07-13T12:39:14Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: </summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&amp;gt; ListNode:
+        res = None
+        cur = res
+        rem = 0
+        while l1 or l2:
+            val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + rem
+            rem = val // 10
+            if cur == None:
+                res = ListNode(val % 10)
+                cur = res
+            else:
+                cur.next = ListNode(val % 10)
+                cur = cur.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+        if res == None:
+            return ListNode(0)
+        if rem != 0:
+            cur.next = ListNode(rem)
+        return res
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
 使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; </summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数之和&lt;/h1&gt;
 &lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
@@ -25,5 +50,17 @@ impl Solution {
         panic!();
     }
 }
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-3" /><category term="Problems" /><content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&amp;gt; int:
+        bg = {}
+        i, ans = 0, 0
+        for j in range(len(s)):
+            if s[j] in bg:
+                i = max(i, bg[s[j]]+1)
+            ans = max(ans, j-i+1)
+            bg[s[j]]=j
+        return ans
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry></feed>
