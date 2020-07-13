@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:f1bab40a-b13f-4156-9ef6-99b4de588396;id=1</id><updated>2020-07-13T11:10:44Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
+使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; </summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数之和&lt;/h1&gt;
+&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_sum(nums: Vec&amp;lt;i32&amp;gt;, target: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; {
+        let mut map = HashMap::new();
+        for (i, v) in nums.into_iter().enumerate() {
+            let ex = target - v;
+            if ex != v {
+                if let Some(&amp;amp;oi) = map.get(&amp;amp;ex) {
+                    return vec![oi as i32, i as i32];
+                }
+            }
+            match map.insert(v, i) {
+                Some(oi) =&amp;gt; {
+                    if ex == v {
+                        return vec![oi as i32, i as i32];
+                    }
+                },
+                None =&amp;gt; (),
+            }
+        }
+        panic!();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry></feed>
