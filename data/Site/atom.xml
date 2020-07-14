@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:b58d2bc7-9b70-491d-8dbf-76207ec560c6;id=1</id><updated>2020-07-14T04:42:34Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">两数相加
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:4c107733-42a1-4041-a8ec-3dd71ba2bdd0;id=1</id><updated>2020-07-14T13:58:13Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">两数相加
 由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
 class Solution:
     def addTwoNumbers(self, l1: ListNode,</summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数相加&lt;/h1&gt;
@@ -53,6 +53,160 @@ impl Solution {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>ImagingS-dev</id><title type="text">ImagingS 开发笔记</title><summary type="text">ImagingS 开发笔记
+Demo Video
+来源
+最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
+之前一般仅使</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/ImagingS-dev" /><category term="Problems" /><content type="html">&lt;h1 id="imagings"&gt;ImagingS 开发笔记&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.bilibili.com/video/BV1Q54y1i7Lg/"&gt;Demo Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://www.bilibili.com/video/BV1Q54y1i7Lg/" alt="" /&gt;&lt;/p&gt;
+&lt;h2 id="section"&gt;来源&lt;/h2&gt;
+&lt;p&gt;最初的想法来自 &lt;a href="https://git.nju.edu.cn/songyc/cg2020a"&gt;计算机图形学的课程项目作业&lt;/a&gt;，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。&lt;/p&gt;
+&lt;p&gt;之前一般仅使用 Python 写一些简单的小型项目。曾写过一个&lt;a href="https://github.com/eXceediDeaL/edl-coderunner"&gt;较大项目&lt;/a&gt;，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。&lt;/p&gt;
+&lt;p&gt;这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。&lt;/p&gt;
+&lt;h2 id="idea"&gt;Idea&lt;/h2&gt;
+&lt;p&gt;根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 &lt;a href="https://github.com/dotnet/wpf"&gt;WPF&lt;/a&gt; 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/posts/ImagingS-dev/design.png" alt="" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图元 Geometry 对象描述图元及其绘制算法&lt;/li&gt;
+&lt;li&gt;绘图 Drawing 将各种图元绘制到 DrawingContext 上&lt;/li&gt;
+&lt;li&gt;绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;通过这三个层次，将呈现系统的两部分：定义与呈现分离。&lt;/p&gt;
+&lt;h2 id="section-1"&gt;设计&lt;/h2&gt;
+&lt;p&gt;核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Geometry(PropertySerializable, ABC):
+    def __init__(self) -&amp;gt; None: pass
+
+    def transform(self) -&amp;gt; Optional[Transform]: pass
+
+    def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass
+
+    def fillPoints(self) -&amp;gt; Iterable[Point]: pass
+
+    def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass
+
+    def inFill(self, point: Point) -&amp;gt; bool: pass
+
+    def transformed(self) -&amp;gt; Geometry: pass
+
+    def bounds(self) -&amp;gt; Rect: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Drawing(PropertySerializable, IdObject, ABC):
+    def __init__(self) -&amp;gt; None: pass
+
+    @abstractmethod
+    def render(self, context: RenderContext) -&amp;gt; None: pass
+
+    @property
+    @abstractmethod
+    def bounds(self) -&amp;gt; Rect: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;绘图上下文类：对实际绘制的目标的抽象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class RenderContext(ABC):
+    @abstractmethod
+    def _point(self, position: Point, color: Color) -&amp;gt; None: pass
+
+    @abstractmethod
+    def bounds(self) -&amp;gt; Rect: pass
+
+    def point(self, position: Point, color: Color) -&amp;gt; None: pass
+
+    def points(self, positions: Iterable[Point], brush: Brush)
+     -&amp;gt; None: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="4"&gt;
+&lt;li&gt;变换类：所有变换的基类，定义了如何将一个点变换到另一个点&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Transform(PropertySerializable, IdObject, ABC):
+    def __init__(self) -&amp;gt; None: pass
+
+    @abstractmethod
+    def transform(self, origin: Point) -&amp;gt; Point: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="5"&gt;
+&lt;li&gt;文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Document(PropertySerializable, IdObject):
+    def __init__(self) -&amp;gt; None: pass
+
+    @property
+    def brushes(self) -&amp;gt; IdObjectList[Brush]: pass
+
+    @property
+    def drawings(self) -&amp;gt; DrawingGroup: pass
+
+    @property
+    def size(self) -&amp;gt; Size: pass
+
+    def save(self, file, format: DocumentFormat = DocumentFormat.ISD)
+     -&amp;gt; None: pass
+
+    @staticmethod
+    def load(file, format: DocumentFormat = DocumentFormat.ISD)
+     -&amp;gt; Document: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="6"&gt;
+&lt;li&gt;画布类：将抽象绘制对象包装成 Qt 中的绘制对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Canvas(QGraphicsView): pass
+
+class DrawingItem(QGraphicsItem):
+    def __init__(self, drawing: Drawing, 
+        size: QSizeF, parent: Optional[QGraphicsItem] = None): pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="7"&gt;
+&lt;li&gt;交互类：定义了 GUI 上与图元交互的所有操作，提供给画布一个统一的接口来处理用户交互&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Interactivity(QObject):
+    started = pyqtSignal(QObject)
+    ended = pyqtSignal(QObject)
+    updated = pyqtSignal(QObject)
+
+    def __init__(self) -&amp;gt; None: pass
+
+    def start(self) -&amp;gt; None: pass
+
+    def end(self, success: bool) -&amp;gt; None: pass
+
+    def update(self) -&amp;gt; None: pass
+
+    @property
+    def viewItem(self) -&amp;gt; Optional[QGraphicsItem]: pass
+
+    @property
+    def state(self) -&amp;gt; InteractivityState: pass
+
+    def onMousePress(self, point: QPointF) -&amp;gt; None: pass
+
+    def onMouseMove(self, point: QPointF) -&amp;gt; None: pass
+
+    def onMouseRelease(self, point: QPointF) -&amp;gt; None: pass
+
+    def onMouseDoubleClick(self, point: QPointF) -&amp;gt; None: pass
+
+    def onKeyPress(self, key: QKeyEvent) -&amp;gt; None: pass
+
+    def onKeyRelease(self, key: QKeyEvent) -&amp;gt; None: pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-2"&gt;实现&lt;/h2&gt;
+&lt;ul class="contains-task-list"&gt;
+&lt;li class="task-list-item"&gt;&lt;input disabled="disabled" type="checkbox" /&gt; To be done&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-3"&gt;总结&lt;/h2&gt;
+&lt;p&gt;这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。&lt;/p&gt;
+&lt;p&gt;项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。&lt;/p&gt;
 </content></entry><entry><id>leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的最长子串
 无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span c</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-3" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;无重复字符的最长子串&lt;/h1&gt;
 &lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
