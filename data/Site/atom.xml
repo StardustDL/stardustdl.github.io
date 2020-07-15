@@ -1,63 +1,108 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:ce5e1ac8-d158-4616-ba24-9afb522bc8b2;id=1</id><updated>2020-07-15T00:03:18Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">两数相加
-由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
-class Solution:
-    def addTwoNumbers(self, l1: ListNode,</summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数相加&lt;/h1&gt;
-&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&amp;gt; ListNode:
-        res = None
-        cur = res
-        rem = 0
-        while l1 or l2:
-            val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + rem
-            rem = val // 10
-            if cur == None:
-                res = ListNode(val % 10)
-                cur = res
-            else:
-                cur.next = ListNode(val % 10)
-                cur = cur.next
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
-        if res == None:
-            return ListNode(0)
-        if rem != 0:
-            cur.next = ListNode(rem)
-        return res
-&lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
-使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; </summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数之和&lt;/h1&gt;
-&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
-
-impl Solution {
-    pub fn two_sum(nums: Vec&amp;lt;i32&amp;gt;, target: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; {
-        let mut map = HashMap::new();
-        for (i, v) in nums.into_iter().enumerate() {
-            let ex = target - v;
-            if ex != v {
-                if let Some(&amp;amp;oi) = map.get(&amp;amp;ex) {
-                    return vec![oi as i32, i as i32];
-                }
-            }
-            match map.insert(v, i) {
-                Some(oi) =&amp;gt; {
-                    if ex == v {
-                        return vec![oi as i32, i as i32];
-                    }
-                },
-                None =&amp;gt; (),
-            }
-        }
-        panic!();
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:4fccf724-57d7-4197-bc14-8ce8bd348beb;id=1</id><updated>2020-07-15T01:01:53Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 静态博客生成器使用说明
+AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
+AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/AcBlog-staticgen" /><category term="Development" /><content type="html">&lt;h1 id="acblog"&gt;AcBlog 静态博客生成器使用说明&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
+&lt;p&gt;AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://acblog.github.io/"&gt;AcBlog GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://acblog.gitee.io/"&gt;AcBlog Gitee Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section"&gt;创建存储库&lt;/h2&gt;
+&lt;p&gt;对于纯静态部署的博客，参照&lt;a href="https://github.com/acblog/acblog.github.io"&gt;项目主页&lt;/a&gt;的文件结构建立存储库：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;app&lt;/code&gt; 目录下的内容将被直接复制到网站根目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;posts&lt;/code&gt; 目录下的内容为所有的文章（以 &lt;code&gt;.md&lt;/code&gt; 为后缀），生成器将读取并用于生成静态后端&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;assets&lt;/code&gt; 目录下的内容将被直接复制到生成器输出目录，可用于存储文章中使用的图片等文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;acblog.json&lt;/code&gt; 包含了提供给生成器的相关配置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blog.json&lt;/code&gt; 包含了博客的相关信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.github/workflows/deploy.yml&lt;/code&gt; 脚本用于自动构建并推送 GitHub Pages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-1"&gt;编写说明&lt;/h2&gt;
+&lt;h3 id="acblog.json"&gt;acblog.json 配置文件&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+  &amp;quot;acblog&amp;quot;: {
+    &amp;quot;Properties&amp;quot;: {
+      &amp;quot;Raw&amp;quot;: {
+        &amp;quot;remote.origin.generator.baseAddress&amp;quot;: &amp;quot;博客网址&amp;quot;,
+      }
     }
+  }
 }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一般情况下，只需要填写博客网址，以供站点地图和 RSS feed 的生成使用&lt;/p&gt;
+&lt;h3 id="blog.json"&gt;blog.json&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-json"&gt;{
+   &amp;quot;Name&amp;quot;: &amp;quot;Blog name&amp;quot;,
+   &amp;quot;Description&amp;quot;: &amp;quot;Blog description&amp;quot;,
+   &amp;quot;StartYear&amp;quot;: 2020,
+   &amp;quot;Onwer&amp;quot;: &amp;quot;onwer&amp;quot;,
+    // 主页背景图地址，将图片放到 app 目录下，在这里填写文件名即可
+   &amp;quot;Cover&amp;quot;: &amp;quot;cover.jpg&amp;quot;,
+   &amp;quot;Properties&amp;quot;: {
+      &amp;quot;Raw&amp;quot;: {}
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此文件提供了博客的描述信息，被用于网站的信息展示。&lt;/p&gt;
+&lt;h3 id="section-2"&gt;文章结构&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-markdown"&gt;---
+id: 文章id(生成网址)
+author: ''
+title: '标题'
+creationTime: 2020/1/1 12:00:00 +08:00
+modificationTime: 2020/1/1 12:00:00 +08:00
+category: [一级分类, 二级分类]
+keywords: [关键字]
+type: 类型(article,slides,note)
+password: 密码
+---
+
+Content (Markdown)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如不指定分类，将使用文件的目录结构自动生成分类：&lt;code&gt;/posts/A/B/article.md&lt;/code&gt; 分类为 &lt;code&gt;[A, B]&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="section-3"&gt;自动构建&lt;/h3&gt;
+&lt;p&gt;AcBlog 实现了静态前端和静态后端自动生成的 GitHub Actions，通过它们可以很容易地进行自动构建。&lt;/p&gt;
+&lt;p&gt;文件路径 &lt;code&gt;.github/workflows/deploy.yml&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;name: Deploy
+on:
+  push:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - # 静态前端生成器
+        name: Generate Frontend
+        uses: acblog/wasm-ghpages-generate-action@master
+      - # 静态后端生成器
+        name: Generate Backend
+        uses: acblog/static-backend-generate-action@master
+        with:
+          # 生成器输出目录，对应网站根目录下的 /data 目录
+          dist: &amp;quot;./dist/data&amp;quot;
+      - # 如果使用了 assets 目录，则可以加上这一条
+        # 将 assets 提升到项目根目录处，简化链接编写
+        name: Copy out assets
+        run: cp -r ./dist/data/assets ./dist/assets
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          # GitHub Token 用于 push 到仓库
+          ACCESS_TOKEN: ${{ secrets.PUSH_TOKEN }}
+          BRANCH: master
+          FOLDER: dist
+          CLEAN: true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;由于项目前端依赖 WebAssembly，需手动在 GitHub Pages 分支的根目录下添加 &lt;code&gt;.nojekyll&lt;/code&gt; 文件（内容为空即可）以禁用 GitHub Pages 的 Jekyll 自动构建。&lt;/p&gt;
 </content></entry><entry><id>ImagingS-dev</id><title type="text">ImagingS 开发笔记</title><summary type="text">ImagingS 开发笔记
 Project Source
 Demo Video
 来源
-最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/ImagingS-dev" /><category term="Problems" /><content type="html">&lt;h1 id="imagings"&gt;ImagingS 开发笔记&lt;/h1&gt;
+最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/ImagingS-dev" /><category term="Development" /><content type="html">&lt;h1 id="imagings"&gt;ImagingS 开发笔记&lt;/h1&gt;
 &lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/StardustDL/ImagingS"&gt;Project Source&lt;/a&gt;&lt;/li&gt;
@@ -208,6 +253,61 @@ class DrawingItem(QGraphicsItem):
 &lt;h2 id="section-3"&gt;总结&lt;/h2&gt;
 &lt;p&gt;这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。&lt;/p&gt;
 &lt;p&gt;项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。&lt;/p&gt;
+</content></entry><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">两数相加
+由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
+class Solution:
+    def addTwoNumbers(self, l1: ListNode,</summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数相加&lt;/h1&gt;
+&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&amp;gt; ListNode:
+        res = None
+        cur = res
+        rem = 0
+        while l1 or l2:
+            val = (l1.val if l1 else 0) + (l2.val if l2 else 0) + rem
+            rem = val // 10
+            if cur == None:
+                res = ListNode(val % 10)
+                cur = res
+            else:
+                cur.next = ListNode(val % 10)
+                cur = cur.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+        if res == None:
+            return ListNode(0)
+        if rem != 0:
+            cur.next = ListNode(rem)
+        return res
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
+使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; </summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数之和&lt;/h1&gt;
+&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_sum(nums: Vec&amp;lt;i32&amp;gt;, target: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; {
+        let mut map = HashMap::new();
+        for (i, v) in nums.into_iter().enumerate() {
+            let ex = target - v;
+            if ex != v {
+                if let Some(&amp;amp;oi) = map.get(&amp;amp;ex) {
+                    return vec![oi as i32, i as i32];
+                }
+            }
+            match map.insert(v, i) {
+                Some(oi) =&amp;gt; {
+                    if ex == v {
+                        return vec![oi as i32, i as i32];
+                    }
+                },
+                None =&amp;gt; (),
+            }
+        }
+        panic!();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的最长子串
 无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span c</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-3" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;无重复字符的最长子串&lt;/h1&gt;
 &lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
