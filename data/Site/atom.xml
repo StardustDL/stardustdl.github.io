@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:4fccf724-57d7-4197-bc14-8ce8bd348beb;id=1</id><updated>2020-07-15T01:01:53Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 静态博客生成器使用说明
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:698a9a25-a7fb-4834-bd38-a3a239132425;id=1</id><updated>2020-07-15T01:03:20Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 静态博客生成器使用说明
 AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
 AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/AcBlog-staticgen" /><category term="Development" /><content type="html">&lt;h1 id="acblog"&gt;AcBlog 静态博客生成器使用说明&lt;/h1&gt;
 &lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
@@ -29,7 +29,11 @@ AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端�
   }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;一般情况下，只需要填写博客网址，以供站点地图和 RSS feed 的生成使用&lt;/p&gt;
+&lt;p&gt;一般情况下，只需要填写博客网址，以供站点地图和 ATOM feed (RSS) 的生成使用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生成的站点地图默认位于 &lt;code&gt;博客网址/data/Site/sitemap.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;生成的 ATOM feed 默认位于 &lt;code&gt;博客网址/data/Site/atom.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id="blog.json"&gt;blog.json&lt;/h3&gt;
 &lt;pre&gt;&lt;code class="language-json"&gt;{
    &amp;quot;Name&amp;quot;: &amp;quot;Blog name&amp;quot;,
