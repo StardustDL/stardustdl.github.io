@@ -1,13 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:768b7f8a-301c-4fd8-9a3b-79dd181f5fb9;id=1</id><updated>2020-07-16T00:02:50Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 静态博客生成器使用说明
-AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
-AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/AcBlog-staticgen" /><category term="Development" /><content type="html">&lt;h1 id="acblog"&gt;AcBlog 静态博客生成器使用说明&lt;/h1&gt;
-&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:b40a6830-8f22-426b-be87-0a1fecbe77b8;id=1</id><updated>2020-07-16T02:42:23Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
+AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/AcBlog-staticgen" /><category term="Development" /><content type="html">&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
 &lt;p&gt;AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://acblog.github.io/"&gt;AcBlog GitHub Pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://acblog.gitee.io/"&gt;AcBlog Gitee Pages&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="section"&gt;创建存储库&lt;/h2&gt;
+&lt;h1 id="section"&gt;创建存储库&lt;/h1&gt;
 &lt;p&gt;对于纯静态部署的博客，参照&lt;a href="https://github.com/acblog/acblog.github.io"&gt;项目主页&lt;/a&gt;的文件结构建立存储库：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;app&lt;/code&gt; 目录下的内容将被直接复制到网站根目录&lt;/li&gt;
@@ -17,8 +15,8 @@ AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端�
 &lt;li&gt;&lt;code&gt;blog.json&lt;/code&gt; 包含了博客的相关信息&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.github/workflows/deploy.yml&lt;/code&gt; 脚本用于自动构建并推送 GitHub Pages&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="section-1"&gt;编写说明&lt;/h2&gt;
-&lt;h3 id="acblog.json"&gt;acblog.json 配置文件&lt;/h3&gt;
+&lt;h1 id="section-1"&gt;编写说明&lt;/h1&gt;
+&lt;h2 id="acblog.json"&gt;acblog.json 配置文件&lt;/h2&gt;
 &lt;pre&gt;&lt;code class="language-json"&gt;{
   &amp;quot;acblog&amp;quot;: {
     &amp;quot;Properties&amp;quot;: {
@@ -34,7 +32,7 @@ AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端�
 &lt;li&gt;生成的站点地图默认位于 &lt;code&gt;博客网址/data/Site/sitemap.xml&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;生成的 ATOM feed 默认位于 &lt;code&gt;博客网址/data/Site/atom.xml&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="blog.json"&gt;blog.json&lt;/h3&gt;
+&lt;h2 id="blog.json"&gt;blog.json&lt;/h2&gt;
 &lt;pre&gt;&lt;code class="language-json"&gt;{
    &amp;quot;Name&amp;quot;: &amp;quot;Blog name&amp;quot;,
    &amp;quot;Description&amp;quot;: &amp;quot;Blog description&amp;quot;,
@@ -48,7 +46,7 @@ AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端�
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;此文件提供了博客的描述信息，被用于网站的信息展示。&lt;/p&gt;
-&lt;h3 id="section-2"&gt;文章结构&lt;/h3&gt;
+&lt;h2 id="section-2"&gt;文章结构&lt;/h2&gt;
 &lt;pre&gt;&lt;code class="language-markdown"&gt;---
 id: 文章id(生成网址)
 author: ''
@@ -64,7 +62,7 @@ password: 密码
 Content (Markdown)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如不指定分类，将使用文件的目录结构自动生成分类：&lt;code&gt;/posts/A/B/article.md&lt;/code&gt; 分类为 &lt;code&gt;[A, B]&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id="section-3"&gt;自动构建&lt;/h3&gt;
+&lt;h2 id="section-3"&gt;自动构建&lt;/h2&gt;
 &lt;p&gt;AcBlog 实现了静态前端和静态后端自动生成的 GitHub Actions，通过它们可以很容易地进行自动构建。&lt;/p&gt;
 &lt;p&gt;文件路径 &lt;code&gt;.github/workflows/deploy.yml&lt;/code&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-yml"&gt;name: Deploy
@@ -102,22 +100,21 @@ jobs:
           CLEAN: true
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于项目前端依赖 WebAssembly，需手动在 GitHub Pages 分支的根目录下添加 &lt;code&gt;.nojekyll&lt;/code&gt; 文件（内容为空即可）以禁用 GitHub Pages 的 Jekyll 自动构建。&lt;/p&gt;
-</content></entry><entry><id>ImagingS-dev</id><title type="text">ImagingS 开发笔记</title><summary type="text">ImagingS 开发笔记
-Project Source
+</content></entry><entry><id>ImagingS-dev</id><title type="text">ImagingS 开发笔记</title><summary type="text">Project Source
 Demo Video
 来源
-最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/ImagingS-dev" /><category term="Development" /><content type="html">&lt;h1 id="imagings"&gt;ImagingS 开发笔记&lt;/h1&gt;
-&lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
+最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
+之前一般仅</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/ImagingS-dev" /><category term="Development" /><content type="html">&lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/StardustDL/ImagingS"&gt;Project Source&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.bilibili.com/video/BV1Q54y1i7Lg/"&gt;Demo Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src="https://www.bilibili.com/video/BV1Q54y1i7Lg/" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="section"&gt;来源&lt;/h2&gt;
+&lt;h1 id="section"&gt;来源&lt;/h1&gt;
 &lt;p&gt;最初的想法来自 &lt;a href="https://git.nju.edu.cn/songyc/cg2020a"&gt;计算机图形学的课程项目作业&lt;/a&gt;，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。&lt;/p&gt;
 &lt;p&gt;之前一般仅使用 Python 写一些简单的小型项目。曾写过一个&lt;a href="https://github.com/eXceediDeaL/edl-coderunner"&gt;较大项目&lt;/a&gt;，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。&lt;/p&gt;
 &lt;p&gt;这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。&lt;/p&gt;
-&lt;h2 id="idea"&gt;Idea&lt;/h2&gt;
+&lt;h1 id="idea"&gt;Idea&lt;/h1&gt;
 &lt;p&gt;根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 &lt;a href="https://github.com/dotnet/wpf"&gt;WPF&lt;/a&gt; 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。&lt;/p&gt;
 &lt;p&gt;&lt;img src="/assets/posts/ImagingS-dev/design.png" alt="" /&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -250,18 +247,3083 @@ class DrawingItem(QGraphicsItem):
 
     def onKeyRelease(self, key: QKeyEvent) -&amp;gt; None: pass
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-2"&gt;实现&lt;/h2&gt;
+&lt;h1 id="section-2"&gt;实现&lt;/h1&gt;
 &lt;ul class="contains-task-list"&gt;
 &lt;li class="task-list-item"&gt;&lt;input disabled="disabled" type="checkbox" /&gt; To be done&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="section-3"&gt;总结&lt;/h2&gt;
+&lt;h1 id="section-3"&gt;总结&lt;/h1&gt;
 &lt;p&gt;这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。&lt;/p&gt;
 &lt;p&gt;项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。&lt;/p&gt;
-</content></entry><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">两数相加
-由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
+</content></entry><entry><id>progLang-verilog</id><title type="text">Verilog HDL</title><summary type="text">基本信息
+介绍：Verilog HDL是一种硬件描述语言，用于从算法级、门级到开关级的多种抽象设计层次的 数字系统建模。被建模的数字系统对象的复杂性可以介于简单的门和完整的电子数字系统之 间。数字系统</summary><published>2018-09-12T17:50:16+08:00</published><updated>2018-09-12T17:50:16+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-verilog" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;介绍：Verilog HDL是一种硬件描述语言，用于从算法级、门级到开关级的多种抽象设计层次的 数字系统建模。被建模的数字系统对象的复杂性可以介于简单的门和完整的电子数字系统之 间。数字系统能够按层次描述，并可在相同描述中显式地进行时序建模。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
+&lt;h2 id="section-2"&gt;注释&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;// one-line comment
+/*
+multi-line comment
+*/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-3"&gt;标识符&lt;/h2&gt;
+&lt;p&gt;Verilog HDL中的标识符可以是任意一组字母、数字、&lt;code&gt;$&lt;/code&gt; 符号和 &lt;code&gt;_&lt;/code&gt; （下划线）符号的 组合，但标识符的第一个字符必须是字母或者下划线。另外，标识符是区分大小写的。
+转义标识符可以在一条标识符中包含任何可打印字符。转义标识符以 &lt;code&gt;\&lt;/code&gt; （反斜线）符号开头，以空白结尾（空白可以是一个空格、一个制表字符或换行符）。反斜线和结束空格并不是转义标识符的一部分。转义标识符与关键词并不完全相同。标识符 \initial 与标识符 initial（这是个关键词）不同。&lt;/p&gt;
+&lt;h2 id="section-4"&gt;值&lt;/h2&gt;
+&lt;h3 id="section-5"&gt;基本值&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;0 ：逻辑 0&lt;/li&gt;
+&lt;li&gt;1 ：逻辑 1&lt;/li&gt;
+&lt;li&gt;x ：位置&lt;/li&gt;
+&lt;li&gt;z ：高阻&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-6"&gt;常量&lt;/h3&gt;
+&lt;h4 id="section-7"&gt;整型&lt;/h4&gt;
+&lt;h5 id="section-8"&gt;简单十进制表示&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;12,-15&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id="section-9"&gt;基数表示法&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;[size] 'base value&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;size 定义以位计的常量的位长&lt;/li&gt;
+&lt;li&gt;base ：进制（&lt;code&gt;o/O,b/B,d/D,h/H&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;x（或z）在十六进制值中代表4位x（或z），在八进制中代表3位x（或z），在二进制中代表1位x（或z）。
+基数格式计数形式的数通常为无符号数。这种形式的整型数的长度定义是可选的。如果没有定义一个整数型的长度，数的长度为相应值中定义的位数。
+如果定义的长度比为常量指定的长度长，通常在左边填0补位。但是如果数最左边一位为 x或z，就相应地用x或z在左边补位。
+如果长度定义得更小，那么最左边的位相应地被截断。
+？字符在数中可以代替值z在值z被解释为不分大小写的情况下提高可读性。&lt;/p&gt;
+&lt;h4 id="section-10"&gt;实数&lt;/h4&gt;
+&lt;h5 id="section-11"&gt;十进制计数法&lt;/h5&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;2.0
+0.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="section-12"&gt;科学计数法&lt;/h5&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;23_5.1e2
+5E-4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;实数通过四舍五入被转换为最相近的整数。&lt;/p&gt;
+&lt;h4 id="section-13"&gt;字符串&lt;/h4&gt;
+&lt;p&gt;字符串是双引号内的字符序列。字符串不能分成多行书写。&lt;/p&gt;
+&lt;p&gt;用8位ASCII值表示的字符可看作是无符号整数。因此字符串是 8位ASCII值的序列。反斜线 (\ ) 用于对确定的特殊字符转义。&lt;/p&gt;
+&lt;h4 id="section-14"&gt;参数&lt;/h4&gt;
+&lt;p&gt;参数是一个常量。参数经常用于定义时延和变量的宽度。使用参数说明的参数只被赋值一次。参数值也可以在编译时被改变。改变参数值可以使用参数定义语句或通过在模块初始化 语句中定义参数值&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;parameter param1=const_expr1, param2=const_expr2, ... , paramN=const_exprN; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-15"&gt;数据类型&lt;/h2&gt;
+&lt;h3 id="section-16"&gt;线网类型&lt;/h3&gt;
+&lt;p&gt;表示结构化元件间的物理连线。它的值由驱动元件的值决定， 例如连续赋值或门的输出。如果没有驱动元件连接到线网，线网的缺省值为 z。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;net_kind [msb:lsb] net1,net2,...,netN;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;msb/lsb&lt;/code&gt; 是用于定义线网范围的常量表达式。如果没有定义范围，缺省的长度1位。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;msb&lt;/code&gt; 指定最高有效位对应下标&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lsb&lt;/code&gt; 指定最低有效位对应下标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;wire/tri&lt;/code&gt; 用于连接单元的连线是最常见的线网类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;wor/trior&lt;/code&gt; 线或指如果某个驱动源为1，那么线网的值也为1。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;wand/triand&lt;/code&gt; 线与网指如果某个驱动源为 0，那么线网的值为0。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;trireg&lt;/code&gt; 此线网存储数值（类似于寄存器），并且用于电容节点的建模。当三态寄存器的所 有驱动源都处于高阻态，也就是说，值为 z时，三态寄存器线网保存作用在线网上的最后一个值。此外，三态寄存器线网的缺省初始值为 x。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;tri0/tri1&lt;/code&gt; 这类线网可用于线逻辑的建模，即线网有多于一个驱动源。 tri0（tri1）线网的特征是，若无驱动源驱动，它的值为0（tri1的值为1）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;supply0/supply1&lt;/code&gt; supply0用于对“地”建模，即低电平0；supply1网用于对电源建模，即高电平1。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-17"&gt;向量线网&lt;/h4&gt;
+&lt;p&gt;在定义向量线网时可选用关键词scalared或vectored。如果一个线网定义时使用了关键词 vectored, 那么就不允许&lt;a href="#%E4%BD%8D%E9%80%89%E6%8B%A9"&gt;位选择&lt;/a&gt;和&lt;a href="#%E9%83%A8%E5%88%86%E9%80%89%E6%8B%A9"&gt;部分选择&lt;/a&gt;该线网。换句话说，必须对线网整体赋值。而如果使用了scalared，则允许位选择和部分选择（这是缺省值）。&lt;/p&gt;
+&lt;h3 id="section-18"&gt;寄存器类型&lt;/h3&gt;
+&lt;p&gt;表示一个抽象的数据存储单元，它只能在 always 语句和 initial 语句中被赋值，并且它的值从一个赋值到另一个赋值被保存下来。寄存器类型的变量具有 x 的缺省值。&lt;/p&gt;
+&lt;h4 id="reg"&gt;reg&lt;/h4&gt;
+&lt;p&gt;寄存器数据类型reg是最常见的数据类型。寄存器中的值通常被解释为无符号数。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;reg [msb:lsb] reg1,reg2,...,regN;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;msb/lsb 是用于定义线网范围的常量表达式。如果没有定义范围，缺省的长度1位。
+&lt;ul&gt;
+&lt;li&gt;msb 指定最高有效位对应下标&lt;/li&gt;
+&lt;li&gt;lsb 指定最低有效位对应下标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-19"&gt;存储器&lt;/h4&gt;
+&lt;p&gt;存储器是一个寄存器数组。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;reg [msb:lsb] memory1[upper1:lower1],
+    memory2[upper2:lower2];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;数组的维数不能大于 2。注意存储器属于寄存器数组类型。线网数据类型没有相应的存储器类型。 存储器赋值不能在一条赋值语句中完成，但是寄存器可以。因此在存储器被赋值时，需要定义一个索引。&lt;/p&gt;
+&lt;h4 id="integer"&gt;integer&lt;/h4&gt;
+&lt;p&gt;整数寄存器包含整数值。整数寄存器可以作为普通寄存器使用，典型应用为高层次行为建模。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;integer int1,int2,...,intN[msb:lsb];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;msb 和 lsb 是定义整数数组界限的常量表达式，数组界限的定义是可选的。一个整数最少容纳 32 位。但是具体实现可提供更多的位。
+一个整数型寄存器可存储有符号数，并且算术操作符提供 2的补码运算结果。
+整数不能作为位向量访问。一种截取位值的方法是将整数赋值给一般的 reg 类型变量，然后从中选取相应的位。&lt;/p&gt;
+&lt;h4 id="time"&gt;time&lt;/h4&gt;
+&lt;p&gt;time类型的寄存器用于存储和处理时间。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;time time1,time2,...,timeN[msb:lsb];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;msb 和 lsb 是表明范围界限的常量表达式。如果未定义界限，每个标识符存储一个至少 64位的时间值。时间类型的寄存器只存储无符号数。&lt;/p&gt;
+&lt;h4 id="realrealtime"&gt;real/realtime&lt;/h4&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;real real1,real2,...,realN;
+realtime real1,real2,...,realN;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;realtime 与 real 类型完全相同。real 说明的变量的缺省值为 0。不允许对 real 声明值域、位界限或字节界限。当将值 x 和 z 赋予 real 类型寄存器时，这些值作 0 处理。&lt;/p&gt;
+&lt;h2 id="section-20"&gt;表达式&lt;/h2&gt;
+&lt;h3 id="section-21"&gt;操作数&lt;/h3&gt;
+&lt;h4 id="section-22"&gt;常数&lt;/h4&gt;
+&lt;p&gt;如果表达式中是十进制整数，那么该整数被解释为有符号数。如果整数是基数型整数（定长或非定长），那么该整数作为无符号数对待。更为重要的是对基数表示或非基数表示的负整数处理方式不同。非基数表示形式的负整数作为有符号数处理，而基数表示形式的负整数值作为无符号数（即负号等价于求补）。
+参数也可作为操作数。&lt;/p&gt;
+&lt;h4 id="section-23"&gt;线网&lt;/h4&gt;
+&lt;p&gt;可在表达式中使用标量线网（1位）和向量线网（多位）。线网中的值被解释为无符号数。&lt;/p&gt;
+&lt;h4 id="section-24"&gt;寄存器&lt;/h4&gt;
+&lt;p&gt;标量和向量寄存器可在表达式中使用。整型寄存器中的值被解释为有符号的二进制补码数，而 reg寄存器或时间寄存器中的值被 解释为无符号数。实数和实数时间类型寄存器中的值被解释为有符号浮点数。&lt;/p&gt;
+&lt;h4 id="section-25"&gt;位选择&lt;/h4&gt;
+&lt;p&gt;位选择从向量中抽取特定的位。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;net_or_reg_vector[bit_select_expr] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="section-26"&gt;部分选择&lt;/h4&gt;
+&lt;p&gt;在部分选择中，向量的连续序列被选择。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;net_or_reg_vector[msb_const_expr:lsb_const_expr]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="section-27"&gt;存储器单元存储器单元&lt;/h4&gt;
+&lt;p&gt;存储器单元从存储器中选择一个字。不允许对存储器变量值部分选择或位选择。在存储器中读取一个位或部分选择一个字的方法如下：将存储器单元赋值给寄存器变 量，然后对该寄存器变量采用部分选择或位选择操作。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;memory[word_address]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="section-28"&gt;函数调用&lt;/h4&gt;
+&lt;p&gt;表达式中可使用函数调用。函数调用可以是系统函数调用（以 $字符开始）或用户定义的函数调用。&lt;/p&gt;
+&lt;h3 id="section-29"&gt;操作符&lt;/h3&gt;
+&lt;h4 id="section-30"&gt;算术操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;+ - * / %&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;整数除法截断任何小数部分。&lt;/li&gt;
+&lt;li&gt;取模操作符求出与第一个操作符符号相同的余数。&lt;/li&gt;
+&lt;li&gt;如果算术操作符中的任意操作数是 X或Z，那么整个结果为X。&lt;/li&gt;
+&lt;li&gt;算术表达式结果的长度由最长的操作数决定。在赋值语句下，算术操作结果的长度由操 作符左端目标长度决定。&lt;/li&gt;
+&lt;li&gt;在较大的表达式中，所有中间结果应取最大操作数的长度（赋值时，此规则也包括左端目标）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-31"&gt;关系操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; &amp;lt; &amp;gt;= &amp;lt;=&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关系操作符的结果为真（ 1）或假（0）。如果操作数中有一位为 X或Z，那么结果为X。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-32"&gt;相等关系操作符&lt;/h4&gt;
+&lt;p&gt;逻辑等：&lt;code&gt;== !=&lt;/code&gt;
+全等：&lt;code&gt;=== !==&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果比较结果为假，则结果为 0；否则结果为1。&lt;/li&gt;
+&lt;li&gt;在全等比较中，值 x和z严格按位比较。 也就是说，不进行解释，并且结果一定可知。&lt;/li&gt;
+&lt;li&gt;在逻辑比较中，值 x和z具有通常的意义，且 结果可以不为x。也就是说，在逻辑比较中，如果两个操作数之一包含 x或z，结果为未知的值（x）。&lt;/li&gt;
+&lt;li&gt;如果操作数的长度不相等，长度较小的操作数在左侧添0补位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-33"&gt;逻辑操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;amp;&amp;amp; || !&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这些操作符在逻辑值0或1上操作。逻辑操作的结构为0或1。&lt;/li&gt;
+&lt;li&gt;对于向量操作, 非0向量作为1处理。&lt;/li&gt;
+&lt;li&gt;如果任意一个操作数包含x，结果也为x。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-34"&gt;按位操作符&lt;/h4&gt;
+&lt;p&gt;一元非：&lt;code&gt;~&lt;/code&gt;
+二元：&lt;code&gt;&amp;amp; | ^ ~^ ^~&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这些操作符在输入操作数的对应位上按位操作，并产生向量结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="section-35"&gt;归约操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;amp; ~&amp;amp; | ~| ^ ~^&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;归约操作符在 &lt;strong&gt;单一操作数&lt;/strong&gt; 的所有位上操作，并产生 1位结果。&lt;/p&gt;
+&lt;h4 id="section-36"&gt;移位操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;&amp;lt; &amp;gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;移位操作符左侧操作数移动右侧操作数表示的次数，它是一个逻辑移位。空闲位添 0 补位。 如果右侧操作数的值为 x 或 z , 移位操作的结果为 x 。&lt;/p&gt;
+&lt;h4 id="section-37"&gt;条件操作符&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;condition ? expr1 : expr2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;条件操作符根据条件表达式的值选择表达式。&lt;/p&gt;
+&lt;h3 id="section-38"&gt;连接&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;{expr1,expr2,...,exprN} &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;连接操作是将小表达式合并形成大表达式的操作。&lt;/p&gt;
+&lt;h3 id="section-39"&gt;复制&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;{repetition_number{expr1,expr2,...,exprN}}&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;{3{4'b1011}};    //位向量12'b1011_1011_1011
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;复制通过指定重复次数来执行操作。&lt;/p&gt;
+&lt;h3 id="section-40"&gt;分类&lt;/h3&gt;
+&lt;p&gt;常量表达式是在编译时就计算出常数值的表达式。通常，常量表达式可由下列要素构成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常量文字&lt;/li&gt;
+&lt;li&gt;参数名
+标量表达式是计算结果为 1位的表达式。如果希望产生标量结果 , 但是表达式产生的结果 为向量, 则最终结果为向量最右侧的位值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-41"&gt;编译指令&lt;/h2&gt;
+&lt;p&gt;以 &lt;code&gt;`&lt;/code&gt;（反引号）开始的某些标识符是编译器指令。特定的标识符如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;define, undef&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定义宏（文本替换）和取消定义宏，注意使用宏时也需要加上反引号&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`define WORD 16//建立一个文本宏替代。
+
+wire [`WORD:1] Bus;
+
+`undef WORD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ifdef, else, endif&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;条件编译&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`ifdef WINDOWS
+parameter WORD_SIZE=16
+`else
+parameter WORD_SIZE=32
+`endif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;default_nettype&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为隐式线网指定线网类型。也就是将那些没有被说明的连线定义线网类型。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`default_nettype wire
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;include&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;嵌入内嵌文件的内容。文件既可以用相对路径名定义，也可以用 全路径名定义,&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`include &amp;quot;../../primitives.v&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;resetall&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将所有的编译指令重新设置为缺省值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`resetall
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;timescale&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将时间单位与实际时间相关联。该指令用于定义时延的单位和时延精度（用于小数单位向整数单位转换）。time_unit 和 time_precision 由值 1、10、和100 以及单位s、ms、us、ns、ps和fs组成。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;//`timescale time_unit / time_precision
+`timescale 1ns/100ps
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当一个设计中的多个模块带有自身的 ``timescale` 编译指令时，模拟器总是定位在所有模块的最小时延精度上，并且所有时延都相应地换算为最小时延精度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;unconnected_drive, nounconnected_drive&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在模块实例化中，出现在这两个编译器指令间的任何未连接的输入端口或者为正偏电路 状态或者为反偏电路状态。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`unconnected_drive pull1
+.../*在这两个程序指令间的所有未连接的输入端口为正偏电路状态（连接到高电平）*/
+`nounconnected_drive
+`unconnected_drive pull0
+.../*在这两个程序指令间的所有未连接的输入端口为反偏电路状态（连接到低电平）*/
+`nounconnected_drive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;celldefine, endcelldefine&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这两个程序指令用于将模块标记为单元模块。它们表示包含模块定义。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;`celldefine
+module FD1S3AX(D,CK,Z);
+...
+endmodule
+`endcelldefine 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-42"&gt;模块&lt;/h2&gt;
+&lt;p&gt;模块是 Verilog 的基本描述单位，用于描述某个设计的功能或结构及其与其他模块通信的 外部端口。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;module module_name (port_list);
+  Declarations:
+    reg, wire, parameter,
+    input, output, inout,
+    function, task, ...
+  Statements:
+    Initial statement
+    Always statement
+    Module instantiation
+    Gate instantiation
+    UDP instantiation
+    Continuous assignment
+endmodule
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-43"&gt;时延&lt;/h2&gt;
+&lt;p&gt;Verilog HDL模型中的所有时延都根据时间单位定义。表示方式为 &lt;code&gt;#&amp;lt;time&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="section-44"&gt;数据流方式&lt;/h1&gt;
+&lt;p&gt;连续赋值用于数据流行为建模。&lt;/p&gt;
+&lt;h2 id="section-45"&gt;连续赋值语句&lt;/h2&gt;
+&lt;p&gt;连续赋值语句将值赋给线网（连续赋值不能为寄存器赋值）。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;assign LHS_target = RHS_expression;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;只要在右端表达式的操作数上有事件（事件为值的变化）发生时，表达式即被计算；如果结果值有变化，新结果就赋给左边的线网。&lt;/p&gt;
+&lt;p&gt;连续赋值的目标类型如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;标量线网&lt;/li&gt;
+&lt;li&gt;向量线网&lt;/li&gt;
+&lt;li&gt;向量的常数型位选择&lt;/li&gt;
+&lt;li&gt;向量的常数型部分选择&lt;/li&gt;
+&lt;li&gt;上述类型的任意的拼接运算结果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以在一个连续赋值语句中编写多个赋值方式：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;assign Mux = (S == 0) ? A : 'bz,
+       Mux = (S == 1) ? B : 'bz,
+       Mux = (S == 2) ? C : 'bz,
+       Mux = (S == 3) ? D : 'bz;
+
+// equals to
+
+assign Mux = (S == 0) ? A : 'bz;
+assign Mux = (S == 1) ? B : 'bz;
+assign Mux = (S == 2) ? C : 'bz;
+assign Mux = (S == 3) ? D : 'bz;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-46"&gt;线网说明赋值&lt;/h2&gt;
+&lt;p&gt;连续赋值可作为线网说明本身的一部分。这样的赋值被称为线网说明赋值。是一种线网声明和连续赋值语句的简化写法。
+不允许在同一个线网上出现多个线网说明赋值。如果多个赋值是必需的，则必须使用连续赋值语句。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;wire [3:0] Sum = 4'b0;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-47"&gt;赋值时延&lt;/h2&gt;
+&lt;p&gt;{% note info %}
+如果在连续赋值语句中没有定义时延，则右端表达式的值立即赋给左端表达式，时延为 0。
+{% endnote %}&lt;/p&gt;
+&lt;p&gt;定义时延：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;assign #6 Ask = Quiet || Late;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;规定右边表达式结果的计算到其赋给左边目标需经过 6 个时间单位时延。例如，如果在时刻5，Late值发生变化，则赋值的右端表达式被计算，并且 Ask 在时刻11(=5+6) 被赋于新值。&lt;/p&gt;
+&lt;p&gt;对于每个时延定义，总共能够指定三类时延值：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;上升时延&lt;/li&gt;
+&lt;li&gt;下降时延&lt;/li&gt;
+&lt;li&gt;关闭时延&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;解释：如果右端从非 0 向量变化到 0 向量，那么就使用下降时延。如果右端值到达 z，那么使用下降时延，否则使用上升时延。&lt;/p&gt;
+&lt;p&gt;这三类时延的语法如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;assign # (rise, fall, turn-off) LHS_target = RHS_expression;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;仅使用一个数字（如 &lt;code&gt;#5&lt;/code&gt;）定义时延时，则上述三类时延均设置为此值。&lt;/p&gt;
+&lt;h2 id="section-48"&gt;线网时延&lt;/h2&gt;
+&lt;p&gt;时延也可以在线网说明中定义，这个时延表明驱动源值改变与线网本身改变间的时延。和赋值语句时延一起使用时产生叠加效果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-verilog"&gt;wire #5 Arb;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果时延在线网说明赋值中出现，那么时延不是 线网时延，而是赋值时延。&lt;/p&gt;
+&lt;h1 id="section-49"&gt;行为方式&lt;/h1&gt;
+&lt;p&gt;(TODO:008)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;initial 语句&lt;/li&gt;
+&lt;li&gt;always 语句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-50"&gt;结构方式&lt;/h1&gt;
+&lt;h2 id="section-51"&gt;内置门原语&lt;/h2&gt;
+&lt;p&gt;(TODO:005)&lt;/p&gt;
+&lt;h2 id="section-52"&gt;开关级原语&lt;/h2&gt;
+&lt;p&gt;(TODO:005)&lt;/p&gt;
+&lt;h2 id="section-53"&gt;用户定义的原语&lt;/h2&gt;
+&lt;p&gt;(TODO:006)&lt;/p&gt;
+&lt;h2 id="section-54"&gt;模块实例&lt;/h2&gt;
+&lt;p&gt;(TODO:009)&lt;/p&gt;
+&lt;h1 id="section-55"&gt;其他&lt;/h1&gt;
+&lt;p&gt;(TODO:010)&lt;/p&gt;
+&lt;h1 id="section-56"&gt;验证&lt;/h1&gt;
+&lt;p&gt;(TODO:011)&lt;/p&gt;
+&lt;h1 id="section-57"&gt;参考资料&lt;/h1&gt;
+</content></entry><entry><id>progLang-css</id><title type="text">Cascading Style Sheets</title><summary type="text">基本信息
+介绍：CSS 存储 HTML 样式，定义如何显示 HTML 元素。
+在 HTML 中使用样式表，参见 {% post_link tool/progLang-HTML %}
+层叠
+样式表允许以</summary><published>2018-09-08T10:30:40+08:00</published><updated>2018-09-08T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-css" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;介绍：CSS 存储 HTML 样式，定义如何显示 HTML 元素。&lt;/li&gt;
+&lt;li&gt;在 HTML 中使用样式表，参见 {% post_link tool/progLang-HTML %}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;层叠&lt;/h1&gt;
+&lt;p&gt;样式表允许以多种方式规定样式信息。样式可以规定在单个的 HTML 元素中，在 HTML 页的头元素中，或在一个外部的 CSS 文件中。甚至可以在同一个 HTML 文档内部引用多个外部样式表。
+当同一个 HTML 元素被不止一个样式定义时，层叠顺序如下，其中数字 4 拥有最高的优先权。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;浏览器缺省设置&lt;/li&gt;
+&lt;li&gt;外部样式表&lt;/li&gt;
+&lt;li&gt;内部样式表（位于 &lt;head&gt; 标签内部）&lt;/li&gt;
+&lt;li&gt;内联样式（在 HTML 元素内部）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，内联样式（在 HTML 元素内部）拥有最高的优先权，这意味着它将优先于以下的样式声明：&lt;head&gt; 标签中的样式声明，外部样式表中的样式声明，或者浏览器中的样式声明（缺省值）。&lt;/p&gt;
+&lt;p&gt;通过 CSS 继承，子元素将继承最高级元素所拥有的属性&lt;/p&gt;
+&lt;h1 id="section-2"&gt;语法&lt;/h1&gt;
+&lt;p&gt;CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;selector {declaration1; declaration2; ... declarationN }
+selector {property: value}
+
+h1 {color:red; font-size:14px;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;选择器：指定需要改变样式的 HTML 元素。&lt;/li&gt;
+&lt;li&gt;每条声明由一个属性和一个值组成。
+&lt;ul&gt;
+&lt;li&gt;如果要定义不止一个声明，则需要用分号将每个声明分开。&lt;/li&gt;
+&lt;li&gt;属性（property）是设置的样式属性（style attribute）。每个属性有一个值。&lt;/li&gt;
+&lt;li&gt;属性和值被冒号分开。&lt;/li&gt;
+&lt;li&gt;如果值为若干单词，则要给值加引号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{% note info %}
+CSS 对大小写不敏感。不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。
+{% endnote %}&lt;/p&gt;
+&lt;h1 id="section-3"&gt;选择器&lt;/h1&gt;
+&lt;h2 id="section-4"&gt;分组&lt;/h2&gt;
+&lt;p&gt;允许对不同种类选择器定义相同的样式规则。
+使用逗号分隔多个选择器以实现选择器的分组（并列关系）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;h1,h2,h3,h4,h5,h6 {
+    color: green;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-5"&gt;元素选择器&lt;/h2&gt;
+&lt;p&gt;文档的元素就是最基本的选择器。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;html {color:black;}
+h1 {color:blue;}
+h2 {color:silver;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;通配选择器&lt;/strong&gt;匹配所有元素：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;* {color:red;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-6"&gt;基于上下文关系&lt;/h2&gt;
+&lt;h3 id="section-7"&gt;后代选择器&lt;/h3&gt;
+&lt;p&gt;后代选择器允许你根据文档的上下文关系来确定某个标签的样式。&lt;/p&gt;
+&lt;p&gt;使用空格分隔选择器以实现后代选择器（后代关系）：
+希望列表中的 strong 元素变为斜体字，而不是通常的粗体字：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;li strong {
+    font-style: italic;
+    font-weight: normal;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-8"&gt;子元素选择器&lt;/h3&gt;
+&lt;p&gt;与后代选择器相比，子元素选择器只能选择作为某元素子元素的元素。
+使用 &lt;code&gt;&amp;gt;&lt;/code&gt; 分隔选择器以实现子元素选择器（父子关系）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;h1 &amp;gt; strong {color:red;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-9"&gt;相邻兄弟选择器&lt;/h3&gt;
+&lt;p&gt;相邻兄弟选择器可选择紧接在另一元素后的元素，且二者有相同父元素。
+使用 &lt;code&gt;+&lt;/code&gt; 分隔选择器以实现相邻兄弟选择器（相邻兄弟关系）：
+选择紧接在 h1 元素后出现的 p 元素，h1 和 p 元素拥有共同的父元素：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;h1 + p {margin-top:50px;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-10"&gt;基于属性&lt;/h2&gt;
+&lt;h3 id="id"&gt;id 选择器&lt;/h3&gt;
+&lt;p&gt;id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
+以 &lt;code&gt;#&lt;/code&gt; 来定义 id 选择器。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;#red {color:red;}
+#green {color:green;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过加入元素类型前缀，可指定元素类型（但由于 id 唯一性，此做法意义不大）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;div#red {color:red;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-11"&gt;类选择器&lt;/h3&gt;
+&lt;p&gt;类选择器可以为标有特定 class 的 HTML 元素指定特定的样式。
+以 &lt;code&gt;.&lt;/code&gt; 来定义 id 选择器。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;.center {text-align: center}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 HTML 中，一个 class 值中可能包含一个词列表，各个词之间用空格分隔。可以使用多类选择器匹配这种情况。
+通过把两个类选择器链接在一起，仅可以选择同时包含这些类名的元素（类名的顺序不限）。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;.important.urgent {background:silver;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;匹配：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;p class=&amp;quot;important urgent&amp;quot;&amp;gt;
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过加入元素类型前缀，可指定元素类型：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;td.fancy {
+	color: #f60;
+	background: #666;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;匹配：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;td class=&amp;quot;fancy&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-12"&gt;属性选择器&lt;/h3&gt;
+&lt;p&gt;可以为拥有指定属性的 HTML 元素设置样式，而不仅限于 class 和 id 属性。&lt;/p&gt;
+&lt;h4 id="section-13"&gt;简单属性选择&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;为带有 title 属性的所有元素设置样式：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[title]
+{
+    color:red;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;根据多个属性进行选择，只需将属性选择器链接在一起即可。将同时有 href 和 title 属性的 HTML 超链接的文本设置为红色：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;a[href][title] {color:red;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="section-14"&gt;根据具体属性值&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;为 title=&amp;quot;W3School&amp;quot; 的所有元素设置样式：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[title=W3School]
+{
+    border:5px solid blue;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;为包含指定值的 title 属性的所有元素设置样式。适用于由空格分隔的属性值：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[title~=hello] { color:red; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;为带有包含指定值的 lang 属性的所有元素设置样式（选择 lang 属性等于 en 或以 en- 开头的所有元素）。适用于由连字符分隔的属性值：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[lang|=en] { color:red; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;选择 abc 属性值以 &amp;quot;def&amp;quot; 开头的所有元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[abc^=&amp;quot;def&amp;quot;]{}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;选择 abc 属性值以 &amp;quot;def&amp;quot; 结尾的所有元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[abc$=&amp;quot;def&amp;quot;]{}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;选择 abc 属性值中包含子串 &amp;quot;def&amp;quot; 的所有元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;[abc*=&amp;quot;def&amp;quot;]{}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过加入元素类型前缀，可指定元素类型：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;input[type=&amp;quot;text&amp;quot;]
+{
+    width:150px;
+    display:block;
+    margin-bottom:10px;
+    background-color:yellow;
+    font-family: Verdana, Arial;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-15"&gt;伪类&lt;/h2&gt;
+&lt;p&gt;CSS 伪类用于向某些选择器添加特殊的效果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;selector : pseudo-class {property: value}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{% note info %}
+伪类名称对大小写不敏感。
+{% endnote %}&lt;/p&gt;
+&lt;h3 id="section-16"&gt;锚伪类&lt;/h3&gt;
+&lt;p&gt;通过伪类表示元素状态：链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;a:link {color: #FF0000}		/* 未访问的链接 */
+a:visited {color: #00FF00}	/* 已访问的链接 */
+a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+a:active {color: #0000FF}	/* 选定的链接 */
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{% note warning %}
+在 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+{% endnote %}&lt;/p&gt;
+&lt;h3 id="first-child"&gt;:first-child&lt;/h3&gt;
+&lt;p&gt;使用 :first-child 伪类来选择作为其父元素的第一个子元素的元素：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;p:first-child {font-weight: bold;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;匹配：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;div&amp;gt;
+    &amp;lt;p&amp;gt;These are the necessary steps:&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="lang"&gt;:lang&lt;/h3&gt;
+&lt;p&gt;:lang 伪类使你有能力为不同的语言定义特殊的规则。&lt;/p&gt;
+&lt;p&gt;:lang 类为属性值为 no 的 q 元素定义引号的类型：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;q:lang(no){
+    quotes: &amp;quot;~&amp;quot; &amp;quot;~&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-17"&gt;伪元素&lt;/h2&gt;
+&lt;p&gt;CSS 伪元素用于向某些选择器设置特殊效果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;selector:pseudo-element {property:value;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="first-line"&gt;:first-line&lt;/h3&gt;
+&lt;p&gt;&amp;quot;first-line&amp;quot; 伪元素用于向文本的首行设置特殊样式（只能用于块级元素）。&lt;/p&gt;
+&lt;h3 id="first-letter"&gt;:first-letter&lt;/h3&gt;
+&lt;p&gt;&amp;quot;first-letter&amp;quot; 伪元素用于向文本的首字母设置特殊样式（只能用于块级元素）：&lt;/p&gt;
+&lt;h3 id="before"&gt;:before&lt;/h3&gt;
+&lt;p&gt;&amp;quot;:before&amp;quot; 伪元素可以在元素的内容前面插入新内容。&lt;/p&gt;
+&lt;h3 id="after"&gt;:after&lt;/h3&gt;
+&lt;p&gt;&amp;quot;:after&amp;quot; 伪元素可以在元素的内容之后插入新内容。&lt;/p&gt;
+&lt;h1 id="section-18"&gt;属性&lt;/h1&gt;
+&lt;h2 id="section-19"&gt;背景&lt;/h2&gt;
+&lt;p&gt;所有背景属性都不能继承。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-image&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景图像&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-repeat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景重复&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-position&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景定位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-attachment&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景与可视区的关联（固定或滚动）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-size&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景图片的尺寸&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-origin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景图片的定位区域&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;background-clip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;背景的绘制区域&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-20"&gt;文本&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文本颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;direction&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文本方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;line-height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;letter-spacing&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符间距&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-align&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;对齐元素中的文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-decoration&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向文本添加修饰&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-indent&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;缩进元素中文本的首行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-transform&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;控制元素中的字母&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unicode-bidi&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文本方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;white-space&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素中空白的处理方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;word-spacing&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字间距&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hanging-punctuation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定标点字符是否位于线框之外&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;punctuation-trim&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定是否对标点字符进行修剪&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-align-last&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置如何对齐最后一行或紧挨着强制换行符之前的行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-emphasis&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向元素的文本应用重点标记以及重点标记的前景色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-justify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定当 text-align 设置为 &amp;quot;justify&amp;quot; 时所使用的对齐方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-outline&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定文本的轮廓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-overflow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定当文本溢出包含元素时发生的事情&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-shadow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向文本添加阴影&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text-wrap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定文本的换行规则&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;word-break&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定非中日韩文本的换行规则&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;word-wrap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;允许对长的不可分割的单词进行分割并换行到下一行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-21"&gt;字体&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;简写属性。作用是把所有针对字体的属性设置在一个声明中。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font-family&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字体系列&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font-size&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字体的尺寸&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字体风格&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font-variant&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;以小型大写字体或者正常字体显示文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;font-weight&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字体的粗细&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;@font-face 规则：使用自己的字体：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;&amp;lt;style&amp;gt; 
+@font-face{
+    font-family: myFirstFont;
+    src: url('Sansation_Light.ttf');
+    font-weight:bold;
+}
+
+div{
+    font-family:myFirstFont;
+}
+&amp;lt;/style&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-22"&gt;列表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;list-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;简写属性。用于把所有用于列表的属性设置于一个声明中。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;list-style-image&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;将图象设置为列表项标志。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;list-style-position&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列表中列表项标志的位置。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;list-style-type&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列表项标志的类型。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-23"&gt;表格&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-collapse&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否把表格边框合并为单一的边框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-spacing&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;分隔单元格边框的距离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;caption-side&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表格标题的位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;empty-cells&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否显示表格中的空单元格&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;table-layout&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;显示单元、行和列的算法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-24"&gt;轮廓&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;outline&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;在一个声明中设置所有的轮廓属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;outline-color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;轮廓的颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;outline-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;轮廓的样式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;outline-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;轮廓的宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-25"&gt;多列&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-count&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定元素应该被分隔的列数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-fill&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定如何填充列&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-gap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定列之间的间隔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-rule&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置所有 column-rule-* 属性的简写属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-rule-color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定列之间规则的颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-rule-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定列之间规则的样式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-rule-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定列之间规则的宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-span&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定元素应该横跨的列数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;column-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定列的宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;columns&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定设置 column-width 和 column-count 的简写属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-26"&gt;定位&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;position&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;把元素放置到一个静态的、相对的、绝对的、或固定的位置中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;top&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;right&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义了定位元素右外边距边界与其包含块右边界之间的偏移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;bottom&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义了定位元素下外边距边界与其包含块下边界之间的偏移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;left&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义了定位元素左外边距边界与其包含块左边界之间的偏移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;overflow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置当元素的内容溢出其区域时发生的事情&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;clip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置元素的形状。元素被剪入这个形状之中，然后显示出来&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;vertical-align&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置元素的垂直对齐方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;z-index&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置元素的堆叠顺序&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;display&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;改变生成的框的类型（&lt;code&gt;block,inline,none&lt;/code&gt;）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用 &lt;code&gt;float&lt;/code&gt; 属性实现元素&lt;strong&gt;浮动&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id="section-27"&gt;尺寸&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;line-height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;max-height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的最大高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;max-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的最大宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;min-height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的最小高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;min-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的最小宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素的宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-28"&gt;分类&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;clear&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置一个元素的侧面是否允许其他的浮动元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cursor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定当指向某元素之上时显示的指针类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;display&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置是否及如何显示元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义元素在哪个方向浮动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;position&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;把元素放置到一个静态的、相对的、绝对的、或固定的位置中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;visibility&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置元素是否可见或不可见&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-29"&gt;框模型&lt;/h2&gt;
+&lt;p&gt;边距属性赋值顺序：上、右、下、左
+边距属性均具有对应的 &lt;code&gt;-bottom,-left,-right,-top&lt;/code&gt; 属性设置某个方向上的值。
+边框属性除了 &lt;code&gt;border-bottom&lt;/code&gt; 等属性外，还有 &lt;code&gt;border-bottom-style&lt;/code&gt; 等属性。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;padding&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;内边距&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;margin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;外边距&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;边框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;边框样式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;边框宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;边框颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-image&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;使用图片来绘制边框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;border-radius&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;圆角边框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;box-shadow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向方框添加一个或多个阴影&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;值复制特性&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果缺少左外边距的值，则使用右外边距的值。&lt;/li&gt;
+&lt;li&gt;如果缺少下外边距的值，则使用上外边距的值。&lt;/li&gt;
+&lt;li&gt;如果缺少右外边距的值，则使用上外边距的值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="http://www.w3school.com.cn/i/ct_css_margin_value.gif" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;外边框合并特性&lt;/strong&gt;：
+外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。&lt;/p&gt;
+&lt;h2 id="section-30"&gt;转换&lt;/h2&gt;
+&lt;h3 id="d"&gt;2D&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向元素应用 2D 或 3D 转换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform-origin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;允许你改变被转换元素的位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;2D Transform 方法：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;matrix(n,n,n,n,n,n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 转换，使用六个值的矩阵&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translate(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 转换，沿着 X 和 Y 轴移动元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translateX(n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 转换，沿着 X 轴移动元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translateY(n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 转换，沿着 Y 轴移动元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scale(x,y)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 缩放转换，改变元素的宽度和高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scaleX(n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 缩放转换，改变元素的宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scaleY(n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 缩放转换，改变元素的高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rotate(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 旋转，在参数中规定角度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;skew(x-angle,y-angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 倾斜转换，沿着 X 和 Y 轴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;skewX(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 倾斜转换，沿着 X 轴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;skewY(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 2D 倾斜转换，沿着 Y 轴&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="d-1"&gt;3D&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向元素应用 2D 或 3D 转换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform-origin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;允许你改变被转换元素的位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform-style&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定被嵌套元素如何在 3D 空间中显示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;perspective&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定 3D 元素的透视效果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;perspective-origin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定 3D 元素的底部位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;backface-visibility&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义元素在不面对屏幕时是否可见&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;3D Transform 方法：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转换，使用 16 个值的 4x4 矩阵&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translate3d(x,y,z)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translateX(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转化，仅使用用于 X 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translateY(y)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转化，仅使用用于 Y 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;translateZ(z)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转化，仅使用用于 Z 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scale3d(x,y,z)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 缩放转换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scaleX(x)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 缩放转换，通过给定一个 X 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scaleY(y)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 缩放转换，通过给定一个 Y 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scaleZ(z)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 缩放转换，通过给定一个 Z 轴的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rotate3d(x,y,z,angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rotateX(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义沿 X 轴的 3D 旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rotateY(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义沿 Y 轴的 3D 旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rotateZ(angle)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义沿 Z 轴的 3D 旋转&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;perspective(n)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义 3D 转换元素的透视视图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-31"&gt;过渡&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transition&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;简写属性，用于在一个属性中设置四个过渡属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transition-property&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定应用过渡的 CSS 属性的名称&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transition-duration&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义过渡效果花费的时间。默认是 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transition-timing-function&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定过渡效果的时间曲线。默认是 &amp;quot;ease&amp;quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transition-delay&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定过渡效果何时开始。默认是 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-32"&gt;动画&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;@keyframes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;所有动画属性的简写属性，除了 animation-play-state 属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定 @keyframes 动画的名称&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-duration&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画完成一个周期所花费的秒或毫秒。默认是 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-timing-function&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画的速度曲线。默认是 &amp;quot;ease&amp;quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-delay&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画何时开始。默认是 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-iteration-count&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画被播放的次数。默认是 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-direction&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画是否在下一周期逆向地播放。默认是 &amp;quot;normal&amp;quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-play-state&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定动画是否正在运行或暂停。默认是 &amp;quot;running&amp;quot;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;animation-fill-mode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定对象动画时间之外的状态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;@keyframes myfirst{
+    from {background: red;}
+    to {background: yellow;}
+}
+div{
+    animation: myfirst 5s;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-css"&gt;div{
+    animation-name: myfirst;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-33"&gt;用户界面&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;appearance&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;允许您将元素设置为标准用户界面元素的外观&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;box-sizing&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;允许您以确切的方式定义适应某个区域的具体内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;icon&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;为创作者提供使用图标化等价物来设置元素样式的能力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nav-down&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定在使用 arrow-down 导航键时向何处导航&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nav-index&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置元素的 tab 键控制次序&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nav-left&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定在使用 arrow-left 导航键时向何处导航&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nav-right&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定在使用 arrow-right 导航键时向何处导航&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nav-up&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定在使用 arrow-up 导航键时向何处导航&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;outline-offset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;resize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规定是否可由用户对元素的尺寸进行调整&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id="section-34"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.w3school.com.cn/css/index.asp"&gt;CSS 教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.w3school.com.cn/css3/index.asp"&gt;CSS3 教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>progLang-makefile</id><title type="text">Makefile</title><summary type="text">基本信息
+关于 Make：{% post_link tool/make %}
+Makefile 为 make 提供依赖描述和编译指令等设置。
+基础知识
+注释 #
+转义 \
+通配符：* ? ~
+显式规则</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;关于 Make：{% post_link tool/make %}&lt;/li&gt;
+&lt;li&gt;Makefile 为 make 提供依赖描述和编译指令等设置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;注释 &lt;code&gt;#&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;转义 &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;通配符：&lt;code&gt;* ? ~&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-2"&gt;显式规则&lt;/h1&gt;
+&lt;p&gt;Makefile 规则：指定依赖关系与生成命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;target ... : prerequisites ...
+    command
+    ...
+    ...
+
+targets : prerequisites ; command
+    command
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;target
+可以是一个object file（目标文件），也可以是一个执行文件，还可以是一个标签。可以使用通配符。&lt;/li&gt;
+&lt;li&gt;prerequisites
+生成该target所依赖的文件和/或target&lt;/li&gt;
+&lt;li&gt;command
+该target要执行的命令（任意的shell命令），如果其不与“target:prerequisites”在一行，那么，必须以 Tab 键开头，如 果和prerequisites在一行，那么可以用分号做为分隔。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{% note info %}
+prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。
+{% endnote %}&lt;/p&gt;
+&lt;p&gt;还可以通过这种方式表达依赖关系，多个目标依赖一个文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;kbd.o command.o files.o : command.h
+display.o insert.o search.o files.o : buffer.h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Make 将第一个目标作为最终目标&lt;/li&gt;
+&lt;li&gt;没有依赖项的目标一般不会被自动执行（除非是第一个），需要向 make 传递参数来执行特定目标&lt;/li&gt;
+&lt;li&gt;可以使用 &lt;code&gt;\&lt;/code&gt; 折行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-3"&gt;多目标&lt;/h2&gt;
+&lt;p&gt;有可能我们的多个目标同时依赖于一个文件，并且 其生成的命令大体类似。可以使用自动化变量 &lt;code&gt;$@&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;bigoutput littleoutput : text.g
+    generate text.g -$(subst output,,$@) &amp;gt; $@
+
+# equal to
+
+bigoutput : text.g
+    generate text.g -big &amp;gt; bigoutput
+littleoutput : text.g
+    generate text.g -little &amp;gt; littleoutput
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;静态模式：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;&amp;lt;targets ...&amp;gt; : &amp;lt;target-pattern&amp;gt; : &amp;lt;prereq-patterns ...&amp;gt;
+    &amp;lt;commands&amp;gt;
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;targets定义了一系列的目标文件，可以有通配符。是目标的一个集合。&lt;/li&gt;
+&lt;li&gt;target-parrtern是指明了targets的模式，也就是的目标集模式。&lt;/li&gt;
+&lt;li&gt;prereq-parrterns是目标的依赖模式，它对target-parrtern形成的模式再进行一次依赖目标的定义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;objects = foo.o bar.o
+
+all: $(objects)
+
+$(objects): %.o: %.c
+    $(CC) -c $(CFLAGS) $&amp;lt; -o $@
+
+# equal to
+
+foo.o : foo.c
+    $(CC) -c $(CFLAGS) foo.c -o foo.o
+bar.o : bar.c
+    $(CC) -c $(CFLAGS) bar.c -o bar.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;静态模式很灵活：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;files = foo.elc bar.o lose.o
+
+$(filter %.o,$(files)): %.o: %.c
+    $(CC) -c $(CFLAGS) $&amp;lt; -o $@
+$(filter %.elc,$(files)): %.elc: %.el
+    emacs -f batch-byte-compile $&amp;lt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以使用编译器的功能自动生成依赖关系：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sh"&gt;cc -M foo.c 
+gcc -M foo.c # include std
+gcc -MM foo.c # exclude std
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-4"&gt;&lt;a href="https://seisman.github.io/how-to-write-makefile/implicit_rules.html#"&gt;隐晦规则&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;make有自动推导的功能，所以隐晦的规则可以让我们比较简略地书写 Makefile。&lt;/p&gt;
+&lt;h1 id="section-5"&gt;命令&lt;/h1&gt;
+&lt;h2 id="section-6"&gt;命令显示&lt;/h2&gt;
+&lt;p&gt;命令必须以 Tab 开始，以 Tab 开始的行会被视为命令。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通常，make会把其要执行的命令行在命令执行前输出到屏幕上。当我们用 @ 字符在命令行前，那么， 这个命令将不被make显示出来&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果make执行时，带入make参数 &lt;code&gt;-n&lt;/code&gt; 或 &lt;code&gt;--just-print&lt;/code&gt; ，那么其只是显示命令，但不会执行命令，这个功能很有利于我们调试我们的Makefile，看看我们书写的命令是执行起来是什么样子的或是什么 顺序的。而make参数 &lt;code&gt;-s&lt;/code&gt; 或 &lt;code&gt;--silent&lt;/code&gt; 或 &lt;code&gt;--quiet&lt;/code&gt; 则是全面禁止命令的显示。&lt;/p&gt;
+&lt;h2 id="section-7"&gt;命令执行&lt;/h2&gt;
+&lt;p&gt;当依赖目标新于目标时，也就是当规则的目标需要被更新时，make会一条一条的执行其后的命令。需要注意 的是，如果你要让上一条命令的结果应用在下一条命令时，你应该使用分号分隔这两条命令。
+一般来说，make会以UNIX的标准Shell，也就是 /bin/sh 来执行命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;exec:
+    cd /home/hchen; pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-8"&gt;命令出错&lt;/h2&gt;
+&lt;p&gt;每当命令运行完后，make会检测每个命令的返回码，如果命令返回成功，那么make会执行下一条命令，当规 则中所有的命令成功返回后，这个规则就算是成功完成了。如果一个规则中的某个命令出错了（命令退出码 非零），那么make就会终止执行当前规则，这将有可能终止所有规则的执行。&lt;/p&gt;
+&lt;p&gt;忽略命令的出错，我们可以在Makefile的命令行前加一个减号 - （在Tab键之后） ，标记为不管命令出不出错都认为是成功的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;clean:
+    -rm -f *.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;给make加上 &lt;code&gt;-i&lt;/code&gt; 或是 &lt;code&gt;--ignore-errors&lt;/code&gt; 参数，那么，Makefile中 所有命令都会忽略错误。而如果一个规则是以 &lt;code&gt;.IGNORE&lt;/code&gt; 作为目标的，那么这个规则中的所有命令将会 忽略错误。
+给make加上 &lt;code&gt;-k&lt;/code&gt; 或是 &lt;code&gt;--keep-going&lt;/code&gt; ，这个参数的意思是，如果某 规则中的命令出错了，那么就终止该规则的执行，但继续执行其它规则。&lt;/p&gt;
+&lt;h2 id="make"&gt;嵌套Make&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;subsystem:
+    cd subdir &amp;amp;&amp;amp; $(MAKE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果你要传递变量到下级Makefile中，那么你可以使用这样的声明: &lt;code&gt;export &amp;lt;variable ...&amp;gt;;&lt;/code&gt;
+如果你不想让某些变量传递到下级Makefile中，那么你可以这样声明: &lt;code&gt;unexport &amp;lt;variable ...&amp;gt;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;有两个变量，一个是 &lt;code&gt;SHELL&lt;/code&gt; ，一个是 &lt;code&gt;MAKEFLAGS&lt;/code&gt; ，这两个变量不管你是否export，其总是要传递到下层 Makefile中，特别是 &lt;code&gt;MAKEFLAGS&lt;/code&gt; 变量，其中包含了make的参数 信息，如果我们执行“总控Makefile”时有make参数或是在上层 Makefile中定义了这个变量，那么 &lt;code&gt;MAKEFLAGS&lt;/code&gt; 变量将会是这些参数，并会传递到下层Makefile中，这是一个系统级的环境变量。&lt;/p&gt;
+&lt;p&gt;如果你不想往下层传递参数，可显式指定参数为空：&lt;code&gt;$(MAKE) MAKEFLAGS=&lt;/code&gt;
+参数 &lt;code&gt;-w&lt;/code&gt; 或是 &lt;code&gt;--print-directory&lt;/code&gt; 会在make的过程 中输出一些信息，让你看到目前的工作目录。&lt;/p&gt;
+&lt;h1 id="section-9"&gt;变量&lt;/h1&gt;
+&lt;h2 id="section-10"&gt;定义变量&lt;/h2&gt;
+&lt;p&gt;变量名可含有字符、数字，下划线（可以是数字开头）。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;objects = main.o kbd.o command.o display.o \
+     insert.o search.o files.o utils.o
+edit : $(objects)
+    cc -o edit $(objects)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;变量在声明时需要给予初值，而在使用时，需要给在变量名前加上 &lt;code&gt;$&lt;/code&gt; 符号，但最好用小括号 &lt;code&gt;()&lt;/code&gt; 或是大括号 &lt;code&gt;{}&lt;/code&gt; 把变量给包括起来。&lt;/p&gt;
+&lt;p&gt;{% note info %}
+如果你要使用真实的 &lt;code&gt;$&lt;/code&gt; 字符，那么你需要用 &lt;code&gt;$$&lt;/code&gt; 来表示。变量会在使用它的地方精确地展开。
+{% endnote %}&lt;/p&gt;
+&lt;p&gt;在定义变量的值时，我们可以使用其它变量来构造变量的值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;=&lt;/code&gt;：在 &lt;code&gt;=&lt;/code&gt; 左侧是变量，右侧是变量的值，右侧变量的值可以定义在文件的任何一处，也就是说，右侧中的变量不一定非要是已定义好的值，其也可以使用后面定义的值。但这可能带来循环定义。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:=&lt;/code&gt;：只能使用前面已定义好了的变量。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;?=&lt;/code&gt;：如果没有被定义过，那么定义此变量，如果先前被定义过，那么这条语将什么也不做&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+=&lt;/code&gt;：给变量追加值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果我们要定义一个变量，其值是一个空格：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;nullstring :=
+space := $(nullstring) # end of the line
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;nullstring是一个Empty变量，其中什么也没有，而我们的space的值是一个空格。因为在操作符的右边 是很难描述一个空格的，这里采用的技术很管用，先用一个Empty变量来标明变量的值开始了，而后面采 用“#”注释符来表示变量定义的终止，这样，我们可以定义出其值是一个空格的变量。
+{% note warning %}
+请注意这里关于“#”的使用，注释符“#”的这种特性值得我们注意
+{% endnote %}&lt;/p&gt;
+&lt;h3 id="section-11"&gt;变量覆盖&lt;/h3&gt;
+&lt;p&gt;如果有变量是通常make的命令行参数设置的，那么Makefile中对这个变量的赋值会被忽略。如果你想 在Makefile中设置这类参数的值，那么，你可以使用 &lt;code&gt;override&lt;/code&gt; 指示符。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;override &amp;lt;variable&amp;gt;; = &amp;lt;value&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-12"&gt;多行变量&lt;/h3&gt;
+&lt;p&gt;define指示符后面跟的是变量的名字，而重起一行定义变量的值，定义是以endef 关键字结束。其工作方 式和“=”操作符一样。变量的值可以包含函数、命令、文字，或是其它变量。因为命令需要以[Tab]键开头， 所以如果你用define定义的命令变量中没有以 Tab 键开头，那么make 就不会把其认为是命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;define two-lines
+echo foo
+echo $(bar)
+endef
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-13"&gt;使用变量&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;变量值替换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;$(var:a=b)&lt;/code&gt; 其意思是， 把变量“var”中所有以“a”字串“结尾”的“a”替换成“b”字串。这里的“结尾”意思是“空格”或是“结束符”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把变量的值再当成变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;x = y
+y = z
+a := $($(x))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-14"&gt;局部变量&lt;/h2&gt;
+&lt;p&gt;可以为某个目标设置局部变量，这种变量被称为“Target-specific Variable”，它可以 和“全局变量”同名，因为它的作用范围只在这条规则以及连带规则中，所以其值也只在作用范围内有效。而 不会影响规则链以外的全局变量的值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;&amp;lt;target ...&amp;gt; : &amp;lt;variable-assignment&amp;gt;;
+&amp;lt;target ...&amp;gt; : overide &amp;lt;variable-assignment&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同样可对 target 应用模式：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;&amp;lt;pattern ...&amp;gt;; : &amp;lt;variable-assignment&amp;gt;;
+&amp;lt;pattern ...&amp;gt;; : override &amp;lt;variable-assignment&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-15"&gt;&lt;a href="https://seisman.github.io/how-to-write-makefile/variables.html#id7"&gt;环境变量&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.DEFAULT_GOAL&lt;/code&gt; 指定默认目标&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SHELL&lt;/code&gt; 指定默认 Shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-16"&gt;文件搜索路径&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;VPATH&lt;/code&gt; 变量：如果没有指明这个变量，make只会在当前 的目录中去找寻依赖文件和目标文件。如果定义了这个变量，那么，make就会在当前目录找不到的情况下 ，到所指定的目录中去找寻文件了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;VPATH = src:../headers
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;还可以使用 &lt;code&gt;vpath&lt;/code&gt; 关键字：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vpath &amp;lt;pattern&amp;gt; &amp;lt;directories&amp;gt;&lt;/code&gt;
+为符合模式&lt;pattern&gt;的文件指定搜索目录&lt;directories&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vpath &amp;lt;pattern&amp;gt;&lt;/code&gt;
+清除符合模式&lt;pattern&gt;的文件的搜索目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vpath&lt;/code&gt;
+清除所有已被设置好了的文件搜索目录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;vapth&lt;/code&gt; 使用方法中的&lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt;需要包含 &lt;code&gt;%&lt;/code&gt; 字符。 &lt;code&gt;%&lt;/code&gt; 的意思是匹配零或若干字符&lt;/p&gt;
+&lt;p&gt;我们可以连续地使用vpath语句，以指定不同搜索策略。如果连续的vpath语句中出现了相同的&lt;pattern&gt; ，或是被重复了的&lt;pattern&gt;，那么，make会按照vpath语句的先后顺序来执行搜索。&lt;/p&gt;
+&lt;h2 id="section-17"&gt;自动化变量&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$@&lt;/code&gt; : 表示规则中的目标文件集。在模式规则中，如果有多个目标，那么， &lt;code&gt;$@&lt;/code&gt; 就是匹配于目标中模式定义的集合。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$%&lt;/code&gt; : 仅当目标是函数库文件中，表示规则中的目标成员名。例如，如果一个目标是 &lt;code&gt;foo.a(bar.o)&lt;/code&gt; ，那么， &lt;code&gt;$%&lt;/code&gt; 就是 &lt;code&gt;bar.o&lt;/code&gt; ， &lt;code&gt;$@&lt;/code&gt; 就是 &lt;code&gt;foo.a&lt;/code&gt; 。如果目标不是函数库文件那么，其值为空。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$&amp;lt;&lt;/code&gt; : 依赖目标中的第一个目标名字。如果依赖目标是以模式（即 &lt;code&gt;%&lt;/code&gt; ）定义的，那么 &lt;code&gt;$&amp;lt;&lt;/code&gt;将是符合模式的一系列的文件集。注意，其是一个一个取出来的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$?&lt;/code&gt; : 所有比目标新的依赖目标的集合。以空格分隔。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$^&lt;/code&gt; : 所有的依赖目标的集合。以空格分隔。如果在依赖目标中有多个重复的，那个这个变量会去除重复的依赖目标，只保留一份。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$+&lt;/code&gt; : 这个变量很像 &lt;code&gt;$^&lt;/code&gt; ，也是所有依赖目标的集合。只是它不去除重复的依赖目标。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$*&lt;/code&gt; : 这个变量表示目标模式中 &lt;code&gt;%&lt;/code&gt; 及其之前的部分。如果目标是 &lt;code&gt;dir/a.foo.b&lt;/code&gt; ，并且目标的模式是 &lt;code&gt;a.%.b&lt;/code&gt; ，那么， &lt;code&gt;$*&lt;/code&gt; 的值就是 &lt;code&gt;dir/a.foo&lt;/code&gt; 。这个变量对于构造有关联的文件名是比较有较。如果目标中没有模式的定义，那么 &lt;code&gt;$*&lt;/code&gt; 也就不能被推导出，但是，如果目标文件的后缀是make所识别的，那么 &lt;code&gt;$*&lt;/code&gt; 就是除了后缀的那一部分。例如：如果目标是 &lt;code&gt;foo.c&lt;/code&gt; ，因为&lt;code&gt;.c&lt;/code&gt; 是make所能识别的后缀名，所以， &lt;code&gt;$*&lt;/code&gt; 的值就是 &lt;code&gt;foo&lt;/code&gt; 。这个特性是GNU make的，很有可能不兼容于其它版本的make，所以，你应该尽量避免使用 &lt;code&gt;$*&lt;/code&gt; ，除非是在隐含规则或是静态模式中。如果目标中的后缀是make所不能识别的，那么 &lt;code&gt;$*&lt;/code&gt; 就是空值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在上述所列出来的自动量变量中。四个变量（&lt;code&gt;$@&lt;/code&gt; 、 &lt;code&gt;$&amp;lt;&lt;/code&gt; 、 &lt;code&gt;$%&lt;/code&gt; 、 &lt;code&gt;$*&lt;/code&gt; ）在扩展时
+只会有一个文件，而另三个的值是一个文件列表。这七个自动化变量还可以取得文件的目录名或是在当前
+目录下的符合模式的文件名，只需要搭配上 &lt;code&gt;D&lt;/code&gt; 或 &lt;code&gt;F&lt;/code&gt; 字样。这是GNU make中老版本的特性，
+在新版本中，我们使用函数 &lt;code&gt;dir&lt;/code&gt; 或 &lt;code&gt;notdir&lt;/code&gt; 就可以做到了。 &lt;code&gt;D&lt;/code&gt; 的含义就是Directory，
+就是目录， &lt;code&gt;F&lt;/code&gt; 的含义就是File，就是文件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$(@D)&lt;/code&gt;
+表示 &lt;code&gt;$@&lt;/code&gt; 的目录部分（不以斜杠作为结尾），如果 &lt;code&gt;$@&lt;/code&gt; 值是 &lt;code&gt;dir/foo.o&lt;/code&gt; ，那么
+&lt;code&gt;$(@D)&lt;/code&gt; 就是 &lt;code&gt;dir&lt;/code&gt; ，而如果 &lt;code&gt;$@&lt;/code&gt; 中没有包含斜杠的话，其值就是 &lt;code&gt;.&lt;/code&gt; （当前目录）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(@F)&lt;/code&gt;
+表示 &lt;code&gt;$@&lt;/code&gt; 的文件部分，如果 &lt;code&gt;$@&lt;/code&gt; 值是 &lt;code&gt;dir/foo.o&lt;/code&gt; ，那么 &lt;code&gt;$(@F)&lt;/code&gt; 就是 &lt;code&gt;foo.o&lt;/code&gt; ，
+&lt;code&gt;$(@F)&lt;/code&gt; 相当于函数 &lt;code&gt;$(notdir $@)&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(*D)&lt;/code&gt;, &lt;code&gt;$(*F)&lt;/code&gt;
+和上面所述的同理，也是取文件的目录部分和文件部分。对于上面的那个例子， &lt;code&gt;$(*D)&lt;/code&gt; 返回 &lt;code&gt;dir&lt;/code&gt; ，
+而 &lt;code&gt;$(*F)&lt;/code&gt; 返回 &lt;code&gt;foo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(%D)&lt;/code&gt;, &lt;code&gt;$(%F)&lt;/code&gt;
+分别表示了函数包文件成员的目录部分和文件部分。这对于形同 &lt;code&gt;archive(member)&lt;/code&gt; 形式的目标中的
+&lt;code&gt;member&lt;/code&gt; 中包含了不同的目录很有用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(&amp;lt;D)&lt;/code&gt;, &lt;code&gt;$(&amp;lt;F)&lt;/code&gt;
+分别表示依赖文件的目录部分和文件部分。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(^D)&lt;/code&gt;, &lt;code&gt;$(^F)&lt;/code&gt;
+分别表示所有依赖文件的目录部分和文件部分。（无相同的）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(+D)&lt;/code&gt;, &lt;code&gt;$(+F)&lt;/code&gt;
+分别表示所有依赖文件的目录部分和文件部分。（可以有相同的）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$(?D)&lt;/code&gt;, &lt;code&gt;$(?F)&lt;/code&gt;
+分别表示被更新的依赖文件的目录部分和文件部分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-18"&gt;文件指示&lt;/h1&gt;
+&lt;p&gt;在Makefile使用 include 关键字可以把别的Makefile包含进来，filename 可以是当前操作系统Shell的文件模式（可以包含路径和通配符）。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;include &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-19"&gt;更多&lt;/h1&gt;
+&lt;h2 id="section-20"&gt;伪目标&lt;/h2&gt;
+&lt;p&gt;为了避免目标名和文件重名的情况，可以使用一个特殊的标记“.PHONY”来显式地指明一个目标是“伪目标”，向make说明，不管是否有这个文件，这个目标就是“伪目标”。
+注意伪目标同样也可成为依赖，其指定的是执行关系。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;.PHONY : clean
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-21"&gt;条件判断&lt;/h2&gt;
+&lt;p&gt;使用条件判断，可以让make根据运行时的不同情况选择不同的执行分支。条件表达式可以是比较变量的值， 或是比较变量和常量的值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;libs_for_gcc = -lgnu
+normal_libs =
+
+foo: $(objects)
+ifeq ($(CC),gcc)
+    $(CC) -o foo $(objects) $(libs_for_gcc)
+else
+    $(CC) -o foo $(objects) $(normal_libs)
+endif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;条件表达式使用：比较参数 arg1 和 arg2 的值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-makefile"&gt;ifeq (&amp;lt;arg1&amp;gt;, &amp;lt;arg2&amp;gt;)
+ifeq '&amp;lt;arg1&amp;gt;' '&amp;lt;arg2&amp;gt;'
+ifeq &amp;quot;&amp;lt;arg1&amp;gt;&amp;quot; &amp;quot;&amp;lt;arg2&amp;gt;&amp;quot;
+ifeq &amp;quot;&amp;lt;arg1&amp;gt;&amp;quot; '&amp;lt;arg2&amp;gt;'
+ifeq '&amp;lt;arg1&amp;gt;' &amp;quot;&amp;lt;arg2&amp;gt;&amp;quot;
+
+ifdef &amp;lt;variable-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;条件关键字&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ifeq&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;值是否相同&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ifneq&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;值是否不同&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ifdef&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;测试变量值是否非空&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ifndef&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;测试变量值是否为空&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-22"&gt;函数&lt;/h2&gt;
+&lt;p&gt;调用：&lt;code&gt;$(&amp;lt;function&amp;gt; &amp;lt;arguments&amp;gt;)&lt;/code&gt;，参数间以逗号 , 分隔，而函数名和参数之间以“空格”分隔。函数调用以 $ 开头，以圆括号 或花括号把函数名和参数括起。
+|函数|描述|
+|-|-|
+|&lt;code&gt;$(subst &amp;lt;from&amp;gt;,&amp;lt;to&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|把字串 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中的 &lt;code&gt;&amp;lt;from&amp;gt;&lt;/code&gt; 字符串替换成 &lt;code&gt;&amp;lt;to&amp;gt;&lt;/code&gt; |
+|&lt;code&gt;$(patsubst &amp;lt;pattern&amp;gt;,&amp;lt;replacement&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|查找 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中的单词是否符合模式 &lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt; ，如果匹配的话，则以 &lt;code&gt;&amp;lt;replacement&amp;gt;&lt;/code&gt; 替换。可使用通配符 &lt;code&gt;%&lt;/code&gt;|
+|&lt;code&gt;$(strip &amp;lt;string&amp;gt;)&lt;/code&gt;|去掉 &lt;code&gt;&amp;lt;string&amp;gt;&lt;/code&gt; 字串中开头和结尾的空字符。|
+|&lt;code&gt;$(findstring &amp;lt;find&amp;gt;,&amp;lt;in&amp;gt;)&lt;/code&gt;|在字串 &lt;code&gt;&amp;lt;in&amp;gt;&lt;/code&gt; 中查找 &lt;code&gt;&amp;lt;find&amp;gt;&lt;/code&gt; 字串。如果找到，那么返回 &lt;code&gt;&amp;lt;find&amp;gt;&lt;/code&gt; ，否则返回空字符串。|
+|&lt;code&gt;$(filter &amp;lt;pattern...&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|以 &lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt; 模式过滤 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 字符串中的单词，保留符合模式 &lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt; 的单词。|
+|&lt;code&gt;$(filter-out &amp;lt;pattern...&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|以 &lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt; 模式过滤 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 字符串中的单词，去除符合模式 &lt;code&gt;&amp;lt;pattern&amp;gt;&lt;/code&gt; 的单词。|
+|&lt;code&gt;$(sort &amp;lt;list&amp;gt;)&lt;/code&gt;|给字符串 &lt;code&gt;&amp;lt;list&amp;gt;&lt;/code&gt; 中的单词排序（升序）。会去掉 &lt;code&gt;&amp;lt;list&amp;gt;&lt;/code&gt; 中相同的单词|
+|&lt;code&gt;$(word &amp;lt;n&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|取字符串 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中第 &lt;code&gt;&amp;lt;n&amp;gt;&lt;/code&gt; 个单词。（从一开始）|
+|&lt;code&gt;$(wordlist &amp;lt;ss&amp;gt;,&amp;lt;e&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|从字符串 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中取从 &lt;code&gt;&amp;lt;ss&amp;gt;&lt;/code&gt; 开始到 &lt;code&gt;&amp;lt;e&amp;gt;&lt;/code&gt; 的单词串。|
+|&lt;code&gt;$(words &amp;lt;text&amp;gt;)&lt;/code&gt;|统计 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中字符串中的单词个数。|
+|&lt;code&gt;$(firstword &amp;lt;text&amp;gt;)&lt;/code&gt;|取字符串 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中的第一个单词。|
+|&lt;code&gt;$(dir &amp;lt;names...&amp;gt;)&lt;/code&gt;|从文件名序列 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中取出目录部分。目录部分是指最后一个反斜杠（ &lt;code&gt;/&lt;/code&gt; ）之前的部分。如果没有反斜杠，那么返回 &lt;code&gt;./&lt;/code&gt; |
+|&lt;code&gt;$(notdir &amp;lt;names...&amp;gt;)&lt;/code&gt;|从文件名序列 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中取出非目录部分。非目录部分是指最後一个反斜杠（ &lt;code&gt;/&lt;/code&gt; ）之后的部分。|
+|&lt;code&gt;$(suffix &amp;lt;names...&amp;gt;)&lt;/code&gt;|从文件名序列 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中取出各个文件名的后缀。|
+|&lt;code&gt;$(basename &amp;lt;names...&amp;gt;)&lt;/code&gt;|从文件名序列 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中取出各个文件名的前缀部分。|
+|&lt;code&gt;$(addsuffix &amp;lt;suffix&amp;gt;,&amp;lt;names...&amp;gt;)&lt;/code&gt;|把后缀 &lt;code&gt;&amp;lt;suffix&amp;gt;&lt;/code&gt; 加到 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中的每个单词后面。|
+|&lt;code&gt;$(addprefix &amp;lt;prefix&amp;gt;,&amp;lt;names...&amp;gt;)&lt;/code&gt;|把前缀 &lt;code&gt;&amp;lt;prefix&amp;gt;&lt;/code&gt; 加到 &lt;code&gt;&amp;lt;names&amp;gt;&lt;/code&gt; 中的每个单词后面。|
+|&lt;code&gt;$(join &amp;lt;list1&amp;gt;,&amp;lt;list2&amp;gt;)&lt;/code&gt;|把 &lt;code&gt;&amp;lt;list2&amp;gt;&lt;/code&gt; 中的单词对应地加到 &lt;code&gt;&amp;lt;list1&amp;gt;&lt;/code&gt; 的单词后面。如果 &lt;code&gt;&amp;lt;list1&amp;gt;&lt;/code&gt; 的单词个数要比 &lt;code&gt;&amp;lt;list2&amp;gt;&lt;/code&gt; 的多，那么， &lt;code&gt;&amp;lt;list1&amp;gt;&lt;/code&gt; 中的多出来的单词将保持原样。如果&lt;code&gt;&amp;lt;list2&amp;gt;&lt;/code&gt; 的单词个数要比 &lt;code&gt;&amp;lt;list1&amp;gt;&lt;/code&gt; 多，那么， &lt;code&gt;&amp;lt;list2&amp;gt;&lt;/code&gt; 多出来的单词将被复制到&lt;code&gt;&amp;lt;list1&amp;gt;&lt;/code&gt; 中。|
+|&lt;code&gt;$(foreach &amp;lt;var&amp;gt;,&amp;lt;list&amp;gt;,&amp;lt;text&amp;gt;)&lt;/code&gt;|把参数 &lt;code&gt;&amp;lt;list&amp;gt;&lt;/code&gt; 中的单词逐一取出放到参数 &lt;code&gt;&amp;lt;var&amp;gt;&lt;/code&gt; 所指定的变量中，然后再执行 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 所包含的表达式。每一次 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 会返回一个字符串，循环过程中，&lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 的所返回的每个字符串会以空格分隔，最后当整个循环结束时， &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 所返回的每个字符串所组成的整个字符串（以空格分隔）将会是foreach函数的返回值。|
+|&lt;code&gt;$(if &amp;lt;condition&amp;gt;,&amp;lt;then-part&amp;gt;,&amp;lt;else-part&amp;gt;)&lt;/code&gt;|如果 &lt;code&gt;&amp;lt;condition&amp;gt;&lt;/code&gt; 为真（非空字符串），那个 &lt;code&gt;&amp;lt;then-part&amp;gt;&lt;/code&gt;会是整个函数的返回值，如果 &lt;code&gt;&amp;lt;condition&amp;gt;&lt;/code&gt; 为假（空字符串），那么 &lt;code&gt;&amp;lt;else-part&amp;gt;&lt;/code&gt; 会是整个函数的返回值，此时如果 &lt;code&gt;&amp;lt;else-part&amp;gt;&lt;/code&gt; 没有被定义，那么，整个函数返回空字串。|
+|&lt;code&gt;$(call &amp;lt;expression&amp;gt;,&amp;lt;parm1&amp;gt;,&amp;lt;parm2&amp;gt;,...,&amp;lt;parmn&amp;gt;)&lt;/code&gt;|当make执行这个函数时， &lt;code&gt;&amp;lt;expression&amp;gt;&lt;/code&gt; 参数中的变量，如 &lt;code&gt;$(1)&lt;/code&gt; 、 &lt;code&gt;$(2)&lt;/code&gt; 等，会被参数 &lt;code&gt;&amp;lt;parm1&amp;gt;&lt;/code&gt; 、 &lt;code&gt;&amp;lt;parm2&amp;gt;&lt;/code&gt; 、 &lt;code&gt;&amp;lt;parm3&amp;gt;&lt;/code&gt; 依次取代。而 &lt;code&gt;&amp;lt;expression&amp;gt;&lt;/code&gt; 的返回值就是 call 函数的返回值。|
+|&lt;code&gt;$(origin &amp;lt;variable&amp;gt;)&lt;/code&gt;|返回这个变量是哪里来的|
+|&lt;code&gt;$(shell cmd)&lt;/code&gt;|shell函数把执行操作系统命令后的输出作为函数返回。make 会新生成一个Shell程序来执行命令。|
+|&lt;code&gt;$(error &amp;lt;text ...&amp;gt;)&lt;/code&gt;|产生一个致命的错误， &lt;code&gt;&amp;lt;text ...&amp;gt;&lt;/code&gt; 是错误信息。注意，error函数不会在一被使用就会产生错误信息，所以如果你把其定义在某个变量中，并在后续的脚本中使用这个变量，那么也是可以的。|
+|&lt;code&gt;$(warning &amp;lt;text ...&amp;gt;)&lt;/code&gt;|并不会让make退出，只是输出一段警告信息，而make继续执行。|&lt;/p&gt;
+&lt;p&gt;如果我们要取 &lt;code&gt;&amp;lt;text&amp;gt;&lt;/code&gt; 中最后的一个单词，我们可以这样：&lt;code&gt;$(word $(words &amp;lt;text&amp;gt;),&amp;lt;text&amp;gt;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;origin&lt;/code&gt; 函数返回值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;undefined&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 从来没有定义过，origin函数返回这个值 &lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;default&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 是一个默认的定义，比如“CC”这个变量，这种变量我们将在后面讲述。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;environment&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 是一个环境变量，并且当Makefile被执行时， &lt;code&gt;-e&lt;/code&gt; 参数没有被打开。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;file&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 这个变量被定义在Makefile中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;command line&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 这个变量是被命令行定义的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;override&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 是被override指示符重新定义的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;automatic&lt;/code&gt;
+如果 &lt;code&gt;&amp;lt;variable&amp;gt;&lt;/code&gt; 是一个命令运行中的自动化变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-23"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://seisman.github.io/how-to-write-makefile/overview.html"&gt;跟我一起写Makefile&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>progLang-sql</id><title type="text">Structured Query Language</title><summary type="text">基本信息
+介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。</summary><published>2018-09-03T18:51:10+08:00</published><updated>2018-09-03T18:51:10+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-sql" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但&lt;strong&gt;许多相似语义的内容其具体写法可能会有不同&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{% note warning %}
+SQL 对大小写不敏感。
+SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。
+使用 SQL 需先了解具体数据库的描述方法。
+{% endnote %}&lt;/p&gt;
+&lt;h1 id="section-1"&gt;数据操作语言&lt;/h1&gt;
+&lt;h2 id="select"&gt;SELECT&lt;/h2&gt;
+&lt;p&gt;SELECT 语句用于从表中选取数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column FROM table_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;从名为 &amp;quot;Persons&amp;quot; 的数据库表，获取名为 &amp;quot;LastName&amp;quot; 和 &amp;quot;FirstName&amp;quot; 的列的内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT LastName,FirstName FROM Persons
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;从 &amp;quot;Persons&amp;quot; 表中选取所有的列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT * FROM Persons
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="distinct"&gt;DISTINCT&lt;/h3&gt;
+&lt;p&gt;关键词 DISTINCT 用于返回唯一不同的值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从 Company&amp;quot; 列中仅选取唯一不同的值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT DISTINCT Company FROM Orders 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="where"&gt;WHERE&lt;/h3&gt;
+&lt;p&gt;如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;选取居住在城市 &amp;quot;Beijing&amp;quot; 中的人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT * FROM Persons WHERE City='Beijing'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可用运算符：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;操作符&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;=&lt;/td&gt;
+&lt;td&gt;等于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;不等于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;大于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&lt;/td&gt;
+&lt;td&gt;小于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;=&lt;/td&gt;
+&lt;td&gt;大于等于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;=&lt;/td&gt;
+&lt;td&gt;小于等于&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BETWEEN&lt;/td&gt;
+&lt;td&gt;在某个范围内&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IN&lt;/td&gt;
+&lt;td&gt;规定多个可能取值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LIKE&lt;/td&gt;
+&lt;td&gt;搜索某种模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AND&lt;/td&gt;
+&lt;td&gt;合取两个条件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OR&lt;/td&gt;
+&lt;td&gt;析取两个条件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NOT&lt;/td&gt;
+&lt;td&gt;条件取反&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT * FROM Persons WHERE (FirstName='Thomas' OR FirstName='William') AND LastName='Carter'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="like"&gt;LIKE&lt;/h4&gt;
+&lt;p&gt;LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;通配符&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;%&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;替代一个或多个字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;_&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;仅替代一个字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[charlist]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符列中的任何单一字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[^charlist]&lt;/code&gt; 或 &lt;code&gt;[!charlist]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不在字符列中的任何单一字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;选取居住在以 &amp;quot;N&amp;quot; 开始的城市里的人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT * FROM Persons WHERE City LIKE 'N%'
+SELECT * FROM Persons WHERE City NOT LIKE '%lon%'
+SELECT * FROM Persons WHERE LastName LIKE 'C_r_er'
+SELECT * FROM Persons WHERE City LIKE '[ALN]%'
+SELECT * FROM Persons WHERE City LIKE '[!ALN]%'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="in"&gt;IN&lt;/h4&gt;
+&lt;p&gt;IN 操作符允许我们在 WHERE 子句中规定多个可能的取值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s) FROM table_name
+WHERE column_name IN (value1,value2,...)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="between-and"&gt;BETWEEN AND&lt;/h4&gt;
+&lt;p&gt;操作符 BETWEEN ... AND 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s) FROM table_name
+WHERE column_name BETWEEN value1 AND value2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{% note warning %}
+不同的数据库对 BETWEEN...AND 操作符的处理方式是有差异的。区间端点的选择是不确定的。
+{% endnote %}&lt;/p&gt;
+&lt;h3 id="order-by"&gt;ORDER BY&lt;/h3&gt;
+&lt;p&gt;ORDER BY 语句用于对结果集进行排序。如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT Company, OrderNumber FROM Orders ORDER BY Company
+SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;主次关键字，以及主次关键字采用不同顺序：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT Company, OrderNumber FROM Orders ORDER BY Company, OrderNumber
+SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC, OrderNumber ASC
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="top"&gt;TOP&lt;/h3&gt;
+&lt;p&gt;TOP 子句用于规定要返回的记录的数目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从 &amp;quot;Persons&amp;quot; 表中选取头两条记录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT TOP 2 * FROM Persons
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;从 &amp;quot;Persons&amp;quot; 表中选取选取 50% 的记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT TOP 50 PERCENT * FROM Persons
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="as"&gt;AS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;表的 SQL Alias 语法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s) FROM table_name AS alias_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以使用别名简化书写。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT po.OrderID, p.LastName, p.FirstName
+FROM Persons AS p, Product_Orders AS po
+WHERE p.LastName='Adams' AND p.FirstName='John'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;列的 SQL Alias 语法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name AS alias_name FROM table_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以改变返回列表的列名。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT LastName AS Family, FirstName AS Name
+FROM Persons
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="join"&gt;JOIN&lt;/h3&gt;
+&lt;p&gt;JOIN 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。&lt;/p&gt;
+&lt;p&gt;{% note info %}
+数据库中的表可通过键将彼此联系起来。主键（Primary Key）是一个列，在这个列中的每一行的值都是唯一的。在表中，每个主键的值都是唯一的。这样做的目的是在不重复每个表中的所有数据的情况下，把表间的数据交叉捆绑在一起。
+{% endnote %}&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+INNER JOIN Orders
+ON Persons.Id_P = Orders.Id_P
+ORDER BY Persons.LastName
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;JOIN 或 INNER JOIN: 如果两个表中有至少一个匹配，则返回行&lt;/li&gt;
+&lt;li&gt;LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行&lt;/li&gt;
+&lt;li&gt;RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行&lt;/li&gt;
+&lt;li&gt;FULL JOIN: 即使没有匹配，也从返回两表所有的行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="union"&gt;UNION&lt;/h3&gt;
+&lt;p&gt;UNION 操作符用于合并两个或多个 SELECT 语句的结果集。请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。另外，UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s) FROM table_name1
+UNION
+SELECT column_name(s) FROM table_name2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="update"&gt;UPDATE&lt;/h2&gt;
+&lt;p&gt;Update 语句用于修改表中的数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;UPDATE table_name SET column_name = new_value WHERE column_name = a_value
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为 lastname 是 &amp;quot;Wilson&amp;quot; 的人添加 firstname：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;UPDATE Person SET FirstName = 'Fred' WHERE LastName = 'Wilson' 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;更新多列：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;UPDATE Person SET Address = 'Zhongshan 23', City = 'Nanjing' WHERE LastName = 'Wilson'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="delete"&gt;DELETE&lt;/h2&gt;
+&lt;p&gt;DELETE 语句用于删除表中的行。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;DELETE FROM table_name WHERE column = a_value
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除所有行：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;DELETE FROM table_name
+DELETE * FROM table_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="insert-into"&gt;INSERT INTO&lt;/h2&gt;
+&lt;p&gt;INSERT INTO 语句用于向表格中插入新的行。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;INSERT INTO table_name VALUES (value1, value2,....)
+INSERT INTO table_name (column1, column2,...) VALUES (value1, value2,....)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="select-into"&gt;SELECT INTO&lt;/h2&gt;
+&lt;p&gt;SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中。
+SELECT INTO 语句常用于创建表的备份复件或者用于对记录进行存档。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把所有的列插入新表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT *
+INTO new_table_name [IN externaldatabase] 
+FROM old_tablename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;只把希望的列插入新表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s)
+INTO new_table_name [IN externaldatabase] 
+FROM old_tablename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可结合 WHERE 子句，JOIN 子句等。&lt;/p&gt;
+&lt;h1 id="section-2"&gt;数据定义语言&lt;/h1&gt;
+&lt;h2 id="create-database"&gt;CREATE DATABASE&lt;/h2&gt;
+&lt;p&gt;CREATE DATABASE 用于创建数据库。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE DATABASE database_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="create-table"&gt;CREATE TABLE&lt;/h2&gt;
+&lt;p&gt;CREATE TABLE 语句用于创建数据库中的表。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE TABLE table_name
+(
+column_name1 datatype,
+column_name2 datatype,
+column_name3 datatype,
+....
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关于数据类型，不同数据库有一定差别，参见 &lt;a href="http://www.w3school.com.cn/sql/sql_datatypes.asp"&gt;SQL 数据类型&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id="create-index"&gt;CREATE INDEX&lt;/h2&gt;
+&lt;p&gt;CREATE INDEX 语句用于在表中创建索引。
+在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据。用户无法看到索引，它们只能被用来加速搜索/查询。更新一个包含索引的表需要比更新一个没有索引的表更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在表上创建一个简单的索引。允许使用重复的值：&amp;quot;column_name&amp;quot; 规定需要索引的列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE INDEX index_name ON table_name (column_name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;在表上创建一个唯一的索引。唯一的索引意味着两个行不能拥有相同的索引值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE UNIQUE INDEX index_name ON table_name (column_name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;以降序索引某个列中的值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE INDEX PersonIndex ON Person (LastName DESC) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="alter-table"&gt;ALTER TABLE&lt;/h2&gt;
+&lt;p&gt;ALTER TABLE 语句用于在已有的表中添加、修改或删除列。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在表中添加列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;ALTER TABLE table_name ADD column_name datatype
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;删除表中的列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;ALTER TABLE table_name DROP COLUMN column_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;改变表中列的数据类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;ALTER TABLE table_name ALTER COLUMN column_name datatype
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="drop"&gt;DROP&lt;/h2&gt;
+&lt;p&gt;通过使用 DROP 语句，可以轻松地删除索引、表和数据库。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DROP INDEX index_name&lt;/li&gt;
+&lt;li&gt;DROP TABLE table_name&lt;/li&gt;
+&lt;li&gt;DROP DATABASE database_name&lt;/li&gt;
+&lt;li&gt;TRUNCATE TABLE table_name 仅仅删除表格中的数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="auto-increment"&gt;AUTO INCREMENT&lt;/h2&gt;
+&lt;p&gt;Auto-increment 会在新记录插入表中时生成一个唯一的数字。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE TABLE Persons
+(
+P_Id int NOT NULL AUTO_INCREMENT,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+PRIMARY KEY (P_Id)
+)
+
+ALTER TABLE Persons AUTO_INCREMENT=100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-3"&gt;数据约束&lt;/h2&gt;
+&lt;p&gt;约束用于限制加入表的数据的类型。
+可以在创建表时规定约束（通过 CREATE TABLE 语句，在数据类型后标注），或者在表创建之后也可以（通过 ALTER TABLE 语句）。
+约束可命名，用于取消约束。&lt;/p&gt;
+&lt;h3 id="not-null"&gt;NOT NULL&lt;/h3&gt;
+&lt;p&gt;NOT NULL 约束强制列不接受 NULL 值。&lt;/p&gt;
+&lt;h3 id="unique"&gt;UNIQUE&lt;/h3&gt;
+&lt;p&gt;UNIQUE 约束唯一标识数据库表中的每条记录。
+UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。PRIMARY KEY 拥有自动定义的 UNIQUE 约束。
+请注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。&lt;/p&gt;
+&lt;h3 id="primary-key"&gt;PRIMARY KEY&lt;/h3&gt;
+&lt;p&gt;PRIMARY KEY 约束唯一标识数据库表中的每条记录。
+主键必须包含唯一的值。主键列不能包含 NULL 值。
+每个表都应该有一个主键，并且每个表只能有一个主键。&lt;/p&gt;
+&lt;h3 id="foreign-key"&gt;FOREIGN KEY&lt;/h3&gt;
+&lt;p&gt;一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sql"&gt;CREATE TABLE Orders
+(
+Id_O int NOT NULL PRIMARY KEY,
+OrderNo int NOT NULL,
+Id_P int FOREIGN KEY REFERENCES Persons(Id_P)
+)
+
+CREATE TABLE Orders
+(
+Id_O int NOT NULL,
+OrderNo int NOT NULL,
+Id_P int,
+PRIMARY KEY (Id_O),
+CONSTRAINT fk_PerOrders FOREIGN KEY (Id_P)
+REFERENCES Persons(Id_P)
+)
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (Id_P)
+REFERENCES Persons(Id_P)
+
+ALTER TABLE Orders
+ADD CONSTRAINT fk_PerOrders
+FOREIGN KEY (Id_P)
+REFERENCES Persons(Id_P)
+
+ALTER TABLE Orders
+DROP FOREIGN KEY fk_PerOrders
+
+ALTER TABLE Orders
+DROP CONSTRAINT fk_PerOrders
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="check"&gt;CHECK&lt;/h3&gt;
+&lt;p&gt;CHECK 约束用于限制列中的值的范围。
+如果对单个列定义 CHECK 约束，那么该列只允许特定的值。
+如果对一个表定义 CHECK 约束，那么此约束会在特定的列中对值进行限制。&lt;/p&gt;
+&lt;h3 id="default"&gt;DEFAULT&lt;/h3&gt;
+&lt;p&gt;DEFAULT 约束用于向列中插入默认值。如果没有规定其他的值，那么会将默认值添加到所有的新记录。&lt;/p&gt;
+&lt;h1 id="section-4"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.w3school.com.cn/sql/index.asp"&gt;SQL 教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>progLang-xml</id><title type="text">eXtensible Markup Language</title><summary type="text">基本信息
+介绍：XML 被设计用来传输和存储数据，具有自我描述性。
+语法
+XML 文档形成一种树结构。
+所有元素都须有关闭标签。
+标签对大小写敏感
+必须正确地嵌套
+必须包含根元素
+属性值须加引号
+空格</summary><published>2018-09-02T18:16:01+08:00</published><updated>2018-09-02T18:16:01+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-xml" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;介绍：XML 被设计用来传输和存储数据，具有自我描述性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;语法&lt;/h1&gt;
+&lt;p&gt;XML 文档形成一种树结构。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有元素都须有关闭标签。&lt;/li&gt;
+&lt;li&gt;标签对大小写敏感&lt;/li&gt;
+&lt;li&gt;必须正确地嵌套&lt;/li&gt;
+&lt;li&gt;必须包含根元素&lt;/li&gt;
+&lt;li&gt;属性值须加引号&lt;/li&gt;
+&lt;li&gt;空格会被保留&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt;
+&amp;lt;root name=&amp;quot;_root&amp;quot;&amp;gt;
+  &amp;lt;child&amp;gt;
+    &amp;lt;subchild&amp;gt;.....&amp;lt;/subchild&amp;gt;
+  &amp;lt;/child&amp;gt;
+&amp;lt;/root&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{% note info %}
+元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。
+{% endnote %}&lt;/p&gt;
+&lt;h2 id="section-2"&gt;特殊字符&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;原字符&lt;/th&gt;
+&lt;th&gt;转义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;ge;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;'&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;apos;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-3"&gt;注释&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;!-- comment --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-4"&gt;元素命名&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;名称可以含字母、数字以及其他的字符&lt;/li&gt;
+&lt;li&gt;名称不能以数字或者标点符号开始&lt;/li&gt;
+&lt;li&gt;名称不能以字符 “xml”（或者 XML、Xml）开始&lt;/li&gt;
+&lt;li&gt;名称不能包含空格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-5"&gt;命名空间&lt;/h2&gt;
+&lt;h3 id="section-6"&gt;定义&lt;/h3&gt;
+&lt;p&gt;XML 命名空间属性被放置于元素的开始标签之中，并使用以下的语法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;xmlns:namespace-prefix=&amp;quot;namespaceURI&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。&lt;/p&gt;
+&lt;h3 id="section-7"&gt;使用&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;f:table xmlns:f=&amp;quot;http://www.w3school.com.cn/furniture&amp;quot;&amp;gt;
+   &amp;lt;f:name&amp;gt;African Coffee Table&amp;lt;/f:name&amp;gt;
+   &amp;lt;f:width&amp;gt;80&amp;lt;/f:width&amp;gt;
+   &amp;lt;f:length&amp;gt;120&amp;lt;/f:length&amp;gt;
+&amp;lt;/f:table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;默认命名空间：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;table xmlns=&amp;quot;http://www.w3.org/TR/html4/&amp;quot;&amp;gt;
+   &amp;lt;tr&amp;gt;
+   &amp;lt;td&amp;gt;Apples&amp;lt;/td&amp;gt;
+   &amp;lt;td&amp;gt;Bananas&amp;lt;/td&amp;gt;
+   &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="cdata"&gt;CDATA&lt;/h2&gt;
+&lt;p&gt;术语 CDATA 指的是不应由 XML 解析器进行解析的文本数据（Unparsed Character Data）。
+CDATA 部分中的所有内容都会被解析器忽略。
+CDATA 部分由 &lt;strong&gt;&amp;lt;![CDATA[&lt;/strong&gt; 开始，由 &lt;strong&gt;]]&amp;gt;&lt;/strong&gt; 结束。&lt;/p&gt;
+&lt;h1 id="xml"&gt;XML 语法描述（验证）&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;DTD&lt;/li&gt;
+&lt;li&gt;XML Schema&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="xml-1"&gt;XML 样式&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;CSS 样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;?xml-stylesheet type=&amp;quot;text/css&amp;quot; href=&amp;quot;style.css&amp;quot;?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;XSLT (eXtensible Stylesheet Language Transformations) 样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;?xml-stylesheet type=&amp;quot;text/xsl&amp;quot; href=&amp;quot;style.xsl&amp;quot;?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-8"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.w3school.com.cn/xml/index.asp"&gt;XML 教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>progLang-dockerfile</id><title type="text">Dockerfile</title><summary type="text">基本信息
+Dockerfile 为 Docker 提供镜像构建命令及描述。
+Docker 书写思想：
+自动化，无交互
+顺序相关
+清理
+易读
+基础语法
+// 注释
+INSTRUCTION argumen</summary><published>2018-11-12T19:37:36+08:00</published><updated>2018-11-12T19:37:36+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-dockerfile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Dockerfile 为 Docker 提供镜像构建命令及描述。&lt;/li&gt;
+&lt;li&gt;Docker 书写思想：
+&lt;ul&gt;
+&lt;li&gt;自动化，无交互&lt;/li&gt;
+&lt;li&gt;顺序相关&lt;/li&gt;
+&lt;li&gt;清理&lt;/li&gt;
+&lt;li&gt;易读&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;基础语法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;//&lt;/code&gt; 注释&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INSTRUCTION arguments&lt;/code&gt; 指令格式，一般指令名大写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-2"&gt;指令&lt;/h1&gt;
+&lt;h2 id="from"&gt;FROM&lt;/h2&gt;
+&lt;p&gt;指定基础镜像，必须是第一句有效指令。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;FROM &amp;lt;imagesName:tag&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;多个 &lt;code&gt;FROM&lt;/code&gt; 指令使用最后一个。&lt;/p&gt;
+&lt;h2 id="maintainer"&gt;MAINTAINER&lt;/h2&gt;
+&lt;p&gt;设置维护者信息。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;MAINTAINER Name &amp;lt;Email&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="run"&gt;RUN&lt;/h3&gt;
+&lt;p&gt;运行指定命令。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;shell 格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;RUN echo HelloWorld
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;exec 格式（不启动 shell）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;RUN [&amp;quot;prog&amp;quot;, &amp;quot;arg1&amp;quot;, &amp;quot;arg2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="env"&gt;ENV&lt;/h3&gt;
+&lt;p&gt;设置镜像的环境变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;ENV &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="copy"&gt;COPY&lt;/h3&gt;
+&lt;p&gt;将本地文件或文件夹复制到镜像指定路径下。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;COPY /local/path/file /images/path/file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="add"&gt;ADD&lt;/h3&gt;
+&lt;p&gt;可从本地或网上获取，存储到镜像指定路径下，也可对文件自动解包。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;ADD file /images/path/file
+ADD latest.tar.gz /var/www/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;相同复制命令下，ADD 构建的镜像比 COPY 构建的镜像大&lt;/li&gt;
+&lt;li&gt;不能对构建目录或上下文之外的文件进行 ADD 操作：不能使用 &lt;code&gt;../path&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;会自动创建目的位置&lt;/li&gt;
+&lt;li&gt;会使得构建缓存无效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="expose"&gt;EXPOSE&lt;/h3&gt;
+&lt;p&gt;指定暴露端口。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;EXPOSE &amp;lt;port&amp;gt; [&amp;lt;port&amp;gt;...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="cmd"&gt;CMD&lt;/h3&gt;
+&lt;p&gt;设置镜像启动命令。只有最后一个 CMD 指令有效。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;CMD [&amp;quot;echo&amp;quot;, &amp;quot;Hello World&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="entrypoint"&gt;ENTRYPOINT&lt;/h3&gt;
+&lt;p&gt;设置入口点。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;ENTRYPOINT [&amp;quot;echo&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="volume"&gt;VOLUME&lt;/h3&gt;
+&lt;p&gt;设置数据卷。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;VOLUME [&amp;quot;/data&amp;quot;, &amp;quot;/data2&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="user"&gt;USER&lt;/h3&gt;
+&lt;p&gt;设置构建用户。指定的用户需要在 USER 指令前创建。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;USER user
+USER user:group
+USER uid:gid
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="workdir"&gt;WORKDIR&lt;/h3&gt;
+&lt;p&gt;设置 RUN,CMD,ENTRYPOINT 工作目录。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;WORKDIR /path/workdir
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="onbuild"&gt;ONBUILD&lt;/h3&gt;
+&lt;p&gt;用于子镜像的二次构建中执行的 Dockerfile 指令。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;ONBUILD RUN echo &amp;quot;Hello World&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="label"&gt;LABEL&lt;/h3&gt;
+&lt;p&gt;添加元数据到镜像。尽量使用一个 LABEL 标签，减少构建 layer 数量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;LABEL multi.label1=&amp;quot;value1&amp;quot; multi.label2=&amp;quot;value2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="arg"&gt;ARG&lt;/h3&gt;
+&lt;p&gt;设置构建变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;ARG &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="stopsignal"&gt;STOPSIGNAL&lt;/h3&gt;
+&lt;p&gt;指定运行 &lt;code&gt;docker stop&lt;/code&gt; 时，向容器发送的信号。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;STOPSIGNAL SIGKILL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="healthcheck"&gt;HEALTHCHECK&lt;/h3&gt;
+&lt;p&gt;检查容器状态。&lt;/p&gt;
+&lt;p&gt;参数有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--interval&lt;/code&gt; 容器启动多长时间后开始检查&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--timeout&lt;/code&gt; 设置超时时间，若超时，则认为容器异常&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--retried&lt;/code&gt; 设置重试次数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;HEALTHCHECK [OPTIONS] CMD command
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="shell"&gt;SHELL&lt;/h3&gt;
+&lt;p&gt;指示更换 shell 环境。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-Dockerfile"&gt;SHELL [&amp;quot;powershell&amp;quot;, &amp;quot;-command&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-3"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;《Docker 从入门到实战》 黄靖钧 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>progLang-html</id><title type="text">Hyper Text Markup Language</title><summary type="text">基本信息
+介绍：一种描述网页的标记语言。
+相关：XHTML（可扩展超文本标记语言，更严格更纯净的 HTML 版本）
+语法
+HTML 文档描述网页
+HTML 文档包含 HTML 标签和纯文本
+HTML </summary><published>2018-09-06T14:16:00+08:00</published><updated>2018-09-06T14:16:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/progLang-html" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;介绍：一种描述网页的标记语言。&lt;/li&gt;
+&lt;li&gt;相关：XHTML（可扩展超文本标记语言，更严格更纯净的 HTML 版本）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;语法&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML 文档描述网页
+&lt;ul&gt;
+&lt;li&gt;HTML 文档包含 HTML 标签和纯文本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML 标记标签通常被称为 HTML 标签。
+&lt;ul&gt;
+&lt;li&gt;HTML 标签是由尖括号包围的关键词，比如 &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;HTML 标签通常是成对出现的，比如 &lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;/b&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;标签对中的第一个标签是开始标签，第二个标签是结束标签&lt;/li&gt;
+&lt;li&gt;开始和结束标签也被称为开放标签和闭合标签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML 元素指的是从开始标签（start tag）到结束标签（end tag）的所有代码。
+&lt;ul&gt;
+&lt;li&gt;HTML 元素以开始标签起始&lt;/li&gt;
+&lt;li&gt;HTML 元素以结束标签终止&lt;/li&gt;
+&lt;li&gt;元素的内容是开始标签与结束标签之间的内容&lt;/li&gt;
+&lt;li&gt;某些 HTML 元素具有空内容（empty content）&lt;/li&gt;
+&lt;li&gt;空元素在开始标签中进行关闭（以开始标签的结束而结束）&lt;/li&gt;
+&lt;li&gt;大多数 HTML 元素可拥有属性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML 标签可以拥有属性。属性提供了有关 HTML 元素的更多的信息。
+&lt;ul&gt;
+&lt;li&gt;属性总是以名称/值对的形式出现，比如：&lt;code&gt;name=&amp;quot;value&amp;quot;&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;属性总是在 HTML 元素的开始标签中规定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML 块元素：块级元素在浏览器显示时，通常会以新行来开始（和结束）。&lt;/li&gt;
+&lt;li&gt;HTML 内联元素：内联元素在显示时通常不会以新行开始。&lt;/li&gt;
+&lt;li&gt;颜色：&lt;code&gt;#000000&lt;/code&gt; = &lt;code&gt;rgb(0,0,0)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;!DOCTYPE&amp;gt;&lt;/code&gt; 指定 HTML 版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="http://www.w3school.com.cn/tags/html_ref_entities.html"&gt;特殊字符&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="section-2"&gt;文档结构&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
+        
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-3"&gt;头部&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 元素是所有头部元素的容器。&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 内的元素可包含脚本，指示浏览器在何处可以找到样式表，提供元信息，等等。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档的标题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;base&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;为页面上的所有链接规定默认地址或默认目标&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档与外部资源之间的关系&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;样式信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;客户端脚本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Title of the document&amp;lt;/title&amp;gt;
+    &amp;lt;base href=&amp;quot;http://www.w3school.com.cn/images/&amp;quot; /&amp;gt;
+    &amp;lt;base target=&amp;quot;_blank&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;mystyle.css&amp;quot; /&amp;gt;
+    &amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+        body {background-color:yellow}
+        p {color:blue}
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-4"&gt;常用标签&lt;/h1&gt;
+&lt;h2 id="section-5"&gt;分隔&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;hr /&amp;gt;&lt;/code&gt; 水平线&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; 换行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-6"&gt;注释&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- This is a comment --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-7"&gt;语义&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档或节的页眉&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;导航链接的容器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档中的节&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;独立的自包含文章&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;内容之外的内容（比如侧栏）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档或节的页脚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;details&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;额外的细节&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;summary&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;details 元素的标题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;bdi&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;与其他文本不同的文本方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;对话框或窗口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;figure&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自包含内容，比如图示、图表、照片、代码清单&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文档的主内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;mark&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;重要或强调的内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;menuitem&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;用户能够从弹出菜单调用的命令/菜单项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;meter&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;已知范围（尺度）内的标量测量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;progress&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任务进度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;time&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日期/时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;wbr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可能的折行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-8"&gt;文本&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;-&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;标题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;段落&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;粗体文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;big&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;大号字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;着重文字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;i&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;斜体字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;small&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;小号字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;加重语气&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;下标字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;上标字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;插入字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;删除字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;计算机代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;kbd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;键盘码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;samp&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;计算机代码样本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tt&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;打字机代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;var&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;变量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;预格式文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;缩写&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;acronym&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;首字母缩写&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;address&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;bdo&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;blockquote&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;长的引用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;q&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;短的引用语&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;引用、引证&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;dfn&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一个定义项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;超链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;a href=&amp;quot;url&amp;quot; target=&amp;quot;_blank&amp;quot; name=&amp;quot;name&amp;quot;&amp;gt;text&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-9"&gt;列表&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;无序列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;有序列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;项&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;dl&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自定义列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;dt&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自定义列表项头&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;dd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自定义列表项内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="section-10"&gt;表格&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;定义表格&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表头&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;单元格数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;table border=&amp;quot;1&amp;quot;&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;th&amp;gt;Heading&amp;lt;/th&amp;gt;
+        &amp;lt;th&amp;gt;Another Heading&amp;lt;/th&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;row 1, cell 1&amp;lt;/td&amp;gt;
+        &amp;lt;td&amp;gt;row 1, cell 2&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;row 2, cell 1&amp;lt;/td&amp;gt;
+        &amp;lt;td&amp;gt;row 2, cell 2&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-11"&gt;表单&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; 元素。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多种类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;下拉列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多行输入字段（文本域）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;按钮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;datalist&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;为 &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; 元素规定预定义选项列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; 输入类型&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;供文本输入的单行输入字段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;password&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;密码字段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;radio&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;单选按钮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;checkbox&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;复选框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;submit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;提交表单数据至表单处理程序的按钮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;button&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;按钮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;color&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日期&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;datetime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日期和时间（有时区）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;datetime-local&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日期和时间（无时区）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;month&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;月份和年份&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;week&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;周和年&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;time&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;选择时间（无时区）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;number&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数字值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;range&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一定范围内的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;email&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;电子邮件地址的输入字段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;search&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;搜索字段（搜索字段的表现类似常规文本字段）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tel&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;电话号码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;url&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;URL 地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;form action=&amp;quot;action_page.php&amp;quot; method=&amp;quot;GET&amp;quot;&amp;gt;
+    First name:&amp;lt;br/&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;firstname&amp;quot; value=&amp;quot;Mickey&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+    Last name:&amp;lt;br/&amp;gt;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;lastname&amp;quot; value=&amp;quot;Mouse&amp;quot;&amp;gt;&amp;lt;br/&amp;gt;
+    &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Submit&amp;quot;&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;select name=&amp;quot;cars&amp;quot;&amp;gt;
+    &amp;lt;option value=&amp;quot;volvo&amp;quot;&amp;gt;Volvo&amp;lt;/option&amp;gt;
+    &amp;lt;option value=&amp;quot;saab&amp;quot;&amp;gt;Saab&amp;lt;/option&amp;gt;
+    &amp;lt;option value=&amp;quot;fiat&amp;quot;&amp;gt;Fiat&amp;lt;/option&amp;gt;
+    &amp;lt;option value=&amp;quot;audi&amp;quot;&amp;gt;Audi&amp;lt;/option&amp;gt;
+&amp;lt;/select&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;input list=&amp;quot;browsers&amp;quot;&amp;gt;
+&amp;lt;datalist id=&amp;quot;browsers&amp;quot;&amp;gt;
+   &amp;lt;option value=&amp;quot;Internet Explorer&amp;quot;&amp;gt;
+   &amp;lt;option value=&amp;quot;Firefox&amp;quot;&amp;gt;
+   &amp;lt;option value=&amp;quot;Chrome&amp;quot;&amp;gt;
+   &amp;lt;option value=&amp;quot;Opera&amp;quot;&amp;gt;
+   &amp;lt;option value=&amp;quot;Safari&amp;quot;&amp;gt;
+&amp;lt;/datalist&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-12"&gt;媒体&lt;/h2&gt;
+&lt;h3 id="section-13"&gt;绘图&lt;/h3&gt;
+&lt;p&gt;HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。
+画布是一个矩形区域，您可以控制其每一像素。
+canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;canvas id=&amp;quot;myCanvas&amp;quot; width=&amp;quot;200&amp;quot; height=&amp;quot;100&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;内联 SVG：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; version=&amp;quot;1.1&amp;quot; height=&amp;quot;190&amp;quot;&amp;gt;
+    &amp;lt;polygon points=&amp;quot;100,10 40,180 190,60 10,60 160,180&amp;quot; style=&amp;quot;fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;&amp;quot; /&amp;gt;
+&amp;lt;/svg&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Canvas
+&lt;ul&gt;
+&lt;li&gt;依赖分辨率&lt;/li&gt;
+&lt;li&gt;不支持事件处理器&lt;/li&gt;
+&lt;li&gt;弱的文本渲染能力&lt;/li&gt;
+&lt;li&gt;能够以 .png 或 .jpg 格式保存结果图像&lt;/li&gt;
+&lt;li&gt;最适合图像密集型的游戏，其中的许多对象会被频繁重绘&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;SVG
+&lt;ul&gt;
+&lt;li&gt;不依赖分辨率&lt;/li&gt;
+&lt;li&gt;支持事件处理器&lt;/li&gt;
+&lt;li&gt;最适合带有大型渲染区域的应用程序（比如谷歌地图）&lt;/li&gt;
+&lt;li&gt;复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）&lt;/li&gt;
+&lt;li&gt;不适合游戏应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-14"&gt;图像&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;img src=&amp;quot;url&amp;quot; alt=&amp;quot;text&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-15"&gt;音频&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;audio controls=&amp;quot;controls&amp;quot; height=&amp;quot;100&amp;quot; width=&amp;quot;100&amp;quot;&amp;gt;
+    &amp;lt;source src=&amp;quot;song.mp3&amp;quot; type=&amp;quot;audio/mp3&amp;quot; /&amp;gt;
+    &amp;lt;source src=&amp;quot;song.ogg&amp;quot; type=&amp;quot;audio/ogg&amp;quot; /&amp;gt;
+    &amp;lt;embed height=&amp;quot;100&amp;quot; width=&amp;quot;100&amp;quot; src=&amp;quot;song.mp3&amp;quot; /&amp;gt;
+&amp;lt;/audio&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-16"&gt;视频&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;video width=&amp;quot;320&amp;quot; height=&amp;quot;240&amp;quot; controls=&amp;quot;controls&amp;quot;&amp;gt;
+    &amp;lt;source src=&amp;quot;movie.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot; /&amp;gt;
+    &amp;lt;source src=&amp;quot;movie.ogg&amp;quot; type=&amp;quot;video/ogg&amp;quot; /&amp;gt;
+    &amp;lt;source src=&amp;quot;movie.webm&amp;quot; type=&amp;quot;video/webm&amp;quot; /&amp;gt;
+    &amp;lt;object data=&amp;quot;movie.mp4&amp;quot; width=&amp;quot;320&amp;quot; height=&amp;quot;240&amp;quot;&amp;gt;
+        &amp;lt;embed src=&amp;quot;movie.swf&amp;quot; width=&amp;quot;320&amp;quot; height=&amp;quot;240&amp;quot; /&amp;gt;
+    &amp;lt;/object&amp;gt;
+&amp;lt;/video&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-17"&gt;网页&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;iframe src=&amp;quot;demo_iframe.htm&amp;quot; width=&amp;quot;200&amp;quot; height=&amp;quot;200&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-18"&gt;分块&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; 块元素，可容纳其他元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; 内联元素，可容纳其他元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-19"&gt;更多&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;object&amp;gt;&lt;/code&gt; 插件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;embed&amp;gt;&lt;/code&gt; 外部（非 HTML）内容的容器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-20"&gt;元素属性&lt;/h1&gt;
+&lt;p&gt;共有属性：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性名&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;class&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;对元素分类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;元素唯一标识符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id="section-21"&gt;脚本&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    document.write(&amp;quot;Hello World!&amp;quot;)
+&amp;lt;/script&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;url&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-22"&gt;样式&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在文档头部引用外部样式表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;mystyle.css&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;在文档头部使用内部样式表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+    body {background-color: red}
+    p {margin-left: 20px}
+&amp;lt;/style&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;使用元素的 &lt;code&gt;style&lt;/code&gt; 属性设置内联样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-23"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.w3school.com.cn/html/index.asp"&gt;HTML 教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
 class Solution:
-    def addTwoNumbers(self, l1: ListNode,</summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数相加&lt;/h1&gt;
-&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
+    def addTwoNumbers(self, l1: ListNode, l2: </summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-2" /><category term="Problems" /><content type="html">&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&amp;gt; ListNode:
         res = None
@@ -284,9 +3346,7 @@ class Solution:
             cur.next = ListNode(rem)
         return res
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">两数之和
-使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; </summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;两数之和&lt;/h1&gt;
-&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
+</content></entry><entry><id>leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得</summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-1" /><category term="Problems" /><content type="html">&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
 
 impl Solution {
@@ -312,9 +3372,7 @@ impl Solution {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的最长子串
-无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span c</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-3" /><category term="Problems" /><content type="html">&lt;h1 id="section"&gt;无重复字符的最长子串&lt;/h1&gt;
-&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
+</content></entry><entry><id>leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/leetcode-3" /><category term="Problems" /><content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def lengthOfLongestSubstring(self, s: str) -&amp;gt; int:
         bg = {}
