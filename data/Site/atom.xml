@@ -1,4 +1,381 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:62b07e50-7ec7-4d15-a4ff-1afa37895853;id=1</id><updated>2020-07-18T01:27:55Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Learning/nju-icspa-analytics-nanos-lite</id><title type="text">NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><summary type="text">概述
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:b0afbc5f-7423-45da-96f8-f14fd7e1e4b3;id=1</id><updated>2020-07-18T01:36:32Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
+作者：Andrew Koenig
+出版时间：1989-1-11
+基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</summary><published>2018-08-26T10:30:40+08:00</published><updated>2018-08-26T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls" /><category term="Reading" /><content type="html">&lt;ul&gt;
+&lt;li&gt;书籍名：&lt;strong&gt;C Traps and Pitfalls&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;作者：Andrew Koenig&lt;/li&gt;
+&lt;li&gt;出版时间：1989-1-11&lt;/li&gt;
+&lt;li&gt;基本介绍：Andrew Koenig 是AT&amp;amp;T公司Shannon实验室大规模编程研究部门中的成员，同时也是C++标准委员会的项目编辑。作者以自己1985年在Bell实验室时发表的一篇论文为基础，结合自己的工作经验扩展成为这本对C程序员具有珍贵价值的经典著作。写作本书的出发点不是要批判C语言，而是要帮助C程序员绕过编程过程中的陷阱和障碍。&lt;strong&gt;本书写于 ANSI C 正式发布前。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h1 id="section"&gt;第一章 词法陷阱&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;=&lt;/code&gt; 不同于 &lt;code&gt;==&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;,|&lt;/code&gt; 不同于 &lt;code&gt;&amp;amp;&amp;amp;,||&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;词法分析中的贪心法：每一个符号应包含尽可能多的字符&lt;/li&gt;
+&lt;li&gt;如果整型常量以 &lt;code&gt;0&lt;/code&gt; 开头，则被视为八进制，以 &lt;code&gt;0x&lt;/code&gt; 开头，被视为十六进制。&lt;/li&gt;
+&lt;li&gt;字符串末尾有 &lt;code&gt;\0&lt;/code&gt; 即 $0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;第二章 语法陷阱&lt;/h1&gt;
+&lt;h2 id="section-2"&gt;函数声明&lt;/h2&gt;
+&lt;p&gt;声明的形式：类型+一组类似表达式的声明符
+表示对声明符求值应返回一个指定类型的结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;int a;          //a         整型        a 整型
+int *a;         //*a        整型        a 指向整型的指针
+int *g();       //*(g())    整型        g 返回整形指针的函数
+int (*h)();     //(*h)()    整型        h 指向返回整型的函数的指针
+int (*f)(int);  //(*f)(int) 整型        f 指向有一个整型参数，返回整型的函数的指针
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;声明省去标识符，即得到对应的类型转化符。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;(int)
+(int *)
+(int *())
+(int (*)())
+(int (*)(int))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 &lt;code&gt;typedef&lt;/code&gt; 简化类型表示&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;typedef int (*func)(int);
+//func=(int (*)(int))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-3"&gt;运算符优先级&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;() [] -&amp;gt; .&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;单目&lt;/li&gt;
+&lt;li&gt;双目&lt;/li&gt;
+&lt;li&gt;算术 &lt;code&gt;* / %&lt;/code&gt; &amp;gt; &lt;code&gt;+ -&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;移位&lt;/li&gt;
+&lt;li&gt;关系 &lt;code&gt;&amp;lt; &amp;lt;= &amp;gt; &amp;gt;=&lt;/code&gt; &amp;gt; &lt;code&gt;== !=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;位逻辑 &lt;code&gt;&amp;amp;&lt;/code&gt; &amp;gt; &lt;code&gt;^&lt;/code&gt; &amp;gt; &lt;code&gt;|&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;逻辑 &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; &amp;gt; &lt;code&gt;||&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;三目（&lt;code&gt;?:&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;赋值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;,&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="section-4"&gt;其他&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;语句结束的分号&lt;/li&gt;
+&lt;li&gt;switch 结构中的 break&lt;/li&gt;
+&lt;li&gt;函数调用：&lt;code&gt;f&lt;/code&gt; 为函数地址，&lt;code&gt;f()&lt;/code&gt; 为函数调用&lt;/li&gt;
+&lt;li&gt;else 与同一对括号内最近的未匹配 if 匹配&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-5"&gt;第三章 语义陷阱&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;C语言中只有一维数组，但数组中的元素的类型没有限制。&lt;/li&gt;
+&lt;li&gt;数组名不用于 &lt;code&gt;sizeof&lt;/code&gt; 的操作数时，其都被转换成一个指向其起始元素的指针。&lt;/li&gt;
+&lt;li&gt;C语言中会将参数中的数组声明转化为对应的指针声明&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-6"&gt;第四章 连接&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个声明语句出现在所有函数体之外，那么它就被称为外部对象 a 的定义。&lt;/li&gt;
+&lt;li&gt;带 &lt;code&gt;extern&lt;/code&gt; 的声明语句，并不是对 a 的定义，其显式地说明了 a 的存储空间是在程序其他地方分配的。对于连接器，此为对外部变量的引用。对于这种语句，即使其出现在函数体内，含义仍相同。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 将声明的变量或函数的作用域限制在当前源文件内&lt;/li&gt;
+&lt;li&gt;旧的 C语言 要求变量定义必须在源文件头部。&lt;/li&gt;
+&lt;li&gt;可用头文件定义一些对外部变量的引用，在某个源文件中给出定义，其他源文件使用头文件访问这些变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-7"&gt;第五章 库函数&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getchar&lt;/code&gt; 函数返回整数，EOF 往往不在 char 的表示范围内。&lt;/li&gt;
+&lt;li&gt;输出缓冲：&lt;code&gt;setbuf(stdout,buf)&lt;/code&gt;，若 buf 使用局部变量，可能在缓冲清空前， buf 就已经被释放了。
+&lt;ul&gt;
+&lt;li&gt;可以使用 &lt;code&gt;setbuf(stdout,NULL)&lt;/code&gt; 取消缓冲&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-8"&gt;第六章 预处理器&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;宏只是对程序的文本起作用，支持对字符串进行变换，但不作用与程序中的对象。&lt;/li&gt;
+&lt;li&gt;宏定义中空格有意义（宏调用中不存在此情况）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#define f (x) ((x)-1)
+//f=(x)((x)-1) 不带参数
+#define f(x) ((x)-1)
+//f(x)=((x)-1) 带参数
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;宏不是函数，表达式可能被多次求值，若传入表达式存在副作用，则结果可能出乎意料。&lt;/li&gt;
+&lt;li&gt;宏可能产生非常庞大的表达式&lt;/li&gt;
+&lt;li&gt;宏不是语句&lt;/li&gt;
+&lt;li&gt;宏不是类型定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-9"&gt;第七章 可移植性缺陷&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;内存位置 0：仅用于赋值或比较运算，其他操作都是非法的，不同编译器和机器对此位置的限制不同。&lt;/li&gt;
+&lt;li&gt;除法截断 &lt;code&gt;q=a/b, r=a%b&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;C 语言定义只保证了 &lt;span class="math"&gt;\(qb+r=a\)&lt;/span&gt;，以及 &lt;span class="math"&gt;\(a\ge 0 \wedge b&amp;gt;0\)&lt;/span&gt; 时，&lt;span class="math"&gt;\(|r|&amp;lt;|b|\wedge r\ge 0\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;大部分编译器保证了，若改变 &lt;span class="math"&gt;\(a\)&lt;/span&gt; 的符号，这会改变 &lt;span class="math"&gt;\(q\)&lt;/span&gt; 的符号，但不会改变其绝对值&lt;/li&gt;
+&lt;li&gt;除法运算结果是向 $0$ 取整（即绝对值向下取整），如 &lt;span class="math"&gt;\(-5/-2=\lfloor \frac{-5}{-2} \rfloor=2,-5/2=\lceil \frac{-5}{2} \rceil=-2\)&lt;/span&gt;，这保证了 &lt;code&gt;a%b&lt;/code&gt; 一定与 &lt;code&gt;a&lt;/code&gt; 同号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-10"&gt;附录&lt;/h1&gt;
+&lt;h2 id="printf"&gt;&lt;code&gt;printf&lt;/code&gt; 函数格式串&lt;/h2&gt;
+&lt;p&gt;每个格式项以 &lt;code&gt;%&lt;/code&gt; 打头，后接一个格式码指明类型，其之间可能夹一些可选字符（修饰符）。顺序如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;%&amp;lt;标志&amp;gt;&amp;lt;宽度修饰符&amp;gt;.&amp;lt;精度修饰符&amp;gt;&amp;lt;长度修饰符&amp;gt;&amp;lt;格式码&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="section-11"&gt;格式码&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;d&lt;/code&gt; 带符号整数，十进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;u&lt;/code&gt; 无符号整数，十进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;o&lt;/code&gt; 整数，八进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x&lt;/code&gt; 整数，十六进制（&lt;code&gt;abcdef&lt;/code&gt;）
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;X&lt;/code&gt; 整数，十六进制（&lt;code&gt;ABCDEF&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt; 字符串，直到 &lt;code&gt;\0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c&lt;/code&gt; 字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;g&lt;/code&gt; 浮点数，去掉尾缀0，保留六位有效数字，可能采用科学计数法（&lt;code&gt;1e1&lt;/code&gt;）
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;G&lt;/code&gt; 浮点数，去掉尾缀0，保留六位有效数字，可能采用科学计数法（&lt;code&gt;1E1&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;e&lt;/code&gt; 浮点数，指数形式（&lt;code&gt;1e1&lt;/code&gt;），小数点后六位有效数字
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;E&lt;/code&gt; 浮点数，指数形式（&lt;code&gt;1E1&lt;/code&gt;），小数点后六位有效数字&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f&lt;/code&gt; 浮点数，禁用指数形式，小数点后六位有效数字&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; 一个 &lt;code&gt;%&lt;/code&gt; 字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p&lt;/code&gt; 指针&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;n&lt;/code&gt; 指出已经打印的字符数，将被存储在传入的整型指针处
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;printf(&amp;quot;hello\n%n&amp;quot;,&amp;amp;n)&lt;/code&gt; 则 &lt;span class="math"&gt;\(n=6\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-12"&gt;修饰符&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;长度修饰符：&lt;code&gt;l&lt;/code&gt;。对应 long&lt;/li&gt;
+&lt;li&gt;宽度修饰符：&lt;code&gt;&amp;lt;int&amp;gt;&lt;/code&gt;。指定最小输出宽度，默认右对齐&lt;/li&gt;
+&lt;li&gt;精度修饰符：&lt;code&gt;.&amp;lt;int&amp;gt;&lt;/code&gt;。控制数值表示中将要出现的数字位数，或用于限制将要输出的字符串中应出现的字符数。在宽度修饰符后。
+&lt;ul&gt;
+&lt;li&gt;对于 &lt;code&gt;d,o,x,u,X&lt;/code&gt; 指定打印数字最少位数（不包含符号），若不足，在前面补0&lt;/li&gt;
+&lt;li&gt;对于 &lt;code&gt;e,E,f&lt;/code&gt; 指定小数点后应出现的数字位数，除非标识符另有说明，仅当精度大于 0 时，打印的数值中才会实际出现小数点&lt;/li&gt;
+&lt;li&gt;对于 &lt;code&gt;g,G&lt;/code&gt; 指定打印数值中的有效数字位数，除非标识符另有说明，非有效数字的0将被去掉，如果小数点后不跟数字则小数点也会被删除&lt;/li&gt;
+&lt;li&gt;对于 &lt;code&gt;s&lt;/code&gt;，指定要打印的最大字符数&lt;/li&gt;
+&lt;li&gt;对于 &lt;code&gt;c,%&lt;/code&gt; 精度修饰符将被忽略&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-13"&gt;标志&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;%&lt;/code&gt; 和宽度修饰符之间插入标志字符，微调效果。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-&lt;/code&gt; 改为左对齐&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt; 强制打印符号&lt;/li&gt;
+&lt;li&gt;空白字符 若数值是非负数，则在其前插入一个空白字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#&lt;/code&gt; 微调
+&lt;ul&gt;
+&lt;li&gt;对浮点数格式：要求小数点必须被打印，对于 &lt;code&gt;g,G&lt;/code&gt; 数值尾缀0不会被去掉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="section-14"&gt;可变域宽&lt;/h3&gt;
+&lt;p&gt;支持间接指定域宽和精度：使用 &lt;code&gt;*&lt;/code&gt; 替换宽度修饰符，精度修饰符，则参数列表中需添加指定的宽度，精度值。对于给定域宽为负数的情况，相当于把符号作为标志字符 &lt;code&gt;-&lt;/code&gt; 处理。&lt;/p&gt;
+</content></entry><entry><id>Reading/The-C-Programming-Language</id><title type="text">The C Programming Language</title><summary type="text">书籍名：The C Programming Language (Second Edition)
+作者：Brian W. Kernighan / Dennis M. Ritchie
+出版时间：1988-</summary><published>2018-08-26T09:30:40+08:00</published><updated>2018-08-26T09:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FThe-C-Programming-Language" /><category term="Reading" /><content type="html">&lt;ul&gt;
+&lt;li&gt;书籍名：&lt;strong&gt;The C Programming Language (Second Edition)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;作者：Brian W. Kernighan / Dennis M. Ritchie&lt;/li&gt;
+&lt;li&gt;出版时间：1988-4-1&lt;/li&gt;
+&lt;li&gt;基本介绍：《C程序设计语言》原著 即为C语言的设计者Dennis M．Ritchie和著名的计算机科学家Brian W．Kernighan合著的 一本介绍C语言的权威经典著作。原著第1版中介绍的C语言成为后来广泛使用的C语言版本—— 标准C的基础。人们熟知的“Hello, World”程序就是由《C程序设计语言》首次引入的。原著第2版根据1987年制定的ANSIC标准做了适当的修订。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h1 id="section"&gt;第二章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;枚举 &lt;code&gt;enum id{A=1,B=2,...}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;字符串支持连接 &lt;code&gt;&amp;quot;abc&amp;quot; &amp;quot;def&amp;quot;=&amp;quot;abcdef&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctype&lt;/code&gt; 中的函数与字符表无关&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;unsigned&lt;/code&gt; 的变量在隐式转换时和具体实现有关要十分注意，可能不是预期的。&lt;/li&gt;
+&lt;li&gt;float 不会自动提升为 double&lt;/li&gt;
+&lt;li&gt;伪随机数算法 &lt;span class="math"&gt;\([0,32767]\)&lt;/span&gt; 的伪随机整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;unsigned long int _next=1;
+int rand(){
+    _next=_next*1103515245+12345;
+    return (unsigned int)(_next/65536)%32768;
+}
+void srand(unsigned int seed){_next=seed;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;逗号表达式从左到右求值，最右侧的表达式为其结果值。函数参数中的逗号不是逗号表达式，C语言没有定义其运算顺序&lt;/li&gt;
+&lt;li&gt;对于一个运算，左右表达式的运算先后是不确定的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-1"&gt;第三章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Shell-Sort&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;void shellsort(int v[],int n){
+    for(int gap=n&amp;gt;&amp;gt;1;gap;gap&amp;gt;&amp;gt;=1)
+        for(int i=gap;i&amp;lt;n;i++)
+            for(int j=i-gap;j&amp;gt;=0 &amp;amp;&amp;amp; v[j]&amp;gt;v[j+gap];j-=gap)
+                swap(v[j],v[j+gap]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-2"&gt;第四章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;external&lt;/code&gt;,&lt;code&gt;internal&lt;/code&gt; 关键字修饰变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;register&lt;/code&gt; 关键字，寄存器变量地址不可访问&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 关键字修饰全局变量，使变量限定在当前编译文件中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-3"&gt;预处理&lt;/h2&gt;
+&lt;h3 id="section-4"&gt;宏定义&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;行末使用 &lt;code&gt;\&lt;/code&gt; 使用多行定义&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;undef&lt;/code&gt; 取消宏定义&lt;/li&gt;
+&lt;li&gt;替换文本中 &lt;code&gt;#&lt;/code&gt;加在参数名前，则将会生成和参数书写完全相同的字符串&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#define debug(expr) printf(#expr &amp;quot; = %g\n&amp;quot;,expr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;##&lt;/code&gt; 运算符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#define paste(a,b) a ## b
+paste(name,1) =&amp;gt; name1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="section-5"&gt;条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;#if&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#endif&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#elif&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#else&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#ifdef = #if defined id&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#ifndef = #if !defined id&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#line constval [&amp;quot;filename&amp;quot;]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#error ...&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#praga ...&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="section-6"&gt;第五章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void*&lt;/code&gt; 作为通用指针&lt;/li&gt;
+&lt;li&gt;指针实现数组一般快于下标实现数组&lt;/li&gt;
+&lt;li&gt;指针支持和整数加减，与指针相减和比较运算（位置比较）&lt;/li&gt;
+&lt;li&gt;数组和指针不完全等价，数组本身不可变，但指针可以&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;void strcpy(char* s,char *t){
+    while(*s++=*t++);
+}
+*p++=val;//push
+val=*--p;//pop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;以下表达等价&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;f(int c[2][13])
+f(int c[][13])
+f(int (*c)[13])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-7"&gt;第六章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;union&lt;/code&gt; 类型：同一起点，不同类型变量，自动对齐，只能对第一个元素初始化&lt;/li&gt;
+&lt;li&gt;位字段：二进制标志位集合，后面的数字指定位长，仅能使用 &lt;code&gt;int&lt;/code&gt;，不支持 &lt;code&gt;&amp;amp;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;struct{
+    unsigned int a:1;
+    unsigned int b:1;
+}flgs;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-8"&gt;第七章&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;exit(exitcode)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;printf&lt;/code&gt; 函数格式化：&lt;code&gt;%?&lt;/code&gt; &lt;code&gt;?&lt;/code&gt; 表示转换说明
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-&lt;/code&gt; 左对齐&lt;/li&gt;
+&lt;li&gt;数字 最小字段宽度或精度&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; 用于区分最小字段宽度和精度&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;h/l&lt;/code&gt; 整数作为 &lt;code&gt;short/long&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;d/i&lt;/code&gt; 十进制整数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;o&lt;/code&gt; 无符号八进制整数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x/X&lt;/code&gt; 无符号十六进制整数，指定大小写&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;u&lt;/code&gt; 无符号十进制整数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c&lt;/code&gt; 字符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f&lt;/code&gt; double 十进制小数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;e/E&lt;/code&gt; double 十进制小数 科学记数法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;g/G&lt;/code&gt; double 十进制小数 根据指数决定使用哪一种表示方式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p&lt;/code&gt; void* 类型&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;*&lt;/code&gt; 指定宽度或精度，将使用下一参数（int）得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;变长参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;#include &amp;lt;stdarg.h&amp;gt;
+void f(char *a,...){
+    va_list ap;
+    va_start(ap,fmt);
+    for(char* p=fmt;*p;p++){
+
+    }
+    va_end(ap);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;scanf&lt;/code&gt; 函数 返回成功赋值的个数，文件结尾返回 &lt;code&gt;EOF&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-9"&gt;文件&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-c"&gt;FILE* fp=fopen(name,mode=&amp;quot;r[+]&amp;quot;,&amp;quot;w[+]&amp;quot;,&amp;quot;a[+]&amp;quot;[,&amp;quot;b&amp;quot;])
+
+//以下是宏而不是函数
+int getc(FILE *fp);
+int putc(int c,FILE* fp)=c;
+fscanf(FILE* fp,...)
+fprintf(FILE* fp,...)
+
+//清空缓冲区并关闭文件
+int fclose(FILE *fp)
+int fflush(FILE *fp)
+int ferror(FILE *fp)
+int feof(FILE *fp)
+char* fgets(char*line,int maxvalue,FILE *fp)=success? line:NULL;
+char* fputs(char*line,FILE *fp)=success? line:EOF;
+fgetc,fputc
+int ungetc(int c,FILE *fp)=success?c:EOF; //写回一个字符，只能接受一个
+int remove(const char* filename);//删除文件，成功返回0
+int rename(const char* filename);//重命名文件，成功返回0
+FILE* tmpfile();//wb+创建临时文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;size_t fread(void*ptr,size_t size,size_t nobj,FILE *stream)&lt;/code&gt; 读取最多nobj个长度为size的对象，并保存到ptr数组中，返回读取到的个数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;size_t fwrite(const void*ptr,size_t size,size_t nobj,FILE *stream)&lt;/code&gt; 从ptr数组读取nobj个长度为size的对象，并输出，返回输出的个数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int fseek(FILE* stream, long offset,int origin)&lt;/code&gt;
+从origin偏移offset个位置。origin=SEEK_SET,SEEK_CUR,SEEK_END，文本流只能是offest只能是0或ftell得到的值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;long ftell(FILE *stream)&lt;/code&gt; 得到当前位置，错误返回-1L&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void rewind(FILE *stream)&lt;/code&gt; 回到起点，清除错误状态&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int fgetpos(FILE *stream,fpos_t *pos)&lt;/code&gt; 记录当前位置到pos&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int fsetpos(FILE *stream,const fpos_t *pos)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;标准文件指针 &lt;code&gt;stdin,stdout,stderr&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-10"&gt;字符串函数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;strcat(s,t)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strncat(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strcmp(s,t)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strncmp(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strcpy(s,t)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strncpy(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strlen(s)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strchr(s,c)&lt;/code&gt; 正向查找，返回指针&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;strrchr(s,c)&lt;/code&gt; 反向查找，返回指针&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;memcpy(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;memmove(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;memcmp(s,t,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;memchr(s,c,n)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;memset(s,c,n)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="section-11"&gt;更多函数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;void* malloc(size_t n)&lt;/code&gt; n字节长度&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void* calloc(size_t n,size_t size)&lt;/code&gt; n个指定字节长度元素的空间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;free(p)&lt;/code&gt; 仅限使用上面两个函数申请的空间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ldexp(x,n)&lt;/code&gt; &lt;span class="math"&gt;\(=x\cdot 2^n\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;frexp(x,int* exp)&lt;/code&gt; &lt;span class="math"&gt;\(x=a\cdot 2^n\)&lt;/span&gt;，其中 &lt;span class="math"&gt;\(a \in [1/2,1]\)&lt;/span&gt;，返回$a$，&lt;span class="math"&gt;\(exp=n\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modf(x,double *ip)&lt;/code&gt; 返回小数部分，&lt;span class="math"&gt;\(ip\)&lt;/span&gt;=整数部分，符号均和 &lt;span class="math"&gt;\(x\)&lt;/span&gt; 相同&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fmod(x,y)&lt;/code&gt; 浮点余数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;double atof(char*)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int atoi(char*)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;long atol(char*)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;abort()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ateexit(void (*func)(void))&lt;/code&gt; 登记一个程序正常终止时调用的函数&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>Learning/nju-icspa-analytics-nanos-lite</id><title type="text">NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><summary type="text">概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
@@ -36,10 +413,10 @@ nexus-am/
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="common.h"&gt;common.h&lt;/h2&gt;
@@ -520,10 +897,10 @@ nexus-am/                   # NEXUS-AM 项目
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="makefile.check"&gt;Makefile.check&lt;/h1&gt;
 &lt;p&gt;通过设置 &lt;code&gt;ARCH&lt;/code&gt; 变量，指定默认 AM：&lt;/p&gt;
@@ -1750,10 +2127,10 @@ nexus-am/
 &lt;/ul&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="libs"&gt;libs/&lt;/h1&gt;
 &lt;h2 id="libc"&gt;libc/&lt;/h2&gt;
@@ -1860,10 +2237,10 @@ nemu/               # NEMU 项目
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="nemu.h"&gt;nemu.h&lt;/h2&gt;
@@ -4564,12 +4941,14 @@ assign Mux = (S == 3) ? D : 'bz;
 官网
 介绍：一个能处理依赖关系，进行自动化编译的工具。
 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务
-关于 Makefile：{% post_link tool/</summary><published>2018-09-16T18:58:19+08:00</published><updated>2018-09-16T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fmake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+Makefile
+基础知识
+GNU的 make 工作时的执行</summary><published>2018-09-16T18:58:19+08:00</published><updated>2018-09-16T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fmake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.gnu.org/software/make/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：一个能处理依赖关系，进行自动化编译的工具。&lt;/li&gt;
 &lt;li&gt;make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务&lt;/li&gt;
-&lt;li&gt;关于 Makefile：{% post_link tool/progLang-makefile %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="posts/Tools%2progLang-makefile"&gt;Makefile&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
 &lt;p&gt;GNU的 make 工作时的执行步骤如下：&lt;/p&gt;
@@ -5786,15 +6165,17 @@ div{
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/css3/index.asp"&gt;CSS3 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content></entry><entry><id>Tools/progLang-makefile</id><title type="text">Makefile</title><summary type="text">基本信息
-关于 Make：{% post_link tool/make %}
+Make
 Makefile 为 make 提供依赖描述和编译指令等设置。
 基础知识
 注释 #
 转义 \
 通配符：* ? ~
-显式规则</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+显式规则
+Makefile 规则：指定依赖关系与生成命令。
+tar</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;关于 Make：{% post_link tool/make %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="posts/Tools%2make"&gt;Make&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Makefile 为 make 提供依赖描述和编译指令等设置。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
