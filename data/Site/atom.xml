@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:3df1262e-600e-478c-a000-50581f08d4e7;id=1</id><updated>2020-07-18T01:17:02Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Learning/nju-icspa-analytics-nanos-lite</id><title type="text">NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><summary type="text">概述
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:62b07e50-7ec7-4d15-a4ff-1afa37895853;id=1</id><updated>2020-07-18T01:27:55Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Learning/nju-icspa-analytics-nanos-lite</id><title type="text">NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><summary type="text">概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
@@ -36,10 +36,10 @@ nexus-am/
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nemu %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nexus-am %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nanos-lite %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-navy-apps %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/Learning/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="common.h"&gt;common.h&lt;/h2&gt;
@@ -520,10 +520,10 @@ nexus-am/                   # NEXUS-AM 项目
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nemu %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nexus-am %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nanos-lite %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-navy-apps %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="makefile.check"&gt;Makefile.check&lt;/h1&gt;
 &lt;p&gt;通过设置 &lt;code&gt;ARCH&lt;/code&gt; 变量，指定默认 AM：&lt;/p&gt;
@@ -1058,8 +1058,8 @@ int screen_height();
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content></entry><entry><id>Learning/multimod-64bit-method</id><title type="text">64位有符号数乘法取模问题</title><summary type="text">问题引入
-给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 int64_t），你希望求出 &lt;span class="math"&gt;\(a\t</summary><published>2018-10-25T17:30:22+08:00</published><updated>2018-10-25T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fmultimod-64bit-method" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;问题引入&lt;/h1&gt;
-&lt;p&gt;给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 &lt;code&gt;int64_t&lt;/code&gt;），你希望求出 &lt;span class="math"&gt;\(a\times b \bmod m\)&lt;/span&gt; 的数值。&lt;/p&gt;
+给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 int64_t），希望求出 &lt;span class="math"&gt;\(a\ti</summary><published>2018-10-25T17:30:22+08:00</published><updated>2018-10-25T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fmultimod-64bit-method" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;问题引入&lt;/h1&gt;
+&lt;p&gt;给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 &lt;code&gt;int64_t&lt;/code&gt;），希望求出 &lt;span class="math"&gt;\(a\times b \bmod m\)&lt;/span&gt; 的数值。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;int64_t multimod(int64_t a, int64_t b, int64_t m);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;给出一个尽可能高效的正确 &lt;code&gt;multimod&lt;/code&gt; 实现。使得它对于任意在 &lt;span class="math"&gt;\([0,2^{63}-1]\)&lt;/span&gt; 范围内的 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; 均能正确求出 &lt;span class="math"&gt;\(a\times b \bmod m\)&lt;/span&gt; 的数值，且在任何时候不触发有符号整数溢出。&lt;/p&gt;
@@ -1251,7 +1251,10 @@ Failed 0
 &lt;h2 id="section-7"&gt;性能优化&lt;/h2&gt;
 &lt;h3 id="section-8"&gt;优化1：二进制拆分&lt;/h3&gt;
 &lt;p&gt;使用 ACM/ICPC 圈子中常用的一种计算 &lt;span class="math"&gt;\(ab \bmod m\)&lt;/span&gt; 的算法。将 &lt;span class="math"&gt;\(b\)&lt;/span&gt; 二进制拆分，得到其二进制表示 &lt;span class="math"&gt;\((b_{63}\dots b_0)_2\)&lt;/span&gt;，则&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(ab=\sum_{0\le i&amp;lt;64} b_i\times a2^i\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="math"&gt;
+\[
+ab=\sum_{0\le i&amp;lt;64} b_i\times a2^i
+\]&lt;/div&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(a2^i\)&lt;/span&gt; 可以递推得到，由此可得到 &lt;span class="math"&gt;\(O(\log b)\)&lt;/span&gt; 的算法。类似基准实现中讨论，转成无符号数后不会出现溢出问题。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;#include &amp;lt;stdint.h&amp;gt;
 int64_t multimod(int64_t a, int64_t b, int64_t m){
@@ -1441,10 +1444,6 @@ Average CPU cycles: 1207.91
 Maximum: 202400 @ (8532847693583176248, 6988877428537774137, 8782939934027677977, 202400)
 Minimum: 900 @ (3971319143760212181, 2705697508146050036, 1115671950010882609, 900)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="section-11"&gt;扩展阅读&lt;/h1&gt;
-&lt;p&gt;无&lt;/p&gt;
-&lt;h1 id="section-12"&gt;引用资料&lt;/h1&gt;
-&lt;p&gt;无&lt;/p&gt;
 </content></entry><entry><id>Learning/ojops-problem-design</id><title type="text">OJ-oriented Problem Solving 命题报告</title><summary type="text">题面
 题目概述
 时间限制：1000 ms
@@ -1463,7 +1462,10 @@ Minimum: 900 @ (3971319143760212181, 2705697508146050036, 1115671950010882609, 9
 &lt;h2 id="section-2"&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。
 形式化的，设题目列表 &lt;span class="math"&gt;\(a\)&lt;/span&gt;，&lt;span class="math"&gt;\(a_i(1\le i\le n)\)&lt;/span&gt; 表示第 &lt;span class="math"&gt;\(i\)&lt;/span&gt; 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 &lt;span class="math"&gt;\(Q(a)\)&lt;/span&gt; 为：&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1})\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="math"&gt;
+\[
+Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1})
+\]&lt;/div&gt;
 &lt;p&gt;小 A 希望将 &lt;strong&gt;某一些&lt;/strong&gt; &lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 改成 &lt;span class="math"&gt;\(a_i'\)&lt;/span&gt;（由于可以任意挑题目，所以这里选取的 &lt;span class="math"&gt;\(a_i'\in \mathbb{Z}\)&lt;/span&gt; 是任意的，即使是负值也可以），使得修改后的新序列 &lt;span class="math"&gt;\(a'\)&lt;/span&gt;，&lt;span class="math"&gt;\(Q(a')\)&lt;/span&gt; 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 &lt;span class="math"&gt;\(Q(a')\)&lt;/span&gt; 最大。&lt;/p&gt;
 &lt;h2 id="section-3"&gt;输入&lt;/h2&gt;
 &lt;p&gt;第一行一个整数 &lt;span class="math"&gt;\(T\)&lt;/span&gt;，表示 &lt;span class="math"&gt;\(T\)&lt;/span&gt; 组测试数据。
@@ -1526,13 +1528,13 @@ d_{1,j}=\begin{cases}
 \]&lt;/div&gt;
 &lt;p&gt;而问题的答案即 &lt;span class="math"&gt;\(d_{n,x}\)&lt;/span&gt; 中的最小值。
 此解法状态数 &lt;span class="math"&gt;\(O(n\times\max(n,m))\)&lt;/span&gt; （其中 &lt;span class="math"&gt;\(m\)&lt;/span&gt; 为 &lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 的可能取值种数）状态转移 &lt;span class="math"&gt;\(O(m)\)&lt;/span&gt;，故时间复杂度为 &lt;span class="math"&gt;\(O(nm^2)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;{% note warning %}
-由于数值范围较大，通过离散化可将 &lt;span class="math"&gt;\(m\)&lt;/span&gt; 降至与 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 同阶，但由于此题的“严格递增”条件，&lt;strong&gt;普通的离散化可能会带来错解&lt;/strong&gt;。这一点我们在之后解决。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于数值范围较大，通过离散化可将 &lt;span class="math"&gt;\(m\)&lt;/span&gt; 降至与 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 同阶，但由于此题的“严格递增”条件，&lt;strong&gt;普通的离散化可能会带来错解&lt;/strong&gt;。这一点我们在之后解决。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="section-13"&gt;解法 2&lt;/h2&gt;
-&lt;p&gt;{% note info %}
-此方法与解法一“对偶”，但实现要容易得多。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此方法与解法一“对偶”，但实现要容易得多。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;状态&lt;/strong&gt;： &lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示前 &lt;span class="math"&gt;\(i\)&lt;/span&gt; 个数，修改 $0\le j\le i$ 次使序列严格递增时，&lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 的最小值。
 &lt;strong&gt;转移&lt;/strong&gt;：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -1558,35 +1560,38 @@ a_1,&amp;amp;j=0\\
 &lt;p&gt;而问题的答案即 &lt;span class="math"&gt;\(d_{n,x}\)&lt;/span&gt; 中最小的 &lt;span class="math"&gt;\(x\)&lt;/span&gt; 使得 &lt;span class="math"&gt;\(d_{n,x}\)&lt;/span&gt; 存在。
 此解法状态数 &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;，状态转移 &lt;span class="math"&gt;\(O(1)\)&lt;/span&gt;，故时间复杂度为 &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;。&lt;/p&gt;
 &lt;h2 id="section-14"&gt;解法 3（标准解法）&lt;/h2&gt;
-&lt;p&gt;{% note info %}
-其实此题的 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 可提升至 $10&lt;sup&gt;6$，&lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 数值范围可无限制（例如 $10&lt;/sup&gt;{18}$）。但对于这样的数据，前两种做法显然无能为力。所以我们需要一个全新的思路。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实此题的 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 可提升至 $10&lt;sup&gt;6$，&lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 数值范围可无限制（例如 $10&lt;/sup&gt;{18}$）。但对于这样的数据，前两种做法显然无能为力。所以我们需要一个全新的思路。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;我们考虑一个相似的问题：把一个序列改成单调 &lt;strong&gt;不降&lt;/strong&gt; 的，至少需要改多少个数？即要保证
 &lt;span class="math"&gt;\(i &amp;lt; j \Rightarrow a_i\le a_j\)&lt;/span&gt;
-这个问题的解法是 &lt;strong&gt;保留最长不降子序列&lt;/strong&gt;。最长非降子序列形成了一个阶梯式结构，可以将所有不属于最长非降子序列的数据改成最靠近的阶梯层。所以答案为 &lt;span class="math"&gt;\(n-\text{len}(LNDS)\)&lt;/span&gt;。
-{% note default %}
-证明可以从最优解必须保留最长非降子序列，和不能改动更少的数使得满足条件两个角度出发。
-{% endnote %}
-对于求解最长非降子序列，将求解 LIS 的算法 的状态转移稍作改动即可：
+这个问题的解法是 &lt;strong&gt;保留最长不降子序列&lt;/strong&gt;。最长非降子序列形成了一个阶梯式结构，可以将所有不属于最长非降子序列的数据改成最靠近的阶梯层。所以答案为 &lt;span class="math"&gt;\(n-\text{len}(LNDS)\)&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;证明可以从最优解必须保留最长非降子序列，和不能改动更少的数使得满足条件两个角度出发。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于求解最长非降子序列，将求解 LIS 的算法 的状态转移稍作改动即可：
 &lt;span class="math"&gt;\(d_i=1+\max_{j&amp;lt; i\wedge a_j\le a_i} d_j\)&lt;/span&gt;
 回到原题：一种比较自然的思路是保留最长上升子序列，即求 &lt;span class="math"&gt;\(n-len(LIS)\)&lt;/span&gt;。
 但这是 &lt;strong&gt;错&lt;/strong&gt; 的，比如这组数据：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1 2 2 3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;有 &lt;span class="math"&gt;\(\text{len}(LIS)=3\)&lt;/span&gt;，但显然只改一个值并不能将其变成严格递增的。
-{% note warning %}
-样例数据并不能反映这一点，但有所暗示。
-{% endnote %}
-所以原序列的 LIS 并不一定能完全被保留。那么什么样的子序列才是可以被完全保留的？其实仅在这种情况下，保留 LIS 可能会出现错误：&lt;span class="math"&gt;\(x-1,x,x,\cdots,x,x+1\)&lt;/span&gt;，中间过多的 &lt;span class="math"&gt;\(x\)&lt;/span&gt; 使得 &lt;span class="math"&gt;\(x+1\)&lt;/span&gt; 不能被保留。
-所以我们需要考虑位置信息。可以发现 &lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 至少要比 &lt;span class="math"&gt;\(a_0\)&lt;/span&gt; 大 &lt;span class="math"&gt;\(i\)&lt;/span&gt;。即要保证
-&lt;span class="math"&gt;\(i &amp;lt; j \Rightarrow a_j&amp;gt;a_i \Leftrightarrow a_j-a_i\ge j-i \Leftrightarrow a_j-j\ge a_i-i\)&lt;/span&gt;
-至此，我们完成了对原问题的转化。定义序列 &lt;span class="math"&gt;\(b:b_i=a_i-i\)&lt;/span&gt; 。可以发现：&lt;span class="math"&gt;\(a\)&lt;/span&gt; 的可完全保留单调递增序列和 &lt;span class="math"&gt;\(b\)&lt;/span&gt; 的不降子序列是一一对应的。
+&lt;p&gt;有 &lt;span class="math"&gt;\(\text{len}(LIS)=3\)&lt;/span&gt;，但显然只改一个值并不能将其变成严格递增的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;样例数据并不能反映这一点，但有所暗示。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以原序列的 LIS 并不一定能完全被保留。那么什么样的子序列才是可以被完全保留的？其实仅在这种情况下，保留 LIS 可能会出现错误：&lt;span class="math"&gt;\(x-1,x,x,\cdots,x,x+1\)&lt;/span&gt;，中间过多的 &lt;span class="math"&gt;\(x\)&lt;/span&gt; 使得 &lt;span class="math"&gt;\(x+1\)&lt;/span&gt; 不能被保留。
+所以我们需要考虑位置信息。可以发现 &lt;span class="math"&gt;\(a_i\)&lt;/span&gt; 至少要比 &lt;span class="math"&gt;\(a_0\)&lt;/span&gt; 大 &lt;span class="math"&gt;\(i\)&lt;/span&gt;。即要保证&lt;/p&gt;
+&lt;div class="math"&gt;
+\[
+i &amp;lt; j \Rightarrow a_j&amp;gt;a_i \Leftrightarrow a_j-a_i\ge j-i \Leftrightarrow a_j-j\ge a_i-i
+\]&lt;/div&gt;
+&lt;p&gt;至此，我们完成了对原问题的转化。定义序列 &lt;span class="math"&gt;\(b:b_i=a_i-i\)&lt;/span&gt; 。可以发现：&lt;span class="math"&gt;\(a\)&lt;/span&gt; 的可完全保留单调递增序列和 &lt;span class="math"&gt;\(b\)&lt;/span&gt; 的不降子序列是一一对应的。
 所以原问题的答案就是 &lt;span class="math"&gt;\(n-\text{len}(LNDS_b)\)&lt;/span&gt;。
 求解的时间复杂度集中在求解 &lt;span class="math"&gt;\(\text{len}(LNDS_b)\)&lt;/span&gt;，而这一步可以在 &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt; 内完成。故总时间复杂度为 &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;.
 而求解 LIS，LNDS 的长度可以在 &lt;span class="math"&gt;\(O(n\lg n)\)&lt;/span&gt; 内完成。故我们可以使用解法 3 在更短的时间内解决。&lt;/p&gt;
-&lt;p&gt;{% note primary %}
-看起来算法 3 完美地解决了这个问题，而算法 1 没有任何优势，但其实不然，在 &lt;a href="#%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95"&gt;问题扩展&lt;/a&gt; 部分，我们会利用算法 3 推导过程中的思路来扩展算法 1，并用其解决一个更复杂的问题。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;看起来算法 3 完美地解决了这个问题，而算法 1 没有任何优势，但其实不然，在 &lt;a href="#%E9%97%AE%E9%A2%98%E6%89%A9%E5%B1%95"&gt;问题扩展&lt;/a&gt; 部分，我们会利用算法 3 推导过程中的思路来扩展算法 1，并用其解决一个更复杂的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id="section-15"&gt;数据构造&lt;/h1&gt;
 &lt;p&gt;此题要求卡掉 &lt;span class="math"&gt;\(n-len(LIS)\)&lt;/span&gt; 的做法，所以构造形如 &lt;code&gt;1 2 2 3&lt;/code&gt; 的数据即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;import random
@@ -1683,11 +1688,11 @@ int main()
 此时解法 3 不那么奏效：保留最长可行子序列，但可能有多种最长可行子序列，而且保留后相邻段之间的值该如何更改，解法 3 难以给出足够的信息。
 但可以发现，解法 3 思路中的推导仍然成立，我们依旧将问题转化，求序列 &lt;span class="math"&gt;\(b:b_i=a_i-i\)&lt;/span&gt; 满足不降的最优解。两个问题的最优解值是相等的。
 首先一个结论，在修改后的序列中出现的所有数，都是原序列中出现过的。其证明可用反证法。
-进而我们只在处理中只关注某个数的位次（排名），仅在计算费用时使用原值，所以我们可对序列的值离散化，将 &lt;span class="math"&gt;\(m\)&lt;/span&gt; 降到 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 同阶。
-{% note success %}
-由于在转化后的问题中，我们可以让一段值相等，不再存在“严格递增”条件，离散化可能错解的问题被解决。
-{% endnote %}
-接下来，我们使用解法 1：设 &lt;span class="math"&gt;\(c_i\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(\{b\}\)&lt;/span&gt; 中第 &lt;span class="math"&gt;\(i\)&lt;/span&gt; 小的数。
+进而我们只在处理中只关注某个数的位次（排名），仅在计算费用时使用原值，所以我们可对序列的值离散化，将 &lt;span class="math"&gt;\(m\)&lt;/span&gt; 降到 &lt;span class="math"&gt;\(n\)&lt;/span&gt; 同阶。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于在转化后的问题中，我们可以让一段值相等，不再存在“严格递增”条件，离散化可能错解的问题被解决。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接下来，我们使用解法 1：设 &lt;span class="math"&gt;\(c_i\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(\{b\}\)&lt;/span&gt; 中第 &lt;span class="math"&gt;\(i\)&lt;/span&gt; 小的数。
 &lt;strong&gt;状态&lt;/strong&gt;： &lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示前 &lt;span class="math"&gt;\(i\)&lt;/span&gt; 个数，将 &lt;span class="math"&gt;\(b_i\)&lt;/span&gt; 修改为 &lt;span class="math"&gt;\(c_j\)&lt;/span&gt; ，使序列不降时，修改费用的最小值。
 &lt;strong&gt;转移&lt;/strong&gt;：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -1745,10 +1750,10 @@ nexus-am/
 &lt;/ul&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nemu %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nexus-am %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nanos-lite %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-navy-apps %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="libs"&gt;libs/&lt;/h1&gt;
 &lt;h2 id="libc"&gt;libc/&lt;/h2&gt;
@@ -1830,9 +1835,9 @@ CPU 架构：x64
 &lt;/ul&gt;
 &lt;p&gt;由于 NJU ICS PA 框架代码较多且缺少足够说明，讲义多为基础引入内容，为方便后续程序编写，根据实际作业过程中的理解整理出此文。
 本文主要包含对 NJU ICS 课程编程作业的框架代码中 NEMU 部分的理解和分析，跟随课程及讲义进度更新，以个人使用为主，可能存在错误。&lt;/p&gt;
-&lt;p&gt;{% note warning %}
-部分内容框架代码并不包含（如扩展的 Debug 宏），均为我为编码而添加的内容。采用 &lt;code&gt;a_b&lt;/code&gt; 方式命名的多为原内容，采用 &lt;code&gt;aB&lt;/code&gt; 方式命名的多为补充内容。由于此项目是 NJU ICS PA 的一部分，其中会包含与相关项目的互操作内容。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;部分内容框架代码并不包含（如扩展的 Debug 宏），均为我为编码而添加的内容。采用 &lt;code&gt;a_b&lt;/code&gt; 方式命名的多为原内容，采用 &lt;code&gt;aB&lt;/code&gt; 方式命名的多为补充内容。由于此项目是 NJU ICS PA 的一部分，其中会包含与相关项目的互操作内容。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;NEMU (NJU EMUlator) 是在 Linux 上的一个 n86（x86 子集）模拟器，模拟了基本计算机系统的功能（内存，CPU等）。包含了：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内存&lt;/li&gt;
@@ -1855,10 +1860,10 @@ nemu/               # NEMU 项目
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nemu %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nexus-am %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-nanos-lite %}&lt;/li&gt;
-&lt;li&gt;{% post_link solving/nju-icspa-analytics-navy-apps %}&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/posts/nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="nemu.h"&gt;nemu.h&lt;/h2&gt;
