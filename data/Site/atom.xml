@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:b0afbc5f-7423-45da-96f8-f14fd7e1e4b3;id=1</id><updated>2020-07-18T01:36:32Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:18e515aa-4434-41f9-bc71-28f911b771da;id=1</id><updated>2020-07-18T01:43:24Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
 作者：Andrew Koenig
 出版时间：1989-1-11
 基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</summary><published>2018-08-26T10:30:40+08:00</published><updated>2018-08-26T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls" /><category term="Reading" /><content type="html">&lt;ul&gt;
@@ -411,13 +411,6 @@ navy-apps/
 nemu/
 nexus-am/
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="common.h"&gt;common.h&lt;/h2&gt;
 &lt;p&gt;引用 AM 中的 &lt;code&gt;am.h klib.h&lt;/code&gt;。&lt;/p&gt;
@@ -537,7 +530,7 @@ typedef size_t (*WriteFn) (const void *buf, size_t offset, size_t len);
 &lt;li&gt;&lt;code&gt;invalid_read&lt;/code&gt; 非法读取&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;invalid_write&lt;/code&gt; 非法写入&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="section-3"&gt;枚举&lt;/h3&gt;
+&lt;h3 id="section-2"&gt;枚举&lt;/h3&gt;
 &lt;p&gt;特殊文件类型枚举。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -740,7 +733,7 @@ typedef size_t (*WriteFn) (const void *buf, size_t offset, size_t len);
 &lt;h3 id="do_syscall"&gt;函数 do_syscall&lt;/h3&gt;
 &lt;p&gt;根据上下文（在栈中保存），执行系统调用。
 使用 &lt;code&gt;nexus-am/am.h&lt;/code&gt; 中的 GRP? 宏访问系统调用参数。根据调用类型执行对应函数并处理返回值。&lt;/p&gt;
-&lt;h1 id="section-4"&gt;引用资料&lt;/h1&gt;
+&lt;h1 id="section-3"&gt;引用资料&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -895,13 +888,6 @@ nexus-am/                   # NEXUS-AM 项目
     Makefile                # AM 构建命令
     Makefile.check          # AM 上项目的构建命令
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id="makefile.check"&gt;Makefile.check&lt;/h1&gt;
 &lt;p&gt;通过设置 &lt;code&gt;ARCH&lt;/code&gt; 变量，指定默认 AM：&lt;/p&gt;
 &lt;ul&gt;
@@ -934,7 +920,7 @@ src/                # 源码文件
 &lt;/ul&gt;
 &lt;h2 id="am.h"&gt;am.h&lt;/h2&gt;
 &lt;p&gt;定义了 AM 基础 API。&lt;/p&gt;
-&lt;h3 id="section-3"&gt;枚举&lt;/h3&gt;
+&lt;h3 id="section-2"&gt;枚举&lt;/h3&gt;
 &lt;p&gt;定义了事件类型枚举，指示事件类型。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;enum {
   _EVENT_NULL = 0,
@@ -946,7 +932,7 @@ src/                # 源码文件
   _EVENT_SYSCALL,   // 系统调用
 };
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="section-4"&gt;结构体&lt;/h3&gt;
+&lt;h3 id="section-3"&gt;结构体&lt;/h3&gt;
 &lt;h4 id="context"&gt;_Context&lt;/h4&gt;
 &lt;p&gt;规定了上下文结构体 &lt;code&gt;_Context&lt;/code&gt;。
 因为不同机器之间上下文信息的差异过大，所以在AM中, &lt;code&gt;_Context&lt;/code&gt; 的具体成员也是由不同的机器自己定义的。因此, 在操作系统中, 对 &lt;code&gt;_Context&lt;/code&gt; 成员的直接引用, 都属于机器相关的行为, 会损坏操作系统的可移植性. 不过大多数情况下, 操作系统并不需要单独访问 &lt;code&gt;_Context&lt;/code&gt; 结构中的成员. 必要的时候, CTE也可以提供一些统一的接口, 来让操作系统通过这些接口来访问, 从而保证操作系统的相关代码与机器无关.&lt;/p&gt;
@@ -1430,7 +1416,7 @@ int screen_height();
 &lt;h2 id="cputest"&gt;cputest/&lt;/h2&gt;
 &lt;p&gt;包含一些测试 CPU 指令实现的测试。
 使用 &lt;code&gt;make ALL=testname run&lt;/code&gt; 指定测试。&lt;/p&gt;
-&lt;h1 id="section-5"&gt;引用资料&lt;/h1&gt;
+&lt;h1 id="section-4"&gt;引用资料&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -2125,13 +2111,6 @@ nexus-am/
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;libs/libos/syscall.h&lt;/code&gt; 与 &lt;code&gt;nanos-lite/syscall.h&lt;/code&gt; 相同。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id="libs"&gt;libs/&lt;/h1&gt;
 &lt;h2 id="libc"&gt;libc/&lt;/h2&gt;
 &lt;p&gt;Newlib 项目, 它是一个专门为嵌入式系统提供的 C 库, 库中的函数对运行时环境的要求极低. 这对Nanos-lite来说是非常友好的, 我们不需要为了配合C库而在Nanos-lite中实现额外的功能. 用户程序的入口位于 &lt;code&gt;navy-apps/libs/libc/start.c&lt;/code&gt; 中的 &lt;code&gt;_start()&lt;/code&gt; 函数, 它会调用用户程序的 &lt;code&gt;main()&lt;/code&gt; 函数, 从 &lt;code&gt;main()&lt;/code&gt; 函数返回后会调用 &lt;code&gt;exit()&lt;/code&gt; 结束运行.&lt;/p&gt;
@@ -2145,7 +2124,7 @@ nexus-am/
   return ret;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="section-3"&gt;一系列系统调用函数&lt;/h3&gt;
+&lt;h3 id="section-2"&gt;一系列系统调用函数&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -2192,7 +2171,7 @@ nexus-am/
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id="section-4"&gt;引用资料&lt;/h1&gt;
+&lt;h1 id="section-3"&gt;引用资料&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -2235,13 +2214,6 @@ nemu/               # NEMU 项目
     Makefile        # NEMU 构建命令
     Makefile.git    # NEMU Git 记录命令
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-2"&gt;相关资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nemu"&gt;NEMU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nexus-am"&gt;Nexus-am&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-nanos-lite"&gt;Nanos-lite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="/posts/Learning%2nju-icspa-analytics-navy-apps"&gt;Navy-apps&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h1 id="include"&gt;include/&lt;/h1&gt;
 &lt;h2 id="nemu.h"&gt;nemu.h&lt;/h2&gt;
 &lt;p&gt;基础头文件。包含了 &lt;code&gt;commom.h&lt;/code&gt;，&lt;code&gt;memory/memory.h&lt;/code&gt;，&lt;code&gt;cpu/reg.h&lt;/code&gt;&lt;/p&gt;
@@ -2421,7 +2393,7 @@ extern const char* regsb[];
 &lt;p&gt;{% note info %}
 寄存器存储在变量 &lt;code&gt;cpu&lt;/code&gt; 中。
 {% endnote %}&lt;/p&gt;
-&lt;h4 id="section-3"&gt;枚举&lt;/h4&gt;
+&lt;h4 id="section-2"&gt;枚举&lt;/h4&gt;
 &lt;p&gt;定义了形如 &lt;code&gt;R_NAME&lt;/code&gt; 的寄存器枚举，其顺序与寄存器结构中的顺序一致。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;enum { R_EAX, R_ECX, R_EDX, R_EBX, R_ESP, R_EBP, R_ESI, R_EDI };
 enum { R_AX, R_CX, R_DX, R_BX, R_SP, R_BP, R_SI, R_DI };
@@ -2593,7 +2565,7 @@ enum { R_AL, R_CL, R_DL, R_BL, R_AH, R_CH, R_DH, R_BH };
 &lt;p&gt;指令中的 ModR/M。&lt;/p&gt;
 &lt;h4 id="sib"&gt;结构体 SIB&lt;/h4&gt;
 &lt;p&gt;指令中的 SIB。&lt;/p&gt;
-&lt;h4 id="section-4"&gt;枚举&lt;/h4&gt;
+&lt;h4 id="section-3"&gt;枚举&lt;/h4&gt;
 &lt;p&gt;定义了操作数的类型 &lt;code&gt;OP_TYPE_REG&lt;/code&gt;，&lt;code&gt;OP_TYPE_MEM&lt;/code&gt;，&lt;code&gt;OP_TYPE_IMM&lt;/code&gt;，分别为寄存器，内存，立即数。&lt;/p&gt;
 &lt;h4 id="make_dhelper-decode_name"&gt;宏 make_DHelper 与函数族 decode_name&lt;/h4&gt;
 &lt;p&gt;由宏 &lt;code&gt;make_DHelper&lt;/code&gt; 定义了一族函数（参数相同），用于指令译码，并定义了这些函数的指针类型 &lt;code&gt;DHelper&lt;/code&gt;。&lt;/p&gt;
@@ -3788,7 +3760,7 @@ static inline void idex(vaddr_t *eip, opcode_entry *e);
 &lt;/table&gt;
 &lt;h4 id="expr.c"&gt;expr.c&lt;/h4&gt;
 &lt;p&gt;实现了 &lt;code&gt;expr.h/expr&lt;/code&gt; 函数，实现表达式解析和求值。&lt;/p&gt;
-&lt;h5 id="section-5"&gt;常量&lt;/h5&gt;
+&lt;h5 id="section-4"&gt;常量&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;PRI_NEG&lt;/code&gt; 取负运算优先级&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;PRI_POINT&lt;/code&gt; 解引用运算优先级&lt;/li&gt;
@@ -4065,7 +4037,7 @@ void difftest_init();
 &lt;p&gt;生成 C 表达式，用于测试表达式求值功能。&lt;/p&gt;
 &lt;h2 id="qemu-diff"&gt;qemu-diff&lt;/h2&gt;
 &lt;p&gt;QEMU 实现，用于 Diff-Test。编译成动态库 &lt;code&gt;qemu-so&lt;/code&gt;，传入 nemu 的 &lt;code&gt;-d&lt;/code&gt; 参数中。&lt;/p&gt;
-&lt;h1 id="section-6"&gt;引用资料&lt;/h1&gt;
+&lt;h1 id="section-5"&gt;引用资料&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4941,14 +4913,13 @@ assign Mux = (S == 3) ? D : 'bz;
 官网
 介绍：一个能处理依赖关系，进行自动化编译的工具。
 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务
-Makefile
 基础知识
-GNU的 make 工作时的执行</summary><published>2018-09-16T18:58:19+08:00</published><updated>2018-09-16T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fmake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+GNU的 make 工作时的执行步骤如下：
+读入所</summary><published>2018-09-16T18:58:19+08:00</published><updated>2018-09-16T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fmake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.gnu.org/software/make/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：一个能处理依赖关系，进行自动化编译的工具。&lt;/li&gt;
 &lt;li&gt;make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务&lt;/li&gt;
-&lt;li&gt;&lt;a href="posts/Tools%2progLang-makefile"&gt;Makefile&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
 &lt;p&gt;GNU的 make 工作时的执行步骤如下：&lt;/p&gt;
@@ -6165,7 +6136,6 @@ div{
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/css3/index.asp"&gt;CSS3 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content></entry><entry><id>Tools/progLang-makefile</id><title type="text">Makefile</title><summary type="text">基本信息
-Make
 Makefile 为 make 提供依赖描述和编译指令等设置。
 基础知识
 注释 #
@@ -6173,9 +6143,8 @@ Makefile 为 make 提供依赖描述和编译指令等设置。
 通配符：* ? ~
 显式规则
 Makefile 规则：指定依赖关系与生成命令。
-tar</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+target .</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="posts/Tools%2make"&gt;Make&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Makefile 为 make 提供依赖描述和编译指令等设置。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-1"&gt;基础知识&lt;/h1&gt;
