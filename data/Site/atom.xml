@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:3f63b499-fe01-4974-8adc-99b9795ddedb;id=1</id><updated>2020-07-19T04:31:02Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:37df1ecb-236e-4897-b494-0db95697556d;id=1</id><updated>2020-07-19T04:53:21Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
 作者：Andrew Koenig
 出版时间：1989-1-11
 基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</summary><published>2018-08-26T10:30:40+08:00</published><updated>2018-08-26T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls" /><category term="Reading" /><content type="html">&lt;ul&gt;
@@ -9363,20 +9363,6 @@ class Solution:
             cur.next = ListNode(rem)
         return res
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-1518</id><title type="text">LeetCode-1518 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
-class Solution:
-    def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1518" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
-    def numWaterBottles(self, numBottles: int, numExchange: int) -&amp;gt; int:
-        result = numBottles
-        bot = numBottles
-        while bot &amp;gt;= numExchange:
-            g = bot // numExchange
-            bot = bot % numExchange
-            bot += g
-            result += g
-        return result
-&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得</summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1" /><category term="Problems" /><content type="html">&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
 
@@ -9403,8 +9389,22 @@ impl Solution {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-1521</id><title type="text">LeetCode-1521 找到最接近目标值的函数值</title><summary type="text">区间取 AND 和，固定左端点，结果是递减的，从而目标函数 |ANDSUM(l, r) - target| 是一个单峰函数。
-将每个数拆成二进制数位，维护每一位的前缀和，只要第 i 位的区间和 bit</summary><published>2020-07-19T12:30:28+08:00</published><updated>2020-07-19T12:30:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1521" /><category term="Problems" /><content type="html">&lt;p&gt;区间取 &lt;code&gt;AND&lt;/code&gt; 和，固定左端点，结果是递减的，从而目标函数 &lt;code&gt;|ANDSUM(l, r) - target|&lt;/code&gt; 是一个单峰函数。&lt;/p&gt;
+</content></entry><entry><id>Problems/leetcode-5464</id><title type="text">LeetCode-5464 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5464" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -&amp;gt; int:
+        result = numBottles
+        bot = numBottles
+        while bot &amp;gt;= numExchange:
+            g = bot // numExchange
+            bot = bot % numExchange
+            bot += g
+            result += g
+        return result
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-5467</id><title type="text">LeetCode-5467 找到最接近目标值的函数值</title><summary type="text">区间取 AND 和，固定左端点，结果是递减的，从而目标函数 |ANDSUM(l, r) - target| 是一个单峰函数。
+将每个数拆成二进制数位，维护每一位的前缀和，只要第 i 位的区间和 bit</summary><published>2020-07-19T12:30:28+08:00</published><updated>2020-07-19T12:30:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5467" /><category term="Problems" /><content type="html">&lt;p&gt;区间取 &lt;code&gt;AND&lt;/code&gt; 和，固定左端点，结果是递减的，从而目标函数 &lt;code&gt;|ANDSUM(l, r) - target|&lt;/code&gt; 是一个单峰函数。&lt;/p&gt;
 &lt;p&gt;将每个数拆成二进制数位，维护每一位的前缀和，只要第 &lt;code&gt;i&lt;/code&gt; 位的区间和 &lt;code&gt;bit[r]-bit[l] &amp;lt; r-l&lt;/code&gt; 即可知此区间这一位上存在 0，进而 &lt;code&gt;AND&lt;/code&gt; 和的这一位为 0，否则为 1。&lt;/p&gt;
 &lt;p&gt;预处理上述结果后，可以在 &lt;span class="math"&gt;\(O(32)\)&lt;/span&gt; 内得到区间 &lt;code&gt;AND&lt;/code&gt; 和。&lt;/p&gt;
 &lt;p&gt;结合之前的单峰函数性质，枚举左端点，使用三分法计算固定左端点下的最优值即可。&lt;/p&gt;
@@ -9473,59 +9473,8 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-1519</id><title type="text">LeetCode-1519 子树中标签相同的节点数</title><summary type="text">注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
-vectorint g[100005];
-int _co</summary><published>2020-07-19T12:30:23+08:00</published><updated>2020-07-19T12:30:23+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1519" /><category term="Problems" /><content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-cpp"&gt;vector&amp;lt;int&amp;gt; g[100005];
-int _count[26][100005];
-int ch = 0;
-string *l;
-int *cur = NULL;
-void dfs(int u, int pa)
-{
-    cur[u] = 0;
-    if (l-&amp;gt;at(u) - 'a' == ch)
-    {
-        cur[u]++;
-    }
-    for (int v : g[u])
-    {
-        if (v == pa)
-            continue;
-        dfs(v, u);
-        cur[u] += cur[v];
-    }
-}
-
-class Solution
-{
-public:
-    vector&amp;lt;int&amp;gt; countSubTrees(int n, vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; &amp;amp;edges, string labels)
-    {
-        for (int i = 0; i &amp;lt; n; i++)
-            g[i].clear();
-        for (vector&amp;lt;int&amp;gt; &amp;amp;e : edges)
-        {
-            g[e[0]].push_back(e[1]);
-            g[e[1]].push_back(e[0]);
-        }
-        l = &amp;amp;labels;
-        for (ch = 0; ch &amp;lt; 26; ch++)
-        {
-            cur = _count[ch];
-            dfs(0, -1);
-        }
-        vector&amp;lt;int&amp;gt; result;
-        for (int i = 0; i &amp;lt; n; i++)
-        {
-            result.push_back(_count[labels.at(i) - 'a'][i]);
-        }
-        return result;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-1520</id><title type="text">LeetCode-1520 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
-先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1520" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
+</content></entry><entry><id>Problems/leetcode-5466</id><title type="text">LeetCode-5466 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
+先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5466" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
 &lt;p&gt;先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中这一要求，最多有 26 个子串。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;预处理出每种字符的第一次出现和最后一次出现&lt;/li&gt;
@@ -9652,6 +9601,57 @@ public:
             ans = max(ans, j-i+1)
             bg[s[j]]=j
         return ans
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-5465</id><title type="text">LeetCode-5465 子树中标签相同的节点数</title><summary type="text">注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
+vectorint g[100005];
+int _co</summary><published>2020-07-19T12:30:23+08:00</published><updated>2020-07-19T12:30:23+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5465" /><category term="Problems" /><content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;vector&amp;lt;int&amp;gt; g[100005];
+int _count[26][100005];
+int ch = 0;
+string *l;
+int *cur = NULL;
+void dfs(int u, int pa)
+{
+    cur[u] = 0;
+    if (l-&amp;gt;at(u) - 'a' == ch)
+    {
+        cur[u]++;
+    }
+    for (int v : g[u])
+    {
+        if (v == pa)
+            continue;
+        dfs(v, u);
+        cur[u] += cur[v];
+    }
+}
+
+class Solution
+{
+public:
+    vector&amp;lt;int&amp;gt; countSubTrees(int n, vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; &amp;amp;edges, string labels)
+    {
+        for (int i = 0; i &amp;lt; n; i++)
+            g[i].clear();
+        for (vector&amp;lt;int&amp;gt; &amp;amp;e : edges)
+        {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        l = &amp;amp;labels;
+        for (ch = 0; ch &amp;lt; 26; ch++)
+        {
+            cur = _count[ch];
+            dfs(0, -1);
+        }
+        vector&amp;lt;int&amp;gt; result;
+        for (int i = 0; i &amp;lt; n; i++)
+        {
+            result.push_back(_count[labels.at(i) - 'a'][i]);
+        }
+        return result;
+    }
+};
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/Contests/linglong-acm-round23</id><title type="text">“玲珑杯” ACM比赛 Round 23</title><summary type="text">生是脂肪的人
 给定一个整数 &lt;span class="math"&gt;\(n\)&lt;/span&gt; ，输出 $10^n/7$ 的个位数。其中 &lt;span class="math"&gt;\(|n| \leq 10^</summary><published>2018-08-08T16:06:25+08:00</published><updated>2018-08-08T16:06:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2FContests%2Flinglong-acm-round23" /><category term="Problems/Contests" /><content type="html">&lt;h1 id="section"&gt;生是脂肪的人&lt;/h1&gt;
