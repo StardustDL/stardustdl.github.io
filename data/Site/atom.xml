@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:18e515aa-4434-41f9-bc71-28f911b771da;id=1</id><updated>2020-07-18T01:43:24Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:3f63b499-fe01-4974-8adc-99b9795ddedb;id=1</id><updated>2020-07-19T04:31:02Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
 作者：Andrew Koenig
 出版时间：1989-1-11
 基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</summary><published>2018-08-26T10:30:40+08:00</published><updated>2018-08-26T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls" /><category term="Reading" /><content type="html">&lt;ul&gt;
@@ -9363,6 +9363,20 @@ class Solution:
             cur.next = ListNode(rem)
         return res
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-1518</id><title type="text">LeetCode-1518 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1518" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -&amp;gt; int:
+        result = numBottles
+        bot = numBottles
+        while bot &amp;gt;= numExchange:
+            g = bot // numExchange
+            bot = bot % numExchange
+            bot += g
+            result += g
+        return result
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得</summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1" /><category term="Problems" /><content type="html">&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
 
@@ -9388,6 +9402,244 @@ impl Solution {
         panic!();
     }
 }
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-1521</id><title type="text">LeetCode-1521 找到最接近目标值的函数值</title><summary type="text">区间取 AND 和，固定左端点，结果是递减的，从而目标函数 |ANDSUM(l, r) - target| 是一个单峰函数。
+将每个数拆成二进制数位，维护每一位的前缀和，只要第 i 位的区间和 bit</summary><published>2020-07-19T12:30:28+08:00</published><updated>2020-07-19T12:30:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1521" /><category term="Problems" /><content type="html">&lt;p&gt;区间取 &lt;code&gt;AND&lt;/code&gt; 和，固定左端点，结果是递减的，从而目标函数 &lt;code&gt;|ANDSUM(l, r) - target|&lt;/code&gt; 是一个单峰函数。&lt;/p&gt;
+&lt;p&gt;将每个数拆成二进制数位，维护每一位的前缀和，只要第 &lt;code&gt;i&lt;/code&gt; 位的区间和 &lt;code&gt;bit[r]-bit[l] &amp;lt; r-l&lt;/code&gt; 即可知此区间这一位上存在 0，进而 &lt;code&gt;AND&lt;/code&gt; 和的这一位为 0，否则为 1。&lt;/p&gt;
+&lt;p&gt;预处理上述结果后，可以在 &lt;span class="math"&gt;\(O(32)\)&lt;/span&gt; 内得到区间 &lt;code&gt;AND&lt;/code&gt; 和。&lt;/p&gt;
+&lt;p&gt;结合之前的单峰函数性质，枚举左端点，使用三分法计算固定左端点下的最优值即可。&lt;/p&gt;
+&lt;p&gt;此实现遇到了常数问题，经过常数优化后通过。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
+{
+    vector&amp;lt;int&amp;gt; bit[30];
+    inline int getValue(int l, int r)
+    {
+        int res = 0;
+        for (int i = 0; i &amp;lt; 30; i++)
+        {
+            if (bit[i][r + 1] - bit[i][l] == r - l + 1)
+            {
+                res |= (1 &amp;lt;&amp;lt; i);
+            }
+        }
+        return res;
+    }
+    inline int calc(int l, int r, int target)
+    {
+        return abs(getValue(l, r) - target);
+    }
+
+public:
+    int closestToTarget(vector&amp;lt;int&amp;gt; &amp;amp;arr, int target)
+    {
+        int n = arr.size();
+        for (int j = 0; j &amp;lt; 30; j++)
+        {
+            bit[j].clear();
+            bit[j].push_back(0);
+        }
+        for (int i = 0; i &amp;lt; n; i++)
+        {
+            for (int j = 0; j &amp;lt; 30; j++)
+            {
+                bit[j].push_back(bit[j][i] + (arr[i] &amp;gt;&amp;gt; j &amp;amp; 1));
+            }
+        }
+        int ans = 1 &amp;lt;&amp;lt; 30;
+        for (int l = 0; l &amp;lt; n; l++)
+        {
+            int s = l, t = n - 1, tans = 1 &amp;lt;&amp;lt; 30;
+            while (s + 2 &amp;lt;= t)
+            {
+                int len = t - s + 1;
+                int ml = s + (len / 3);
+                int mr = t - (len / 3);
+                int vl = calc(l, ml, target), vr = calc(l, mr, target);
+                tans = min(tans, min(vl, vr));
+                if (vl &amp;lt;= vr)
+                {
+                    t = mr;
+                }
+                else
+                {
+                    s = ml;
+                }
+            }
+            for (int i = s; i &amp;lt;= t; i++)
+                tans = min(tans, calc(l, i, target));
+            ans = min(ans, tans);
+        }
+        return ans;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-1519</id><title type="text">LeetCode-1519 子树中标签相同的节点数</title><summary type="text">注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
+vectorint g[100005];
+int _co</summary><published>2020-07-19T12:30:23+08:00</published><updated>2020-07-19T12:30:23+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1519" /><category term="Problems" /><content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;vector&amp;lt;int&amp;gt; g[100005];
+int _count[26][100005];
+int ch = 0;
+string *l;
+int *cur = NULL;
+void dfs(int u, int pa)
+{
+    cur[u] = 0;
+    if (l-&amp;gt;at(u) - 'a' == ch)
+    {
+        cur[u]++;
+    }
+    for (int v : g[u])
+    {
+        if (v == pa)
+            continue;
+        dfs(v, u);
+        cur[u] += cur[v];
+    }
+}
+
+class Solution
+{
+public:
+    vector&amp;lt;int&amp;gt; countSubTrees(int n, vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; &amp;amp;edges, string labels)
+    {
+        for (int i = 0; i &amp;lt; n; i++)
+            g[i].clear();
+        for (vector&amp;lt;int&amp;gt; &amp;amp;e : edges)
+        {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        l = &amp;amp;labels;
+        for (ch = 0; ch &amp;lt; 26; ch++)
+        {
+            cur = _count[ch];
+            dfs(0, -1);
+        }
+        vector&amp;lt;int&amp;gt; result;
+        for (int i = 0; i &amp;lt; n; i++)
+        {
+            result.push_back(_count[labels.at(i) - 'a'][i]);
+        }
+        return result;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-1520</id><title type="text">LeetCode-1520 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
+先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1520" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
+&lt;p&gt;先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中这一要求，最多有 26 个子串。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;预处理出每种字符的第一次出现和最后一次出现&lt;/li&gt;
+&lt;li&gt;迭代更新每种字符相关的子串区间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;问题转化为选择尽量多的不相交子串，且总长度最短。&lt;/p&gt;
+&lt;p&gt;类似含价值的线段最大价值覆盖问题，使用动态规划解决。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按线段右端点升序排序&lt;/li&gt;
+&lt;li&gt;设 &lt;code&gt;j&lt;/code&gt; 是在 &lt;code&gt;i&lt;/code&gt; 前的与 &lt;code&gt;i&lt;/code&gt; 不相交的子串，&lt;span class="math"&gt;\(d_i\)&lt;/span&gt; 为 前 &lt;code&gt;i&lt;/code&gt; 个子串，且包含子串 &lt;code&gt;i&lt;/code&gt; 的最大价值和，&lt;span class="math"&gt;\(v_i\)&lt;/span&gt; 为子串 &lt;code&gt;i&lt;/code&gt; 的价值。则转移方程为&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="math"&gt;
+\[
+d_i = \max \{d_j + v_i\}
+\]&lt;/div&gt;
+&lt;p&gt;结果即为 &lt;span class="math"&gt;\(d\)&lt;/span&gt; 中的最大值。&lt;/p&gt;
+&lt;p&gt;本题中价值包含两方面：数量最多，总长度最短，可以如下取价值函数：&lt;/p&gt;
+&lt;div class="math"&gt;
+\[
+v_i = - \text{len}_i + 10\times\text{len}_S
+\]&lt;/div&gt;
+&lt;p&gt;其中 &lt;span class="math"&gt;\(\text{len}_S\)&lt;/span&gt; 是原串总长度。&lt;/p&gt;
+&lt;p&gt;输出具体方案，维护最优转移中的上一个子串即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;struct seg
+{
+    int s, t, v;
+};
+bool cmp(seg a, seg b)
+{
+    return a.t &amp;lt; b.t;
+}
+
+class Solution
+{
+public:
+    vector&amp;lt;string&amp;gt; maxNumOfSubstrings(string s)
+    {
+        vector&amp;lt;seg&amp;gt; segs;
+        vector&amp;lt;int&amp;gt; ans, mx;
+        int l = s.size();
+        int first[26], last[26];
+        for (int i = 0; i &amp;lt; 26; i++)
+        {
+            first[i] = l + 1;
+            last[i] = -1;
+        }
+        for (int i = 0; i &amp;lt; l; i++)
+        {
+            int ch = s[i] - 'a';
+            first[ch] = min(first[ch], i);
+            last[ch] = max(last[ch], i);
+        }
+        for (int i = 0; i &amp;lt; 26; i++)
+        {
+            if (last[i] == -1)
+                continue;
+            while (true)
+            {
+                int tf = first[i], tl = last[i];
+                for (int j = tf; j &amp;lt;= tl; j++)
+                {
+                    int ch = s[j] - 'a';
+                    first[i] = min(first[ch], first[i]);
+                    last[i] = max(last[ch], last[i]);
+                }
+                if (first[i] == tf &amp;amp;&amp;amp; last[i] == tl)
+                    break;
+            }
+        }
+        for (int i = 0; i &amp;lt; 26; i++)
+        {
+            if (last[i] == -1)
+                continue;
+            segs.push_back((seg){first[i], last[i], 10000000 - (last[i] - first[i] + 1)});
+            mx.push_back(0);
+            ans.push_back(-1);
+        }
+        sort(segs.begin(), segs.end(), cmp);
+        mx[0] = segs[0].v;
+        for (int i = 1; i &amp;lt; segs.size(); i++)
+        {
+            printf(&amp;quot;%d %d\n&amp;quot;, segs[i].s, segs[i].t);
+            mx[i] = segs[i].v;
+            ans[i] = -1;
+            for (int j = i - 1; j &amp;gt;= 0; j--)
+            {
+                if (segs[j].t &amp;lt; segs[i].s)
+                {
+                    if ((segs[i].v + mx[j]) &amp;gt; mx[i])
+                    {
+                        mx[i] = segs[i].v + mx[j];
+                        ans[i] = j;
+                    }
+                }
+            }
+        }
+        int val = -1, pos = -1;
+        for (int i = 0; i &amp;lt; segs.size(); i++)
+        {
+            if (mx[i] &amp;gt; val)
+            {
+                val = mx[i];
+                pos = i;
+            }
+        }
+        vector&amp;lt;string&amp;gt; result;
+        for (int i = pos; i != -1; i = ans[i])
+        {
+            seg &amp;amp;g = segs[i];
+            result.push_back(s.substr(g.s, g.t - g.s + 1));
+        }
+        return result;
+    }
+};
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-3" /><category term="Problems" /><content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
