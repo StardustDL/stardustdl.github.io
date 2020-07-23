@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:7300bb13-a737-4f3d-98ea-5b8ec1f892fd;id=1</id><updated>2020-07-22T09:14:15Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:82ec1d29-b182-40dc-8995-2990da84f21b;id=1</id><updated>2020-07-23T06:10:41Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
@@ -8704,6 +8704,173 @@ Sum CPU cycles: 12079100
 Average CPU cycles: 1207.91
 Maximum: 202400 @ (8532847693583176248, 6988877428537774137, 8782939934027677977, 202400)
 Minimum: 900 @ (3971319143760212181, 2705697508146050036, 1115671950010882609, 900)
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Learning/cpp-template-seq</id><title type="text">C++ 模板实现编译期计算数列</title><summary type="text">虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。
+这里使用 C++ 模板的非类型参数特性来实现一些</summary><published>2020-07-23T13:23:31+08:00</published><updated>2020-07-23T13:23:31+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fcpp-template-seq" /><category term="Learning" /><content type="html">&lt;p&gt;虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。&lt;/p&gt;
+&lt;p&gt;这里使用 C++ 模板的非类型参数特性来实现一些数列的编译期计算。&lt;/p&gt;
+&lt;h2 id="section"&gt;阶乘数列&lt;/h2&gt;
+&lt;div class="math"&gt;
+\[
+F_i = \begin{cases}
+    1 &amp;amp; i = 0\\
+    iF_{i-1} &amp;amp; i &amp;gt; 0
+\end{cases}
+\]&lt;/div&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;template &amp;lt;int num&amp;gt;
+class Factorial
+{
+public:
+    static const int value = num * Factorial&amp;lt;num - 1&amp;gt;::value;
+};
+
+template &amp;lt;&amp;gt;
+class Factorial&amp;lt;0&amp;gt;
+{
+public:
+    static const int value = 1;
+};
+
+int main()
+{
+    cout &amp;lt;&amp;lt; Factorial&amp;lt;10&amp;gt;::value &amp;lt;&amp;lt; endl;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;为什么这是编译期运算呢？可以从两个方面了解。&lt;/p&gt;
+&lt;p&gt;关闭编译器所有优化。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-sh"&gt;g++ -S fac.cpp -O0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看编译得到的汇编代码。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-diff"&gt;main:
+.LFB1522:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+-	movl	$3628800, %esi
+	leaq	_ZSt4cout(%rip), %rdi
+	call	_ZNSolsEi@PLT
+	movq	%rax, %rdx
+	movq	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@GOTPCREL(%rip), %rax
+	movq	%rax, %rsi
+	movq	%rdx, %rdi
+	call	_ZNSolsEPFRSoS_E@PLT
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到在标注的那一行，编译期直接将阶乘结果写到了汇编代码中。&lt;/p&gt;
+&lt;p&gt;当运算结果超出 int 范围时，能否编译通过？&lt;/p&gt;
+&lt;p&gt;更改 &lt;code&gt;main&lt;/code&gt; 函数：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;int main()
+{
+    cout &amp;lt;&amp;lt; Factorial&amp;lt;20&amp;gt;::value &amp;lt;&amp;lt; endl;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再次编译：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-diff"&gt;fac.cpp: In instantiation of ‘const int Factorial&amp;lt;13&amp;gt;::value’:
+fac.cpp:8:34:   recursively required from ‘const int Factorial&amp;lt;19&amp;gt;::value’
+fac.cpp:8:34:   required from ‘const int Factorial&amp;lt;20&amp;gt;::value’
+fac.cpp:20:28:   required from here
+- fac.cpp:8:34: warning: integer overflow in expression of type ‘int’ results in ‘1932053504’ [-Woverflow]
+    8 |     static const int value = num * Factorial&amp;lt;num - 1&amp;gt;::value;
+      |                              ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+fac.cpp:8:22: error: overflow in constant expression [-fpermissive]
+    8 |     static const int value = num * Factorial&amp;lt;num - 1&amp;gt;::value;
+      |                      ^~~~~
+fac.cpp:8:22: error: overflow in constant expression [-fpermissive]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到编译器计算出了结果，同时也发现了溢出错误。&lt;/p&gt;
+&lt;h2 id="section-1"&gt;斐波那契数列&lt;/h2&gt;
+&lt;div class="math"&gt;
+\[
+F_i = \begin{cases}
+    0 &amp;amp; i = 0\\
+    1 &amp;amp; i = 1\\
+    F_{i-1} + F_{i-2} &amp;amp; i &amp;gt; 1
+\end{cases}
+\]&lt;/div&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;template &amp;lt;int num&amp;gt;
+class Fibonacci
+{
+public:
+    static const int value = Fibonacci&amp;lt;num - 1&amp;gt;::value + Fibonacci&amp;lt;num - 2&amp;gt;::value;
+};
+
+template &amp;lt;&amp;gt;
+class Fibonacci&amp;lt;0&amp;gt;
+{
+public:
+    static const int value = 0;
+};
+
+template &amp;lt;&amp;gt;
+class Fibonacci&amp;lt;1&amp;gt;
+{
+public:
+    static const int value = 1;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-2"&gt;组合数&lt;/h2&gt;
+&lt;div class="math"&gt;
+\[
+F_{n,m} = \begin{cases}
+    1 &amp;amp; m = 0 \\
+    0 &amp;amp; n = 0 \wedge m &amp;gt; 0\\
+    F_{n-1,m-1} + F_{n-1,m} &amp;amp; \text{otherwise}
+\end{cases}
+\]&lt;/div&gt;
+&lt;p&gt;上述递推式可以蕴含 &lt;span class="math"&gt;\(n&amp;gt;m\)&lt;/span&gt; 时 &lt;span class="math"&gt;\(F_{n,m}=0\)&lt;/span&gt; 的情况。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;template &amp;lt;int n, int m&amp;gt;
+class Combinatorial
+{
+public:
+    static const int value = Combinatorial&amp;lt;n - 1, m&amp;gt;::value + Combinatorial&amp;lt;n - 1, m - 1&amp;gt;::value;
+};
+
+template &amp;lt;int m&amp;gt;
+class Combinatorial&amp;lt;0, m&amp;gt;
+{
+public:
+    static const int value = 0;
+};
+
+template &amp;lt;int n&amp;gt;
+class Combinatorial&amp;lt;n, 0&amp;gt;
+{
+public:
+    static const int value = 1;
+};
+
+template &amp;lt;&amp;gt;
+class Combinatorial&amp;lt;0, 0&amp;gt;
+{
+public:
+    static const int value = 1;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因为 &lt;code&gt;class Combinatorial&amp;lt;0, m&amp;gt;&lt;/code&gt; 和 &lt;code&gt;class Combinatorial&amp;lt;n, 0&amp;gt;&lt;/code&gt; 均能匹配 &lt;span class="math"&gt;\(F_{0,0}\)&lt;/span&gt; 的情况，所以需要额外加入一个模板。&lt;/p&gt;
+&lt;p&gt;如果不加入，编译器会自动检查出递归式的定义在 &lt;span class="math"&gt;\((0,0)\)&lt;/span&gt; 处出现了冲突。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-diff"&gt;comb.cpp: In instantiation of ‘const int Combinatorial&amp;lt;1, 1&amp;gt;::value’:
+comb.cpp:8:61:   recursively required from ‘const int Combinatorial&amp;lt;9, 3&amp;gt;::value’
+comb.cpp:8:61:   required from ‘const int Combinatorial&amp;lt;10, 3&amp;gt;::value’
+comb.cpp:28:35:   required from here
+- comb.cpp:8:61: error: ambiguous template instantiation for ‘class Combinatorial&amp;lt;0, 0&amp;gt;’
+    8 |     static const int value = Combinatorial&amp;lt;n - 1, m&amp;gt;::value + Combinatorial&amp;lt;n - 1, m - 1&amp;gt;::value;
+      |                                                       ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+comb.cpp:12:7: note: candidates are: ‘template&amp;lt;int m&amp;gt; class Combinatorial&amp;lt;0, m&amp;gt; [with int m = 0]’
+   12 | class Combinatorial&amp;lt;0, m&amp;gt;
+      |       ^~~~~~~~~~~~~~~~~~~
+comb.cpp:19:7: note:                 ‘template&amp;lt;int n&amp;gt; class Combinatorial&amp;lt;n, 0&amp;gt; [with int n = 0]’
+   19 | class Combinatorial&amp;lt;n, 0&amp;gt;
+      |       ^~~~~~~~~~~~~~~~~~~
+comb.cpp:8:61: error: incomplete type ‘Combinatorial&amp;lt;0, 0&amp;gt;’ used in nested name specifier
+    8 |     static const int value = Combinatorial&amp;lt;n - 1, m&amp;gt;::value + Combinatorial&amp;lt;n - 1, m - 1&amp;gt;::value;
+      |
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
 作者：Andrew Koenig
