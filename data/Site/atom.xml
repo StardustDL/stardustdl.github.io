@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:75cd0497-898d-4ba2-aa27-3ccb70c859c4;id=1</id><updated>2020-07-24T11:27:00Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:212d65d0-ed20-4040-a98c-9994211aa51a;id=1</id><updated>2020-07-24T12:00:10Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
@@ -384,21 +384,21 @@ jobs:
         # The Node.js version to configure
         node-version: ${{ matrix.node }}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-2"&gt;使用敏感数据&lt;/h2&gt;
+&lt;h1 id="section-2"&gt;使用敏感数据&lt;/h1&gt;
 &lt;p&gt;在仓库设置页面的 &lt;code&gt;Secrets&lt;/code&gt; 部分添加敏感数据。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-yml"&gt;- name: CI
   env:
     NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
   run: Invoke-psake ci -parameters @{ &amp;quot;NUGET_AUTH_TOKEN&amp;quot; = $env:NUGET_AUTH_TOKEN }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-3"&gt;上传文件&lt;/h2&gt;
+&lt;h1 id="section-3"&gt;上传文件&lt;/h1&gt;
 &lt;pre&gt;&lt;code class="language-yml"&gt;- name: Upload reports
   uses: actions/upload-artifact@v2
   with:
     name: ci-${{ matrix.os }}
     path: ./reports
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="section-4"&gt;启动外部工作流&lt;/h2&gt;
+&lt;h1 id="section-4"&gt;启动外部工作流&lt;/h1&gt;
 &lt;p&gt;Caller:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-yml"&gt;invoke-cd:
   needs: ci
@@ -416,7 +416,7 @@ jobs:
   repository_dispatch:
     types: [cd]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="docker"&gt;构建并推送 Docker 镜像&lt;/h2&gt;
+&lt;h1 id="docker"&gt;构建并推送 Docker 镜像&lt;/h1&gt;
 &lt;pre&gt;&lt;code class="language-yml"&gt;- name: Push image
   uses: docker/build-push-action@v1
   with:
@@ -890,9 +890,7 @@ assign Mux = (S == 3) ? D : 'bz;
 &lt;pre&gt;&lt;code class="language-verilog"&gt;wire [3:0] Sum = 4'b0;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="section-47"&gt;赋值时延&lt;/h2&gt;
-&lt;p&gt;{% note info %}
-如果在连续赋值语句中没有定义时延，则右端表达式的值立即赋给左端表达式，时延为 0。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;如果在连续赋值语句中没有定义时延，则右端表达式的值立即赋给左端表达式，时延为 0。&lt;/p&gt;
 &lt;p&gt;定义时延：&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-verilog"&gt;assign #6 Ask = Quiet || Late;
 &lt;/code&gt;&lt;/pre&gt;
@@ -933,6 +931,171 @@ assign Mux = (S == 3) ? D : 'bz;
 &lt;h1 id="section-56"&gt;验证&lt;/h1&gt;
 &lt;p&gt;(TODO:011)&lt;/p&gt;
 &lt;h1 id="section-57"&gt;参考资料&lt;/h1&gt;
+</content></entry><entry><id>Tools/psake</id><title type="text">psake</title><summary type="text">基本信息
+psake 是一个自动化构建工具，基于 PowerShell 构建，提供了类似 Make 的构建功能。
+安装
+# Set-PSRepository -Name PSGallery -Inst</summary><published>2020-07-24T19:30:40+08:00</published><updated>2020-07-24T19:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fpsake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/psake/psake"&gt;psake&lt;/a&gt; 是一个自动化构建工具，基于 PowerShell 构建，提供了类似 Make 的构建功能。&lt;/p&gt;
+&lt;h1 id="section-1"&gt;安装&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;# Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+Install-Module -Name psake
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-2"&gt;使用&lt;/h1&gt;
+&lt;p&gt;创建 &lt;code&gt;psakefile.ps1&lt;/code&gt;，然后使用以下命令&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Invoke-psake
+
+# Get-Help Invoke-psake -full
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="psakefile"&gt;psakefile 结构&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Include()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Call this function to have psake include the functions of another file into your script&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Properties()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Call this function to set your properties&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Task()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;This is the main function that you write to execute a step in your build script. NOTE: There can be only one task function that is named &amp;quot;default&amp;quot; in your psake script and it cannot contain any code. psake will throw an exception if it finds more than one default task function or if the default task function contains code&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Exec()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Call a command-line program and throw an exception if it returns a non-zero DOS exit code&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;Assert()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Use to simplify writing conditional statements&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;FormatTaskName()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Allows you to reformat how psake displays the currently running task&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;TaskSetup()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;A function that will run before each task is executed&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;TaskTearDown()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;A function that will run after each task&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;BuildSetup()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;A script block that will run before the first task starts&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;BuildTearDown()&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;A script block that will run when either all tasks have completed, or the build has failed&lt;/td&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;BNF:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;BuildScript&amp;gt; ::= &amp;lt;Includes&amp;gt; 
+                | &amp;lt;Properties&amp;gt;
+                | &amp;lt;FormatTaskName&amp;gt; 
+                | &amp;lt;BuildSetup&amp;gt; 
+                | &amp;lt;TaskSetup&amp;gt; 
+                | &amp;lt;TaskTearDown&amp;gt; 
+                | &amp;lt;Tasks&amp;gt; 
+&amp;lt;Includes&amp;gt; ::= Include &amp;lt;StringLiteral&amp;gt; | &amp;lt;Includes&amp;gt;
+&amp;lt;Properties&amp;gt; ::= Properties &amp;lt;ScriptBlock&amp;gt; | &amp;lt;Properties&amp;gt;
+&amp;lt;FormatTaskName&amp;gt; ::= FormatTaskName &amp;lt;Stringliteral&amp;gt;
+&amp;lt;BuildSetup&amp;gt; ::= BuildSetup &amp;lt;ScriptBlock&amp;gt;
+&amp;lt;BuildTearDown&amp;gt; ::= BuildTearDown &amp;lt;ScriptBlock&amp;gt;
+&amp;lt;TaskSetup&amp;gt; ::= TaskSetup &amp;lt;ScriptBlock&amp;gt;
+&amp;lt;TaskTearDown&amp;gt; ::= TaskTearDown &amp;lt;ScriptBlock&amp;gt;
+&amp;lt;Tasks&amp;gt; ::= Task &amp;lt;TaskParameters&amp;gt; | &amp;lt;Tasks&amp;gt;
+&amp;lt;TaskParameters&amp;gt; ::= -Name &amp;lt;StringLiteral&amp;gt; 
+			| -Action &amp;lt;ScriptBlock&amp;gt; 
+			| -PreAction &amp;lt;ScriptBlock&amp;gt; 
+			| -PostAction &amp;lt;ScriptBlock&amp;gt; 
+			| -PreCondition &amp;lt;ScriptBlock&amp;gt;
+			| -PostCondition &amp;lt;ScriptBlock&amp;gt;
+			| -ContinueOnError &amp;lt;Boolean&amp;gt;
+			| -Depends &amp;lt;TaskNames&amp;gt;
+			| -Description &amp;lt;StringLiteral&amp;gt;
+&amp;lt;TaskNames&amp;gt; ::= &amp;lt;StringLiteral&amp;gt;, | &amp;lt;TaskNames&amp;gt;				
+&amp;lt;ScriptBlock&amp;gt; ::= { &amp;lt;PowerShellStatements&amp;gt; }
+&amp;lt;Boolean&amp;gt; ::= $true | $false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-3"&gt;常见模式&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Task default -Depends Test
+
+Task Test -Depends Compile, Clean {
+  &amp;quot;This is a test&amp;quot;
+}
+
+Task Compile -Depends Clean {
+  &amp;quot;Compile&amp;quot;
+}
+
+Task Clean -ContinueOnError {
+  &amp;quot;Clean&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-4"&gt;传递参数和属性&lt;/h1&gt;
+&lt;p&gt;调用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Invoke-psake .\parameters.ps1 -parameters @{&amp;quot;p1&amp;quot;=&amp;quot;v1&amp;quot;;&amp;quot;p2&amp;quot;=&amp;quot;v2&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;传递的参数会作为脚本的变量。&lt;/p&gt;
+&lt;p&gt;psakefile：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;properties {
+  $my_property = $p1 + $p2
+}
+
+task default -depends TestParams
+
+task TestParams { 
+  Assert ($my_property -ne $null) '$my_property should not be null'  
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;覆盖预定义属性：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Invoke-psake .\properties.ps1 -properties @{&amp;quot;x&amp;quot;=&amp;quot;1&amp;quot;;&amp;quot;y&amp;quot;=&amp;quot;2&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-5"&gt;条件运行&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;task default -depends A,B,C
+
+task A {
+  &amp;quot;TaskA&amp;quot;
+}
+
+task B -precondition { return $false } {
+  &amp;quot;TaskB&amp;quot;
+}
+
+task C -precondition { return $true } {
+  &amp;quot;TaskC&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-6"&gt;导入外部脚本&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Include &amp;quot;.\build_utils.ps1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-7"&gt;调用命令行工具&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-ps1"&gt;Exec -maxRetries 3 -retryTriggerErrorPattern &amp;quot;Service is not currently available.&amp;quot; { dotnet build }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-8"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://psake.readthedocs.io/en/latest/"&gt;psake Document&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content></entry><entry><id>Tools/gcc</id><title type="text">GCC - The GNU Compiler Collection</title><summary type="text">基本信息
 官网
 介绍：GCC，The GNU Compiler Collection，包含多种语言（C, C++, Objective-C, Fortran, Ada, Go) 的前端编译器。携带了相</summary><published>2018-09-19T18:58:19+08:00</published><updated>2018-09-19T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fgcc" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
@@ -1096,9 +1259,9 @@ echo &amp;quot;My car is a {$cars[0]}&amp;quot;;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-使用 var_dump 函数查看变量类型和变量名。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 var_dump 函数查看变量类型和变量名。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="section-5"&gt;常量&lt;/h2&gt;
 &lt;p&gt;常量是单个值的标识符（名称）。在脚本中无法改变该值。有效的常量名以字符或下划线开头（常量名称前面没有 $ 符号）。与变量不同，常量贯穿整个脚本是自动全局的。
 如需设置常量，请使用 define() 函数 - 它使用三个参数：&lt;/p&gt;
@@ -1391,9 +1554,9 @@ h1 {color:red; font-size:14px;}
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-CSS 对大小写不敏感。不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CSS 对大小写不敏感。不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id="section-3"&gt;选择器&lt;/h1&gt;
 &lt;h2 id="section-4"&gt;分组&lt;/h2&gt;
 &lt;p&gt;允许对不同种类选择器定义相同的样式规则。
@@ -1528,9 +1691,7 @@ h2 {color:silver;}
 &lt;p&gt;CSS 伪类用于向某些选择器添加特殊的效果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-css"&gt;selector : pseudo-class {property: value}
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{% note info %}
-伪类名称对大小写不敏感。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;伪&amp;gt; 类名称对大小写不敏感。&lt;/p&gt;
 &lt;h3 id="section-16"&gt;锚伪类&lt;/h3&gt;
 &lt;p&gt;通过伪类表示元素状态：链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-css"&gt;a:link {color: #FF0000}		/* 未访问的链接 */
@@ -1538,10 +1699,8 @@ a:visited {color: #00FF00}	/* 已访问的链接 */
 a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
 a:active {color: #0000FF}	/* 选定的链接 */
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{% note warning %}
-在 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
-在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;在 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。&lt;/p&gt;
+&lt;p&gt;在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。&lt;/p&gt;
 &lt;h3 id="first-child"&gt;:first-child&lt;/h3&gt;
 &lt;p&gt;使用 :first-child 伪类来选择作为其父元素的第一个子元素的元素：&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-css"&gt;p:first-child {font-weight: bold;}
@@ -2421,11 +2580,9 @@ div{
 &lt;ul&gt;
 &lt;li&gt;介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但&lt;strong&gt;许多相似语义的内容其具体写法可能会有不同&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note warning %}
-SQL 对大小写不敏感。
+&lt;p&gt;SQL 对大小写不敏感。
 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。
-使用 SQL 需先了解具体数据库的描述方法。
-{% endnote %}&lt;/p&gt;
+使用 SQL 需先了解具体数据库的描述方法。&lt;/p&gt;
 &lt;h1 id="section-1"&gt;数据操作语言&lt;/h1&gt;
 &lt;h2 id="select"&gt;SELECT&lt;/h2&gt;
 &lt;p&gt;SELECT 语句用于从表中选取数据。&lt;/p&gt;
@@ -2563,9 +2720,7 @@ WHERE column_name IN (value1,value2,...)
 &lt;pre&gt;&lt;code class="language-sql"&gt;SELECT column_name(s) FROM table_name
 WHERE column_name BETWEEN value1 AND value2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{% note warning %}
-不同的数据库对 BETWEEN...AND 操作符的处理方式是有差异的。区间端点的选择是不确定的。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;不同的数据库对 BETWEEN...AND 操作符的处理方式是有差异的。区间端点的选择是不确定的。&lt;/p&gt;
 &lt;h3 id="order-by"&gt;ORDER BY&lt;/h3&gt;
 &lt;p&gt;ORDER BY 语句用于对结果集进行排序。如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-sql"&gt;SELECT Company, OrderNumber FROM Orders ORDER BY Company
@@ -2609,9 +2764,7 @@ FROM Persons
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id="join"&gt;JOIN&lt;/h3&gt;
 &lt;p&gt;JOIN 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。&lt;/p&gt;
-&lt;p&gt;{% note info %}
-数据库中的表可通过键将彼此联系起来。主键（Primary Key）是一个列，在这个列中的每一行的值都是唯一的。在表中，每个主键的值都是唯一的。这样做的目的是在不重复每个表中的所有数据的情况下，把表间的数据交叉捆绑在一起。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;数据库中的表可通过键将彼此联系起来。主键（Primary Key）是一个列，在这个列中的每一行的值都是唯一的。在表中，每个主键的值都是唯一的。这样做的目的是在不重复每个表中的所有数据的情况下，把表间的数据交叉捆绑在一起。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-sql"&gt;SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
 FROM Persons
 INNER JOIN Orders
@@ -2839,9 +2992,9 @@ targets : prerequisites ; command
 &lt;li&gt;command
 该target要执行的命令（任意的shell命令），如果其不与“target:prerequisites”在一行，那么，必须以 Tab 键开头，如 果和prerequisites在一行，那么可以用分号做为分隔。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;还可以通过这种方式表达依赖关系，多个目标依赖一个文件：&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-makefile"&gt;kbd.o command.o files.o : command.h
 display.o insert.o search.o files.o : buffer.h
@@ -2941,9 +3094,9 @@ edit : $(objects)
     cc -o edit $(objects)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;变量在声明时需要给予初值，而在使用时，需要给在变量名前加上 &lt;code&gt;$&lt;/code&gt; 符号，但最好用小括号 &lt;code&gt;()&lt;/code&gt; 或是大括号 &lt;code&gt;{}&lt;/code&gt; 把变量给包括起来。&lt;/p&gt;
-&lt;p&gt;{% note info %}
-如果你要使用真实的 &lt;code&gt;$&lt;/code&gt; 字符，那么你需要用 &lt;code&gt;$$&lt;/code&gt; 来表示。变量会在使用它的地方精确地展开。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你要使用真实的 &lt;code&gt;$&lt;/code&gt; 字符，那么你需要用 &lt;code&gt;$$&lt;/code&gt; 来表示。变量会在使用它的地方精确地展开。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在定义变量的值时，我们可以使用其它变量来构造变量的值。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;=&lt;/code&gt;：在 &lt;code&gt;=&lt;/code&gt; 左侧是变量，右侧是变量的值，右侧变量的值可以定义在文件的任何一处，也就是说，右侧中的变量不一定非要是已定义好的值，其也可以使用后面定义的值。但这可能带来循环定义。&lt;/li&gt;
@@ -2955,10 +3108,8 @@ edit : $(objects)
 &lt;pre&gt;&lt;code class="language-makefile"&gt;nullstring :=
 space := $(nullstring) # end of the line
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;nullstring是一个Empty变量，其中什么也没有，而我们的space的值是一个空格。因为在操作符的右边 是很难描述一个空格的，这里采用的技术很管用，先用一个Empty变量来标明变量的值开始了，而后面采 用“#”注释符来表示变量定义的终止，这样，我们可以定义出其值是一个空格的变量。
-{% note warning %}
-请注意这里关于“#”的使用，注释符“#”的这种特性值得我们注意
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;nullstring是一个Empty变量，其中什么也没有，而我们的space的值是一个空格。因为在操作符的右边 是很难描述一个空格的，这里采用的技术很管用，先用一个Empty变量来标明变量的值开始了，而后面采 用“#”注释符来表示变量定义的终止，这样，我们可以定义出其值是一个空格的变量。&lt;/p&gt;
+&lt;p&gt;请注意这里关于“#”的使用，注释符“#”的这种特性值得我们注意。&lt;/p&gt;
 &lt;h3 id="section-11"&gt;变量覆盖&lt;/h3&gt;
 &lt;p&gt;如果有变量是通常make的命令行参数设置的，那么Makefile中对这个变量的赋值会被忽略。如果你想 在Makefile中设置这类参数的值，那么，你可以使用 &lt;code&gt;override&lt;/code&gt; 指示符。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-makefile"&gt;override &amp;lt;variable&amp;gt;; = &amp;lt;value&amp;gt;;
@@ -3197,13 +3348,7 @@ invalid:jquery ui            # Unsupported properties are ignored, so this
 &lt;h2 id="section-5"&gt;&lt;a href="https://docs.microsoft.com/zh-cn/nuget/consume-packages/reinstalling-and-updating-packages0"&gt;重装和更新包&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id="section-6"&gt;&lt;a href="https://docs.microsoft.com/zh-cn/nuget/consume-packages/dependency-resolution"&gt;依赖项解析&lt;/a&gt;&lt;/h2&gt;
 &lt;h1 id="section-7"&gt;&lt;a href="https://docs.microsoft.com/zh-cn/nuget/create-packages/overview-and-workflow"&gt;创建包&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;{% note info %}
-待完善
-{% endnote %}&lt;/p&gt;
 &lt;h1 id="section-8"&gt;&lt;a href="https://docs.microsoft.com/zh-cn/nuget/hosting-packages/overview"&gt;承载包&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;{% note info %}
-待完善
-{% endnote %}&lt;/p&gt;
 &lt;h1 id="nuget-cli"&gt;&lt;a href="https://docs.microsoft.com/zh-cn/nuget/tools/nuget-exe-cli-reference"&gt;NuGet CLI&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id="section-9"&gt;配置&lt;/h2&gt;
 &lt;ul&gt;
@@ -3295,9 +3440,7 @@ XML 文档形成一种树结构。
   &amp;lt;/child&amp;gt;
 &amp;lt;/root&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{% note info %}
-元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。&lt;/p&gt;
 &lt;h2 id="section-2"&gt;特殊字符&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -3733,9 +3876,7 @@ d</summary><published>2018-09-06T10:20:00+08:00</published><updated>2018-09-06T1
 &lt;li&gt;&lt;code&gt;O&lt;/code&gt; 上方建立新行，进入插入模式&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-3"&gt;移动&lt;/h1&gt;
-&lt;p&gt;{% note success %}
-计数+动作=多次执行
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;计数+动作=多次执行&lt;/p&gt;
 &lt;h2 id="section-4"&gt;词移动&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;w b&lt;/code&gt; 到前/后词首&lt;/li&gt;
@@ -3841,9 +3982,7 @@ d</summary><published>2018-09-06T10:20:00+08:00</published><updated>2018-09-06T1
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;~&lt;/code&gt; 改变当前字符大小写，并移动到下个字符（不是操作符，不能连接一个动作命令，但在可视模式中可范围作用）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-删除等操作的文本会被存储到寄存器中
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;删除等操作的文本会被存储到寄存器中&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;d&lt;/code&gt; 删除操作符
 &lt;ul&gt;
@@ -3885,14 +4024,10 @@ d</summary><published>2018-09-06T10:20:00+08:00</published><updated>2018-09-06T1
 &lt;ul&gt;
 &lt;li&gt;在 &lt;code&gt;y p&lt;/code&gt; 命令前加入 &lt;code&gt;&amp;quot;*&lt;/code&gt; 实现对剪贴板的操作&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note success %}
-操作符+动作模式/文本对象=区域操作
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;操作符+动作模式/文本对象=区域操作&lt;/p&gt;
 &lt;h1 id="section-14"&gt;模式&lt;/h1&gt;
 &lt;h2 id="section-15"&gt;可视模式&lt;/h2&gt;
-&lt;p&gt;{% note default %}
-选择一部分，按操作符
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;选择一部分，然后按操作符&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;v&lt;/code&gt; 普通可视模式&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;V&lt;/code&gt; 按行可视模式&lt;/li&gt;
@@ -4713,9 +4848,7 @@ git config --global user.email johndoe@example.com
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;{% note info %}
-当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改。&lt;/p&gt;
 &lt;h2 id="section-4"&gt;指定忽略文件&lt;/h2&gt;
 &lt;p&gt;修改项目根目录下的 &lt;code&gt;.gitignore&lt;/code&gt; 文件，列出要忽略的文件模式。&lt;/p&gt;
 &lt;p&gt;文件 &lt;code&gt;.gitignore&lt;/code&gt; 的格式规范如下：&lt;/p&gt;
@@ -4726,9 +4859,7 @@ git config --global user.email johndoe@example.com
 &lt;li&gt;匹配模式可以以（&lt;code&gt;/&lt;/code&gt;）结尾指定目录。&lt;/li&gt;
 &lt;li&gt;要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（&lt;code&gt;!&lt;/code&gt;）取反。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info%}
-Github 上提供的一些 &lt;code&gt;.gitignore&lt;/code&gt; 文件：https://github.com/github/gitignore
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;Github 上提供的一些 &lt;code&gt;.gitignore&lt;/code&gt; 文件：https://github.com/github/gitignore&lt;/p&gt;
 &lt;h2 id="section-5"&gt;别名&lt;/h2&gt;
 &lt;pre&gt;&lt;code class="language-sh"&gt;git config --global alias.&amp;lt;newname&amp;gt; &amp;lt;originname&amp;gt;
 
@@ -5579,9 +5710,7 @@ nexus-am/                   # NEXUS-AM 项目
 &lt;/ul&gt;
 &lt;h1 id="am"&gt;am/&lt;/h1&gt;
 &lt;h2 id="am-1"&gt;特定 AM 实现代码结构&lt;/h2&gt;
-&lt;p&gt;{% note warning %}
-此为大致结构，不一定完全按照此结构。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;此为大致结构，不一定完全按照此结构。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;img/
     build
     run
@@ -5673,9 +5802,7 @@ size_t (*write)(uintptr_t reg, void *buf, size_t size);
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;read()/write()&lt;/code&gt; 分别是设备读/写操作的实现, 用于从设备的 &lt;code&gt;reg&lt;/code&gt; 寄存器中读出 &lt;code&gt;size&lt;/code&gt; 字节的内容到缓冲区 &lt;code&gt;buf&lt;/code&gt; 中, 或者往设备的 &lt;code&gt;reg&lt;/code&gt; 寄存器中写入缓冲区 &lt;code&gt;buf&lt;/code&gt; 中的 &lt;code&gt;size&lt;/code&gt; 字节的内容&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-需要注意的是, 这里的reg寄存器并不是设备寄存器, 因为设备寄存器的编号是机器相关的. 在IOE中, 我们希望采用一种机器无关的&amp;quot;抽象寄存器&amp;quot;, 这个reg其实是一个功能编号, 我们约定在不同的机器中, 同一个功能编号的含义也是相同的, 这样就实现了设备寄存器的抽象.
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;需要注意的是, 这里的reg寄存器并不是设备寄存器, 因为设备寄存器的编号是机器相关的. 在IOE中, 我们希望采用一种机器无关的&amp;quot;抽象寄存器&amp;quot;, 这个reg其实是一个功能编号, 我们约定在不同的机器中, 同一个功能编号的含义也是相同的, 这样就实现了设备寄存器的抽象.&lt;/p&gt;
 &lt;h4 id="event"&gt;_Event&lt;/h4&gt;
 &lt;p&gt;事件，指示程序流切换的原因。&lt;/p&gt;
 &lt;table&gt;
@@ -6318,9 +6445,9 @@ extern const char* regsb[];
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;{% note info %}
-寄存器存储在变量 &lt;code&gt;cpu&lt;/code&gt; 中。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;寄存器存储在变量 &lt;code&gt;cpu&lt;/code&gt; 中。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h4 id="section-2"&gt;枚举&lt;/h4&gt;
 &lt;p&gt;定义了形如 &lt;code&gt;R_NAME&lt;/code&gt; 的寄存器枚举，其顺序与寄存器结构中的顺序一致。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;enum { R_EAX, R_ECX, R_EDX, R_EBX, R_ESP, R_EBP, R_ESI, R_EDI };
@@ -6486,9 +6613,9 @@ enum { R_AL, R_CL, R_DL, R_BL, R_AH, R_CH, R_DH, R_BH };
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;{% note info %}
-译码内容存储在变量 &lt;code&gt;decoding&lt;/code&gt; 中。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;译码内容存储在变量 &lt;code&gt;decoding&lt;/code&gt; 中。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h4 id="modr_m"&gt;结构体 ModR_M&lt;/h4&gt;
 &lt;p&gt;指令中的 ModR/M。&lt;/p&gt;
 &lt;h4 id="sib"&gt;结构体 SIB&lt;/h4&gt;
@@ -6554,9 +6681,9 @@ typedef void (*DHelper) (vaddr_t *);
 &lt;li&gt;&lt;code&gt;r&lt;/code&gt; 一般用于寄存器信息存储在 &lt;code&gt;opcode&lt;/code&gt; 中的情况&lt;/li&gt;
 &lt;li&gt;还有一些专用于特定指令的译码函数&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-建议结合 i386 手册附录 C 理解。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;建议结合 i386 手册附录 C 理解。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;函数族中特殊函数：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;J&lt;/code&gt; 跳转指令解码。单操作数，存储到 &lt;code&gt;jmp_eip&lt;/code&gt; 中。&lt;/li&gt;
@@ -6762,19 +6889,16 @@ void rtl_setrelopi(uint32_t relop, rtlreg_t *dest, const rtlreg_t *src1, int imm
 // 取符号位（最高位）
 void rtl_msb(rtlreg_t* dest, const rtlreg_t* src1, int width);
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{% note warning %}
-我们定义RTL基本指令的时候, 约定了RTL基本指令不需要使用RTL临时寄存器. 但某些RTL伪指令需要使用临时寄存器存放中间结果, 才能实现其完整功能. 这样可能会带来寄存器覆盖的问题, 例如如下RTL指令序列:
-&lt;code&gt;
-(1) rtl_mv(&amp;amp;t0, &amp;amp;t1);
+&lt;p&gt;我们定义RTL基本指令的时候, 约定了RTL基本指令不需要使用RTL临时寄存器. 但某些RTL伪指令需要使用临时寄存器存放中间结果, 才能实现其完整功能. 这样可能会带来寄存器覆盖的问题, 例如如下RTL指令序列:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(1) rtl_mv(&amp;amp;t0, &amp;amp;t1);
 (2) rtl_sext(&amp;amp;t1, &amp;amp;t2, 1);  // use t0 temporarily
 (3) rtl_add(&amp;amp;t2, &amp;amp;t0, &amp;amp;t1);
-&lt;/code&gt;
-如果实现(2)的时候恰好使用到了t0作为临时寄存器, 在(3)中使用的t0就不再是(1)的结果了, 从而产生非预期的结果.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果实现(2)的时候恰好使用到了t0作为临时寄存器, 在(3)中使用的t0就不再是(1)的结果了, 从而产生非预期的结果.&lt;/p&gt;
 &lt;p&gt;为了尽可能避免上述问题, 我们有两条约定:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;实现RTL伪指令的时候, 尽可能不使用 &lt;code&gt;dest&lt;/code&gt; 之外的寄存器存放中间结果. 由于 &lt;code&gt;dest&lt;/code&gt; 最后会被写入新值, 其旧值肯定要被覆盖, 自然也可以安全地作为RTL伪指令的临时寄存器.&lt;/li&gt;
-&lt;li&gt;实在需要使用临时寄存器的时候, 使用 &lt;code&gt;at&lt;/code&gt; . &lt;code&gt;at&lt;/code&gt; 全称是assembly temporary, 是MIPS ABI中定义的一个特殊寄存器: 编译器并不会使用它, 它可以在编写汇编代码的时候安全地作为可使用的临时寄存器. 在这里， 我们借鉴它的功能来作如下约定: 不要在RTL伪指令的内部实现之外使用 &lt;code&gt;at&lt;/code&gt; . 这样， &lt;code&gt;at&lt;/code&gt; 就可以安全地作为RTL伪指令的临时寄存器了.
-{% endnote %}&lt;/li&gt;
+&lt;li&gt;实在需要使用临时寄存器的时候, 使用 &lt;code&gt;at&lt;/code&gt; . &lt;code&gt;at&lt;/code&gt; 全称是assembly temporary, 是MIPS ABI中定义的一个特殊寄存器: 编译器并不会使用它, 它可以在编写汇编代码的时候安全地作为可使用的临时寄存器. 在这里， 我们借鉴它的功能来作如下约定: 不要在RTL伪指令的内部实现之外使用 &lt;code&gt;at&lt;/code&gt; . 这样， &lt;code&gt;at&lt;/code&gt; 就可以安全地作为RTL伪指令的临时寄存器了.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="rtl-wrapper.h"&gt;rtl-wrapper.h&lt;/h3&gt;
 &lt;p&gt;为 rtl.h 中定义的 RTL 基本指令的调用省去 &lt;code&gt;interpret_&lt;/code&gt; 前缀。&lt;/p&gt;
@@ -6862,9 +6986,9 @@ void rtl_msb(rtlreg_t* dest, const rtlreg_t* src1, int width);
 &lt;p&gt;端口映射I/O把端口号作为I/O指令的一部分, 这种方法很简单, 但同时也是它最大的缺点. 指令集为了兼容已经开发的程序, 是只能添加但不能修改的. 这意味着, 端口映射I/O所能访问的I/O地址空间的大小, 在设计I/O指令的那一刻就已经决定下来了. 所谓I/O地址空间, 其实就是所有能访问的设备的地址的集合. 随着设备越来越多, 功能也越来越复杂, I/O地址空间有限的端口映射I/O已经逐渐不能满足需求了. 有的设备需要让CPU访问一段较大的连续存储空间, 如VGA的显存, 24色加上Alpha通道的1024x768分辨率的显存就需要3MB的编址范围. 于是内存映射I/O(memory-mapped I/O)应运而生.
 内存映射I/O这种编址方式非常巧妙, 它是通过不同的物理内存地址给设备编址的. 这种编址方式将一部分物理内存&amp;quot;重定向&amp;quot;到I/O地址空间中, CPU尝试访问这部分物理内存的时候, 实际上最终是访问了相应的I/O设备, CPU却浑然不知. 这样以后, CPU就可以通过普通的访存指令来访问设备. 这也是内存映射I/O得天独厚的好处: 物理内存的地址空间和CPU的位宽都会不断增长, 内存映射I/O从来不需要担心I/O地址空间耗尽的问题. 从原理上来说, 内存映射I/O唯一的缺点就是, CPU无法通过正常渠道直接访问那些被映射到I/O地址空间的物理内存了. 但随着计算机的发展, 内存映射I/O的唯一缺点已经越来越不明显了: 现代计算机都已经是64位计算机, 物理地址线都有48根, 这意味着物理地址空间有256TB这么大, 从里面划出3MB的地址空间给显存, 根本就是不痛不痒. 正因为如此, 内存映射I/O成为了现代计算机主流的I/O编址方式: RISC架构只提供内存映射I/O的编址方式, 而PCI-e, 网卡, x86的APIC等主流设备, 都支持通过内存映射I/O来访问.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;{% note info %}
-在 NEMU 中， video memory是唯一使用内存映射 I/O 方式访问的 I/O 空间。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 NEMU 中， video memory是唯一使用内存映射 I/O 方式访问的 I/O 空间。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;定义了类型 &lt;code&gt;mmio_callback_t&lt;/code&gt; ，设备定义的回调函数，用以更新设备状态。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;typedef void(*mmio_callback_t)(paddr_t, int, bool);
 &lt;/code&gt;&lt;/pre&gt;
@@ -7478,9 +7602,7 @@ static inline void idex(vaddr_t *eip, opcode_entry *e);
 其中在初始化 VGA 时还会进行一些和SDL相关的初始化工作， 包括创建窗口， 设置显示模式等. 最后还会注册一个100Hz的定时器， 每隔0.01秒就会调用一次 &lt;code&gt;device_update()&lt;/code&gt; 函数。&lt;/p&gt;
 &lt;h4 id="device_update"&gt;函数 device_update&lt;/h4&gt;
 &lt;p&gt;主要进行一些设备的模拟操作, 包括以50Hz的频率刷新屏幕, 以及检测是否有按键按下/释放.&lt;/p&gt;
-&lt;p&gt;{% note warning %}
-需要说明的是， 代码中注册的定时器是虚拟定时器， 它只会在 NEMU 处于用户态的时候进行计时： 如果 NEMU 在 &lt;code&gt;ui_mainloop()&lt;/code&gt; 中等待用户输入， 定时器将不会计时; 如果 NEMU 进行大量的输出， 定时器的计时将会变得缓慢. 因此除非你在进行调试， 否则尽量避免大量输出的情况， 从而影响定时器的工作。
-{% endnote %}&lt;/p&gt;
+&lt;p&gt;需要说明的是， 代码中注册的定时器是虚拟定时器， 它只会在 NEMU 处于用户态的时候进行计时： 如果 NEMU 在 &lt;code&gt;ui_mainloop()&lt;/code&gt; 中等待用户输入， 定时器将不会计时; 如果 NEMU 进行大量的输出， 定时器的计时将会变得缓慢. 因此除非你在进行调试， 否则尽量避免大量输出的情况， 从而影响定时器的工作。&lt;/p&gt;
 &lt;h3 id="serial.c"&gt;serial.c&lt;/h3&gt;
 &lt;p&gt;串口设备。
 模拟了串口的功能。 其大部分功能也被简化，只保留了数据寄存器和状态寄存器。串口初始化时会分别注册 &lt;code&gt;0x3F8&lt;/code&gt; 和 &lt;code&gt;0x3FC&lt;/code&gt; 处长度为1个字节的端口，分别作为数据寄存器和状态寄存器。由于NEMU串行模拟计算机系统的工作，串口的状态寄存器可以一直处于空闲状态; 每当CPU往数据寄存器中写入数据时，串口会将数据传送到主机的标准输出。&lt;/p&gt;
@@ -7762,10 +7884,10 @@ static inline void idex(vaddr_t *eip, opcode_entry *e);
 &lt;li&gt;&lt;code&gt;isOp&lt;/code&gt; 和 &lt;code&gt;isValue&lt;/code&gt; 多用于区分特殊单目运算符，如解引用和取负&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;data&lt;/code&gt; 多存储经过预处理的数据，如转换后的整数&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;{% note info %}
-解析后的 Token 列表存储在数组 &lt;code&gt;tokens&lt;/code&gt; 中。
-&lt;code&gt;nr_token&lt;/code&gt; 指示 &lt;code&gt;token&lt;/code&gt; 有效长度。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解析后的 Token 列表存储在数组 &lt;code&gt;tokens&lt;/code&gt; 中。
+&lt;code&gt;nr_token&lt;/code&gt; 指示 &lt;code&gt;token&lt;/code&gt; 有效长度。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h5 id="make_token"&gt;函数 make_token&lt;/h5&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;static bool make_token(char *e)
 &lt;/code&gt;&lt;/pre&gt;
@@ -7788,9 +7910,6 @@ static inline void idex(vaddr_t *eip, opcode_entry *e);
 &lt;/ul&gt;
 &lt;h5 id="expr"&gt;函数 expr&lt;/h5&gt;
 &lt;p&gt;对 &lt;code&gt;expr.h/expr&lt;/code&gt; 的实现，调用了 &lt;code&gt;make_token&lt;/code&gt; 和 &lt;code&gt;evalWithToken&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;{% note warning %}
-待更新
-{% endnote %}&lt;/p&gt;
 &lt;h4 id="ui.c"&gt;ui.c&lt;/h4&gt;
 &lt;p&gt;监视器 CUI 部分。&lt;/p&gt;
 &lt;h5 id="fc2color"&gt;函数族 fc2color&lt;/h5&gt;
