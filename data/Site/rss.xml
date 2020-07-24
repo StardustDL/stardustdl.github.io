@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:49529e90-0754-4a7e-9bf0-28223f2aa0d6;id=1</id><updated>2020-07-24T09:53:47Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><rss xmlns:a10="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Liang's Blog</title><link>https://stardustdl.gitee.io/</link><description>StardustDL's blog based on AcBlog.</description><managingEditor></managingEditor><item><guid isPermaLink="false">Tools/ssh</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fssh</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>SSH - Secure Shell</title><description>基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
 远程主机收到用户的登录请求，把自己的公钥发给用户。
-用户使</summary><published>2018-09-17T18:40:02+08:00</published><updated>2018-09-17T18:40:02+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fssh" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+用户使</description><pubDate>Mon, 17 Sep 2018 18:40:02 +0800</pubDate><a10:updated>2018-09-17T18:40:02+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：较安全实现远程连接，控制，传输的一种工具。&lt;/li&gt;
 &lt;/ul&gt;
@@ -83,13 +83,13 @@ AuthorizedKeysFile .ssh/authorized_keys
 &lt;li&gt;Linux 文档&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://blog.csdn.net/u013452337/article/details/80847113"&gt;什么是SSH 以及常见的ssh 功能&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/gdb</id><title type="text">GDB - The GNU Project Debugger</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/gdb</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fgdb</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>GDB - The GNU Project Debugger</title><description>基本信息
 官网
 介绍：一种支持多种语言的调试器。
 基础知识
 使用 gdb 调试 C 程序时，建议在程序编译时加入调试符号信息 -g 选项。
 gdb a.out
-可以使用 --tui 选项进入终端用户界</summary><published>2018-09-27T18:58:19+08:00</published><updated>2018-09-27T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fgdb" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+可以使用 --tui 选项进入终端用户界</description><pubDate>Thu, 27 Sep 2018 18:58:19 +0800</pubDate><a10:updated>2018-09-27T18:58:19+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.gnu.org/software/gdb/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：一种支持多种语言的调试器。&lt;/li&gt;
@@ -223,14 +223,14 @@ break func # at function
 &lt;p&gt;&lt;code&gt;delete breakpoints &amp;lt;num&amp;gt;&lt;/code&gt; 删除第num个断点,简写 &lt;code&gt;d&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id="section-17"&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;暂无&lt;/p&gt;
-</content></entry><entry><id>Tools/tmux</id><title type="text">Tmux</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/tmux</guid><link>https://stardustdl.gitee.io/posts/Tools%2Ftmux</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Tmux</title><description>基本信息
 官网
 介绍：用于在一个终端窗口中运行多个终端会话的工具。
 安装
 apt install tmux
 基础知识
 快捷键前缀（Prefix）
-为了使自身的快捷键和其他软件的快捷键互不干扰，Tmux</summary><published>2018-09-17T19:40:02+08:00</published><updated>2018-09-17T19:40:02+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Ftmux" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+为了使自身的快捷键和其他软件的快捷键互不干扰，Tmux</description><pubDate>Mon, 17 Sep 2018 19:40:02 +0800</pubDate><a10:updated>2018-09-17T19:40:02+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/tmux/tmux"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：用于在一个终端窗口中运行多个终端会话的工具。&lt;/li&gt;
@@ -319,13 +319,13 @@ set-option -g default-command &amp;quot;reattach-to-user-namespace -l bash&amp;q
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://tangosource.com/blog/a-tmux-crash-course-tips-and-tweaks/"&gt;A Tmux crash course: tips and tweaks.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-yaml</id><title type="text">YAML Ain't Markup Language</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-yaml</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-yaml</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>YAML Ain't Markup Language</title><description>基本信息
 官网
 介绍：YAML 是一种数据序列化语言，旨在对人类友好，并与现代编程语言配合使用，以执行常见的日常任务。
 优点
 YAML的可读性好。
 YAML和脚本语言的交互性好。
-YAML使用实现语言</summary><published>2018-11-12T10:20:00+08:00</published><updated>2018-11-12T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-yaml" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+YAML使用实现语言</description><pubDate>Mon, 12 Nov 2018 10:20:00 +0800</pubDate><a10:updated>2018-11-12T10:20:00+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://yaml.org/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：YAML 是一种数据序列化语言，旨在对人类友好，并与现代编程语言配合使用，以执行常见的日常任务。&lt;/li&gt;
@@ -455,8 +455,8 @@ test:
 &lt;li&gt;&lt;a href="http://yaml.org/spec/1.2/spec.html"&gt;YAML Version 1.2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.ruanyifeng.com/blog/2016/07/yaml.html"&gt;YAML 语言教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-verilog</id><title type="text">Verilog HDL</title><summary type="text">基本信息
-介绍：Verilog HDL是一种硬件描述语言，用于从算法级、门级到开关级的多种抽象设计层次的 数字系统建模。被建模的数字系统对象的复杂性可以介于简单的门和完整的电子数字系统之 间。数字系统</summary><published>2018-09-12T17:50:16+08:00</published><updated>2018-09-12T17:50:16+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-verilog" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-verilog</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-verilog</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Verilog HDL</title><description>基本信息
+介绍：Verilog HDL是一种硬件描述语言，用于从算法级、门级到开关级的多种抽象设计层次的 数字系统建模。被建模的数字系统对象的复杂性可以介于简单的门和完整的电子数字系统之 间。数字系统</description><pubDate>Wed, 12 Sep 2018 17:50:16 +0800</pubDate><a10:updated>2018-09-12T17:50:16+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：Verilog HDL是一种硬件描述语言，用于从算法级、门级到开关级的多种抽象设计层次的 数字系统建模。被建模的数字系统对象的复杂性可以介于简单的门和完整的电子数字系统之 间。数字系统能够按层次描述，并可在相同描述中显式地进行时序建模。&lt;/li&gt;
 &lt;/ul&gt;
@@ -822,9 +822,9 @@ assign Mux = (S == 3) ? D : 'bz;
 &lt;h1 id="section-56"&gt;验证&lt;/h1&gt;
 &lt;p&gt;(TODO:011)&lt;/p&gt;
 &lt;h1 id="section-57"&gt;参考资料&lt;/h1&gt;
-</content></entry><entry><id>Tools/gcc</id><title type="text">GCC - The GNU Compiler Collection</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/gcc</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fgcc</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>GCC - The GNU Compiler Collection</title><description>基本信息
 官网
-介绍：GCC，The GNU Compiler Collection，包含多种语言（C, C++, Objective-C, Fortran, Ada, Go) 的前端编译器。携带了相</summary><published>2018-09-19T18:58:19+08:00</published><updated>2018-09-19T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fgcc" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+介绍：GCC，The GNU Compiler Collection，包含多种语言（C, C++, Objective-C, Fortran, Ada, Go) 的前端编译器。携带了相</description><pubDate>Wed, 19 Sep 2018 18:58:19 +0800</pubDate><a10:updated>2018-09-19T18:58:19+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://gcc.gnu.org/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：GCC，The GNU Compiler Collection，包含多种语言（C, C++, Objective-C, Fortran, Ada, Go) 的前端编译器。携带了相关的库。&lt;/li&gt;
@@ -885,10 +885,10 @@ assign Mux = (S == 3) ? D : 'bz;
 &lt;li&gt;&lt;a href="https://www.cnblogs.com/yhjoker/p/7533438.html"&gt;Linux下编辑、编译、调试命令总结——gcc和gdb描述&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gcc.gnu.org/onlinedocs/gcc/Standards.html"&gt;Language Standards Supported by GCC&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-php</id><title type="text">PHP Hypertext Preprocessor</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-php</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-php</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>PHP Hypertext Preprocessor</title><description>基本信息
 官网
 介绍：PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 脚本在服务器上执行，然后向浏览器发送回纯 HTML 结果。
-安装：使用支持 PHP 的 Web 主机，安装 P</summary><published>2018-09-03T10:20:00+08:00</published><updated>2018-09-03T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-php" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+安装：使用支持 PHP 的 Web 主机，安装 P</description><pubDate>Mon, 03 Sep 2018 10:20:00 +0800</pubDate><a10:updated>2018-09-03T10:20:00+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://php.net/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 脚本在服务器上执行，然后向浏览器发送回纯 HTML 结果。&lt;/li&gt;
@@ -1115,7 +1115,7 @@ foreach ($array as $value) {}
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/php/index.asp"&gt;PHP 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-dockerfile</id><title type="text">Dockerfile</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-dockerfile</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-dockerfile</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Dockerfile</title><description>基本信息
 Dockerfile 为 Docker 提供镜像构建命令及描述。
 Docker 书写思想：
 自动化，无交互
@@ -1124,7 +1124,7 @@ Docker 书写思想：
 易读
 基础语法
 // 注释
-INSTRUCTION argumen</summary><published>2018-11-12T19:37:36+08:00</published><updated>2018-11-12T19:37:36+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-dockerfile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+INSTRUCTION argumen</description><pubDate>Mon, 12 Nov 2018 19:37:36 +0800</pubDate><a10:updated>2018-11-12T19:37:36+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Dockerfile 为 Docker 提供镜像构建命令及描述。&lt;/li&gt;
 &lt;li&gt;Docker 书写思想：
@@ -1242,11 +1242,11 @@ USER uid:gid
 &lt;ul&gt;
 &lt;li&gt;《Docker 从入门到实战》 黄靖钧 机械工业出版社&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-css</id><title type="text">Cascading Style Sheets</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-css</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-css</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Cascading Style Sheets</title><description>基本信息
 介绍：CSS 存储 HTML 样式，定义如何显示 HTML 元素。
 在 HTML 中使用样式表，参见 {% post_link tool/progLang-HTML %}
 层叠
-样式表允许以</summary><published>2018-09-08T10:30:40+08:00</published><updated>2018-09-08T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-css" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+样式表允许以</description><pubDate>Sat, 08 Sep 2018 10:30:40 +0800</pubDate><a10:updated>2018-09-08T10:30:40+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：CSS 存储 HTML 样式，定义如何显示 HTML 元素。&lt;/li&gt;
 &lt;li&gt;在 HTML 中使用样式表，参见 {% post_link tool/progLang-HTML %}&lt;/li&gt;
@@ -2305,8 +2305,8 @@ div{
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/css/index.asp"&gt;CSS 教程&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/css3/index.asp"&gt;CSS3 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-sql</id><title type="text">Structured Query Language</title><summary type="text">基本信息
-介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。</summary><published>2018-09-03T18:51:10+08:00</published><updated>2018-09-03T18:51:10+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-sql" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-sql</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-sql</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Structured Query Language</title><description>基本信息
+介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。</description><pubDate>Mon, 03 Sep 2018 18:51:10 +0800</pubDate><a10:updated>2018-09-03T18:51:10+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但&lt;strong&gt;许多相似语义的内容其具体写法可能会有不同&lt;/strong&gt;。&lt;/li&gt;
 &lt;/ul&gt;
@@ -2691,7 +2691,7 @@ DROP CONSTRAINT fk_PerOrders
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/sql/index.asp"&gt;SQL 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-makefile</id><title type="text">Makefile</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-makefile</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Makefile</title><description>基本信息
 Makefile 为 make 提供依赖描述和编译指令等设置。
 基础知识
 注释 #
@@ -2699,7 +2699,7 @@ Makefile 为 make 提供依赖描述和编译指令等设置。
 通配符：* ? ~
 显式规则
 Makefile 规则：指定依赖关系与生成命令。
-target .</summary><published>2018-09-16T10:20:00+08:00</published><updated>2018-09-16T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-makefile" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+target .</description><pubDate>Sun, 16 Sep 2018 10:20:00 +0800</pubDate><a10:updated>2018-09-16T10:20:00+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Makefile 为 make 提供依赖描述和编译指令等设置。&lt;/li&gt;
 &lt;/ul&gt;
@@ -3045,10 +3045,10 @@ ifdef &amp;lt;variable-name&amp;gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://seisman.github.io/how-to-write-makefile/overview.html"&gt;跟我一起写Makefile&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/nuget</id><title type="text">NuGet</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/nuget</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fnuget</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>NuGet</title><description>基本信息
 官网
 介绍：.NET 平台上的包管理器。支持创建，共享，安装，管理包。
-特点：NuGet 提供支持专用托管的中心 nuget.org 存储库。NuGet 为开发人员提供创建、发布和使用包所需</summary><published>2018-09-17T17:40:02+08:00</published><updated>2018-09-17T17:40:02+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fnuget" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+特点：NuGet 提供支持专用托管的中心 nuget.org 存储库。NuGet 为开发人员提供创建、发布和使用包所需</description><pubDate>Mon, 17 Sep 2018 17:40:02 +0800</pubDate><a10:updated>2018-09-17T17:40:02+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.nuget.org/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：.NET 平台上的包管理器。支持创建，共享，安装，管理包。&lt;/li&gt;
@@ -3154,7 +3154,7 @@ nuget sources add -name foo.bar -source C:\NuGet\local -username foo -password b
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget"&gt;An introduction to NuGet&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/progLang-xml</id><title type="text">eXtensible Markup Language</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-xml</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-xml</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>eXtensible Markup Language</title><description>基本信息
 介绍：XML 被设计用来传输和存储数据，具有自我描述性。
 语法
 XML 文档形成一种树结构。
@@ -3163,7 +3163,7 @@ XML 文档形成一种树结构。
 必须正确地嵌套
 必须包含根元素
 属性值须加引号
-空格</summary><published>2018-09-02T18:16:01+08:00</published><updated>2018-09-02T18:16:01+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-xml" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+空格</description><pubDate>Sun, 02 Sep 2018 18:16:01 +0800</pubDate><a10:updated>2018-09-02T18:16:01+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：XML 被设计用来传输和存储数据，具有自我描述性。&lt;/li&gt;
 &lt;/ul&gt;
@@ -3273,10 +3273,10 @@ CDATA 部分由 &lt;strong&gt;&amp;lt;![CDATA[&lt;/strong&gt; 开始，由 &lt;s
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/xml/index.asp"&gt;XML 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/apt</id><title type="text">APT - Advanced Packaging Tool</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/apt</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fapt</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>APT - Advanced Packaging Tool</title><description>基本信息
 介绍：apt，Advanced Packaging Tool 是Linux下的一款安装包管理工具。常用于 Debian, Ubuntu 等系统。是 dpkg 的前端。
 常用命令
-{% not</summary><published>2018-09-19T10:30:40+08:00</published><updated>2018-09-19T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fapt" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+{% not</description><pubDate>Wed, 19 Sep 2018 10:30:40 +0800</pubDate><a10:updated>2018-09-19T10:30:40+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：apt，Advanced Packaging Tool 是Linux下的一款安装包管理工具。常用于 Debian, Ubuntu 等系统。是 dpkg 的前端。&lt;/li&gt;
 &lt;/ul&gt;
@@ -3373,9 +3373,9 @@ apt autoremove # 自动移除部分无用软件包
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id="section-8"&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;网络&lt;/p&gt;
-</content></entry><entry><id>Tools/powershell</id><title type="text">PowerShell</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/powershell</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fpowershell</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>PowerShell</title><description>基本信息
 官网
-介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对</summary><published>2018-09-27T18:40:02+08:00</published><updated>2018-09-27T18:40:02+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fpowershell" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对</description><pubDate>Thu, 27 Sep 2018 18:40:02 +0800</pubDate><a10:updated>2018-09-27T18:40:02+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/powershell/powershell"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。&lt;/li&gt;
@@ -3582,7 +3582,7 @@ $num = $num[0..1]+$num[3] # remove $num[2]
 &lt;li&gt;&lt;a href="https://docs.microsoft.com/en-us/powershell/"&gt;PowerShell Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.pstips.net/powershell-online-tutorials"&gt;PowerShell 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/vim</id><title type="text">Vim</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/vim</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fvim</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Vim</title><description>基本信息
 官网
 介绍：Vim 是一个功能非常强大，且具有很强扩展性的编辑器。
 安装
@@ -3591,7 +3591,7 @@ apt install vim
 i 插入模式（当前字符之前）
 h j k l 四方向移动
 x 删除当前字符
-d</summary><published>2018-09-06T10:20:00+08:00</published><updated>2018-09-06T10:20:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fvim" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+d</description><pubDate>Thu, 06 Sep 2018 10:20:00 +0800</pubDate><a10:updated>2018-09-06T10:20:00+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.vim.org/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：Vim 是一个功能非常强大，且具有很强扩展性的编辑器。&lt;/li&gt;
@@ -3849,13 +3849,13 @@ d</summary><published>2018-09-06T10:20:00+08:00</published><updated>2018-09-06T1
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/yianwillis/vimcdoc"&gt;vimcdoc&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/make</id><title type="text">Make</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/make</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fmake</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Make</title><description>基本信息
 官网
 介绍：一个能处理依赖关系，进行自动化编译的工具。
 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务
 基础知识
 GNU的 make 工作时的执行步骤如下：
-读入所</summary><published>2018-09-16T18:58:19+08:00</published><updated>2018-09-16T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fmake" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+读入所</description><pubDate>Sun, 16 Sep 2018 18:58:19 +0800</pubDate><a10:updated>2018-09-16T18:58:19+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.gnu.org/software/make/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：一个能处理依赖关系，进行自动化编译的工具。&lt;/li&gt;
@@ -3872,13 +3872,13 @@ GNU的 make 工作时的执行步骤如下：
 &lt;li&gt;根据依赖关系，决定哪些目标要重新生成。&lt;/li&gt;
 &lt;li&gt;执行生成命令。&lt;/li&gt;
 &lt;/ol&gt;
-</content></entry><entry><id>Tools/progLang-html</id><title type="text">Hyper Text Markup Language</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/progLang-html</guid><link>https://stardustdl.gitee.io/posts/Tools%2FprogLang-html</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Hyper Text Markup Language</title><description>基本信息
 介绍：一种描述网页的标记语言。
 相关：XHTML（可扩展超文本标记语言，更严格更纯净的 HTML 版本）
 语法
 HTML 文档描述网页
 HTML 文档包含 HTML 标签和纯文本
-HTML </summary><published>2018-09-06T14:16:00+08:00</published><updated>2018-09-06T14:16:00+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2FprogLang-html" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+HTML </description><pubDate>Thu, 06 Sep 2018 14:16:00 +0800</pubDate><a10:updated>2018-09-06T14:16:00+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：一种描述网页的标记语言。&lt;/li&gt;
 &lt;li&gt;相关：XHTML（可扩展超文本标记语言，更严格更纯净的 HTML 版本）&lt;/li&gt;
@@ -4523,11 +4523,11 @@ canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.w3school.com.cn/html/index.asp"&gt;HTML 教程&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Tools/git</id><title type="text">Git</title><summary type="text">基本信息
+</a10:content></item><item><guid isPermaLink="false">Tools/git</guid><link>https://stardustdl.gitee.io/posts/Tools%2Fgit</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Tools</category><title>Git</title><description>基本信息
 官网
 介绍：一个分布式版本管理系统。
 特点
-Git 更像是把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快</summary><published>2018-09-26T18:58:19+08:00</published><updated>2018-09-26T18:58:19+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fgit" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+Git 更像是把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快</description><pubDate>Wed, 26 Sep 2018 18:58:19 +0800</pubDate><a10:updated>2018-09-26T18:58:19+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://git-scm.com/"&gt;官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;介绍：一个分布式版本管理系统。&lt;/li&gt;
@@ -5039,9 +5039,9 @@ git push origin serverfix:serverfix
 &lt;li&gt;&lt;a href="https://git-scm.com/doc"&gt;Git Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://git-scm.com/book/en/v2"&gt;Git Book&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/the-mutual-realization-of-stack-and-queue</id><title type="text">栈与队列的相互实现</title><summary type="text">本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
+</a10:content></item><item><guid isPermaLink="false">Learning/the-mutual-realization-of-stack-and-queue</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fthe-mutual-realization-of-stack-and-queue</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>栈与队列的相互实现</title><description>本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
 问题引入
-栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek</summary><published>2018-08-28T17:30:22+08:00</published><updated>2018-08-28T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fthe-mutual-realization-of-stack-and-queue" /><category term="Learning" /><content type="html">&lt;p&gt;本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。&lt;/p&gt;
+栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek</description><pubDate>Tue, 28 Aug 2018 17:30:22 +0800</pubDate><a10:updated>2018-08-28T17:30:22+08:00</a10:updated><a10:content type="html">&lt;p&gt;本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。&lt;/p&gt;
 &lt;h1 id="section"&gt;问题引入&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数&lt;/li&gt;
@@ -5133,14 +5133,14 @@ git push origin serverfix:serverfix
 &lt;li&gt;&lt;a href="https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/5655#5655"&gt;时间复杂度下限的讨论&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/2589#2589"&gt;队列实现栈的 C# 代码实现&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/ojops-problem-design</id><title type="text">OJ-oriented Problem Solving 命题报告</title><summary type="text">题面
+</a10:content></item><item><guid isPermaLink="false">Learning/ojops-problem-design</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fojops-problem-design</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>OJ-oriented Problem Solving 命题报告</title><description>题面
 题目概述
 时间限制：1000 ms
 空间限制：128 MB
 命题人：Stardust D.L.
 验题人：GodCallMeGod, Pexure
 题目描述
-小 A 和你我一样，正坐在电脑前刷题。</summary><published>2018-09-11T17:30:22+08:00</published><updated>2018-09-11T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fojops-problem-design" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;&lt;a href="https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5"&gt;题面&lt;/a&gt;&lt;/h1&gt;
+小 A 和你我一样，正坐在电脑前刷题。</description><pubDate>Tue, 11 Sep 2018 17:30:22 +0800</pubDate><a10:updated>2018-09-11T17:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;&lt;a href="https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5"&gt;题面&lt;/a&gt;&lt;/h1&gt;
 &lt;h2 id="section-1"&gt;题目概述&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;时间限制：1000 ms&lt;/li&gt;
@@ -5397,13 +5397,13 @@ d_{i,j}=|c_j-b_i|+\min_{k \le j}d_{i-1,k}
 &lt;li&gt;{% post_link problem/poj/poj-3666 %}&lt;/li&gt;
 &lt;li&gt;{% post_link problem/codeforces/cf-713C %}&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/nju-icspa-analytics-nexus-am</id><title type="text">NJU ICS Programming Assignment 代码分析 - NEXUS-AM</title><summary type="text">概述
+</a10:content></item><item><guid isPermaLink="false">Learning/nju-icspa-analytics-nexus-am</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nexus-am</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>NJU ICS Programming Assignment 代码分析 - NEXUS-AM</title><description>概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
 编译器: GCC
 编程语言：C 语言
-一方面, 应用程序的运行都需要运行时环境的支持; 另一方面, 只进行纯粹计算任务的程序在T</summary><published>2018-10-23T17:30:22+08:00</published><updated>2018-10-23T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nexus-am" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
+一方面, 应用程序的运行都需要运行时环境的支持; 另一方面, 只进行纯粹计算任务的程序在T</description><pubDate>Tue, 23 Oct 2018 17:30:22 +0800</pubDate><a10:updated>2018-10-23T17:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/NJU-ProjectN/nexus-am"&gt;框架代码库&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;CPU 架构：x64&lt;/li&gt;
@@ -5986,13 +5986,13 @@ int screen_height();
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/nju-icspa-analytics-nemu</id><title type="text">NJU ICS Programming Assignment 代码分析 - NEMU</title><summary type="text">概述
+</a10:content></item><item><guid isPermaLink="false">Learning/nju-icspa-analytics-nemu</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nemu</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>NJU ICS Programming Assignment 代码分析 - NEMU</title><description>概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
 编译器: GCC
 编程语言：C 语言
-由于 NJU ICS PA 框架代码较多且缺少足够说明，讲义多为基础引入内容，为方便后续程</summary><published>2018-10-05T19:30:22+08:00</published><updated>2018-10-05T19:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nemu" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
+由于 NJU ICS PA 框架代码较多且缺少足够说明，讲义多为基础引入内容，为方便后续程</description><pubDate>Fri, 05 Oct 2018 19:30:22 +0800</pubDate><a10:updated>2018-10-05T19:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/NJU-ProjectN/nemu"&gt;框架代码库&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;CPU 架构：x64&lt;/li&gt;
@@ -7852,13 +7852,13 @@ void difftest_init();
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/nju-icspa-analytics-nanos-lite</id><title type="text">NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><summary type="text">概述
+</a10:content></item><item><guid isPermaLink="false">Learning/nju-icspa-analytics-nanos-lite</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nanos-lite</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>NJU ICS Programming Assignment 代码分析 - NANOS-LITE</title><description>概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
 编译器: GCC
 编程语言：C 语言
-Nanos-lite是南京大学操作系统Nanos的裁剪版。可运行在 x86-nemu 的 </summary><published>2018-11-05T17:30:22+08:00</published><updated>2018-11-05T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-nanos-lite" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
+Nanos-lite是南京大学操作系统Nanos的裁剪版。可运行在 x86-nemu 的 </description><pubDate>Mon, 05 Nov 2018 17:30:22 +0800</pubDate><a10:updated>2018-11-05T17:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/NJU-ProjectN/nanos-lite"&gt;框架代码库&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;CPU 架构：x64&lt;/li&gt;
@@ -8214,13 +8214,13 @@ typedef size_t (*WriteFn) (const void *buf, size_t offset, size_t len);
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/nju-icspa-analytics-navy-apps</id><title type="text">NJU ICS Programming Assignment 代码分析 - NAVY-APPS</title><summary type="text">概述
+</a10:content></item><item><guid isPermaLink="false">Learning/nju-icspa-analytics-navy-apps</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-navy-apps</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>NJU ICS Programming Assignment 代码分析 - NAVY-APPS</title><description>概述
 框架代码库
 CPU 架构：x64
 操作系统: GNU/Linux
 编译器: GCC
 编程语言：C 语言
-Navy-Apps 提供一系列运行在 Nanos-lite 上的用户程序，也包含了 New</summary><published>2018-11-05T17:30:22+08:00</published><updated>2018-11-05T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fnju-icspa-analytics-navy-apps" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
+Navy-Apps 提供一系列运行在 Nanos-lite 上的用户程序，也包含了 New</description><pubDate>Mon, 05 Nov 2018 17:30:22 +0800</pubDate><a10:updated>2018-11-05T17:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;概述&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/NJU-ProjectN/navy-apps"&gt;框架代码库&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;CPU 架构：x64&lt;/li&gt;
@@ -8318,8 +8318,8 @@ nexus-am/
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://legacy.gitbook.com/book/nju-ics/ics2018-programming-assignment/details"&gt;ICS2018 PA 讲义&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Learning/multimod-64bit-method</id><title type="text">64位有符号数乘法取模问题</title><summary type="text">问题引入
-给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 int64_t），希望求出 &lt;span class="math"&gt;\(a\ti</summary><published>2018-10-25T17:30:22+08:00</published><updated>2018-10-25T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fmultimod-64bit-method" /><category term="Learning" /><content type="html">&lt;h1 id="section"&gt;问题引入&lt;/h1&gt;
+</a10:content></item><item><guid isPermaLink="false">Learning/multimod-64bit-method</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fmultimod-64bit-method</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>64位有符号数乘法取模问题</title><description>问题引入
+给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 int64_t），希望求出 &lt;span class="math"&gt;\(a\ti</description><pubDate>Thu, 25 Oct 2018 17:30:22 +0800</pubDate><a10:updated>2018-10-25T17:30:22+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;问题引入&lt;/h1&gt;
 &lt;p&gt;给定 $64$ 位有符号整数 &lt;span class="math"&gt;\(a,b,m\)&lt;/span&gt; （类型为 &lt;code&gt;int64_t&lt;/code&gt;），希望求出 &lt;span class="math"&gt;\(a\times b \bmod m\)&lt;/span&gt; 的数值。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-c"&gt;int64_t multimod(int64_t a, int64_t b, int64_t m);
 &lt;/code&gt;&lt;/pre&gt;
@@ -8705,8 +8705,8 @@ Average CPU cycles: 1207.91
 Maximum: 202400 @ (8532847693583176248, 6988877428537774137, 8782939934027677977, 202400)
 Minimum: 900 @ (3971319143760212181, 2705697508146050036, 1115671950010882609, 900)
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Learning/cpp-template-seq</id><title type="text">C++ 模板实现编译期计算数列</title><summary type="text">虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。
-这里使用 C++ 模板的非类型参数特性来实现一些</summary><published>2020-07-23T13:23:31+08:00</published><updated>2020-07-23T13:23:31+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Learning%2Fcpp-template-seq" /><category term="Learning" /><content type="html">&lt;p&gt;虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Learning/cpp-template-seq</guid><link>https://stardustdl.gitee.io/posts/Learning%2Fcpp-template-seq</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Learning</category><title>C++ 模板实现编译期计算数列</title><description>虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。
+这里使用 C++ 模板的非类型参数特性来实现一些</description><pubDate>Thu, 23 Jul 2020 13:23:31 +0800</pubDate><a10:updated>2020-07-23T13:23:31+08:00</a10:updated><a10:content type="html">&lt;p&gt;虽然 C++ 模板最初被 Bjarne Stroustrup 称为参数化类型，但是实际上其工作方式更像一个受限制的高级版宏，”模板“这个名称更加合适。&lt;/p&gt;
 &lt;p&gt;这里使用 C++ 模板的非类型参数特性来实现一些数列的编译期计算。&lt;/p&gt;
 &lt;h2 id="section"&gt;阶乘数列&lt;/h2&gt;
 &lt;div class="math"&gt;
@@ -8872,10 +8872,10 @@ comb.cpp:8:61: error: incomplete type ‘Combinatorial&amp;lt;0, 0&amp;gt;’ us
     8 |     static const int value = Combinatorial&amp;lt;n - 1, m&amp;gt;::value + Combinatorial&amp;lt;n - 1, m - 1&amp;gt;::value;
       |
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Reading/C-Traps-and-Pitfalls</id><title type="text">C Traps and Pitfalls</title><summary type="text">书籍名：C Traps and Pitfalls
+</a10:content></item><item><guid isPermaLink="false">Reading/C-Traps-and-Pitfalls</guid><link>https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Reading</category><title>C Traps and Pitfalls</title><description>书籍名：C Traps and Pitfalls
 作者：Andrew Koenig
 出版时间：1989-1-11
-基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</summary><published>2018-08-26T10:30:40+08:00</published><updated>2018-08-26T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FC-Traps-and-Pitfalls" /><category term="Reading" /><content type="html">&lt;ul&gt;
+基本介绍：Andrew Koenig 是AT&amp;T公司Shannon实验室大规模编程研究</description><pubDate>Sun, 26 Aug 2018 10:30:40 +0800</pubDate><a10:updated>2018-08-26T10:30:40+08:00</a10:updated><a10:content type="html">&lt;ul&gt;
 &lt;li&gt;书籍名：&lt;strong&gt;C Traps and Pitfalls&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;作者：Andrew Koenig&lt;/li&gt;
 &lt;li&gt;出版时间：1989-1-11&lt;/li&gt;
@@ -9045,9 +9045,9 @@ int (*f)(int);  //(*f)(int) 整型        f 指向有一个整型参数，返回
 &lt;/ul&gt;
 &lt;h3 id="section-14"&gt;可变域宽&lt;/h3&gt;
 &lt;p&gt;支持间接指定域宽和精度：使用 &lt;code&gt;*&lt;/code&gt; 替换宽度修饰符，精度修饰符，则参数列表中需添加指定的宽度，精度值。对于给定域宽为负数的情况，相当于把符号作为标志字符 &lt;code&gt;-&lt;/code&gt; 处理。&lt;/p&gt;
-</content></entry><entry><id>Reading/The-C-Programming-Language</id><title type="text">The C Programming Language</title><summary type="text">书籍名：The C Programming Language (Second Edition)
+</a10:content></item><item><guid isPermaLink="false">Reading/The-C-Programming-Language</guid><link>https://stardustdl.gitee.io/posts/Reading%2FThe-C-Programming-Language</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Reading</category><title>The C Programming Language</title><description>书籍名：The C Programming Language (Second Edition)
 作者：Brian W. Kernighan / Dennis M. Ritchie
-出版时间：1988-</summary><published>2018-08-26T09:30:40+08:00</published><updated>2018-08-26T09:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Reading%2FThe-C-Programming-Language" /><category term="Reading" /><content type="html">&lt;ul&gt;
+出版时间：1988-</description><pubDate>Sun, 26 Aug 2018 09:30:40 +0800</pubDate><a10:updated>2018-08-26T09:30:40+08:00</a10:updated><a10:content type="html">&lt;ul&gt;
 &lt;li&gt;书籍名：&lt;strong&gt;The C Programming Language (Second Edition)&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;作者：Brian W. Kernighan / Dennis M. Ritchie&lt;/li&gt;
 &lt;li&gt;出版时间：1988-4-1&lt;/li&gt;
@@ -9249,8 +9249,8 @@ FILE* tmpfile();//wb+创建临时文件
 &lt;li&gt;&lt;code&gt;abort()&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ateexit(void (*func)(void))&lt;/code&gt; 登记一个程序正常终止时调用的函数&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><id>Problems/leetcode-5467</id><title type="text">LeetCode-5467 找到最接近目标值的函数值</title><summary type="text">区间取 AND 和，固定左端点，结果是递减的，从而目标函数 |ANDSUM(l, r) - target| 是一个单峰函数。
-将每个数拆成二进制数位，维护每一位的前缀和，只要第 i 位的区间和 bit</summary><published>2020-07-19T12:30:28+08:00</published><updated>2020-07-19T12:30:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5467" /><category term="Problems" /><content type="html">&lt;p&gt;区间取 &lt;code&gt;AND&lt;/code&gt; 和，固定左端点，结果是递减的，从而目标函数 &lt;code&gt;|ANDSUM(l, r) - target|&lt;/code&gt; 是一个单峰函数。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-5467</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5467</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-5467 找到最接近目标值的函数值</title><description>区间取 AND 和，固定左端点，结果是递减的，从而目标函数 |ANDSUM(l, r) - target| 是一个单峰函数。
+将每个数拆成二进制数位，维护每一位的前缀和，只要第 i 位的区间和 bit</description><pubDate>Sun, 19 Jul 2020 12:30:28 +0800</pubDate><a10:updated>2020-07-19T12:30:28+08:00</a10:updated><a10:content type="html">&lt;p&gt;区间取 &lt;code&gt;AND&lt;/code&gt; 和，固定左端点，结果是递减的，从而目标函数 &lt;code&gt;|ANDSUM(l, r) - target|&lt;/code&gt; 是一个单峰函数。&lt;/p&gt;
 &lt;p&gt;将每个数拆成二进制数位，维护每一位的前缀和，只要第 &lt;code&gt;i&lt;/code&gt; 位的区间和 &lt;code&gt;bit[r]-bit[l] &amp;lt; r-l&lt;/code&gt; 即可知此区间这一位上存在 0，进而 &lt;code&gt;AND&lt;/code&gt; 和的这一位为 0，否则为 1。&lt;/p&gt;
 &lt;p&gt;预处理上述结果后，可以在 &lt;span class="math"&gt;\(O(32)\)&lt;/span&gt; 内得到区间 &lt;code&gt;AND&lt;/code&gt; 和。&lt;/p&gt;
 &lt;p&gt;结合之前的单峰函数性质，枚举左端点，使用三分法计算固定左端点下的最优值即可。&lt;/p&gt;
@@ -9319,9 +9319,9 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-5464</id><title type="text">LeetCode-5464 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-5464</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5464</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-5464 换酒问题</title><description>数据非常小，使用整除和取模迭代运算即可。
 class Solution:
-    def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5464" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
+    def numWaterBottles(self, numBottles: int, numExchange: int</description><pubDate>Sun, 19 Jul 2020 12:30:22 +0800</pubDate><a10:updated>2020-07-19T12:30:22+08:00</a10:updated><a10:content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -&amp;gt; int:
         result = numBottles
@@ -9333,8 +9333,8 @@ class Solution:
             result += g
         return result
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-5466</id><title type="text">LeetCode-5466 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
-先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5466" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-5466</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5466</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-5466 最多的不重叠子字符串</title><description>子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
+先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</description><pubDate>Sun, 19 Jul 2020 12:30:25 +0800</pubDate><a10:updated>2020-07-19T12:30:25+08:00</a10:updated><a10:content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
 &lt;p&gt;先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中这一要求，最多有 26 个子串。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;预处理出每种字符的第一次出现和最后一次出现&lt;/li&gt;
@@ -9450,7 +9450,7 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-3" /><category term="Problems" /><content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-3</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-3</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-3 无重复字符的最长子串</title><description>无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</description><pubDate>Mon, 13 Jul 2020 20:30:40 +0800</pubDate><a10:updated>2020-07-13T20:30:40+08:00</a10:updated><a10:content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def lengthOfLongestSubstring(self, s: str) -&amp;gt; int:
         bg = {}
@@ -9462,9 +9462,9 @@ public:
             bg[s[j]]=j
         return ans
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-2</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-2</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-2 两数相加</title><description>由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: </summary><published>2020-07-13T20:29:38+08:00</published><updated>2020-07-13T20:29:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-2" /><category term="Problems" /><content type="html">&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
+    def addTwoNumbers(self, l1: ListNode, l2: </description><pubDate>Mon, 13 Jul 2020 20:29:38 +0800</pubDate><a10:updated>2020-07-13T20:29:38+08:00</a10:updated><a10:content type="html">&lt;p&gt;由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&amp;gt; ListNode:
         res = None
@@ -9487,7 +9487,7 @@ class Solution:
             cur.next = ListNode(rem)
         return res
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-1</id><title type="text">LeetCode-1 两数之和</title><summary type="text">使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得</summary><published>2020-07-13T17:30:22+08:00</published><updated>2020-07-13T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1" /><category term="Problems" /><content type="html">&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-1</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-1 两数之和</title><description>使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得</description><pubDate>Mon, 13 Jul 2020 17:30:22 +0800</pubDate><a10:updated>2020-07-13T17:30:22+08:00</a10:updated><a10:content type="html">&lt;p&gt;使用哈希表维护每个数到下标的映射，遍历每个元素 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，查表得到 &lt;span class="math"&gt;\(S-x\)&lt;/span&gt; 的下标，得到结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashMap;
 
 impl Solution {
@@ -9513,9 +9513,9 @@ impl Solution {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-5465</id><title type="text">LeetCode-5465 子树中标签相同的节点数</title><summary type="text">注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
+</a10:content></item><item><guid isPermaLink="false">Problems/leetcode-5465</guid><link>https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5465</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems</category><title>LeetCode-5465 子树中标签相同的节点数</title><description>注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
 vectorint g[100005];
-int _co</summary><published>2020-07-19T12:30:23+08:00</published><updated>2020-07-19T12:30:23+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5465" /><category term="Problems" /><content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
+int _co</description><pubDate>Sun, 19 Jul 2020 12:30:23 +0800</pubDate><a10:updated>2020-07-19T12:30:23+08:00</a10:updated><a10:content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;vector&amp;lt;int&amp;gt; g[100005];
 int _count[26][100005];
 int ch = 0;
@@ -9564,8 +9564,8 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Development/AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
-AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Development%2FAcBlog-staticgen" /><category term="Development" /><content type="html">&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
+</a10:content></item><item><guid isPermaLink="false">Development/AcBlog-staticgen</guid><link>https://stardustdl.gitee.io/posts/Development%2FAcBlog-staticgen</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Development</category><title>AcBlog 静态博客生成器使用说明</title><description>AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
+AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。</description><pubDate>Wed, 15 Jul 2020 08:23:46 +0800</pubDate><a10:updated>2020-07-15T08:23:46+08:00</a10:updated><a10:content type="html">&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
 &lt;p&gt;AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://acblog.github.io/"&gt;AcBlog GitHub Pages&lt;/a&gt;&lt;/li&gt;
@@ -9666,11 +9666,11 @@ jobs:
           CLEAN: true
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于项目前端依赖 WebAssembly，需手动在 GitHub Pages 分支的根目录下添加 &lt;code&gt;.nojekyll&lt;/code&gt; 文件（内容为空即可）以禁用 GitHub Pages 的 Jekyll 自动构建。&lt;/p&gt;
-</content></entry><entry><id>Development/ImagingS-dev</id><title type="text">ImagingS 开发笔记</title><summary type="text">Project Source
+</a10:content></item><item><guid isPermaLink="false">Development/ImagingS-dev</guid><link>https://stardustdl.gitee.io/posts/Development%2FImagingS-dev</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Development</category><title>ImagingS 开发笔记</title><description>Project Source
 Demo Video
 来源
 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
-之前一般仅</summary><published>2020-07-14T17:30:22+08:00</published><updated>2020-07-14T17:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Development%2FImagingS-dev" /><category term="Development" /><content type="html">&lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
+之前一般仅</description><pubDate>Tue, 14 Jul 2020 17:30:22 +0800</pubDate><a10:updated>2020-07-14T17:30:22+08:00</a10:updated><a10:content type="html">&lt;p&gt;&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/StardustDL/ImagingS"&gt;Project Source&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.bilibili.com/video/BV1Q54y1i7Lg/"&gt;Demo Video&lt;/a&gt;&lt;/li&gt;
@@ -9820,8 +9820,8 @@ class DrawingItem(QGraphicsItem):
 &lt;h1 id="section-3"&gt;总结&lt;/h1&gt;
 &lt;p&gt;这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。&lt;/p&gt;
 &lt;p&gt;项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。&lt;/p&gt;
-</content></entry><entry><id>Problems/Contests/linglong-acm-round23</id><title type="text">“玲珑杯” ACM比赛 Round 23</title><summary type="text">生是脂肪的人
-给定一个整数 &lt;span class="math"&gt;\(n\)&lt;/span&gt; ，输出 $10^n/7$ 的个位数。其中 &lt;span class="math"&gt;\(|n| \leq 10^</summary><published>2018-08-08T16:06:25+08:00</published><updated>2018-08-08T16:06:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2FContests%2Flinglong-acm-round23" /><category term="Problems/Contests" /><content type="html">&lt;h1 id="section"&gt;生是脂肪的人&lt;/h1&gt;
+</a10:content></item><item><guid isPermaLink="false">Problems/Contests/linglong-acm-round23</guid><link>https://stardustdl.gitee.io/posts/Problems%2FContests%2Flinglong-acm-round23</link><a10:author><a10:name>StardustDL</a10:name><a10:uri>https://stardustdl.gitee.io</a10:uri></a10:author><category>Problems/Contests</category><title>“玲珑杯” ACM比赛 Round 23</title><description>生是脂肪的人
+给定一个整数 &lt;span class="math"&gt;\(n\)&lt;/span&gt; ，输出 $10^n/7$ 的个位数。其中 &lt;span class="math"&gt;\(|n| \leq 10^</description><pubDate>Wed, 08 Aug 2018 16:06:25 +0800</pubDate><a10:updated>2018-08-08T16:06:25+08:00</a10:updated><a10:content type="html">&lt;h1 id="section"&gt;生是脂肪的人&lt;/h1&gt;
 &lt;p&gt;给定一个整数 &lt;span class="math"&gt;\(n\)&lt;/span&gt; ，输出 $10^n/7$ 的个位数。其中 &lt;span class="math"&gt;\(|n| \leq 10^{18}\)&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id="section-1"&gt;分析&lt;/h2&gt;
 &lt;p&gt;打表规律： $1,4,2,8,5,7$ 循环&lt;/p&gt;
@@ -9996,4 +9996,4 @@ int main(){
     return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry></feed>
+</a10:content></item></channel></rss>
