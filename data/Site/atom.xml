@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:49529e90-0754-4a7e-9bf0-28223f2aa0d6;id=1</id><updated>2020-07-24T09:53:47Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:75cd0497-898d-4ba2-aa27-3ccb70c859c4;id=1</id><updated>2020-07-24T11:27:00Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
@@ -318,6 +318,117 @@ set-option -g default-command &amp;quot;reattach-to-user-namespace -l bash&amp;q
 &lt;h1 id="section-10"&gt;参考资料&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://tangosource.com/blog/a-tmux-crash-course-tips-and-tweaks/"&gt;A Tmux crash course: tips and tweaks.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><id>Tools/github-workflow</id><title type="text">GitHub Actions - Workflow</title><summary type="text">基本信息
+GitHub Actions 中的 Workflow 提供了基于仓库相关事件驱动的工作流，可以基于此实现持续集成，持续部署等功能。
+基础使用
+# Trigger event
+on:
+  # </summary><published>2020-07-24T18:30:40+08:00</published><updated>2020-07-24T18:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fgithub-workflow" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+&lt;p&gt;GitHub Actions 中的 Workflow 提供了基于仓库相关事件驱动的工作流，可以基于此实现持续集成，持续部署等功能。&lt;/p&gt;
+&lt;h1 id="section-1"&gt;基础使用&lt;/h1&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;# Trigger event
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+
+# global env variables
+env:
+  SERVER: production
+
+# default config
+defaults:
+  run:
+    shell: bash
+    working-directory: scripts
+
+# all jobs
+jobs:
+  job1:
+    name: My first job
+    runs-on: ubuntu-latest
+  job2:
+    name: My second job
+    needs: job1
+    strategy:
+      matrix:
+          node: [6, 8, 10]
+    env:
+    defaults:
+    # When set to true, GitHub cancels all in-progress jobs if any matrix job fails.
+    fail-fast: true
+    # Prevents a workflow run from failing when a job fails. Set to true to allow a workflow run to pass when this job fails.
+    continue-on-error: false 
+    if: ${{ true }}
+    steps:
+    - name: Print a greeting
+      if: ${{ true }}
+      env:
+      working-directory: ./temp
+      run: |
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      shell: bash
+    - # use extenal actions
+      name: My first step
+      uses: actions/hello_world@master
+      with:
+        first_name: Mona
+        middle_name: The
+        last_name: Octocat  
+    - uses: actions/setup-node@v1
+      with:
+        # The Node.js version to configure
+        node-version: ${{ matrix.node }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-2"&gt;使用敏感数据&lt;/h2&gt;
+&lt;p&gt;在仓库设置页面的 &lt;code&gt;Secrets&lt;/code&gt; 部分添加敏感数据。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;- name: CI
+  env:
+    NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
+  run: Invoke-psake ci -parameters @{ &amp;quot;NUGET_AUTH_TOKEN&amp;quot; = $env:NUGET_AUTH_TOKEN }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-3"&gt;上传文件&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;- name: Upload reports
+  uses: actions/upload-artifact@v2
+  with:
+    name: ci-${{ matrix.os }}
+    path: ./reports
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-4"&gt;启动外部工作流&lt;/h2&gt;
+&lt;p&gt;Caller:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;invoke-cd:
+  needs: ci
+  runs-on: ubuntu-latest
+  if: ${{ github.event_name == 'push' &amp;amp;&amp;amp; github.ref == 'refs/heads/master' }}
+  steps:
+  - name: Repository Dispatch
+    uses: peter-evans/repository-dispatch@v1
+    with:
+      token: ${{ secrets.PA_TOKEN }}
+      event-type: cd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Callee:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;on:
+  repository_dispatch:
+    types: [cd]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="docker"&gt;构建并推送 Docker 镜像&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-yml"&gt;- name: Push image
+  uses: docker/build-push-action@v1
+  with:
+    username: ${{ secrets.DOCKER_USERNAME }}
+    password: ${{ secrets.DOCKER_PASSWORD }}
+    repository: repo_name
+    tag_with_ref: true
+    dockerfile: ./Dockerfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-5"&gt;参考资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.github.com/en/actions"&gt;GitHub Actions Document&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content></entry><entry><id>Tools/progLang-yaml</id><title type="text">YAML Ain't Markup Language</title><summary type="text">基本信息
 官网
@@ -3276,14 +3387,14 @@ CDATA 部分由 &lt;strong&gt;&amp;lt;![CDATA[&lt;/strong&gt; 开始，由 &lt;s
 </content></entry><entry><id>Tools/apt</id><title type="text">APT - Advanced Packaging Tool</title><summary type="text">基本信息
 介绍：apt，Advanced Packaging Tool 是Linux下的一款安装包管理工具。常用于 Debian, Ubuntu 等系统。是 dpkg 的前端。
 常用命令
-{% not</summary><published>2018-09-19T10:30:40+08:00</published><updated>2018-09-19T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fapt" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
+很多 apt</summary><published>2018-09-19T10:30:40+08:00</published><updated>2018-09-19T10:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Tools%2Fapt" /><category term="Tools" /><content type="html">&lt;h1 id="section"&gt;基本信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;介绍：apt，Advanced Packaging Tool 是Linux下的一款安装包管理工具。常用于 Debian, Ubuntu 等系统。是 dpkg 的前端。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id="section-1"&gt;常用命令&lt;/h1&gt;
-&lt;p&gt;{% note info %}
-很多 apt 命令需要管理员权限。
-{% endnote %}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很多 apt 命令需要管理员权限。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="section-2"&gt;更新数据库&lt;/h2&gt;
 &lt;p&gt;安装软件前常需更新软件包数据库，以保证信息是最新的。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-sh"&gt;apt update
@@ -3371,7 +3482,13 @@ apt autoremove # 自动移除部分无用软件包
 &lt;h2 id="section-7"&gt;更新&lt;/h2&gt;
 &lt;pre&gt;&lt;code class="language-sh"&gt;apt upgrade
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id="section-8"&gt;参考资料&lt;/h1&gt;
+&lt;h2 id="section-8"&gt;下载&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-sh"&gt;apt download &amp;lt;package_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="section-9"&gt;查看缓存中的所有包名&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-sh"&gt;apt-cache pkgnames
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id="section-10"&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;网络&lt;/p&gt;
 </content></entry><entry><id>Tools/powershell</id><title type="text">PowerShell</title><summary type="text">基本信息
 官网
