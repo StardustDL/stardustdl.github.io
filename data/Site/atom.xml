@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:5d15a8a7-9d93-4ebf-9acc-179007d727f7;id=1</id><updated>2020-07-28T07:43:13Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:693a0951-8561-4ede-abd6-40fd2b95f9fc;id=1</id><updated>2020-07-28T09:16:31Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
@@ -9563,6 +9563,37 @@ class Solution:
     def myAtoi(self, str: str) -&amp;gt; int:
         return max(min(int(*re.findall('^[\+\-]?\d+', str.strip())), 2**31 - 1), -2**31)
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-13</id><title type="text">LeetCode-13 罗马数字转整数</title><summary type="text">每次读取两个连续字符，分类讨论处理特殊情况。
+class Solution:
+    def romanToInt(self, s: str) - int:
+        d = {'I': 1, </summary><published>2020-07-28T15:18:50+08:00</published><updated>2020-07-28T15:18:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-13" /><category term="Problems" /><content type="html">&lt;p&gt;每次读取两个连续字符，分类讨论处理特殊情况。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def romanToInt(self, s: str) -&amp;gt; int:
+        d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        ans = d[s[0]]
+        for i in range(1, len(s)):
+            l, r = d[s[i-1]], d[s[i]]
+            if l &amp;gt;= r:
+                ans += r
+            else:
+                ans += r - 2 * l
+        return ans
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-12</id><title type="text">LeetCode-12 整数转罗马数字</title><summary type="text">预处理出每种表示（包括 IV 这种特殊表示），然后从大到小依次填充即可。
+class Solution:
+    def intToRoman(self, num: int) - str:
+     </summary><published>2020-07-28T15:17:50+08:00</published><updated>2020-07-28T15:17:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-12" /><category term="Problems" /><content type="html">&lt;p&gt;预处理出每种表示（包括 &lt;code&gt;IV&lt;/code&gt; 这种特殊表示），然后从大到小依次填充即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def intToRoman(self, num: int) -&amp;gt; str:
+        vc = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'),
+              (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
+        ans = &amp;quot;&amp;quot;
+        for k, v in vc:
+            while num &amp;gt;= k:
+                ans += v
+                num -= k
+        return ans
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-5464</id><title type="text">LeetCode-5464 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5464" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
@@ -9576,6 +9607,28 @@ class Solution:
             bot += g
             result += g
         return result
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-19</id><title type="text">LeetCode-19 删除链表的倒数第N个节点</title><summary type="text">计算链表长度，然后删除。
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) - ListNode:
+    </summary><published>2020-07-28T15:35:50+08:00</published><updated>2020-07-28T15:35:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-19" /><category term="Problems" /><content type="html">&lt;p&gt;计算链表长度，然后删除。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -&amp;gt; ListNode:
+        l = 0
+        cur = head
+        while cur:
+            l += 1
+            cur = cur.next
+        ind = l - n
+        if ind == 0:
+            return head.next
+        last, cur = None, head
+        while ind &amp;gt; 0:
+            last = cur
+            cur = cur.next
+            ind -= 1
+        last.next = cur.next
+        return head
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-7</id><title type="text">LeetCode-7 整数反转</title><summary type="text">使用字符串反转和转换，注意负数情况。
 use std::cmp::Ordering;
@@ -9601,6 +9654,24 @@ impl Solution {
         }
     }
 }
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-18</id><title type="text">LeetCode-18 四数之和</title><summary type="text">可以排序后枚举 &lt;span class="math"&gt;\(a\)&lt;/span&gt;，转成三数之和。
+这里使用哈希表解决。
+枚举 &lt;span class="math"&gt;\(a,b\)&lt;/span&gt;，将 &lt;s</summary><published>2020-07-28T15:30:50+08:00</published><updated>2020-07-28T15:30:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-18" /><category term="Problems" /><content type="html">&lt;p&gt;可以排序后枚举 &lt;span class="math"&gt;\(a\)&lt;/span&gt;，转成三数之和。&lt;/p&gt;
+&lt;p&gt;这里使用哈希表解决。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;枚举 &lt;span class="math"&gt;\(a,b\)&lt;/span&gt;，将 &lt;span class="math"&gt;\((a,b)\)&lt;/span&gt; 加入列表 &lt;span class="math"&gt;\(d[t-a-b]\)&lt;/span&gt; 中。&lt;/li&gt;
+&lt;li&gt;然后在枚举 &lt;span class="math"&gt;\(c, d\)&lt;/span&gt;，查表 &lt;span class="math"&gt;\(d[t-c-d]\)&lt;/span&gt; 组合成 &lt;span class="math"&gt;\((a,b,c,d)\)&lt;/span&gt;。&lt;/li&gt;
+&lt;li&gt;最后去重即可。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def fourSum(self, nums: List[int], target: int) -&amp;gt; List[List[int]]:
+        from itertools import combinations as com
+        dic, l = collections.defaultdict(list), [*com(range(len(nums)), 2)]
+        for a, b in l:
+            dic[target - nums[a] - nums[b]].append((a, b))
+        r = [(*ab, c, d) for c, d in l for ab in dic[nums[c] + nums[d]]]
+        return [*set(tuple(sorted(nums[i] for i in t)) for t in r if len(set(t)) == 4)]
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-5466</id><title type="text">LeetCode-5466 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
 先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5466" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
@@ -9774,6 +9845,25 @@ class Solution:
             bg[s[j]]=j
         return ans
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-16</id><title type="text">LeetCode-16 最接近的三数之和</title><summary type="text">类似三数之和，对原数组排序，枚举 &lt;span class="math"&gt;\(a=s_i\)&lt;/span&gt;，问题转化为 &lt;span class="math"&gt;\(b+c\)&lt;/span&gt; 最接近 &lt;sp</summary><published>2020-07-28T15:23:50+08:00</published><updated>2020-07-28T15:23:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-16" /><category term="Problems" /><content type="html">&lt;p&gt;类似三数之和，对原数组排序，枚举 &lt;span class="math"&gt;\(a=s_i\)&lt;/span&gt;，问题转化为 &lt;span class="math"&gt;\(b+c\)&lt;/span&gt; 最接近 &lt;span class="math"&gt;\(t-a\)&lt;/span&gt;，由于已经有序，可以使用双指针寻找最接近的和。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -&amp;gt; int:
+        nums.sort()
+        res = None
+        i = 0
+        for i in range(len(nums)):
+            l = i+1
+            r = len(nums)-1
+            while l &amp;lt; r:
+                s = nums[i] + nums[l] + nums[r]
+                if res == None or abs(s-target) &amp;lt; abs(res-target):
+                    res = s
+                if s &amp;gt; target:
+                    r -= 1
+                else:
+                    l += 1
+        return res
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-4</id><title type="text">LeetCode-4 寻找两个正序数组的中位数</title><summary type="text">简单归并两个数组。
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -</summary><published>2020-07-28T15:10:40+08:00</published><updated>2020-07-28T15:10:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-4" /><category term="Problems" /><content type="html">&lt;p&gt;简单归并两个数组。&lt;/p&gt;
@@ -9803,6 +9893,94 @@ class Solution:
                 cur += 1
                 j += 1
         return ans if not is2 else ans / 2
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-17</id><title type="text">LeetCode-17 电话号码的字母组合</title><summary type="text">深度优先搜索生成所有组合。
+class Solution:
+    def letterCombinations(self, digits: str) - List[str]:
+        if </summary><published>2020-07-28T15:25:50+08:00</published><updated>2020-07-28T15:25:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-17" /><category term="Problems" /><content type="html">&lt;p&gt;深度优先搜索生成所有组合。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def letterCombinations(self, digits: str) -&amp;gt; List[str]:
+        if digits == &amp;quot;&amp;quot;:
+            return []
+
+        def dfs(s, pos, l, dic):
+            if pos == l:
+                return [&amp;quot;&amp;quot;]
+            nxt = dfs(s, pos + 1, l, dic)
+            head = dic[s[pos]]
+            res = []
+            for x in head:
+                for n in nxt:
+                    res.append(x + n)
+            return res
+        dic = {'2': &amp;quot;abc&amp;quot;, '3': &amp;quot;def&amp;quot;, '4': &amp;quot;ghi&amp;quot;, '5': &amp;quot;jkl&amp;quot;,
+               '6': &amp;quot;mno&amp;quot;, '7': &amp;quot;pqrs&amp;quot;, '8': &amp;quot;tuv&amp;quot;, '9': &amp;quot;wxyz&amp;quot;}
+        return dfs(digits, 0, len(digits), dic)
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-14</id><title type="text">LeetCode-14 最长公共前缀</title><summary type="text">枚举长度，朴素比较。
+class Solution:
+    def check(self, strs, l):
+        for s in strs:
+            if s[0:l</summary><published>2020-07-28T15:19:50+08:00</published><updated>2020-07-28T15:19:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-14" /><category term="Problems" /><content type="html">&lt;p&gt;枚举长度，朴素比较。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def check(self, strs, l):
+        for s in strs:
+            if s[0:l] != strs[0][0:l]:
+                return False
+        return True
+
+    def longestCommonPrefix(self, strs: List[str]) -&amp;gt; str:
+        if len(strs) == 0:
+            return &amp;quot;&amp;quot;
+        l = min([len(s) for s in strs])
+        for i in range(0, l + 1):
+            if not self.check(strs, i):
+                return strs[0][0:(i-1)]
+        return strs[0][0:l]
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-20</id><title type="text">LeetCode-20 有效的括号</title><summary type="text">使用栈模拟。
+class Solution
+{
+public:
+    bool isValid(string s)
+    {
+        stackchar S;
+        for (c</summary><published>2020-07-28T15:50:50+08:00</published><updated>2020-07-28T15:50:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-20" /><category term="Problems" /><content type="html">&lt;p&gt;使用栈模拟。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
+{
+public:
+    bool isValid(string s)
+    {
+        stack&amp;lt;char&amp;gt; S;
+        for (char c : s)
+        {
+            switch (c)
+            {
+            case '(':
+            case '[':
+            case '{':
+                S.push(c);
+                break;
+            case ')':
+                if (S.empty() || S.top() != '(')
+                    return false;
+                S.pop();
+                break;
+            case ']':
+                if (S.empty() || S.top() != '[')
+                    return false;
+                S.pop();
+                break;
+            case '}':
+                if (S.empty() || S.top() != '{')
+                    return false;
+                S.pop();
+                break;
+            }
+        }
+        return S.empty();
+    }
+};
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-6</id><title type="text">LeetCode-6 Z 字形变换</title><summary type="text">由于只有两个方向：一个是向下，&lt;span class="math"&gt;\((x,y+1)\)&lt;/span&gt;，另一个是向右上，&lt;span class="math"&gt;\((x+1,y-1)\)&lt;/span&gt;</summary><published>2020-07-28T15:12:40+08:00</published><updated>2020-07-28T15:12:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-6" /><category term="Problems" /><content type="html">&lt;p&gt;由于只有两个方向：一个是向下，&lt;span class="math"&gt;\((x,y+1)\)&lt;/span&gt;，另一个是向右上，&lt;span class="math"&gt;\((x+1,y-1)\)&lt;/span&gt;，在边界处维护翻转当前方向，维护每行的串即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
@@ -9901,6 +10079,19 @@ impl Solution {
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-104</id><title type="text">LeetCode-104 二叉树的最大深度</title><summary type="text">递归计算结点深度即可。
+class Solution:
+    def solve(self, root: TreeNode, dep) - int:
+        if root == None:</summary><published>2020-07-28T15:15:40+08:00</published><updated>2020-07-28T15:15:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-104" /><category term="Problems" /><content type="html">&lt;p&gt;递归计算结点深度即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def solve(self, root: TreeNode, dep) -&amp;gt; int:
+        if root == None:
+            return dep
+        return max(self.solve(root.left, dep+1), self.solve(root.right, dep+1))
+
+    def maxDepth(self, root: TreeNode) -&amp;gt; int:
+        return self.solve(root, 0)
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-5465</id><title type="text">LeetCode-5465 子树中标签相同的节点数</title><summary type="text">注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。
 vectorint g[100005];
 int _co</summary><published>2020-07-19T12:30:23+08:00</published><updated>2020-07-19T12:30:23+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5465" /><category term="Problems" /><content type="html">&lt;p&gt;注意到结点标签是单小写字母，所以建树后，，使用 DFS 遍历一遍树即可得到以某种小写字母为标签结点的统计结果，遍历 26 遍即可得到全部结果。&lt;/p&gt;
@@ -9952,24 +10143,39 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-10</id><title type="text">LeetCode-10 正则表达式匹配</title><summary type="text">&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math</summary><published>2020-07-28T15:14:40+08:00</published><updated>2020-07-28T15:14:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-10" /><category term="Problems" /><content type="html">&lt;p&gt;&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math"&gt;\(p[0..j-1]\)&lt;/span&gt; 是否匹配。&lt;/p&gt;
+</content></entry><entry><id>Problems/leetcode-11</id><title type="text">LeetCode-11 盛最多水的容器</title><summary type="text">两个指针分别从左往右和从右往左，计算当前容量。由于容积由较小值和距离决定，移动高度较高一侧的指针一定会减小答案，所以移动高度较小一侧的指针。
+class Solution:
+    def maxAr</summary><published>2020-07-28T15:16:50+08:00</published><updated>2020-07-28T15:16:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-11" /><category term="Problems" /><content type="html">&lt;p&gt;两个指针分别从左往右和从右往左，计算当前容量。由于容积由较小值和距离决定，移动高度较高一侧的指针一定会减小答案，所以移动高度较小一侧的指针。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def maxArea(self, height: List[int]) -&amp;gt; int:
+        ans = 0
+        i, j = 0, len(height)-1
+        while i &amp;lt; j:
+            mn = min(height[i], height[j])
+            ans = max(ans, mn * (j-i))
+            if height[i] &amp;lt; height[j]:
+                i += 1
+            else:
+                j -= 1
+        return ans
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-10</id><title type="text">LeetCode-10 正则表达式匹配</title><summary type="text">&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math</summary><published>2020-07-28T15:14:50+08:00</published><updated>2020-07-28T15:14:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-10" /><category term="Problems" /><content type="html">&lt;p&gt;&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math"&gt;\(p[0..j-1]\)&lt;/span&gt; 是否匹配。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;边界 &lt;span class="math"&gt;\(d_{0,0}=T\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;转移
 &lt;ol&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(p_{j-1}=\text{'*'}\)&lt;/span&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p_{j-1}=\text{*}\)&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;忽略：&lt;span class="math"&gt;\(d_{i, j-2}\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j} \wedge (s_{i-1}=p_{j-2} \vee p_{j-2}=\text{'.'})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j} \wedge (s_{i-1}=p_{j-2} \vee p_{j-2}=\text{.})\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j-1} \wedge (s_{i-1}=p_{j-2} \vee p_{j-2}=\text{'.'})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j-1} \wedge (s_{i-1}=p_{j-1} \vee p_{j-1}=\text{.})\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;结果 &lt;span class="math"&gt;\(d_{|s|, |p|}\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class="language-csharp"&gt;public
-class Solution
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public class Solution
 {
     public bool IsMatch(string s, string p)
     {
@@ -9985,6 +10191,33 @@ class Solution
         return res[s.Length, p.Length];
     }
 }
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-15</id><title type="text">LeetCode-15 三数之和</title><summary type="text">对原数组排序，枚举 &lt;span class="math"&gt;\(a=s_i\)&lt;/span&gt;，问题转化为 &lt;span class="math"&gt;\(b+c=-a\)&lt;/span&gt;，由于已经有序，可以使用</summary><published>2020-07-28T15:21:50+08:00</published><updated>2020-07-28T15:21:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-15" /><category term="Problems" /><content type="html">&lt;p&gt;对原数组排序，枚举 &lt;span class="math"&gt;\(a=s_i\)&lt;/span&gt;，问题转化为 &lt;span class="math"&gt;\(b+c=-a\)&lt;/span&gt;，由于已经有序，可以使用双指针计算。
+为避免重复 &lt;span class="math"&gt;\(b,c\)&lt;/span&gt; 应在 &lt;span class="math"&gt;\(s_{i+1..n}\)&lt;/span&gt; 中取，同时忽略相等的元素。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]:
+        nums.sort()
+        res = []
+        i = 0
+        for i in range(len(nums)):
+            if i == 0 or nums[i] &amp;gt; nums[i-1]:
+                l = i+1
+                r = len(nums)-1
+                while l &amp;lt; r:
+                    s = nums[i] + nums[l] + nums[r]
+                    if s == 0:
+                        res.append([nums[i], nums[l], nums[r]])
+                        l += 1
+                        r -= 1
+                        while l &amp;lt; r and nums[l] == nums[l-1]:
+                            l += 1
+                        while r &amp;gt; l and nums[r] == nums[r+1]:
+                            r -= 1
+                    elif s &amp;gt; 0:
+                        r -= 1
+                    else:
+                        l += 1
+        return res
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Development/AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
 AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Development%2FAcBlog-staticgen" /><category term="Development" /><content type="html">&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
