@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:dc06436d-ed0c-4185-b192-813da01a45cc;id=1</id><updated>2020-07-26T06:22:52Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:5d15a8a7-9d93-4ebf-9acc-179007d727f7;id=1</id><updated>2020-07-28T07:43:13Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Tools/ssh</id><title type="text">SSH - Secure Shell</title><summary type="text">基本信息
 介绍：较安全实现远程连接，控制，传输的一种工具。
 基础知识
 SSH之所以能够保证安全，原因在于它采用了公钥加密。整个过程是这样的：
@@ -9555,6 +9555,14 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-8</id><title type="text">LeetCode-8 字符串转换整数 (atoi)</title><summary type="text">使用正则表达式查找数字，并转换，注意上下界限制。
+class Solution:
+    def myAtoi(self, str: str) - int:
+        return max(mi</summary><published>2020-07-28T15:13:40+08:00</published><updated>2020-07-28T15:13:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-8" /><category term="Problems" /><content type="html">&lt;p&gt;使用正则表达式查找数字，并转换，注意上下界限制。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def myAtoi(self, str: str) -&amp;gt; int:
+        return max(min(int(*re.findall('^[\+\-]?\d+', str.strip())), 2**31 - 1), -2**31)
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-5464</id><title type="text">LeetCode-5464 换酒问题</title><summary type="text">数据非常小，使用整除和取模迭代运算即可。
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int</summary><published>2020-07-19T12:30:22+08:00</published><updated>2020-07-19T12:30:22+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5464" /><category term="Problems" /><content type="html">&lt;p&gt;数据非常小，使用整除和取模迭代运算即可。&lt;/p&gt;
@@ -9568,6 +9576,31 @@ class Solution:
             bot += g
             result += g
         return result
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-7</id><title type="text">LeetCode-7 整数反转</title><summary type="text">使用字符串反转和转换，注意负数情况。
+use std::cmp::Ordering;
+
+impl Solution {
+    fn rev(x: i32) - i32 {
+        match</summary><published>2020-07-28T15:12:40+08:00</published><updated>2020-07-28T15:12:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-7" /><category term="Problems" /><content type="html">&lt;p&gt;使用字符串反转和转换，注意负数情况。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-rs"&gt;use std::cmp::Ordering;
+
+impl Solution {
+    fn rev(x: i32) -&amp;gt; i32 {
+        match x.to_string().chars().rev().collect::&amp;lt;String&amp;gt;().parse() {
+            Ok(v) =&amp;gt; v,
+            Err(_) =&amp;gt; 0,
+        }
+    }
+    
+    pub fn reverse(x: i32) -&amp;gt; i32 {
+        if x.is_negative() {
+            -Self::rev(x.abs())
+        } else {
+            Self::rev(x)
+        }
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-5466</id><title type="text">LeetCode-5466 最多的不重叠子字符串</title><summary type="text">子串的要求是不相交，且若一个子字符串包含字符 c ，那么 s 中所有 c 字符都应该在这个子字符串中。
 先找出满足第二个条件的所有子串，由于串仅由小写字母组成，按照 s 中所有 c 字符都应该在这个子</summary><published>2020-07-19T12:30:25+08:00</published><updated>2020-07-19T12:30:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5466" /><category term="Problems" /><content type="html">&lt;p&gt;子串的要求是不相交，且若一个子字符串包含字符 &lt;code&gt;c&lt;/code&gt; ，那么 &lt;code&gt;s&lt;/code&gt; 中所有 &lt;code&gt;c&lt;/code&gt; 字符都应该在这个子字符串中。&lt;/p&gt;
@@ -9686,6 +9719,49 @@ public:
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-5</id><title type="text">LeetCode-5 寻找两个正序数组的中位数</title><summary type="text">设 &lt;span class="math"&gt;\(b_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[i..j]\)&lt;/span&gt; 是否是回文串。从小区间到大区间递推计算</summary><published>2020-07-28T15:11:40+08:00</published><updated>2020-07-28T15:11:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-5" /><category term="Problems" /><content type="html">&lt;p&gt;设 &lt;span class="math"&gt;\(b_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[i..j]\)&lt;/span&gt; 是否是回文串。从小区间到大区间递推计算，复杂度 &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
+{
+public:
+    string longestPalindrome(string s)
+    {
+        int len = s.size();
+        if (len == 0)
+            return &amp;quot;&amp;quot;;
+        vector&amp;lt;vector&amp;lt;bool&amp;gt;&amp;gt; cs(len, vector&amp;lt;bool&amp;gt;(len));
+        for (int i = 0; i &amp;lt; len; i++)
+            cs[i][i] = 1;
+        for (int i = 0; i &amp;lt; len - 1; i++)
+            cs[i][i + 1] = s[i] == s[i + 1];
+        for (int l = 3; l &amp;lt;= len; l++)
+            for (int i = 0; i + l - 1 &amp;lt; len; i++)
+            {
+                int j = i + l - 1;
+                cs[i][j] = s[i] == s[j] &amp;amp;&amp;amp; cs[i + 1][j - 1];
+            }
+        for (int l = len; l &amp;gt;= 1; l--)
+            for (int i = 0; i + l - 1 &amp;lt; len; i++)
+            {
+                int j = i + l - 1;
+                if (cs[i][j])
+                {
+                    return s.substr(i, l);
+                }
+            }
+        return &amp;quot;&amp;quot;;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-9</id><title type="text">LeetCode-9 回文数</title><summary type="text">转成字符串后反转比较。
+class Solution:
+    def isPalindrome(self, x: int) - bool:
+        s = str(x)
+        re</summary><published>2020-07-28T15:14:40+08:00</published><updated>2020-07-28T15:14:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-9" /><category term="Problems" /><content type="html">&lt;p&gt;转成字符串后反转比较。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def isPalindrome(self, x: int) -&amp;gt; bool:
+        s = str(x)
+        return s[:] == s[::-1]
+&lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-3</id><title type="text">LeetCode-3 无重复字符的最长子串</title><summary type="text">无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"</summary><published>2020-07-13T20:30:40+08:00</published><updated>2020-07-13T20:30:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-3" /><category term="Problems" /><content type="html">&lt;p&gt;无重复字符的子串，维护每种字符的上次出现位置 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt;，从左往右依次扫描，维护当前可行子串的起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;。对每个字符 &lt;span class="math"&gt;\(s_i\)&lt;/span&gt;，使用 &lt;span class="math"&gt;\(p_{s_i}\)&lt;/span&gt; 更新起点 &lt;span class="math"&gt;\(b\)&lt;/span&gt;，子串长度即为 &lt;span class="math"&gt;\(i-b+1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def lengthOfLongestSubstring(self, s: str) -&amp;gt; int:
@@ -9697,6 +9773,82 @@ public:
             ans = max(ans, j-i+1)
             bg[s[j]]=j
         return ans
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-4</id><title type="text">LeetCode-4 寻找两个正序数组的中位数</title><summary type="text">简单归并两个数组。
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -</summary><published>2020-07-28T15:10:40+08:00</published><updated>2020-07-28T15:10:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-4" /><category term="Problems" /><content type="html">&lt;p&gt;简单归并两个数组。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -&amp;gt; float:
+        n, m = len(nums1), len(nums2)
+        is2 = (n+m) % 2 == 0
+        target = (n+m)//2 - (1 if is2 else 0)
+        cur = 0
+        i, j = 0, 0
+        ans = 0
+        while i &amp;lt; n or j &amp;lt; m:
+            l = 10**10 if i &amp;gt;= n else nums1[i]
+            r = 10**10 if j &amp;gt;= m else nums2[j]
+            if l &amp;lt; r:
+                if cur == target:
+                    ans += l
+                elif cur == target + 1 and is2:
+                    ans += l
+                cur += 1
+                i += 1
+            else:
+                if cur == target:
+                    ans += r
+                elif cur == target + 1 and is2:
+                    ans += r
+                cur += 1
+                j += 1
+        return ans if not is2 else ans / 2
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-6</id><title type="text">LeetCode-6 Z 字形变换</title><summary type="text">由于只有两个方向：一个是向下，&lt;span class="math"&gt;\((x,y+1)\)&lt;/span&gt;，另一个是向右上，&lt;span class="math"&gt;\((x+1,y-1)\)&lt;/span&gt;</summary><published>2020-07-28T15:12:40+08:00</published><updated>2020-07-28T15:12:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-6" /><category term="Problems" /><content type="html">&lt;p&gt;由于只有两个方向：一个是向下，&lt;span class="math"&gt;\((x,y+1)\)&lt;/span&gt;，另一个是向右上，&lt;span class="math"&gt;\((x+1,y-1)\)&lt;/span&gt;，在边界处维护翻转当前方向，维护每行的串即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
+{
+public:
+    string convert(string s, int numRows)
+    {
+        if (numRows == 1)
+            return s;
+        int len = s.length();
+        vector&amp;lt;string&amp;gt; lines(min(numRows, len));
+        int curL = 0, isUp = 1;
+        for (int i = 0; i &amp;lt; len; i++)
+        {
+            lines[curL] += s[i];
+            if (isUp)
+            {
+                if (curL == numRows - 1)
+                {
+                    curL--;
+                    isUp = 0;
+                }
+                else
+                {
+                    curL++;
+                }
+            }
+            else
+            {
+                if (curL == 0)
+                {
+                    curL++;
+                    isUp = 1;
+                }
+                else
+                {
+                    curL--;
+                }
+            }
+        }
+        string ans = &amp;quot;&amp;quot;;
+        for (auto t : lines)
+            ans += t;
+        return ans;
+    }
+};
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-2</id><title type="text">LeetCode-2 两数相加</title><summary type="text">由于数位是逆序存储，从低位到高位依次遍历相加即可。注意几个边界情况的判断。
 class Solution:
@@ -9799,6 +9951,40 @@ public:
         return result;
     }
 };
+&lt;/code&gt;&lt;/pre&gt;
+</content></entry><entry><id>Problems/leetcode-10</id><title type="text">LeetCode-10 正则表达式匹配</title><summary type="text">&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math</summary><published>2020-07-28T15:14:40+08:00</published><updated>2020-07-28T15:14:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-10" /><category term="Problems" /><content type="html">&lt;p&gt;&lt;span class="math"&gt;\(d_{i,j}\)&lt;/span&gt; 表示 &lt;span class="math"&gt;\(s[0..i-1]\)&lt;/span&gt; 与 &lt;span class="math"&gt;\(p[0..j-1]\)&lt;/span&gt; 是否匹配。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;边界 &lt;span class="math"&gt;\(d_{0,0}=T\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;转移
+&lt;ol&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p_{j-1}=\text{'*'}\)&lt;/span&gt;
+&lt;ul&gt;
+&lt;li&gt;忽略：&lt;span class="math"&gt;\(d_{i, j-2}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j} \wedge (s_{i-1}=p_{j-2} \vee p_{j-2}=\text{'.'})\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;匹配 &lt;span class="math"&gt;\(s_{i-1}\)&lt;/span&gt;：&lt;span class="math"&gt;\(d_{i-1, j-1} \wedge (s_{i-1}=p_{j-2} \vee p_{j-2}=\text{'.'})\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;结果 &lt;span class="math"&gt;\(d_{|s|, |p|}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-csharp"&gt;public
+class Solution
+{
+    public bool IsMatch(string s, string p)
+    {
+        bool[,] res = new bool[s.Length + 1, p.Length + 1];
+        res[0, 0] = true;
+        for (int i = 0; i &amp;lt;= s.Length; i++)
+        {
+            for (int j = 1; j &amp;lt;= p.Length; j++)
+            {
+                res[i, j] = (p[j - 1] == '*' &amp;amp;&amp;amp; (res[i, j - 2] || (i &amp;gt; 0 &amp;amp;&amp;amp; res[i - 1, j] &amp;amp;&amp;amp; (s[i - 1] == p[j - 2] || p[j - 2] == '.')))) || (i &amp;gt; 0 &amp;amp;&amp;amp; res[i - 1, j - 1] &amp;amp;&amp;amp; (s[i - 1] == p[j - 1] || p[j - 1] == '.'));
+            }
+        }
+        return res[s.Length, p.Length];
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Development/AcBlog-staticgen</id><title type="text">AcBlog 静态博客生成器使用说明</title><summary type="text">AcBlog 是一个还在开发中的开源博客系统，支持纯静态部署。
 AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。</summary><published>2020-07-15T08:23:46+08:00</published><updated>2020-07-15T08:23:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Development%2FAcBlog-staticgen" /><category term="Development" /><content type="html">&lt;p&gt;&lt;a href="https://github.com/acblog/acblog"&gt;AcBlog&lt;/a&gt; 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p&gt;
