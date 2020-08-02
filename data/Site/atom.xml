@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:941835bb-4e2b-4c5b-bf8a-04c0c091c12c;id=1</id><updated>2020-08-02T00:40:18Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Problems/leetcode-27</id><title type="text">LeetCode-27 移除元素</title><summary type="text">扫描比较即可。
+﻿<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Liang's Blog</title><subtitle type="text">StardustDL's blog based on AcBlog.</subtitle><id>uuid:efb664f0-173c-40ca-9b8c-0189630af20f;id=1</id><updated>2020-08-02T01:59:28Z</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/" /><entry><id>Problems/leetcode-27</id><title type="text">LeetCode-27 移除元素</title><summary type="text">扫描比较即可。
 impl Solution {
     pub fn remove_element(nums: mut Veci32, val: i32) - i32 {
         let mu</summary><published>2020-07-28T16:50:52+08:00</published><updated>2020-07-28T16:50:52+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-27" /><category term="Problems" /><content type="html">&lt;p&gt;扫描比较即可。&lt;/p&gt;
@@ -40,7 +40,7 @@ impl Solution {
 </content></entry><entry><id>Problems/leetcode-119</id><title type="text">LeetCode-119 杨辉三角 II</title><summary type="text">按定义模拟，每一行可由上一行迭代得到。
 impl Solution {
     pub fn get_row(row_index: i32) - Veci32 {
-        let mut re</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-119" /><category term="Problems" /><content type="html">&lt;p&gt;按定义模拟，每一行可由上一行迭代得到。&lt;/p&gt;
+        let mut re</summary><published>2020-07-28T16:53:30+08:00</published><updated>2020-07-28T16:53:30+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-119" /><category term="Problems" /><content type="html">&lt;p&gt;按定义模拟，每一行可由上一行迭代得到。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn get_row(row_index: i32) -&amp;gt; Vec&amp;lt;i32&amp;gt; {
         let mut res = vec![0; row_index as usize + 1];
@@ -131,7 +131,7 @@ public:
 </content></entry><entry><id>Problems/leetcode-200</id><title type="text">LeetCode-200 岛屿数量</title><summary type="text">深度优先搜索求四联通块。
 class Solution:
     def dfs(self, grid, n, m, x, y):
-        if x  0 or y  0 or x = n o</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-200" /><category term="Problems" /><content type="html">&lt;p&gt;深度优先搜索求四联通块。&lt;/p&gt;
+        if x  0 or y  0 or x = n o</summary><published>2020-07-28T16:53:54+08:00</published><updated>2020-07-28T16:53:54+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-200" /><category term="Problems" /><content type="html">&lt;p&gt;深度优先搜索求四联通块。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def dfs(self, grid, n, m, x, y):
         if x &amp;lt; 0 or y &amp;lt; 0 or x &amp;gt;= n or y &amp;gt;= m or grid[x][y] == '0':
@@ -157,7 +157,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-110</id><title type="text">LeetCode-110 平衡二叉树</title><summary type="text">按定义递归判断。
 class Solution:
     def check(self, root: TreeNode, dep) - (bool, int):
-        if root == </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-110" /><category term="Problems" /><content type="html">&lt;p&gt;按定义递归判断。&lt;/p&gt;
+        if root == </summary><published>2020-07-28T16:53:26+08:00</published><updated>2020-07-28T16:53:26+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-110" /><category term="Problems" /><content type="html">&lt;p&gt;按定义递归判断。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def check(self, root: TreeNode, dep) -&amp;gt; (bool, int):
         if root == None:
@@ -285,7 +285,7 @@ public:
 </content></entry><entry><id>Problems/leetcode-1528</id><title type="text">LeetCode-1528 重新排列字符串</title><summary type="text">模拟即可。
 class Solution:
     def restoreString(self, s: str, indices: List[int]) - str:
-        l = ['X</summary><published>2020-07-28T12:30:28+08:00</published><updated>2020-07-28T12:30:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1528" /><category term="Problems" /><content type="html">&lt;p&gt;模拟即可。&lt;/p&gt;
+        l = ['X</summary><published>2020-07-28T12:40:28+08:00</published><updated>2020-07-28T12:40:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-1528" /><category term="Problems" /><content type="html">&lt;p&gt;模拟即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def restoreString(self, s: str, indices: List[int]) -&amp;gt; str:
         l = ['X' for _ in s]
@@ -310,7 +310,7 @@ impl Solution {
 偶数个负数，整个乘积为最大值
 奇数个负数，从段的一端到另一端的最后一个负数的乘积为最大值（两个方向）
 class Solution:
-    def</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-152" /><category term="Problems" /><content type="html">&lt;p&gt;数组由 0 分割成多段，每一段内按照负数个数讨论：&lt;/p&gt;
+    def</summary><published>2020-07-28T16:53:39+08:00</published><updated>2020-07-28T16:53:39+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-152" /><category term="Problems" /><content type="html">&lt;p&gt;数组由 0 分割成多段，每一段内按照负数个数讨论：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;偶数个负数，整个乘积为最大值&lt;/li&gt;
 &lt;li&gt;奇数个负数，从段的一端到另一端的最后一个负数的乘积为最大值（两个方向）&lt;/li&gt;
@@ -327,7 +327,7 @@ class Solution:
 use std::collections::HashSet;
 impl Solution {
     fn calc(n: i32) - i32 {
-        let</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-202" /><category term="Problems" /><content type="html">&lt;p&gt;模拟，使用哈希表处理循环。&lt;/p&gt;
+        let</summary><published>2020-07-28T16:53:55+08:00</published><updated>2020-07-28T16:53:55+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-202" /><category term="Problems" /><content type="html">&lt;p&gt;模拟，使用哈希表处理循环。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;use std::collections::HashSet;
 impl Solution {
     fn calc(n: i32) -&amp;gt; i32 {
@@ -438,7 +438,7 @@ public class Solution
 {
     public IListIListint Generate(int numRows)
     {
-        ListILis</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-118" /><category term="Problems" /><content type="html">&lt;p&gt;按定义模拟。&lt;/p&gt;
+        ListILis</summary><published>2020-07-28T16:53:29+08:00</published><updated>2020-07-28T16:53:29+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-118" /><category term="Problems" /><content type="html">&lt;p&gt;按定义模拟。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-csharp"&gt;public class Solution
 {
     public IList&amp;lt;IList&amp;lt;int&amp;gt;&amp;gt; Generate(int numRows)
@@ -464,7 +464,7 @@ public class Solution
 </content></entry><entry><id>Problems/leetcode-143</id><title type="text">LeetCode-143 重排链表</title><summary type="text">转成数组重建链表。
 impl Solution {
     pub fn reorder_list(head: mut OptionBoxListNode) {
-        match head </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-143" /><category term="Problems" /><content type="html">&lt;p&gt;转成数组重建链表。&lt;/p&gt;
+        match head </summary><published>2020-07-28T16:53:36+08:00</published><updated>2020-07-28T16:53:36+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-143" /><category term="Problems" /><content type="html">&lt;p&gt;转成数组重建链表。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn reorder_list(head: &amp;amp;mut Option&amp;lt;Box&amp;lt;ListNode&amp;gt;&amp;gt;) {
         match head {
@@ -529,7 +529,7 @@ impl Solution {
 </content></entry><entry><id>Problems/leetcode-206</id><title type="text">LeetCode-206 反转链表</title><summary type="text">递归模拟，维护首尾结点。
 class Solution:
     def reverse(self, head: ListNode) - (ListNode, ListNode):
-        i</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-206" /><category term="Problems" /><content type="html">&lt;p&gt;递归模拟，维护首尾结点。&lt;/p&gt;
+        i</summary><published>2020-07-28T16:53:59+08:00</published><updated>2020-07-28T16:53:59+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-206" /><category term="Problems" /><content type="html">&lt;p&gt;递归模拟，维护首尾结点。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def reverse(self, head: ListNode) -&amp;gt; (ListNode, ListNode):
         if head == None:
@@ -627,7 +627,7 @@ class Solution {
 class Solution:
     def invertTree(self, root: TreeNode) - TreeNode:
         if not root:
-    </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-226" /><category term="Problems" /><content type="html">&lt;p&gt;递归模拟。&lt;/p&gt;
+    </summary><published>2020-07-28T16:59:24+08:00</published><updated>2020-07-28T16:59:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-226" /><category term="Problems" /><content type="html">&lt;p&gt;递归模拟。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def invertTree(self, root: TreeNode) -&amp;gt; TreeNode:
         if not root:
@@ -656,7 +656,7 @@ public:
     def calculate(self, s):
         
         :type s: str
-        :rtype: in</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-227" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-python"&gt;class Solution(object):
+        :rtype: in</summary><published>2020-07-28T17:53:24+08:00</published><updated>2020-07-28T17:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-227" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-python"&gt;class Solution(object):
     def calculate(self, s):
         &amp;quot;&amp;quot;&amp;quot;
         :type s: str
@@ -667,7 +667,7 @@ public:
 </content></entry><entry><id>Problems/leetcode-141</id><title type="text">LeetCode-141 环形链表</title><summary type="text">双指针，一个步长为 1，另一个为 2，快者一定会在环处再次超过慢者，有环当且仅当两个指针在中途相遇。
 public class Solution
 {
-    public bool HasCycle(</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-141" /><category term="Problems" /><content type="html">&lt;p&gt;双指针，一个步长为 1，另一个为 2，快者一定会在环处再次超过慢者，有环当且仅当两个指针在中途相遇。&lt;/p&gt;
+    public bool HasCycle(</summary><published>2020-07-28T16:53:35+08:00</published><updated>2020-07-28T16:53:35+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-141" /><category term="Problems" /><content type="html">&lt;p&gt;双指针，一个步长为 1，另一个为 2，快者一定会在环处再次超过慢者，有环当且仅当两个指针在中途相遇。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-csharp"&gt;public class Solution
 {
     public bool HasCycle(ListNode head)
@@ -690,7 +690,7 @@ class Solution
 public:
     int countPrimes(int n)
     {
-        bool *isc = new bool[n](</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-204" /><category term="Problems" /><content type="html">&lt;p&gt;筛法求质数并统计。&lt;/p&gt;
+        bool *isc = new bool[n](</summary><published>2020-07-28T16:53:57+08:00</published><updated>2020-07-28T16:53:57+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-204" /><category term="Problems" /><content type="html">&lt;p&gt;筛法求质数并统计。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
 {
 public:
@@ -1121,7 +1121,7 @@ impl Solution {
 </content></entry><entry><id>Problems/leetcode-205</id><title type="text">LeetCode-205 同构字符串</title><summary type="text">计算每个需要替换字符的替换规则，不同构当且仅当规则冲突。
 class Solution:
     def isIsomorphic(self, s: str, t: str) - bool:
-    </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-205" /><category term="Problems" /><content type="html">&lt;p&gt;计算每个需要替换字符的替换规则，不同构当且仅当规则冲突。&lt;/p&gt;
+    </summary><published>2020-07-28T16:53:58+08:00</published><updated>2020-07-28T16:53:58+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-205" /><category term="Problems" /><content type="html">&lt;p&gt;计算每个需要替换字符的替换规则，不同构当且仅当规则冲突。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def isIsomorphic(self, s: str, t: str) -&amp;gt; bool:
         mp = {}
@@ -1165,7 +1165,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-121</id><title type="text">LeetCode-121 买卖股票的最佳时机</title><summary type="text">维护后缀最大值，然后计算每个 &lt;span class="math"&gt;\(p_i-m\)&lt;/span&gt; 更新答案。
 class Solution:
-    def maxProfit(self, pri</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-121" /><category term="Problems" /><content type="html">&lt;p&gt;维护后缀最大值，然后计算每个 &lt;span class="math"&gt;\(p_i-m\)&lt;/span&gt; 更新答案。&lt;/p&gt;
+    def maxProfit(self, pri</summary><published>2020-07-28T16:53:31+08:00</published><updated>2020-07-28T16:53:31+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-121" /><category term="Problems" /><content type="html">&lt;p&gt;维护后缀最大值，然后计算每个 &lt;span class="math"&gt;\(p_i-m\)&lt;/span&gt; 更新答案。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def maxProfit(self, prices: List[int]) -&amp;gt; int:
         l = len(prices)
@@ -1208,7 +1208,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-169</id><title type="text">LeetCode-169 多数元素</title><summary type="text">由于是严格多数（大于一半），所以可以使用一一抵消，维护当前次数最多元素，每出现一个不同元素，则消耗一个当前次数最多元素，最后剩下的元素即为答案。
 impl Solution {
-    pub fn </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-169" /><category term="Problems" /><content type="html">&lt;p&gt;由于是严格多数（大于一半），所以可以使用一一抵消，维护当前次数最多元素，每出现一个不同元素，则消耗一个当前次数最多元素，最后剩下的元素即为答案。&lt;/p&gt;
+    pub fn </summary><published>2020-07-28T16:53:44+08:00</published><updated>2020-07-28T16:53:44+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-169" /><category term="Problems" /><content type="html">&lt;p&gt;由于是严格多数（大于一半），所以可以使用一一抵消，维护当前次数最多元素，每出现一个不同元素，则消耗一个当前次数最多元素，最后剩下的元素即为答案。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn majority_element(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 {
         let mut cnt = 0;
@@ -1257,7 +1257,7 @@ public:
 </content></entry><entry><id>Problems/leetcode-122</id><title type="text">LeetCode-122 买卖股票的最佳时机 II</title><summary type="text">由于可以反复买卖，且每天都可以买卖，所以可以赚取每天的正差价。
 class Solution:
     def maxProfit(self, prices: List[int]) - int:
-  </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-122" /><category term="Problems" /><content type="html">&lt;p&gt;由于可以反复买卖，且每天都可以买卖，所以可以赚取每天的正差价。&lt;/p&gt;
+  </summary><published>2020-07-28T16:53:32+08:00</published><updated>2020-07-28T16:53:32+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-122" /><category term="Problems" /><content type="html">&lt;p&gt;由于可以反复买卖，且每天都可以买卖，所以可以赚取每天的正差价。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def maxProfit(self, prices: List[int]) -&amp;gt; int:
         l = len(prices)
@@ -1398,7 +1398,7 @@ class Solution:
 class Solution:
     def convertToTitle(self, n: int) - str:
         ans = 
-     </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-168" /><category term="Problems" /><content type="html">&lt;p&gt;模拟，类似 10 到 26 进制转换。&lt;/p&gt;
+     </summary><published>2020-07-28T16:53:43+08:00</published><updated>2020-07-28T16:53:43+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-168" /><category term="Problems" /><content type="html">&lt;p&gt;模拟，类似 10 到 26 进制转换。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def convertToTitle(self, n: int) -&amp;gt; str:
         ans = &amp;quot;&amp;quot;
@@ -1415,7 +1415,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-203</id><title type="text">LeetCode-203 移除链表元素</title><summary type="text">模拟。
 class Solution:
     def nextElement(self, head: ListNode, val: int) - ListNode:
-        while he</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-203" /><category term="Problems" /><content type="html">&lt;p&gt;模拟。&lt;/p&gt;
+        while he</summary><published>2020-07-28T16:53:56+08:00</published><updated>2020-07-28T16:53:56+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-203" /><category term="Problems" /><content type="html">&lt;p&gt;模拟。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def nextElement(self, head: ListNode, val: int) -&amp;gt; ListNode:
         while head != None and head.val == val:
@@ -1487,7 +1487,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-217</id><title type="text">LeetCode-217 存在重复元素</title><summary type="text">class Solution:
     def containsDuplicate(self, nums: List[int]) - bool:
-        return len(set(nums</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-217" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
+        return len(set(nums</summary><published>2020-07-28T16:55:24+08:00</published><updated>2020-07-28T16:55:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-217" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def containsDuplicate(self, nums: List[int]) -&amp;gt; bool:
         return len(set(nums)) &amp;lt; len(nums)
 &lt;/code&gt;&lt;/pre&gt;
@@ -1506,7 +1506,7 @@ class Solution:
 impl Solution {
     pub fn rotate(nums: mut Veci32, k: i32) {
         for _ in 0..k {
-          </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-189" /><category term="Problems" /><content type="html">&lt;p&gt;模拟。&lt;/p&gt;
+          </summary><published>2020-07-28T16:53:47+08:00</published><updated>2020-07-28T16:53:47+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-189" /><category term="Problems" /><content type="html">&lt;p&gt;模拟。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn rotate(nums: &amp;amp;mut Vec&amp;lt;i32&amp;gt;, k: i32) {
         for _ in 0..k {
@@ -1535,7 +1535,7 @@ impl Solution {
 d_i=\max(d_{i-1},d_{i-2}+v_i)
 \]&lt;/div&gt;
 class Solution:
-  </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-198" /><category term="Problems" /><content type="html">&lt;p&gt;线性表上的最大独立集问题。动态规划解决。&lt;/p&gt;
+  </summary><published>2020-07-28T16:53:52+08:00</published><updated>2020-07-28T16:53:52+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-198" /><category term="Problems" /><content type="html">&lt;p&gt;线性表上的最大独立集问题。动态规划解决。&lt;/p&gt;
 &lt;div class="math"&gt;
 \[
 d_i=\max(d_{i-1},d_{i-2}+v_i)
@@ -1558,7 +1558,7 @@ d_i=\max(d_{i-1},d_{i-2}+v_i)
 </content></entry><entry><id>Problems/leetcode-108</id><title type="text">LeetCode-108 二叉树的最大深度</title><summary type="text">递归取中点建树。
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) - TreeNode:
-        if not </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-108" /><category term="Problems" /><content type="html">&lt;p&gt;递归取中点建树。&lt;/p&gt;
+        if not </summary><published>2020-07-28T16:53:25+08:00</published><updated>2020-07-28T16:53:25+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-108" /><category term="Problems" /><content type="html">&lt;p&gt;递归取中点建树。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def sortedArrayToBST(self, nums: List[int]) -&amp;gt; TreeNode:
         if not nums:
@@ -1571,7 +1571,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-219</id><title type="text">LeetCode-219 存在重复元素 II</title><summary type="text">维护一个滑动窗口内的哈希表。
 class Solution:
-    def containsNearbyDuplicate(self, nums: List[int], k: int) - bool</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-219" /><category term="Problems" /><content type="html">&lt;p&gt;维护一个滑动窗口内的哈希表。&lt;/p&gt;
+    def containsNearbyDuplicate(self, nums: List[int], k: int) - bool</summary><published>2020-07-28T16:56:24+08:00</published><updated>2020-07-28T16:56:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-219" /><category term="Problems" /><content type="html">&lt;p&gt;维护一个滑动窗口内的哈希表。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -&amp;gt; bool:
         s = set()
@@ -1673,7 +1673,7 @@ class Solution:
     def dfs(self, root):
         if not root:
             return
-        self.</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-145" /><category term="Problems" /><content type="html">&lt;p&gt;递归实现。&lt;/p&gt;
+        self.</summary><published>2020-07-28T16:53:38+08:00</published><updated>2020-07-28T16:53:38+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-145" /><category term="Problems" /><content type="html">&lt;p&gt;递归实现。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def dfs(self, root):
         if not root:
@@ -1693,7 +1693,7 @@ class Solution
 public:
     int findKthLargest(vectorint nums, int k)
     {
-        nth_eleme</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-215" /><category term="Problems" /><content type="html">&lt;p&gt;线性选择。&lt;/p&gt;
+        nth_eleme</summary><published>2020-07-28T16:54:24+08:00</published><updated>2020-07-28T16:54:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-215" /><category term="Problems" /><content type="html">&lt;p&gt;线性选择。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
 {
 public:
@@ -1730,7 +1730,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-112</id><title type="text">LeetCode-112 路径总和</title><summary type="text">递归解决子问题。
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) - bool:
-        if root </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-112" /><category term="Problems" /><content type="html">&lt;p&gt;递归解决子问题。&lt;/p&gt;
+        if root </summary><published>2020-07-28T16:53:28+08:00</published><updated>2020-07-28T16:53:28+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-112" /><category term="Problems" /><content type="html">&lt;p&gt;递归解决子问题。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -&amp;gt; bool:
         if root == None:
@@ -1746,7 +1746,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-111</id><title type="text">LeetCode-111 二叉树的最小深度</title><summary type="text">递归计算深度，并取最小值。
 class Solution:
     def solve(self, root: TreeNode, dep, ans) - int:
-        if dep = </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-111" /><category term="Problems" /><content type="html">&lt;p&gt;递归计算深度，并取最小值。&lt;/p&gt;
+        if dep = </summary><published>2020-07-28T16:53:27+08:00</published><updated>2020-07-28T16:53:27+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-111" /><category term="Problems" /><content type="html">&lt;p&gt;递归计算深度，并取最小值。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def solve(self, root: TreeNode, dep, ans) -&amp;gt; int:
         if dep &amp;gt;= ans:
@@ -1768,7 +1768,7 @@ class Solution:
     def dfs(self, root):
         if not root:
             return
-        self.</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-144" /><category term="Problems" /><content type="html">&lt;p&gt;递归实现。&lt;/p&gt;
+        self.</summary><published>2020-07-28T16:53:37+08:00</published><updated>2020-07-28T16:53:37+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-144" /><category term="Problems" /><content type="html">&lt;p&gt;递归实现。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def dfs(self, root):
         if not root:
@@ -1784,7 +1784,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-155</id><title type="text">LeetCode-155 最小栈</title><summary type="text">维护一个单调栈。从栈底到栈顶依次减小。
 对于新值 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，若大于栈顶，则可以直接丢弃（因为其永远不会成为最小值），若小于等于栈顶，则可入栈。
-i</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-155" /><category term="Problems" /><content type="html">&lt;p&gt;维护一个单调栈。从栈底到栈顶依次减小。&lt;/p&gt;
+i</summary><published>2020-07-28T16:53:40+08:00</published><updated>2020-07-28T16:53:40+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-155" /><category term="Problems" /><content type="html">&lt;p&gt;维护一个单调栈。从栈底到栈顶依次减小。&lt;/p&gt;
 &lt;p&gt;对于新值 &lt;span class="math"&gt;\(x\)&lt;/span&gt;，若大于栈顶，则可以直接丢弃（因为其永远不会成为最小值），若小于等于栈顶，则可入栈。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl MinStack {
     fn new() -&amp;gt; Self {
@@ -1811,7 +1811,7 @@ i</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T1
 class Solution:
     def titleToNumber(self, s: str) - int:
         ans = 0
-        for c in s:</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-171" /><category term="Problems" /><content type="html">&lt;p&gt;进制转换。&lt;/p&gt;
+        for c in s:</summary><published>2020-07-28T16:53:45+08:00</published><updated>2020-07-28T16:53:45+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-171" /><category term="Problems" /><content type="html">&lt;p&gt;进制转换。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def titleToNumber(self, s: str) -&amp;gt; int:
         ans = 0
@@ -1844,7 +1844,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-167</id><title type="text">LeetCode-167 两数之和 II - 输入有序数组</title><summary type="text">双指针。
 class Solution:
     def twoSum(self, numbers: List[int], target: int) - List[int]:
-        l, r</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-167" /><category term="Problems" /><content type="html">&lt;p&gt;双指针。&lt;/p&gt;
+        l, r</summary><published>2020-07-28T16:53:42+08:00</published><updated>2020-07-28T16:53:42+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-167" /><category term="Problems" /><content type="html">&lt;p&gt;双指针。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-python"&gt;class Solution:
     def twoSum(self, numbers: List[int], target: int) -&amp;gt; List[int]:
         l, r = 0, len(numbers) - 1
@@ -1859,7 +1859,7 @@ class Solution:
 </content></entry><entry><id>Problems/leetcode-223</id><title type="text">LeetCode-223 矩形面积</title><summary type="text">求出相交矩形面积，最后减去即可。
 impl Solution {
     fn inse(a: (i32, i32), b: (i32, i32)) - i32 {
-        let mut a</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-223" /><category term="Problems" /><content type="html">&lt;p&gt;求出相交矩形面积，最后减去即可。&lt;/p&gt;
+        let mut a</summary><published>2020-07-28T16:57:24+08:00</published><updated>2020-07-28T16:57:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-223" /><category term="Problems" /><content type="html">&lt;p&gt;求出相交矩形面积，最后减去即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     fn inse(a: (i32, i32), b: (i32, i32)) -&amp;gt; i32 {
         let mut a = a;
@@ -1893,7 +1893,7 @@ class Solution:
         return s[:] == s[::-1]
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-172</id><title type="text">LeetCode-172 阶乘后的零</title><summary type="text">由于每有一个 $2\times 5$，结果中就多一个 $0$，阶乘中 $2$ 的数目总是比 $5$ 多的，所以只需统计 $5$ 的数量。
-阶乘中是 $5$ 的倍数的数有 &lt;span class="ma</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-172" /><category term="Problems" /><content type="html">&lt;p&gt;由于每有一个 $2\times 5$，结果中就多一个 $0$，阶乘中 $2$ 的数目总是比 $5$ 多的，所以只需统计 $5$ 的数量。&lt;/p&gt;
+阶乘中是 $5$ 的倍数的数有 &lt;span class="ma</summary><published>2020-07-28T16:53:46+08:00</published><updated>2020-07-28T16:53:46+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-172" /><category term="Problems" /><content type="html">&lt;p&gt;由于每有一个 $2\times 5$，结果中就多一个 $0$，阶乘中 $2$ 的数目总是比 $5$ 多的，所以只需统计 $5$ 的数量。&lt;/p&gt;
 &lt;p&gt;阶乘中是 $5$ 的倍数的数有 &lt;span class="math"&gt;\(n/5\)&lt;/span&gt; 个，是 $25$ 的倍数的数有 &lt;span class="math"&gt;\(n/25\)&lt;/span&gt; 个，以此类推，所以只需要统计&lt;/p&gt;
 &lt;div class="math"&gt;
 \[
@@ -1927,7 +1927,7 @@ class Solution:
         self.dfs(root)
         return self.res
 &lt;/code&gt;&lt;/pre&gt;
-</content></entry><entry><id>Problems/leetcode-160</id><title type="text">LeetCode-160 相交链表</title><summary type="text">双指针。若相交结点存在，两链表末尾一定相同。设相交结点与 &lt;span class="math"&gt;\(h_a\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_a\)&lt;/span&gt;</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-160" /><category term="Problems" /><content type="html">&lt;p&gt;双指针。若相交结点存在，两链表末尾一定相同。设相交结点与 &lt;span class="math"&gt;\(h_a\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_a\)&lt;/span&gt;，与 &lt;span class="math"&gt;\(h_b\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_b\)&lt;/span&gt;，&lt;/p&gt;
+</content></entry><entry><id>Problems/leetcode-160</id><title type="text">LeetCode-160 相交链表</title><summary type="text">双指针。若相交结点存在，两链表末尾一定相同。设相交结点与 &lt;span class="math"&gt;\(h_a\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_a\)&lt;/span&gt;</summary><published>2020-07-28T16:53:41+08:00</published><updated>2020-07-28T16:53:41+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-160" /><category term="Problems" /><content type="html">&lt;p&gt;双指针。若相交结点存在，两链表末尾一定相同。设相交结点与 &lt;span class="math"&gt;\(h_a\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_a\)&lt;/span&gt;，与 &lt;span class="math"&gt;\(h_b\)&lt;/span&gt; 距离为 &lt;span class="math"&gt;\(l_b\)&lt;/span&gt;，&lt;/p&gt;
 &lt;p&gt;两指针从头部同时前进，&lt;span class="math"&gt;\(p_a\)&lt;/span&gt; 走到尽头时，从 &lt;span class="math"&gt;\(h_b\)&lt;/span&gt; 继续，&lt;span class="math"&gt;\(p_b\)&lt;/span&gt; 走到尽头时，从 &lt;span class="math"&gt;\(h_a\)&lt;/span&gt; 继续。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;若 &lt;span class="math"&gt;\(l_a=l_b\)&lt;/span&gt;，则双方第一轮就会在相交结点相遇。&lt;/li&gt;
@@ -1987,7 +1987,7 @@ class Solution
 public:
     uint32_t reverseBits(uint32_t n)
     {
-        uint32_t ans = </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-190" /><category term="Problems" /><content type="html">&lt;p&gt;模拟翻转字符串。&lt;/p&gt;
+        uint32_t ans = </summary><published>2020-07-28T16:53:48+08:00</published><updated>2020-07-28T16:53:48+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-190" /><category term="Problems" /><content type="html">&lt;p&gt;模拟翻转字符串。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
 {
 public:
@@ -2019,7 +2019,7 @@ public:
 </content></entry><entry><id>Problems/leetcode-125</id><title type="text">LeetCode-125 验证回文串</title><summary type="text">筛选例外字符后，翻转做字符串相等判断。
 impl Solution {
     pub fn is_palindrome(s: String) - bool {
-        let v: Vecc</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-125" /><category term="Problems" /><content type="html">&lt;p&gt;筛选例外字符后，翻转做字符串相等判断。&lt;/p&gt;
+        let v: Vecc</summary><published>2020-07-28T16:53:33+08:00</published><updated>2020-07-28T16:53:33+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-125" /><category term="Problems" /><content type="html">&lt;p&gt;筛选例外字符后，翻转做字符串相等判断。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn is_palindrome(s: String) -&amp;gt; bool {
         let v: Vec&amp;lt;char&amp;gt; = s
@@ -2060,7 +2060,7 @@ impl Solution {
 </content></entry><entry><id>Problems/leetcode-136</id><title type="text">LeetCode-136 只出现一次的数字</title><summary type="text">利用异或运算是自己的逆运算的性质，将所有数异或到一起即可。
 impl Solution {
     pub fn single_number(nums: Veci32) - i32 {
-       </summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-136" /><category term="Problems" /><content type="html">&lt;p&gt;利用异或运算是自己的逆运算的性质，将所有数异或到一起即可。&lt;/p&gt;
+       </summary><published>2020-07-28T16:53:34+08:00</published><updated>2020-07-28T16:53:34+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-136" /><category term="Problems" /><content type="html">&lt;p&gt;利用异或运算是自己的逆运算的性质，将所有数异或到一起即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-rust"&gt;impl Solution {
     pub fn single_number(nums: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 {
         nums.into_iter().fold(0, |acc, x| acc ^ x)
@@ -2263,7 +2263,7 @@ class MyStack
     queueint *q, *o;
 
 public:
-    /** Initialize your data structure here. *</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-225" /><category term="Problems" /><content type="html">&lt;p&gt;双队列实现栈。&lt;/p&gt;
+    /** Initialize your data structure here. *</summary><published>2020-07-28T16:58:24+08:00</published><updated>2020-07-28T16:58:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-225" /><category term="Problems" /><content type="html">&lt;p&gt;双队列实现栈。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class MyStack
 {
     queue&amp;lt;int&amp;gt; *q, *o;
@@ -2344,7 +2344,7 @@ class Solution:
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-193</id><title type="text">LeetCode-193 有效电话号码</title><summary type="text">使用正则表达式、
 grep -P '^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$' file.txt
-</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-193" /><category term="Problems" /><content type="html">&lt;p&gt;使用正则表达式、&lt;/p&gt;
+</summary><published>2020-07-28T16:53:50+08:00</published><updated>2020-07-28T16:53:50+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-193" /><category term="Problems" /><content type="html">&lt;p&gt;使用正则表达式、&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-bash"&gt;grep -P '^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$' file.txt
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-67</id><title type="text">LeetCode-67 二进制求和</title><summary type="text">class Solution:
@@ -2354,7 +2354,7 @@ grep -P '^(\d{3}-|\(\d{3}\) )\d{3}-\d{4}$' file.txt
         return bin(int(a, 2) + int(b, 2))[2:]
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-195</id><title type="text">LeetCode-195 第十行</title><summary type="text">awk 'NR==10' file.txt
-</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-195" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-sh"&gt;awk 'NR==10' file.txt
+</summary><published>2020-07-28T16:53:51+08:00</published><updated>2020-07-28T16:53:51+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-195" /><category term="Problems" /><content type="html">&lt;pre&gt;&lt;code class="language-sh"&gt;awk 'NR==10' file.txt
 &lt;/code&gt;&lt;/pre&gt;
 </content></entry><entry><id>Problems/leetcode-191</id><title type="text">LeetCode-191 位1的个数</title><summary type="text">使用 bitset。
 class Solution
@@ -2362,7 +2362,7 @@ class Solution
 public:
     int hammingWeight(uint32_t n)
     {
-        bitset32 bs = n;</summary><published>2020-07-28T16:53:24+08:00</published><updated>2020-07-28T16:53:24+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-191" /><category term="Problems" /><content type="html">&lt;p&gt;使用 bitset。&lt;/p&gt;
+        bitset32 bs = n;</summary><published>2020-07-28T16:53:49+08:00</published><updated>2020-07-28T16:53:49+08:00</updated><author><name>StardustDL</name><uri>https://stardustdl.gitee.io</uri></author><link rel="alternate" href="https://stardustdl.gitee.io/posts/Problems%2Fleetcode-191" /><category term="Problems" /><content type="html">&lt;p&gt;使用 bitset。&lt;/p&gt;
 &lt;pre&gt;&lt;code class="language-cpp"&gt;class Solution
 {
 public:
