@@ -1,1 +1,1 @@
-["Tools/powershell","Tools/git","Tools/gcc","Tools/apt","Tools/tmux","Tools/ssh","Tools/nuget","Tools/make","Tools/progLang-makefile","Tools/progLang-verilog"]
+["Tools/psake","Tools/github-workflow","Learning/cpp-template-seq","Problems/leetcode-1521","Problems/leetcode-1520","Problems/leetcode-1519","Problems/leetcode-1518","Development/AcBlog-staticgen","Development/ImagingS-dev","Problems/leetcode-3"]
