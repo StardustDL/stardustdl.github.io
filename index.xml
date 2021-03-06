@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Du Xingliang's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on Du Xingliang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Jul 2020 22:17:52 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ImagingS 开发笔记</title><link>https://stardustdl.github.io/posts/images-dev/</link><pubDate>Sat, 04 Jul 2020 22:17:52 +0800</pubDate><guid>https://stardustdl.github.io/posts/images-dev/</guid><description>&lt;p>&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/StardustDL/ImagingS" target="_blank" rel="noopener"
+>Project Source&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.bilibili.com/video/BV1Q54y1i7Lg/" target="_blank" rel="noopener"
+>Demo Video&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="来源">来源&lt;/h1>
+&lt;p>最初的想法来自 &lt;a class="link" href="https://git.nju.edu.cn/songyc/cg2020a" target="_blank" rel="noopener"
+>计算机图形学的课程项目作业&lt;/a>，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。&lt;/p>
+&lt;p>之前一般仅使用 Python 写一些简单的小型项目。曾写过一个&lt;a class="link" href="https://github.com/eXceediDeaL/edl-coderunner" target="_blank" rel="noopener"
+>较大项目&lt;/a>，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。&lt;/p>
+&lt;p>这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。&lt;/p>
+&lt;h1 id="idea">Idea&lt;/h1>
+&lt;p>根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 &lt;a class="link" href="https://github.com/dotnet/wpf" target="_blank" rel="noopener"
+>WPF&lt;/a> 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 181; flex-basis: 435px">
+&lt;a href="https://stardustdl.github.io/posts/images-dev/design.png" data-size="1333x734">&lt;img src="https://stardustdl.github.io/posts/images-dev/design.png"
+srcset="https://stardustdl.github.io/posts/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_480x0_resize_box_2.png 480w, https://stardustdl.github.io/posts/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_1024x0_resize_box_2.png 1024w"
+width="1333"
+height="734"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ol>
+&lt;li>图元 Geometry 对象描述图元及其绘制算法&lt;/li>
+&lt;li>绘图 Drawing 将各种图元绘制到 DrawingContext 上&lt;/li>
+&lt;li>绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。&lt;/li>
+&lt;/ol>
+&lt;p>通过这三个层次，将呈现系统的两部分：定义与呈现分离。&lt;/p>
+&lt;h2 id="设计">设计&lt;/h2>
+&lt;p>核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。&lt;/p>
+&lt;ol>
+&lt;li>图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Geometry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PropertySerializable&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ABC&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">transform&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Optional&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Transform&lt;/span>&lt;span class="p">]:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">strokePoints&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pen&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Pen&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Iterable&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Point&lt;/span>&lt;span class="p">]:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">fillPoints&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Iterable&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Point&lt;/span>&lt;span class="p">]:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">inStroke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">pen&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Pen&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">bool&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">inFill&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">bool&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">transformed&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Geometry&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">bounds&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Rect&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Drawing&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PropertySerializable&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">IdObject&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ABC&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@abstractmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">context&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">RenderContext&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="nd">@abstractmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">bounds&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Rect&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>绘图上下文类：对实际绘制的目标的抽象&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">RenderContext&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ABC&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="nd">@abstractmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">_point&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Color&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@abstractmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">bounds&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Rect&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">point&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">position&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Color&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">points&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">positions&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Iterable&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Point&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="n">brush&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Brush&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>变换类：所有变换的基类，定义了如何将一个点变换到另一个点&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Transform&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PropertySerializable&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">IdObject&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ABC&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@abstractmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">transform&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">origin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Document&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PropertySerializable&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">IdObject&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">brushes&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">IdObjectList&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">Brush&lt;/span>&lt;span class="p">]:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">drawings&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">DrawingGroup&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">size&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">save&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">file&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">DocumentFormat&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">DocumentFormat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ISD&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@staticmethod&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">file&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">format&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">DocumentFormat&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">DocumentFormat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ISD&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Document&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="6">
+&lt;li>画布类：将抽象绘制对象包装成 Qt 中的绘制对象&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Canvas&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QGraphicsView&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">DrawingItem&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QGraphicsItem&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">drawing&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Drawing&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QSizeF&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">parent&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Optional&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">QGraphicsItem&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="7">
+&lt;li>交互类：定义了 GUI 上与图元交互的所有操作，提供给画布一个统一的接口来处理用户交互&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="k">class&lt;/span> &lt;span class="nc">Interactivity&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QObject&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;span class="n">started&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pyqtSignal&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QObject&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">ended&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pyqtSignal&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QObject&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">updated&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">pyqtSignal&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">QObject&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="fm">__init__&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">start&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">end&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">success&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">bool&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">update&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">viewItem&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">Optional&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">QGraphicsItem&lt;/span>&lt;span class="p">]:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="nd">@property&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">state&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">InteractivityState&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onMousePress&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QPointF&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onMouseMove&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QPointF&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onMouseRelease&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QPointF&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onMouseDoubleClick&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">point&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QPointF&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onKeyPress&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QKeyEvent&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;span class="k">def&lt;/span> &lt;span class="nf">onKeyRelease&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">key&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">QKeyEvent&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="bp">None&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="实现">实现&lt;/h1>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> To be done&lt;/li>
+&lt;/ul>
+&lt;h1 id="总结">总结&lt;/h1>
+&lt;p>这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。&lt;/p>
+&lt;p>项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。&lt;/p></description></item></channel></rss>
