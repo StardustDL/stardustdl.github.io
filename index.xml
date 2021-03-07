@@ -247,8 +247,7 @@
 &lt;h2 id="阶乘数列">阶乘数列&lt;/h2>
 &lt;p>$$
 F_i = \begin{cases}
-1 &amp;amp; i = 0\&lt;br>
-iF_{i-1} &amp;amp; i &amp;gt; 0
+1 &amp;amp; i = 0 \\ iF_{i-1} &amp;amp; i &amp;gt; 0
 \end{cases}
 $$&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="k">template&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">num&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
@@ -316,9 +315,7 @@ fac.cpp:8:22: error: overflow in constant expression [-fpermissive]
 &lt;h2 id="斐波那契数列">斐波那契数列&lt;/h2>
 &lt;p>$$
 F_i = \begin{cases}
-0 &amp;amp; i = 0\&lt;br>
-1 &amp;amp; i = 1\&lt;br>
-F_{i-1} + F_{i-2} &amp;amp; i &amp;gt; 1
+0 &amp;amp; i = 0 \\ 1 &amp;amp; i = 1 \\ F_{i-1} + F_{i-2} &amp;amp; i &amp;gt; 1
 \end{cases}
 $$&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="k">template&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span> &lt;span class="n">num&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
@@ -342,9 +339,7 @@ $$&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="组合数">组合数&lt;/h2>
 &lt;p>$$
 F_{n,m} = \begin{cases}
-1 &amp;amp; m = 0 \&lt;br>
-0 &amp;amp; n = 0 \wedge m &amp;gt; 0\&lt;br>
-F_{n-1,m-1} + F_{n-1,m} &amp;amp; \text{otherwise}
+1 &amp;amp; m = 0 \\ 0 &amp;amp; n = 0 \wedge m &amp;gt; 0 \\ F_{n-1,m-1} + F_{n-1,m} &amp;amp; \text{otherwise}
 \end{cases}
 $$&lt;/p>
 &lt;p>上述递推式可以蕴含 $n&amp;gt;m$ 时 $F_{n,m}=0$ 的情况。&lt;/p>
@@ -390,7 +385,7 @@ comb.cpp:19:7: note: ‘template&amp;lt;int n&amp;gt; class Combinatorial&amp;lt
 comb.cpp:8:61: error: incomplete type ‘Combinatorial&amp;lt;0, 0&amp;gt;’ used in nested name specifier
 8 | static const int value = Combinatorial&amp;lt;n - 1, m&amp;gt;::value + Combinatorial&amp;lt;n - 1, m - 1&amp;gt;::value;
 |
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AcBlog 静态博客生成器使用说明</title><link>https://stardustdl.github.io/posts/projects/acblog-staticgen/</link><pubDate>Wed, 15 Jul 2020 08:23:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/projects/acblog-staticgen/</guid><description>&lt;p>&lt;a class="link" href="https://github.com/acblog/acblog" target="_blank" rel="noopener"
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>AcBlog 静态博客生成器使用说明</title><link>https://stardustdl.github.io/posts/projects/acblog-staticgen/</link><pubDate>Wed, 15 Jul 2020 08:23:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/projects/acblog-staticgen/</guid><description>&lt;img src="https://stardustdl.github.io/posts/projects/acblog-staticgen/head.png" alt="Featured image of post AcBlog 静态博客生成器使用说明" />&lt;p>&lt;a class="link" href="https://github.com/acblog/acblog" target="_blank" rel="noopener"
 >AcBlog&lt;/a> 是一个还在开发中的开源博客系统，支持纯静态部署。&lt;/p>
 &lt;p>AcBlog 前端使用 WebAssembly 实现，支持 SPA，纯静态部署，后端支持静态和动态部署。以下是静态生成器生成的网站示例。&lt;/p>
 &lt;ul>
@@ -489,13 +484,22 @@ Content (Markdown)
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">BRANCH&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">master&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">FOLDER&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dist&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">CLEAN&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>由于项目前端依赖 WebAssembly，需手动在 GitHub Pages 分支的根目录下添加 &lt;code>.nojekyll&lt;/code> 文件（内容为空即可）以禁用 GitHub Pages 的 Jekyll 自动构建。&lt;/p></description></item><item><title>ImagingS 开发笔记</title><link>https://stardustdl.github.io/posts/projects/images-dev/</link><pubDate>Sat, 04 Jul 2020 22:17:52 +0800</pubDate><guid>https://stardustdl.github.io/posts/projects/images-dev/</guid><description>&lt;p>&lt;img src="https://repository-images.githubusercontent.com/226446069/77831900-b856-11ea-95ef-6fd6c38a9edc" alt="" />&lt;/p>
-&lt;ul>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>由于项目前端依赖 WebAssembly，需手动在 GitHub Pages 分支的根目录下添加 &lt;code>.nojekyll&lt;/code> 文件（内容为空即可）以禁用 GitHub Pages 的 Jekyll 自动构建。&lt;/p></description></item><item><title>ImagingS 开发笔记</title><link>https://stardustdl.github.io/posts/projects/images-dev/</link><pubDate>Sat, 04 Jul 2020 22:17:52 +0800</pubDate><guid>https://stardustdl.github.io/posts/projects/images-dev/</guid><description>&lt;img src="https://stardustdl.github.io/posts/projects/images-dev/head.png" alt="Featured image of post ImagingS 开发笔记" />&lt;ul>
 &lt;li>&lt;a class="link" href="https://github.com/StardustDL/ImagingS" target="_blank" rel="noopener"
 >Project Source&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.bilibili.com/video/BV1Q54y1i7Lg/" target="_blank" rel="noopener"
 >Demo Video&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+&lt;iframe src="//player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1Q54y1i7Lg"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+>
+&lt;/iframe>
+&lt;/div>
 &lt;h1 id="来源">来源&lt;/h1>
 &lt;p>最初的想法来自 &lt;a class="link" href="https://git.nju.edu.cn/songyc/cg2020a" target="_blank" rel="noopener"
 >计算机图形学的课程项目作业&lt;/a>，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。&lt;/p>
@@ -710,7 +714,7 @@ loading="lazy"
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="参考资料">参考资料&lt;/h1>
 &lt;ul>
 &lt;li>《Docker 从入门到实战》 黄靖钧 机械工业出版社&lt;/li>
-&lt;/ul></description></item><item><title>YAML Ain't Markup Language</title><link>https://stardustdl.github.io/posts/tools/proglang-yaml/</link><pubDate>Mon, 12 Nov 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-yaml/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>YAML Ain't Markup Language</title><link>https://stardustdl.github.io/posts/tools/proglang-yaml/</link><pubDate>Mon, 12 Nov 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-yaml/</guid><description>&lt;img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png" alt="Featured image of post YAML Ain't Markup Language" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="http://yaml.org/" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
@@ -4150,7 +4154,7 @@ disassemble /m main
 &lt;h2 id="删除断点">删除断点&lt;/h2>
 &lt;p>&lt;code>delete breakpoints &amp;lt;num&amp;gt;&lt;/code> 删除第num个断点,简写 &lt;code>d&lt;/code>&lt;/p>
 &lt;h1 id="参考资料">参考资料&lt;/h1>
-&lt;p>暂无&lt;/p></description></item><item><title>PowerShell</title><link>https://stardustdl.github.io/posts/tools/powershell/</link><pubDate>Thu, 27 Sep 2018 18:40:02 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/powershell/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;p>暂无&lt;/p></description></item><item><title>PowerShell</title><link>https://stardustdl.github.io/posts/tools/powershell/</link><pubDate>Thu, 27 Sep 2018 18:40:02 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/powershell/</guid><description>&lt;img src="https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png" alt="Featured image of post PowerShell" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://github.com/powershell/powershell" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
@@ -4408,7 +4412,7 @@ Powershell将变量的相关信息的记录存放在名为 &lt;code>variable:&lt
 >PowerShell Documentation&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://www.pstips.net/powershell-online-tutorials" target="_blank" rel="noopener"
 >PowerShell 教程&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Git</title><link>https://stardustdl.github.io/posts/tools/git/</link><pubDate>Wed, 26 Sep 2018 18:58:19 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/git/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>Git</title><link>https://stardustdl.github.io/posts/tools/git/</link><pubDate>Wed, 26 Sep 2018 18:58:19 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/git/</guid><description>&lt;img src="https://git-scm.com/images/logo@2x.png" alt="Featured image of post Git" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
@@ -5268,7 +5272,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 &lt;li>Linux 文档&lt;/li>
 &lt;li>&lt;a class="link" href="https://blog.csdn.net/u013452337/article/details/80847113" target="_blank" rel="noopener"
 >什么是SSH 以及常见的ssh 功能&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>NuGet</title><link>https://stardustdl.github.io/posts/tools/nuget/</link><pubDate>Mon, 17 Sep 2018 17:40:02 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/nuget/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>NuGet</title><link>https://stardustdl.github.io/posts/tools/nuget/</link><pubDate>Mon, 17 Sep 2018 17:40:02 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/nuget/</guid><description>&lt;img src="https://www.nuget.org/Content/gallery/img/logo-header.svg" alt="Featured image of post NuGet" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://www.nuget.org/" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
@@ -6353,7 +6357,7 @@ $$&lt;/p>
 &lt;li>{% post_link problem/hdu/hdu-5256 %}&lt;/li>
 &lt;li>{% post_link problem/poj/poj-3666 %}&lt;/li>
 &lt;li>{% post_link problem/codeforces/cf-713C %}&lt;/li>
-&lt;/ul></description></item><item><title>Cascading Style Sheets</title><link>https://stardustdl.github.io/posts/tools/proglang-css/</link><pubDate>Sat, 08 Sep 2018 10:30:40 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-css/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>Cascading Style Sheets</title><link>https://stardustdl.github.io/posts/tools/proglang-css/</link><pubDate>Sat, 08 Sep 2018 10:30:40 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-css/</guid><description>&lt;img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" alt="Featured image of post Cascading Style Sheets" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>介绍：CSS 存储 HTML 样式，定义如何显示 HTML 元素。&lt;/li>
 &lt;li>在 HTML 中使用样式表，参见 {% post_link tool/progLang-HTML %}&lt;/li>
@@ -7375,7 +7379,7 @@ $$&lt;/p>
 >CSS 教程&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="http://www.w3school.com.cn/css3/index.asp" target="_blank" rel="noopener"
 >CSS3 教程&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Hyper Text Markup Language</title><link>https://stardustdl.github.io/posts/tools/proglang-html/</link><pubDate>Thu, 06 Sep 2018 14:16:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-html/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>Hyper Text Markup Language</title><link>https://stardustdl.github.io/posts/tools/proglang-html/</link><pubDate>Thu, 06 Sep 2018 14:16:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-html/</guid><description>&lt;img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="Featured image of post Hyper Text Markup Language" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>介绍：一种描述网页的标记语言。&lt;/li>
 &lt;li>相关：XHTML（可扩展超文本标记语言，更严格更纯净的 HTML 版本）&lt;/li>
@@ -8002,7 +8006,7 @@ canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的�
 &lt;ul>
 &lt;li>&lt;a class="link" href="http://www.w3school.com.cn/html/index.asp" target="_blank" rel="noopener"
 >HTML 教程&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Vim</title><link>https://stardustdl.github.io/posts/tools/vim/</link><pubDate>Thu, 06 Sep 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/vim/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>Vim</title><link>https://stardustdl.github.io/posts/tools/vim/</link><pubDate>Thu, 06 Sep 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/vim/</guid><description>&lt;img src="https://github.com/vim/vim/raw/master/runtime/vimlogo.gif" alt="Featured image of post Vim" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://www.vim.org/" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
@@ -8589,7 +8593,7 @@ UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。
 &lt;ul>
 &lt;li>&lt;a class="link" href="http://www.w3school.com.cn/sql/index.asp" target="_blank" rel="noopener"
 >SQL 教程&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>PHP Hypertext Preprocessor</title><link>https://stardustdl.github.io/posts/tools/proglang-php/</link><pubDate>Mon, 03 Sep 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-php/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+&lt;/ul></description></item><item><title>PHP Hypertext Preprocessor</title><link>https://stardustdl.github.io/posts/tools/proglang-php/</link><pubDate>Mon, 03 Sep 2018 10:20:00 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/proglang-php/</guid><description>&lt;img src="https://raw.githubusercontent.com/github/explore/ccc16358ac4530c6a69b1b80c7223cd2744dea83/topics/php/php.png" alt="Featured image of post PHP Hypertext Preprocessor" />&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a class="link" href="http://php.net/" target="_blank" rel="noopener"
 >官网&lt;/a>&lt;/li>
