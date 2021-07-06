@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Jul 2020 19:30:40 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>psake</title><link>https://stardustdl.github.io/posts/tools/psake/</link><pubDate>Fri, 24 Jul 2020 19:30:40 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/psake/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 Jul 2021 09:42:46 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust 语言基础使用</title><link>https://stardustdl.github.io/posts/learning/rust-startup/</link><pubDate>Tue, 06 Jul 2021 09:42:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-startup/</guid><description>&lt;h1 id="安装">安装&lt;/h1>
+&lt;p>&lt;a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>安装管理器 &lt;code>rustup&lt;/code>&lt;/li>
+&lt;li>编译器 &lt;code>rustc&lt;/code>&lt;/li>
+&lt;li>构建系统与包管理器 &lt;code>cargo&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="常用命令">常用命令&lt;/h2>
+&lt;ul>
+&lt;li>创建项目 &lt;code>cargo new {name}&lt;/code>&lt;/li>
+&lt;li>可编译检查 &lt;code>cargo check&lt;/code>&lt;/li>
+&lt;li>编译 &lt;code>cargo build (--release)&lt;/code>&lt;/li>
+&lt;li>运行 &lt;code>cargo run&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h1 id="变量">变量&lt;/h1>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">immutable_var&lt;/span>: &lt;span class="kt">i32&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">mutable_var&lt;/span>: &lt;span class="kt">i32&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">const&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CONST&lt;/span>: &lt;span class="kt">u32&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">100_000&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>数值字面值&lt;/p>
+&lt;ul>
+&lt;li>十进制 &lt;code>98_222&lt;/code>&lt;/li>
+&lt;li>十六进制 &lt;code>0xff&lt;/code>&lt;/li>
+&lt;li>八进制 &lt;code>0o77&lt;/code>&lt;/li>
+&lt;li>二进制 &lt;code>0b1111_0000&lt;/code>&lt;/li>
+&lt;li>字节 &lt;code>b'A'&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h1 id="类型">类型&lt;/h1>
+&lt;ul>
+&lt;li>数值类型 &lt;code>i8, i16, i32, i64, i128, isize, u8, u16, u32, u64, u128, usize, f32, f64&lt;/code>&lt;/li>
+&lt;li>布尔类型 &lt;code>bool&lt;/code>&lt;/li>
+&lt;li>字符类型 &lt;code>char&lt;/code> 四字节&lt;/li>
+&lt;li>元组类型 &lt;code>(T1, T2, ...) = (1, 2, 3)&lt;/code>&lt;/li>
+&lt;li>数组类型 &lt;code>[i32; 5] = [1, 2, 3, 4, 5]&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h1 id="函数">函数&lt;/h1>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">fn&lt;/span> &lt;span class="nf">fnname&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">arg1&lt;/span>: &lt;span class="kt">i32&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">arg2&lt;/span>:&lt;span class="kt">u32&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">u32&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="控制流">控制流&lt;/h1>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="c1">// 分支
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;number is divisible by 4&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;number is divisible by 3&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;number is not divisible by 4 or 3&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">condition&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;six&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 循环
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">loop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;again!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">loop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">counter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">counter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">break&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">counter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">while&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">..&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">rev&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>psake</title><link>https://stardustdl.github.io/posts/tools/psake/</link><pubDate>Fri, 24 Jul 2020 19:30:40 +0800</pubDate><guid>https://stardustdl.github.io/posts/tools/psake/</guid><description>&lt;h1 id="基本信息">基本信息&lt;/h1>
 &lt;p>&lt;a class="link" href="https://github.com/psake/psake" target="_blank" rel="noopener"
 >psake&lt;/a> 是一个自动化构建工具，基于 PowerShell 构建，提供了类似 Make 的构建功能。&lt;/p>
 &lt;h1 id="安装">安装&lt;/h1>
