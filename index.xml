@@ -1,4 +1,325 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 Jul 2021 11:50:46 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust 所有权特性</title><link>https://stardustdl.github.io/posts/learning/rust-onwership/</link><pubDate>Tue, 06 Jul 2021 11:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-onwership/</guid><description>&lt;h1 id="规则">规则&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 Jul 2021 17:50:46 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust 集合</title><link>https://stardustdl.github.io/posts/learning/rust-collections/</link><pubDate>Tue, 06 Jul 2021 17:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-collections/</guid><description>&lt;h1 id="变长列表">变长列表&lt;/h1>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="c1">// 创建
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>: &lt;span class="nb">Vec&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">i32&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">Vec&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 修改
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">Vec&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 访问
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">third&lt;/span>: &lt;span class="kp">&amp;amp;&lt;/span>&lt;span class="kt">i32&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;The third element is {}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">third&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">match&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">Some&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">third&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;The third element is {}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">third&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">None&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;There is no third element.&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 遍历
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">32&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">57&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">32&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">57&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">v&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在有引用的情况下无法对列表进行修改。&lt;/p>
+&lt;h1 id="utf-8-字符串">UTF-8 字符串&lt;/h1>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="c1">// 创建
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 更新
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push_str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">push&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sc">&amp;#39;l&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 合并
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello, &amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;world!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// note s1 has been moved here and can no longer be used
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 格式化
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;tic&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;tac&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;toe&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">format&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}-{}-{}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// do not take onwership
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>字符串内部对 &lt;code>Vec&amp;lt;u8&amp;gt;&lt;/code> 进行包装。不支持直接索引。&lt;/p>
+&lt;h2 id="切片">切片&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hello&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Здравствуйте&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// each of these characters was 2 bytes
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">hello&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">..&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// s == Зд
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">hello&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">..&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// panic at runtime in the same way as if an invalid index were accessed in a vector
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="遍历">遍历&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;नमस्ते&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">chars&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">c&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;नमस्ते&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">bytes&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">b&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="哈希表">哈希表&lt;/h1>
+&lt;p>对于不支持 &lt;code>Copy&lt;/code> 特征的对象，哈希表将获取其所有权。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="c1">// 创建
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="n">collections&lt;/span>::&lt;span class="n">HashMap&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HashMap&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 修改
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Blue&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Blue&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">25&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Yellow&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Yellow&amp;#34;&lt;/span>&lt;span class="p">)).&lt;/span>&lt;span class="n">or_insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">teams&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Blue&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Yellow&amp;#34;&lt;/span>&lt;span class="p">)];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">initial_scores&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">vec&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">50&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">scores&lt;/span>: &lt;span class="nc">HashMap&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">teams&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">into_iter&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">zip&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">initial_scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">into_iter&lt;/span>&lt;span class="p">()).&lt;/span>&lt;span class="n">collect&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 访问
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">team_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Blue&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">score&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">team_name&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// 遍历
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">value&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">scores&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;{}: {}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">key&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">value&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>entry.or_insert&lt;/code> 返回一个可变引用。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;hello world wonderful world&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HashMap&lt;/span>::&lt;span class="n">new&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">word&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">in&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">split_whitespace&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">map&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">entry&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">word&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">or_insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">count&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Rust 模块与项目</title><link>https://stardustdl.github.io/posts/learning/rust-modules/</link><pubDate>Tue, 06 Jul 2021 16:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-modules/</guid><description>&lt;h1 id="包-packages">包 Packages&lt;/h1>
+&lt;p>一个 Cargo 特性支持构建，测试，和分享 Crates。包含了 &lt;code>Cargo.toml&lt;/code> 来描述如何构建 Crates。包至少包含0或1个库Crate，可以包含任意多的二进制Crate，但至少要有一个Crate。&lt;/p>
+&lt;pre>&lt;code>src/
+main.rs 二进制Crate的根（名称为包名）
+lib.rs 库Crate的根（名称为包名）
+bin/ 更多二进制Crate（其中的每个文件为一个Crate）
+&lt;/code>&lt;/pre>&lt;h2 id="构建配置">构建配置&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="c"># https://doc.rust-lang.org/cargo/reference/profiles.html&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">profile&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dev&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">opt-level&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">profile&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">release&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">opt-level&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>共享相同依赖开发多个包：&lt;a class="link" href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html" target="_blank" rel="noopener"
+>Cargo Workspaces&lt;/a>。&lt;/p>
+&lt;h2 id="文档注释">文档注释&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="sd">/// Adds one to the number given.
+&lt;/span>&lt;span class="sd">///
+&lt;/span>&lt;span class="sd">/// # Examples
+&lt;/span>&lt;span class="sd">///
+&lt;/span>&lt;span class="sd">/// ```
+&lt;/span>&lt;span class="sd">/// let arg = 5;
+&lt;/span>&lt;span class="sd">/// let answer = my_crate::add_one(arg);
+&lt;/span>&lt;span class="sd">///
+&lt;/span>&lt;span class="sd">/// assert_eq!(6, answer);
+&lt;/span>&lt;span class="sd">/// ```
+&lt;/span>&lt;span class="sd">/// # Panics / Errors / Safety
+&lt;/span>&lt;span class="sd">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_one&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>: &lt;span class="kt">i32&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="kt">i32&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用 &lt;code>cargo doc --open&lt;/code> 启动文档预览，使用 &lt;code>cargo test&lt;/code> 进行文档测试。&lt;/p>
+&lt;p>使用 &lt;code>//!&lt;/code> 为当前文件添加注释。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="sd">//! # My Crate
+&lt;/span>&lt;span class="sd">//!
+&lt;/span>&lt;span class="sd">//! `my_crate` is a collection of utilities to make performing certain
+&lt;/span>&lt;span class="sd">//! calculations more convenient.
+&lt;/span>&lt;span class="sd">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="sd">/// Adds one to the number given.
+&lt;/span>&lt;span class="sd">&lt;/span>&lt;span class="c1">// --snip--
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="发布">发布&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sh" data-lang="sh">cargo login &amp;lt;API Key&amp;gt;
+cargo publish
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Cargo.toml&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">package&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">name&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;guessing_game&amp;#34;&lt;/span>
+&lt;span class="nx">version&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.1.0&amp;#34;&lt;/span>
+&lt;span class="nx">authors&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Your Name &amp;lt;you@example.com&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">edition&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;2018&amp;#34;&lt;/span>
+&lt;span class="nx">description&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;A fun game where you guess what number the computer has chosen.&amp;#34;&lt;/span>
+&lt;span class="nx">license&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;MIT OR Apache-2.0&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">dependencies&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>撤销一个版本：&lt;code>cargo yank --vers 1.0.1&lt;/code>。&lt;/p>
+&lt;h1 id="crates">Crates&lt;/h1>
+&lt;p>树结构的一系列模块，用于生成类库或可执行文件（二进制）。&lt;/p>
+&lt;p>Crate 的根是一个由 Rust 编译器开始编译并作为根模块的源代码。&lt;/p>
+&lt;h1 id="模块-modules">模块 Modules&lt;/h1>
+&lt;p>控制代码组织，作用域和可访问性（可被外部访问或私有）。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">seat_at_table&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">serving&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">take_order&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">serve_order&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">take_payment&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>crate
+└── front_of_house
+├── hosting
+│ ├── add_to_waitlist
+│ └── seat_at_table
+└── serving
+├── take_order
+├── serve_order
+└── take_payment
+&lt;/code>&lt;/pre>&lt;h2 id="公开项目">公开项目&lt;/h2>
+&lt;p>使用 &lt;code>pub&lt;/code> 标记公开。&lt;/p>
+&lt;p>公开函数和模块。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Absolute path
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">crate&lt;/span>::&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Relative path
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>公开结构体及其字段。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">back_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">struct&lt;/span> &lt;span class="nc">Breakfast&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">toast&lt;/span>: &lt;span class="nb">String&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">seasonal_fruit&lt;/span>: &lt;span class="nb">String&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">impl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Breakfast&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">summer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">toast&lt;/span>: &lt;span class="kp">&amp;amp;&lt;/span>&lt;span class="kt">str&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">Breakfast&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Breakfast&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">toast&lt;/span>: &lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">toast&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">seasonal_fruit&lt;/span>: &lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;peaches&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Order a breakfast in the summer with Rye toast
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mut&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">meal&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">back_of_house&lt;/span>::&lt;span class="n">Breakfast&lt;/span>::&lt;span class="n">summer&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Rye&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Change our mind about what bread we&amp;#39;d like
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">meal&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toast&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">String&lt;/span>::&lt;span class="n">from&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Wheat&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;I&amp;#39;d like {} toast please&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">meal&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toast&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// The next line won&amp;#39;t compile if we uncomment it; we&amp;#39;re not allowed
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// to see or modify the seasonal fruit that comes with the meal
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// meal.seasonal_fruit = String::from(&amp;#34;blueberries&amp;#34;);
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>公开枚举。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">back_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">enum&lt;/span> &lt;span class="nc">Appetizer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Soup&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Salad&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">order1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">back_of_house&lt;/span>::&lt;span class="n">Appetizer&lt;/span>::&lt;span class="n">Soup&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">order2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">back_of_house&lt;/span>::&lt;span class="n">Appetizer&lt;/span>::&lt;span class="n">Salad&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="导入项目">导入项目&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="p">{&lt;/span>&lt;span class="n">cmp&lt;/span>::&lt;span class="n">Ordering&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">io&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="n">io&lt;/span>::&lt;span class="p">{&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Write&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="n">collections&lt;/span>::&lt;span class="o">*&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">crate&lt;/span>::&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用 &lt;code>as&lt;/code> 关键字设置新名称。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="n">fmt&lt;/span>::&lt;span class="nb">Result&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">std&lt;/span>::&lt;span class="n">io&lt;/span>::&lt;span class="nb">Result&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IoResult&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">function1&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nb">Result&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// --snip--
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">function2&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>-&amp;gt; &lt;span class="nc">IoResult&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// --snip--
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用 &lt;code>pub use&lt;/code> 重新导出。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">crate&lt;/span>::&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="分割模块到多个文件">分割模块到多个文件&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="c1">// lib.rs
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Declaring the front_of_house module whose body will be in src/front_of_house.rs
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">crate&lt;/span>::&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// src/front_of_house.rs
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">// src/front_of_house/hosting.rs
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="路径-paths">路径 Paths&lt;/h1>
+&lt;p>命名一个项目的方式。&lt;/p>
+&lt;ul>
+&lt;li>绝对路径：从Crate根的名字开始或使用 &lt;code>crate&lt;/code> 指代根。&lt;/li>
+&lt;li>相对路径：从当前模块的名字开始或使用 &lt;code>self, super&lt;/code> 指代。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">mod&lt;/span> &lt;span class="nn">front_of_house&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">mod&lt;/span> &lt;span class="nn">hosting&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">add_to_waitlist&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="k">pub&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">fn&lt;/span> &lt;span class="nf">eat_at_restaurant&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Absolute path
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">crate&lt;/span>::&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// Relative path
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">front_of_house&lt;/span>::&lt;span class="n">hosting&lt;/span>::&lt;span class="n">add_to_waitlist&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Rust 所有权特性</title><link>https://stardustdl.github.io/posts/learning/rust-onwership/</link><pubDate>Tue, 06 Jul 2021 11:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-onwership/</guid><description>&lt;h1 id="规则">规则&lt;/h1>
 &lt;ul>
 &lt;li>每个值都有一个称为其所有者的变量&lt;/li>
 &lt;li>同一时刻只能有一个所有者&lt;/li>
@@ -55,6 +376,7 @@
 &lt;li>可编译检查 &lt;code>cargo check&lt;/code>&lt;/li>
 &lt;li>编译 &lt;code>cargo build (--release)&lt;/code>&lt;/li>
 &lt;li>运行 &lt;code>cargo run&lt;/code>&lt;/li>
+&lt;li>更新依赖包小版本 &lt;code>cargo upgrade&lt;/code> （大版本需要手动修改）&lt;/li>
 &lt;/ul>
 &lt;h1 id="变量">变量&lt;/h1>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">immutable_var&lt;/span>: &lt;span class="kt">i32&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
