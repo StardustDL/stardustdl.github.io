@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 Jul 2021 20:50:46 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust 函数式编程</title><link>https://stardustdl.github.io/posts/learning/rust-functional/</link><pubDate>Tue, 06 Jul 2021 20:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-functional/</guid><description>&lt;h1 id="闭包">闭包&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StardustDL's Blog</title><link>https://stardustdl.github.io/</link><description>Recent content on StardustDL's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 08 Jul 2021 10:37:56 +0800</lastBuildDate><atom:link href="https://stardustdl.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 项目打包与分发</title><link>https://stardustdl.github.io/posts/learning/python-packaging/</link><pubDate>Thu, 08 Jul 2021 10:37:56 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/python-packaging/</guid><description>&lt;h1 id="工具">工具&lt;/h1>
+&lt;ul>
+&lt;li>pip, setuptools, twine&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sh" data-lang="sh">python -m pip install --upgrade pip build twine
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="项目组织结构">项目组织结构&lt;/h1>
+&lt;pre>&lt;code>packaging_tutorial/
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── setup.cfg
+├── src/
+│ └── example_package/
+│ ├── __init__.py
+│ └── example.py
+└── tests/
+&lt;/code>&lt;/pre>&lt;h1 id="配置文件">配置文件&lt;/h1>
+&lt;h2 id="pyprojecttoml">pyproject.toml&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build-system&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">requires&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s2">&amp;#34;setuptools&amp;gt;=51&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s2">&amp;#34;wheel&amp;#34;&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;span class="nx">build-backend&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;setuptools.build_meta&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="setupcfg">setup.cfg&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="k">[metadata]&lt;/span>
+&lt;span class="na">name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">example-pkg&lt;/span>
+&lt;span class="na">version&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">0.0.1&lt;/span>
+&lt;span class="na">author&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">Example Author&lt;/span>
+&lt;span class="na">author_email&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">author@example.com&lt;/span>
+&lt;span class="na">description&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">A small example package&lt;/span>
+&lt;span class="na">long_description&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">file: README.md&lt;/span>
+&lt;span class="na">long_description_content_type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">text/markdown&lt;/span>
+&lt;span class="na">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">https://github.com/pypa/sampleproject&lt;/span>
+&lt;span class="na">project_urls&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="s">
+&lt;/span>&lt;span class="s"> Bug Tracker = https://github.com/pypa/sampleproject/issues&lt;/span>
+&lt;span class="na">classifiers&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="s">
+&lt;/span>&lt;span class="s"> Programming Language :: Python :: 3
+&lt;/span>&lt;span class="s"> License :: OSI Approved :: MIT License
+&lt;/span>&lt;span class="s"> Operating System :: OS Independent&lt;/span>
+&lt;span class="k">[options]&lt;/span>
+&lt;span class="na">package_dir&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="s">
+&lt;/span>&lt;span class="s"> = src&lt;/span>
+&lt;span class="na">packages&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">find:&lt;/span>
+&lt;span class="na">python_requires&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;gt;=3.7&lt;/span>
+&lt;span class="na">install_requires&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">
+&lt;/span>&lt;span class="s"> numpy==1.21.0
+&lt;/span>&lt;span class="s"> Pillow==8.3.1&lt;/span>
+&lt;span class="k">[options.packages.find]&lt;/span>
+&lt;span class="na">where&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">src&lt;/span>
+&lt;span class="k">[options.entry_points]&lt;/span>
+&lt;span class="na">console_scripts&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="s">
+&lt;/span>&lt;span class="s"> executable-name = example_pkg.__main__:main&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="打包并发布">打包并发布&lt;/h1>
+&lt;h2 id="打包">打包&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sh" data-lang="sh">python -m build
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>生成以下包。&lt;/p>
+&lt;pre>&lt;code>dist/
+example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+&lt;/code>&lt;/pre>&lt;h2 id="发布">发布&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sh" data-lang="sh">python -m twine upload --repository testpypi dist/*
+python -m twine upload --repository pypi dist/*
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>手动输入用户名及密码，或使用环境变量 &lt;code>TWINE_USERNAME&lt;/code> 和 &lt;code>TWINE_PASSWORD&lt;/code>。&lt;/p>
+&lt;p>如果使用 API Token，则以 &lt;code>__token__&lt;/code> 为用户名。&lt;/p>
+&lt;h1 id="参考资料">参考资料&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener"
+>Packaging Python Projects&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html" target="_blank" rel="noopener"
+>Configuring setup() using setup.cfg files&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://test.pypi.org/help/#apitoken" target="_blank" rel="noopener"
+>API Token&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Rust 函数式编程</title><link>https://stardustdl.github.io/posts/learning/rust-functional/</link><pubDate>Tue, 06 Jul 2021 20:50:46 +0800</pubDate><guid>https://stardustdl.github.io/posts/learning/rust-functional/</guid><description>&lt;h1 id="闭包">闭包&lt;/h1>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-rust" data-lang="rust">&lt;span class="k">fn&lt;/span> &lt;span class="nf">generate_workout&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">intensity&lt;/span>: &lt;span class="kt">u32&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">random_number&lt;/span>: &lt;span class="kt">u32&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">let&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">expensive_closure&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">num&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">println&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;calculating slowly...&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
