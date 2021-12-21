@@ -1,26 +1,108 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
 之前一般仅使用 Python 写一些简单的小型项目。曾写过一个较大项目，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。
 这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。
 Idea 根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 WPF 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。
  
  图元 Geometry 对象描述图元及其绘制算法 绘图 Drawing 将各种图元绘制到 DrawingContext 上 绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。  通过这三个层次，将呈现系统的两部分：定义与呈现分离。
 设计 核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。
- 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat."><title>ImagingS 开发笔记</title><link rel=canonical href=https://stardustdl.github.io/posts/projects/images-dev/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="ImagingS 开发笔记"><meta property="og:description" content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
+ 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat."><title>ImagingS 开发笔记</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/projects/images-dev/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="ImagingS 开发笔记">
+<meta property="og:description" content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
 之前一般仅使用 Python 写一些简单的小型项目。曾写过一个较大项目，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。
 这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。
 Idea 根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 WPF 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。
  
  图元 Geometry 对象描述图元及其绘制算法 绘图 Drawing 将各种图元绘制到 DrawingContext 上 绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。  通过这三个层次，将呈现系统的两部分：定义与呈现分离。
 设计 核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。
- 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat."><meta property="og:url" content="https://stardustdl.github.io/posts/projects/images-dev/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2020-07-04T22:17:52+08:00"><meta property="article:modified_time" content="2020-07-04T22:17:52+08:00"><meta property="og:image" content="https://stardustdl.github.io/posts/projects/images-dev/head.png"><meta name=twitter:title content="ImagingS 开发笔记"><meta name=twitter:description content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
+ 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat.">
+<meta property="og:url" content="https://stardustdl.github.io/posts/projects/images-dev/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2020-07-04T22:17:52+08:00"><meta property="article:modified_time" content="2020-07-04T22:17:52+08:00"><meta property="og:image" content="https://stardustdl.github.io/posts/projects/images-dev/head.png">
+<meta name=twitter:title content="ImagingS 开发笔记">
+<meta name=twitter:description content="Project Source Demo Video  来源 最初的想法来自 计算机图形学的课程项目作业，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。
 之前一般仅使用 Python 写一些简单的小型项目。曾写过一个较大项目，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。
 这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。
 Idea 根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 WPF 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。
  
  图元 Geometry 对象描述图元及其绘制算法 绘图 Drawing 将各种图元绘制到 DrawingContext 上 绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。  通过这三个层次，将呈现系统的两部分：定义与呈现分离。
 设计 核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。
- 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://stardustdl.github.io/posts/projects/images-dev/head.png"><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/posts/projects/images-dev/><img src=/posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_800x0_resize_box_2.png srcset="/posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_800x0_resize_box_2.png 800w, /posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_1600x0_resize_box_2.png 1600w" width=800 height=400 loading=lazy alt="Featured image of post ImagingS 开发笔记"></a></div><div class=article-details><header class=article-category><a href=/categories/projects/>Projects</a></header><h2 class=article-title><a href=/posts/projects/images-dev/>ImagingS 开发笔记</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 04, 2020</time></footer></div></header><section class=article-content><ul><li><a class=link href=https://github.com/StardustDL/ImagingS target=_blank rel=noopener>Project Source</a></li><li><a class=link href=https://www.bilibili.com/video/BV1Q54y1i7Lg/ target=_blank rel=noopener>Demo Video</a></li></ul><div class=video-wrapper><iframe src="//player.bilibili.com/player.html?as_wide=1&high_quality=1&page=1&bvid=BV1Q54y1i7Lg" scrolling=no frameborder=no framespacing=0 allowfullscreen></iframe></div><h1 id=来源>来源</h1><p>最初的想法来自 <a class=link href=https://git.nju.edu.cn/songyc/cg2020a target=_blank rel=noopener>计算机图形学的课程项目作业</a>，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。</p><p>之前一般仅使用 Python 写一些简单的小型项目。曾写过一个<a class=link href=https://github.com/eXceediDeaL/edl-coderunner target=_blank rel=noopener>较大项目</a>，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。</p><p>这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。</p><h1 id=idea>Idea</h1><p>根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 <a class=link href=https://github.com/dotnet/wpf target=_blank rel=noopener>WPF</a> 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。</p><p><figure style=flex-grow:181;flex-basis:435px><a href=/posts/projects/images-dev/design.png data-size=1333x734><img src=/posts/projects/images-dev/design.png srcset="/posts/projects/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_480x0_resize_box_2.png 480w, /posts/projects/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_1024x0_resize_box_2.png 1024w" width=1333 height=734 loading=lazy></a></figure></p><ol><li>图元 Geometry 对象描述图元及其绘制算法</li><li>绘图 Drawing 将各种图元绘制到 DrawingContext 上</li><li>绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。</li></ol><p>通过这三个层次，将呈现系统的两部分：定义与呈现分离。</p><h2 id=设计>设计</h2><p>核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。</p><ol><li>图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Geometry</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
+ 图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。  class Geometry(PropertySerializable, ABC): def __init__(self) -&amp;gt; None: pass def transform(self) -&amp;gt; Optional[Transform]: pass def strokePoints(self, pen: Pen) -&amp;gt; Iterable[Point]: pass def fillPoints(self) -&amp;gt; Iterable[Point]: pass def inStroke(self, pen: Pen, point: Point) -&amp;gt; bool: pass def inFill(self, point: Point) -&amp;gt; bool: pass def transformed(self) -&amp;gt; Geometry: pass def bounds(self) -&amp;gt; Rect: pass 绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。  class Drawing(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def render(self, context: RenderContext) -&amp;gt; None: pass @property @abstractmethod def bounds(self) -&amp;gt; Rect: pass 绘图上下文类：对实际绘制的目标的抽象  class RenderContext(ABC): @abstractmethod def _point(self, position: Point, color: Color) -&amp;gt; None: pass @abstractmethod def bounds(self) -&amp;gt; Rect: pass def point(self, position: Point, color: Color) -&amp;gt; None: pass def points(self, positions: Iterable[Point], brush: Brush) -&amp;gt; None: pass 变换类：所有变换的基类，定义了如何将一个点变换到另一个点  class Transform(PropertySerializable, IdObject, ABC): def __init__(self) -&amp;gt; None: pass @abstractmethod def transform(self, origin: Point) -&amp;gt; Point: pass 文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作  class Document(PropertySerializable, IdObject): def __init__(self) -&amp;gt; None: pass @property def brushes(self) -&amp;gt; IdObjectList[Brush]: pass @property def drawings(self) -&amp;gt; DrawingGroup: pass @property def size(self) -&amp;gt; Size: pass def save(self, file, format: DocumentFormat = DocumentFormat."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://stardustdl.github.io/posts/projects/images-dev/head.png">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/posts/projects/images-dev/>
+<img src=/posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_800x0_resize_box_3.png srcset="/posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_800x0_resize_box_3.png 800w, /posts/projects/images-dev/head_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_1600x0_resize_box_3.png 1600w" width=800 height=400 loading=lazy alt="Featured image of post ImagingS 开发笔记">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/projects/>
+Projects
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/projects/images-dev/>ImagingS 开发笔记</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 04, 2020</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+2 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<ul>
+<li><a class=link href=https://github.com/StardustDL/ImagingS target=_blank rel=noopener>Project Source</a></li>
+<li><a class=link href=https://www.bilibili.com/video/BV1Q54y1i7Lg/ target=_blank rel=noopener>Demo Video</a></li>
+</ul>
+<div class=video-wrapper>
+<iframe src="https://player.bilibili.com/player.html?as_wide=1&high_quality=1&page=1&bvid=BV1Q54y1i7Lg" scrolling=no frameborder=no framespacing=0 allowfullscreen></iframe>
+</div>
+<h1 id=来源>来源</h1>
+<p>最初的想法来自 <a class=link href=https://git.nju.edu.cn/songyc/cg2020a target=_blank rel=noopener>计算机图形学的课程项目作业</a>，其要求基于 Python + Qt 实现一个支持简单图元绘制的 GUI+CLI 程序。</p>
+<p>之前一般仅使用 Python 写一些简单的小型项目。曾写过一个<a class=link href=https://github.com/eXceediDeaL/edl-coderunner target=_blank rel=noopener>较大项目</a>，但即使使用了类型标注，也很快随着项目复杂度的提升，遇到了维护瓶颈，大大影响开发效率，遂中断了开发。</p>
+<p>这次是第一次使用 Python 开发图形用户界面的软件，也是第一次使用 Qt，考虑到这个项目的需求较为明确并且有足够的扩展可能，决定将此项目作为一个 Python 较大单人项目的练手，并规避以前 Python 项目遇到的一些问题。</p>
+<h1 id=idea>Idea</h1>
+<p>根据课程项目的模板代码，发现此项目非常适合 OOP 模式设计。结合以前的 <a class=link href=https://github.com/dotnet/wpf target=_blank rel=noopener>WPF</a> 学习经历，决定依照 WPF 的设计思路，试图在 ImagingS 中复刻 WPF 的呈现模型。</p>
+<p><figure class=gallery-image style=flex-grow:181;flex-basis:435px>
+<a href=/posts/projects/images-dev/design.png data-size=1333x734>
+<img src=/posts/projects/images-dev/design.png width=1333 height=734 srcset="/posts/projects/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_480x0_resize_box_3.png 480w, /posts/projects/images-dev/design_hu961f291e083aac78bf58b363ae84b038_86468_1024x0_resize_box_3.png 1024w" loading=lazy>
+</a>
+</figure></p>
+<ol>
+<li>图元 Geometry 对象描述图元及其绘制算法</li>
+<li>绘图 Drawing 将各种图元绘制到 DrawingContext 上</li>
+<li>绘图上下文 DrawingContext 提供具体绘图的抽象，统一 GUI 绘图和图片文件绘图。</li>
+</ol>
+<p>通过这三个层次，将呈现系统的两部分：定义与呈现分离。</p>
+<h2 id=设计>设计</h2>
+<p>核心的 API 集中在以下几个类中，其中与绘制抽象相关的大部分类均能在 WPF 绘制模型中找到对应。</p>
+<ol>
+<li>图元类：各种图元的基类，定义了绘制算法（strokePoints）和变换。</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Geometry</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
     <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=k>def</span> <span class=nf>transform</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Optional</span><span class=p>[</span><span class=n>Transform</span><span class=p>]:</span> <span class=k>pass</span>
@@ -36,7 +118,10 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
     <span class=k>def</span> <span class=nf>transformed</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Geometry</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=k>def</span> <span class=nf>bounds</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Rect</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><ol start=2><li>绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Drawing</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
+</code></pre></div><ol start=2>
+<li>绘制类：所有可绘制元素的基类，定义了绘制函数（render）。对于图元对象，实现了 GeometryDrawing 来实际完成图元的绘制任务。</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Drawing</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
     <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=nd>@abstractmethod</span>
@@ -45,7 +130,10 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
     <span class=nd>@property</span>
     <span class=nd>@abstractmethod</span>
     <span class=k>def</span> <span class=nf>bounds</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Rect</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><ol start=3><li>绘图上下文类：对实际绘制的目标的抽象</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>RenderContext</span><span class=p>(</span><span class=n>ABC</span><span class=p>):</span>
+</code></pre></div><ol start=3>
+<li>绘图上下文类：对实际绘制的目标的抽象</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>RenderContext</span><span class=p>(</span><span class=n>ABC</span><span class=p>):</span>
     <span class=nd>@abstractmethod</span>
     <span class=k>def</span> <span class=nf>_point</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>position</span><span class=p>:</span> <span class=n>Point</span><span class=p>,</span> <span class=n>color</span><span class=p>:</span> <span class=n>Color</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
@@ -56,12 +144,18 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 
     <span class=k>def</span> <span class=nf>points</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>positions</span><span class=p>:</span> <span class=n>Iterable</span><span class=p>[</span><span class=n>Point</span><span class=p>],</span> <span class=n>brush</span><span class=p>:</span> <span class=n>Brush</span><span class=p>)</span>
      <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><ol start=4><li>变换类：所有变换的基类，定义了如何将一个点变换到另一个点</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Transform</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
+</code></pre></div><ol start=4>
+<li>变换类：所有变换的基类，定义了如何将一个点变换到另一个点</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Transform</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>,</span> <span class=n>ABC</span><span class=p>):</span>
     <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=nd>@abstractmethod</span>
     <span class=k>def</span> <span class=nf>transform</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>origin</span><span class=p>:</span> <span class=n>Point</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Point</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><ol start=5><li>文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Document</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>):</span>
+</code></pre></div><ol start=5>
+<li>文档类：定义了当前文档所包含的画刷，图元，画布大小等信息，实现了序列化操作</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Document</span><span class=p>(</span><span class=n>PropertySerializable</span><span class=p>,</span> <span class=n>IdObject</span><span class=p>):</span>
     <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=nd>@property</span>
@@ -79,12 +173,18 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
     <span class=nd>@staticmethod</span>
     <span class=k>def</span> <span class=nf>load</span><span class=p>(</span><span class=n>file</span><span class=p>,</span> <span class=nb>format</span><span class=p>:</span> <span class=n>DocumentFormat</span> <span class=o>=</span> <span class=n>DocumentFormat</span><span class=o>.</span><span class=n>ISD</span><span class=p>)</span>
      <span class=o>-&gt;</span> <span class=n>Document</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><ol start=6><li>画布类：将抽象绘制对象包装成 Qt 中的绘制对象</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Canvas</span><span class=p>(</span><span class=n>QGraphicsView</span><span class=p>):</span> <span class=k>pass</span>
+</code></pre></div><ol start=6>
+<li>画布类：将抽象绘制对象包装成 Qt 中的绘制对象</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Canvas</span><span class=p>(</span><span class=n>QGraphicsView</span><span class=p>):</span> <span class=k>pass</span>
 
 <span class=k>class</span> <span class=nc>DrawingItem</span><span class=p>(</span><span class=n>QGraphicsItem</span><span class=p>):</span>
     <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>drawing</span><span class=p>:</span> <span class=n>Drawing</span><span class=p>,</span> 
         <span class=n>size</span><span class=p>:</span> <span class=n>QSizeF</span><span class=p>,</span> <span class=n>parent</span><span class=p>:</span> <span class=n>Optional</span><span class=p>[</span><span class=n>QGraphicsItem</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span><span class=p>):</span> <span class=k>pass</span>
-</code></pre></div><ol start=7><li>交互类：定义了 GUI 上与图元交互的所有操作，提供给画布一个统一的接口来处理用户交互</li></ol><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Interactivity</span><span class=p>(</span><span class=n>QObject</span><span class=p>):</span>
+</code></pre></div><ol start=7>
+<li>交互类：定义了 GUI 上与图元交互的所有操作，提供给画布一个统一的接口来处理用户交互</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Interactivity</span><span class=p>(</span><span class=n>QObject</span><span class=p>):</span>
     <span class=n>started</span> <span class=o>=</span> <span class=n>pyqtSignal</span><span class=p>(</span><span class=n>QObject</span><span class=p>)</span>
     <span class=n>ended</span> <span class=o>=</span> <span class=n>pyqtSignal</span><span class=p>(</span><span class=n>QObject</span><span class=p>)</span>
     <span class=n>updated</span> <span class=o>=</span> <span class=n>pyqtSignal</span><span class=p>(</span><span class=n>QObject</span><span class=p>)</span>
@@ -114,10 +214,120 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
     <span class=k>def</span> <span class=nf>onKeyPress</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=n>QKeyEvent</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
 
     <span class=k>def</span> <span class=nf>onKeyRelease</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>:</span> <span class=n>QKeyEvent</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span> <span class=k>pass</span>
-</code></pre></div><h1 id=实现>实现</h1><ul><li><input disabled type=checkbox> To be done</li></ul><h1 id=总结>总结</h1><p>这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。</p><p>项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。</p></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article class=has-image><a href=/posts/projects/acblog-staticgen/><div class=article-image><img src=/posts/projects/acblog-staticgen/head.1953b2dd64e2e7e1cbeac076ef8398b4_hu9efe531bff7b440f821e48b9e03327e7_46403_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-GVOy3WTi5+HL6sB274OYtA=="></div><div class=article-details><h2 class=article-title>AcBlog 静态博客生成器使用说明</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+</code></pre></div><h1 id=实现>实现</h1>
+<ul>
+<li><input disabled type=checkbox> To be done</li>
+</ul>
+<h1 id=总结>总结</h1>
+<p>这个项目借鉴了 WPF 呈现模型的设计，一个成熟的模型的确是富有扩展性和较易维护的。Python + Qt 的组合开发效率也是很高的，但是运行效率有一定损失。</p>
+<p>项目目前的主要不足，一是图形学相关算法实现较少；二是部分类的 API 设计不够准确，这部分可能来源于 Qt 绘图模型和 WPF 依赖的 DirectX 两者的不一致，复刻的过程中部分设计需要适配 Qt ，造成一定妥协（例如 PyQt 的绘制效率低下，导致部分功能不容易在此模型下高效实现）。</p>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/projects/codesim/>
+<div class=article-details>
+<h2 class=article-title>Codesim</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/posts/projects/acblog-staticgen/>
+<div class=article-image>
+<img src=/posts/projects/acblog-staticgen/head.1953b2dd64e2e7e1cbeac076ef8398b4_hu9efe531bff7b440f821e48b9e03327e7_46403_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post AcBlog 静态博客生成器使用说明" data-hash="md5-GVOy3WTi5+HL6sB274OYtA==">
+</div>
+<div class=article-details>
+<h2 class=article-title>AcBlog 静态博客生成器使用说明</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#来源>来源</a></li><li><a href=#idea>Idea</a><ol><li><a href=#设计>设计</a></li></ol></li><li><a href=#实现>实现</a></li><li><a href=#总结>总结</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#来源>来源</a></li>
+<li><a href=#idea>Idea</a>
+<ol>
+<li><a href=#设计>设计</a></li>
+</ol>
+</li>
+<li><a href=#实现>实现</a></li>
+<li><a href=#总结>总结</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

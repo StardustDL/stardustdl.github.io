@@ -1,33 +1,82 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
 letexpensive_closure=|num: u32|-&amp;gt; u32 {println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};fn add_one_v1(x: u32)-&amp;gt; u32 {x+1}letadd_one_v2=|x: u32|-&amp;gt; u32 {x+1};letadd_one_v3=|x|{x+1};letadd_one_v4=|x|x+1;推断有歧义的闭包会报错。
-letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself."><title>Rust 函数式编程</title><link rel=canonical href=https://stardustdl.github.io/posts/learning/rust-functional/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Rust 函数式编程"><meta property="og:description" content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
+letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself."><title>Rust 函数式编程</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/learning/rust-functional/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Rust 函数式编程">
+<meta property="og:description" content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
 letexpensive_closure=|num: u32|-&amp;gt; u32 {println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};fn add_one_v1(x: u32)-&amp;gt; u32 {x+1}letadd_one_v2=|x: u32|-&amp;gt; u32 {x+1};letadd_one_v3=|x|{x+1};letadd_one_v4=|x|x+1;推断有歧义的闭包会报错。
-letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself."><meta property="og:url" content="https://stardustdl.github.io/posts/learning/rust-functional/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="Rust"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2021-07-06T20:50:46+08:00"><meta property="article:modified_time" content="2021-07-06T20:50:46+08:00"><meta name=twitter:title content="Rust 函数式编程"><meta name=twitter:description content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
+letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself.">
+<meta property="og:url" content="https://stardustdl.github.io/posts/learning/rust-functional/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="Rust"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2021-07-06T20:50:46+08:00"><meta property="article:modified_time" content="2021-07-06T20:50:46+08:00">
+<meta name=twitter:title content="Rust 函数式编程">
+<meta name=twitter:description content="闭包 fn generate_workout(intensity: u32,random_number: u32){letexpensive_closure=|num|{println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};ifintensity&amp;lt;25{println!(&amp;#34;Today, do {} pushups!&amp;#34;,expensive_closure(intensity));println!(&amp;#34;Next, do {} situps!&amp;#34;,expensive_closure(intensity));}else{ifrandom_number==3{println!(&amp;#34;Take a break today! Remember to stay hydrated!&amp;#34;);}else{println!(&amp;#34;Today, run for {} minutes!&amp;#34;,expensive_closure(intensity));}}}闭包支持类型推断，可以不标注类型信息。
 letexpensive_closure=|num: u32|-&amp;gt; u32 {println!(&amp;#34;calculating slowly...&amp;#34;);thread::sleep(Duration::from_secs(2));num};fn add_one_v1(x: u32)-&amp;gt; u32 {x+1}letadd_one_v2=|x: u32|-&amp;gt; u32 {x+1};letadd_one_v3=|x|{x+1};letadd_one_v4=|x|x+1;推断有歧义的闭包会报错。
-letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself."><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/learning/>Learning</a></header><h2 class=article-title><a href=/posts/learning/rust-functional/>Rust 函数式编程</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 06, 2021</time></footer></div></header><section class=article-content><h1 id=闭包>闭包</h1><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>generate_workout</span><span class=p>(</span><span class=n>intensity</span>: <span class=kt>u32</span><span class=p>,</span><span class=w> </span><span class=n>random_number</span>: <span class=kt>u32</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+letexample_closure=|x|x;lets=example_closure(String::from(&amp;#34;hello&amp;#34;));letn=example_closure(5);闭包类型 struct Cacher&amp;lt;T&amp;gt;whereT: Fn(u32)-&amp;gt; u32,{calculation: T,value: Option&amp;lt;u32&amp;gt;,}捕获环境  FnOnce 消耗捕获的变量，获取其所有权 FnMut 通过可变引用捕获变量 Fn 通过不可变引用捕获变量  // FnOnce letequal_to_x=move|z|z==x;迭代器 pubtraitIterator{type Item;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;;// methods with default implementations elided }创建迭代器 struct Counter{count: u32,}implCounter{fn new()-&amp;gt; Counter{Counter{count: 0}}}implIteratorforCounter{type Item=u32;fn next(&amp;amp;mutself)-&amp;gt; Option&amp;lt;Self::Item&amp;gt;{ifself.">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/learning/>
+Learning
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/learning/rust-functional/>Rust 函数式编程</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 06, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=闭包>闭包</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>generate_workout</span><span class=p>(</span><span class=n>intensity</span>: <span class=kt>u32</span><span class=p>,</span><span class=w> </span><span class=n>random_number</span>: <span class=kt>u32</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>expensive_closure</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>num</span><span class=o>|</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>        </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;calculating slowly...&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>        </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;calculating slowly...&#34;</span><span class=p>);</span><span class=w>
 </span><span class=w>        </span><span class=n>thread</span>::<span class=n>sleep</span><span class=p>(</span><span class=n>Duration</span>::<span class=n>from_secs</span><span class=p>(</span><span class=mi>2</span><span class=p>));</span><span class=w>
 </span><span class=w>        </span><span class=n>num</span><span class=w>
 </span><span class=w>    </span><span class=p>};</span><span class=w>
 </span><span class=w>
 </span><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=n>intensity</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mi>25</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>        </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Today, do {} pushups!&#34;</span><span class=p>,</span><span class=w> </span><span class=n>expensive_closure</span><span class=p>(</span><span class=n>intensity</span><span class=p>));</span><span class=w>
-</span><span class=w>        </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Next, do {} situps!&#34;</span><span class=p>,</span><span class=w> </span><span class=n>expensive_closure</span><span class=p>(</span><span class=n>intensity</span><span class=p>));</span><span class=w>
+</span><span class=w>        </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;Today, do {} pushups!&#34;</span><span class=p>,</span><span class=w> </span><span class=n>expensive_closure</span><span class=p>(</span><span class=n>intensity</span><span class=p>));</span><span class=w>
+</span><span class=w>        </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;Next, do {} situps!&#34;</span><span class=p>,</span><span class=w> </span><span class=n>expensive_closure</span><span class=p>(</span><span class=n>intensity</span><span class=p>));</span><span class=w>
 </span><span class=w>    </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=n>random_number</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>3</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>            </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Take a break today! Remember to stay hydrated!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>            </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;Take a break today! Remember to stay hydrated!&#34;</span><span class=p>);</span><span class=w>
 </span><span class=w>        </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>            </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=w>
+</span><span class=w>            </span><span class=fm>println!</span><span class=p>(</span><span class=w>
 </span><span class=w>                </span><span class=s>&#34;Today, run for {} minutes!&#34;</span><span class=p>,</span><span class=w>
 </span><span class=w>                </span><span class=n>expensive_closure</span><span class=p>(</span><span class=n>intensity</span><span class=p>)</span><span class=w>
 </span><span class=w>            </span><span class=p>);</span><span class=w>
 </span><span class=w>        </span><span class=p>}</span><span class=w>
 </span><span class=w>    </span><span class=p>}</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><p>闭包支持类型推断，可以不标注类型信息。</p><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>expensive_closure</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>num</span>: <span class=kt>u32</span><span class=o>|</span><span class=w> </span>-&gt; <span class=kt>u32</span> <span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;calculating slowly...&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></div><p>闭包支持类型推断，可以不标注类型信息。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>expensive_closure</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>num</span>: <span class=kt>u32</span><span class=o>|</span><span class=w> </span>-&gt; <span class=kt>u32</span> <span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;calculating slowly...&#34;</span><span class=p>);</span><span class=w>
 </span><span class=w>    </span><span class=n>thread</span>::<span class=n>sleep</span><span class=p>(</span><span class=n>Duration</span>::<span class=n>from_secs</span><span class=p>(</span><span class=mi>2</span><span class=p>));</span><span class=w>
 </span><span class=w>    </span><span class=n>num</span><span class=w>
 </span><span class=w></span><span class=p>};</span><span class=w>
@@ -36,27 +85,37 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>add_one_v2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>x</span>: <span class=kt>u32</span><span class=o>|</span><span class=w> </span>-&gt; <span class=kt>u32</span> <span class=p>{</span><span class=w> </span><span class=n>x</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=p>};</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>add_one_v3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>x</span><span class=o>|</span><span class=w>             </span><span class=p>{</span><span class=w> </span><span class=n>x</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=p>};</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>add_one_v4</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>x</span><span class=o>|</span><span class=w>               </span><span class=n>x</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=w>  </span><span class=p>;</span><span class=w>
-</span></code></pre></div><p>推断有歧义的闭包会报错。</p><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>example_closure</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>x</span><span class=o>|</span><span class=w> </span><span class=n>x</span><span class=p>;</span><span class=w>
+</span></code></pre></div><p>推断有歧义的闭包会报错。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>example_closure</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>|</span><span class=n>x</span><span class=o>|</span><span class=w> </span><span class=n>x</span><span class=p>;</span><span class=w>
 </span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>example_closure</span><span class=p>(</span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;hello&#34;</span><span class=p>));</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>n</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>example_closure</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span><span class=w>
-</span></code></pre></div><h2 id=闭包类型>闭包类型</h2><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>struct</span> <span class=nc>Cacher</span><span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;</span><span class=w>
+</span></code></pre></div><h2 id=闭包类型>闭包类型</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>struct</span> <span class=nc>Cacher</span><span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;</span><span class=w>
 </span><span class=w></span><span class=k>where</span><span class=w>
 </span><span class=w>    </span><span class=n>T</span>: <span class=nb>Fn</span><span class=p>(</span><span class=kt>u32</span><span class=p>)</span><span class=w> </span>-&gt; <span class=kt>u32</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=n>calculation</span>: <span class=nc>T</span><span class=p>,</span><span class=w>
 </span><span class=w>    </span><span class=n>value</span>: <span class=nb>Option</span><span class=o>&lt;</span><span class=kt>u32</span><span class=o>&gt;</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><h2 id=捕获环境>捕获环境</h2><ul><li><code>FnOnce</code> 消耗捕获的变量，获取其所有权</li><li><code>FnMut</code> 通过可变引用捕获变量</li><li><code>Fn</code> 通过不可变引用捕获变量</li></ul><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=c1>// FnOnce
+</span></code></pre></div><h2 id=捕获环境>捕获环境</h2>
+<ul>
+<li><code>FnOnce</code> 消耗捕获的变量，获取其所有权</li>
+<li><code>FnMut</code> 通过可变引用捕获变量</li>
+<li><code>Fn</code> 通过不可变引用捕获变量</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// FnOnce
 </span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>equal_to_x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>move</span><span class=w> </span><span class=o>|</span><span class=n>z</span><span class=o>|</span><span class=w> </span><span class=n>z</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>x</span><span class=p>;</span><span class=w>
-</span></code></pre></div><h1 id=迭代器>迭代器</h1><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>pub</span><span class=w> </span><span class=k>trait</span><span class=w> </span><span class=nb>Iterator</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></code></pre></div><h1 id=迭代器>迭代器</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>pub</span><span class=w> </span><span class=k>trait</span><span class=w> </span><span class=nb>Iterator</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=k>type</span> <span class=nc>Item</span><span class=p>;</span><span class=w>
 </span><span class=w>
-</span><span class=w>    </span><span class=k>fn</span> <span class=nf>next</span><span class=p>(</span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=bp>self</span><span class=p>)</span><span class=w> </span>-&gt; <span class=nb>Option</span><span class=o>&lt;</span><span class=n>Self</span>::<span class=n>Item</span><span class=o>&gt;</span><span class=p>;</span><span class=w>
+</span><span class=w>    </span><span class=k>fn</span> <span class=nf>next</span><span class=p>(</span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=bp>self</span><span class=p>)</span><span class=w> </span>-&gt; <span class=nb>Option</span><span class=o>&lt;</span><span class=bp>Self</span>::<span class=n>Item</span><span class=o>&gt;</span><span class=p>;</span><span class=w>
 </span><span class=w>
 </span><span class=w>    </span><span class=c1>// methods with default implementations elided
 </span><span class=c1></span><span class=p>}</span><span class=w>
-</span></code></pre></div><h2 id=创建迭代器>创建迭代器</h2><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>struct</span> <span class=nc>Counter</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></code></pre></div><h2 id=创建迭代器>创建迭代器</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>struct</span> <span class=nc>Counter</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=n>count</span>: <span class=kt>u32</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
 </span><span class=w>
@@ -69,7 +128,7 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=k>impl</span><span class=w> </span><span class=nb>Iterator</span><span class=w> </span><span class=k>for</span><span class=w> </span><span class=n>Counter</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=k>type</span> <span class=nc>Item</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kt>u32</span><span class=p>;</span><span class=w>
 </span><span class=w>
-</span><span class=w>    </span><span class=k>fn</span> <span class=nf>next</span><span class=p>(</span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=bp>self</span><span class=p>)</span><span class=w> </span>-&gt; <span class=nb>Option</span><span class=o>&lt;</span><span class=n>Self</span>::<span class=n>Item</span><span class=o>&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=k>fn</span> <span class=nf>next</span><span class=p>(</span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=bp>self</span><span class=p>)</span><span class=w> </span>-&gt; <span class=nb>Option</span><span class=o>&lt;</span><span class=bp>Self</span>::<span class=n>Item</span><span class=o>&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=bp>self</span><span class=p>.</span><span class=n>count</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mi>5</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>            </span><span class=bp>self</span><span class=p>.</span><span class=n>count</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w>
 </span><span class=w>            </span><span class=nb>Some</span><span class=p>(</span><span class=bp>self</span><span class=p>.</span><span class=n>count</span><span class=p>)</span><span class=w>
@@ -83,20 +142,21 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=k>fn</span> <span class=nf>calling_next_directly</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>counter</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>Counter</span>::<span class=n>new</span><span class=p>();</span><span class=w>
 </span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>1</span><span class=p>));</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>2</span><span class=p>));</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>3</span><span class=p>));</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>4</span><span class=p>));</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>5</span><span class=p>));</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>None</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>1</span><span class=p>));</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>2</span><span class=p>));</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>3</span><span class=p>));</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>4</span><span class=p>));</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=mi>5</span><span class=p>));</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=n>counter</span><span class=p>.</span><span class=n>next</span><span class=p>(),</span><span class=w> </span><span class=nb>None</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><h2 id=使用迭代器>使用迭代器</h2><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>v1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>];</span><span class=w>
+</span></code></pre></div><h2 id=使用迭代器>使用迭代器</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>v1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>];</span><span class=w>
 </span><span class=w>
 </span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>v1_iter</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>v1</span><span class=p>.</span><span class=n>iter</span><span class=p>();</span><span class=w>
 </span><span class=w>
 </span><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=n>val</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=n>v1_iter</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>        </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Got: {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>val</span><span class=p>);</span><span class=w>
+</span><span class=w>        </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;Got: {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>val</span><span class=p>);</span><span class=w>
 </span><span class=w>    </span><span class=p>}</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
 </span><span class=w>
@@ -107,13 +167,142 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w>        </span><span class=p>.</span><span class=n>map</span><span class=p>(</span><span class=o>|</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=o>|</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=w>
 </span><span class=w>        </span><span class=p>.</span><span class=n>filter</span><span class=p>(</span><span class=o>|</span><span class=n>x</span><span class=o>|</span><span class=w> </span><span class=n>x</span><span class=w> </span><span class=o>%</span><span class=w> </span><span class=mi>3</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>0</span><span class=p>)</span><span class=w>
 </span><span class=w>        </span><span class=p>.</span><span class=n>sum</span><span class=p>();</span><span class=w>
-</span><span class=w>    </span><span class=n>assert_eq</span><span class=o>!</span><span class=p>(</span><span class=mi>18</span><span class=p>,</span><span class=w> </span><span class=n>sum</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=fm>assert_eq!</span><span class=p>(</span><span class=mi>18</span><span class=p>,</span><span class=w> </span><span class=n>sum</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div></section><footer class=article-footer><section class=article-tags><a href=/tags/rust/>Rust</a>
-<a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/learning/rust-generic-types/><div class=article-details><h2 class=article-title>Rust 泛型</h2></div></a></article><article><a href=/posts/learning/rust-collections/><div class=article-details><h2 class=article-title>Rust 集合</h2></div></a></article><article><a href=/posts/learning/rust-modules/><div class=article-details><h2 class=article-title>Rust 模块与项目</h2></div></a></article><article><a href=/posts/learning/rust-onwership/><div class=article-details><h2 class=article-title>Rust 所有权特性</h2></div></a></article><article><a href=/posts/learning/rust-startup/><div class=article-details><h2 class=article-title>Rust 语言基础使用</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+</span></code></pre></div>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/rust/>Rust</a>
+<a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/learning/rust-generic-types/>
+<div class=article-details>
+<h2 class=article-title>Rust 泛型</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-collections/>
+<div class=article-details>
+<h2 class=article-title>Rust 集合</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-modules/>
+<div class=article-details>
+<h2 class=article-title>Rust 模块与项目</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-onwership/>
+<div class=article-details>
+<h2 class=article-title>Rust 所有权特性</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-startup/>
+<div class=article-details>
+<h2 class=article-title>Rust 语言基础使用</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#闭包>闭包</a><ol><li><a href=#闭包类型>闭包类型</a></li><li><a href=#捕获环境>捕获环境</a></li></ol></li><li><a href=#迭代器>迭代器</a><ol><li><a href=#创建迭代器>创建迭代器</a></li><li><a href=#使用迭代器>使用迭代器</a></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#闭包>闭包</a>
+<ol>
+<li><a href=#闭包类型>闭包类型</a></li>
+<li><a href=#捕获环境>捕获环境</a></li>
+</ol>
+</li>
+<li><a href=#迭代器>迭代器</a>
+<ol>
+<li><a href=#创建迭代器>创建迭代器</a></li>
+<li><a href=#使用迭代器>使用迭代器</a></li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

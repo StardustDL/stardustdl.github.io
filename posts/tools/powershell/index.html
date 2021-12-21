@@ -1,30 +1,460 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。"><title>PowerShell</title><link rel=canonical href=https://stardustdl.github.io/posts/tools/powershell/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="PowerShell"><meta property="og:description" content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。"><meta property="og:url" content="https://stardustdl.github.io/posts/tools/powershell/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-09-27T18:40:02+08:00"><meta property="article:modified_time" content="2018-09-27T18:40:02+08:00"><meta property="og:image" content="https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png"><meta name=twitter:title content="PowerShell"><meta name=twitter:description content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png"><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/posts/tools/powershell/><img src=https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png loading=lazy alt="Featured image of post PowerShell"></a></div><div class=article-details><header class=article-category><a href=/categories/tools/>Tools</a></header><h2 class=article-title><a href=/posts/tools/powershell/>PowerShell</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Sep 27, 2018</time></footer></div></header><section class=article-content><h1 id=基本信息>基本信息</h1><ul><li><a class=link href=https://github.com/powershell/powershell target=_blank rel=noopener>官网</a></li><li>介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。</li></ul><h1 id=基础知识>基础知识</h1><h2 id=快捷键>快捷键</h2><table><thead><tr><th>快捷键</th><th>功能</th></tr></thead><tbody><tr><td>ALT+F7</td><td>清除命令的历史记录</td></tr><tr><td>PgUp PgDn</td><td>显示当前会话的第一个命令和最后一个命令</td></tr><tr><td>Enter</td><td>执行当前命令</td></tr><tr><td>End</td><td>将光标移至当前命令的末尾</td></tr><tr><td>Del</td><td>从右开始删除输入的命令字符</td></tr><tr><td>Esc</td><td>清空当前命令行</td></tr><tr><td>F2</td><td>自动补充历史命令至指定字符</td></tr><tr><td>F4</td><td>删除命令行至光标右边指定字符处</td></tr><tr><td>F7</td><td>对话框显示命令行历史记录</td></tr><tr><td>F8</td><td>检索包含指定字符的命令行历史记录</td></tr><tr><td>F9</td><td>根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看</td></tr><tr><td>左/右方向键</td><td>左右移动光标</td></tr><tr><td>上/下方向键</td><td>切换命令行的历史记录</td></tr><tr><td>Home</td><td>光标移至命令行最左端</td></tr><tr><td>Backspace</td><td>从右删除命令行字符</td></tr><tr><td>Ctrl+C</td><td>取消正在执行的命令</td></tr><tr><td>Ctrl+左/右方向键</td><td>在单词之间移动光标</td></tr><tr><td>Ctrl+Home</td><td>删除光标最左端的所有字符</td></tr><tr><td>Tab</td><td>自动补齐命令或者文件名</td></tr></tbody></table><h2 id=管道和重定向>管道和重定向</h2><p>管道：把上一条命令的输出作为下一条命令的输入。使用字符 <code>|</code>。
-传统的Cmd管道是基于文本的，但是Powershell是基于对象。</p><p>两个管道模式：</p><ul><li>顺序模式（较慢）：在顺序模式中管道中同一时间只执行一条命令，只有当前一条命令的所有执行完毕，才会把所有结果交付给下一条 命令。这种模式速度慢并且耗内存，因为必须需要很多次分配空间存储中间结果。</li><li>流模式（较快）：流模式会立即执行所有命令，同一时间可能在执行多条命令。前一条命令可能会产生多个结果，但是一旦产生其中一个结果，就会立即交付给下一条命令处理。这样的流模式节省比较节省内-存，可能管道的某个任务还在执行，但是已经有部分结果输出了。减少了中间结果的保存。</li></ul><p>重定向：把命令的输出保存到文件中，<code>></code> 为覆盖，<code>>></code> 追加。</p><h2 id=数学运算>数学运算</h2><p>Powershell 支持基本的数学运算，也能自动识别计算机容量单位，包括KB，MB，GB，TB，PB。通过使用 .NET 中的数学库可以使用更多的数学函数。</p><h2 id=执行外部命令>执行外部命令</h2><p>调用外部程序。类似传统 shell。</p><h2 id=cmdlets>Cmdlets</h2><p>cmdlets是Powershell的内部命令。每个命令有一个动词和名词组成，命令的作用一目了然。
-<strong>可以使用 <code>Get-Command</code> 获取所有命令，使用 <code>Get-Help</code> 获取命令帮助。</strong></p><p>常用命令：</p><table><thead><tr><th>命令</th><th>别名</th></tr></thead><tbody><tr><td><code>Get-Location</code></td><td><code>pwd</code></td></tr><tr><td><code>Set-Location</code></td><td><code>cd</code></td></tr><tr><td><code>Get-ChildrenItem</code></td><td><code>ls</code> <code>dir</code></td></tr><tr><td><code>Invoke-Item</code></td><td></td></tr><tr><td><code>Remove-Item</code></td><td><code>rm</code> <code>del</code></td></tr><tr><td><code>Move-Item</code></td><td><code>mv</code> <code>move</code></td></tr><tr><td><code>Copy-Item</code></td><td><code>cp</code> <code>copy</code></td></tr><tr><td><code>Get-Item</code></td><td></td></tr><tr><td><code>Get-Content</code></td><td><code>cat</code></td></tr><tr><td><code>Invoke-WebRequest</code></td><td><code>wget</code> <code>curl</code></td></tr><tr><td><code>Get-Process</code></td><td><code>ps</code></td></tr><tr><td><code>Stop-Process</code></td><td><code>kill</code></td></tr><tr><td><code>Start-Process</code></td><td><code>start</code></td></tr><tr><td><code>Clear-Host</code></td><td><code>cls</code> <code>clear</code></td></tr><tr><td><code>Write-Output</code></td><td><code>echo</code></td></tr><tr><td><code>Compare-Object</code></td><td><code>diff</code></td></tr></tbody></table><p>(TODO)</p><h2 id=别名>别名</h2><ul><li><code>Get-Alias</code></li><li><code>Set-Alias</code></li><li><code>Export-Alias</code></li><li><code>Import-Alias</code></li></ul><h2 id=变量>变量</h2><p>变量名均是以美元符 <code>$</code> 开始，剩余字符可以是数字、字母、下划线的任意字符，并且powershell变量名大小写不敏感。某些特殊的字符在powershell中有特殊的用途，一般不推荐使用这些字符作为变量名。当然你硬要使用，请把整个变量名后缀用花括号括起来。
-Powershell将变量的相关信息的记录存放在名为 <code>variable:</code> 的驱动中。如果要查看所有定义的变量，可以直接遍历 <code>variable:</code></p><div class=highlight><pre class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$a</span> <span class=p>=</span> <span class=n>10</span>
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。"><title>PowerShell</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/tools/powershell/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="PowerShell">
+<meta property="og:description" content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。">
+<meta property="og:url" content="https://stardustdl.github.io/posts/tools/powershell/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-09-27T18:40:02+08:00"><meta property="article:modified_time" content="2018-09-27T18:40:02+08:00"><meta property="og:image" content="https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png">
+<meta name=twitter:title content="PowerShell">
+<meta name=twitter:description content="基本信息  官网 介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。  基础知识 快捷键    快捷键 功能     ALT+F7 清除命令的历史记录   PgUp PgDn 显示当前会话的第一个命令和最后一个命令   Enter 执行当前命令   End 将光标移至当前命令的末尾   Del 从右开始删除输入的命令字符   Esc 清空当前命令行   F2 自动补充历史命令至指定字符   F4 删除命令行至光标右边指定字符处   F7 对话框显示命令行历史记录   F8 检索包含指定字符的命令行历史记录   F9 根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看   左/右方向键 左右移动光标   上/下方向键 切换命令行的历史记录   Home 光标移至命令行最左端   Backspace 从右删除命令行字符   Ctrl+C 取消正在执行的命令   Ctrl+左/右方向键 在单词之间移动光标   Ctrl+Home 删除光标最左端的所有字符   Tab 自动补齐命令或者文件名    管道和重定向 管道：把上一条命令的输出作为下一条命令的输入。使用字符 |。 传统的Cmd管道是基于文本的，但是Powershell是基于对象。"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/posts/tools/powershell/>
+<img src=https://devblogs.microsoft.com/powershell/wp-content/uploads/sites/30/2018/09/Powershell_256.png loading=lazy alt="Featured image of post PowerShell">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/tools/>
+Tools
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/tools/powershell/>PowerShell</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Sep 27, 2018</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+2 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=基本信息>基本信息</h1>
+<ul>
+<li><a class=link href=https://github.com/powershell/powershell target=_blank rel=noopener>官网</a></li>
+<li>介绍：Powershell 是一个执行系统和应用程序管理自动化的命令行脚本环境。需要.NET环境的支持，同时支持.NET对象。Powershell 中每个内容都是对象，.NET 中的对象相关操作可以在 Powershell 中调用。</li>
+</ul>
+<h1 id=基础知识>基础知识</h1>
+<h2 id=快捷键>快捷键</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALT+F7</td>
+<td>清除命令的历史记录</td>
+</tr>
+<tr>
+<td>PgUp PgDn</td>
+<td>显示当前会话的第一个命令和最后一个命令</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>执行当前命令</td>
+</tr>
+<tr>
+<td>End</td>
+<td>将光标移至当前命令的末尾</td>
+</tr>
+<tr>
+<td>Del</td>
+<td>从右开始删除输入的命令字符</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>清空当前命令行</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>自动补充历史命令至指定字符</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>删除命令行至光标右边指定字符处</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>对话框显示命令行历史记录</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>检索包含指定字符的命令行历史记录</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>根据命令行的历史记录编号选择命令，历史记录编号可以通过F7查看</td>
+</tr>
+<tr>
+<td>左/右方向键</td>
+<td>左右移动光标</td>
+</tr>
+<tr>
+<td>上/下方向键</td>
+<td>切换命令行的历史记录</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>光标移至命令行最左端</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>从右删除命令行字符</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>取消正在执行的命令</td>
+</tr>
+<tr>
+<td>Ctrl+左/右方向键</td>
+<td>在单词之间移动光标</td>
+</tr>
+<tr>
+<td>Ctrl+Home</td>
+<td>删除光标最左端的所有字符</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td>自动补齐命令或者文件名</td>
+</tr>
+</tbody>
+</table>
+<h2 id=管道和重定向>管道和重定向</h2>
+<p>管道：把上一条命令的输出作为下一条命令的输入。使用字符 <code>|</code>。
+传统的Cmd管道是基于文本的，但是Powershell是基于对象。</p>
+<p>两个管道模式：</p>
+<ul>
+<li>顺序模式（较慢）：在顺序模式中管道中同一时间只执行一条命令，只有当前一条命令的所有执行完毕，才会把所有结果交付给下一条 命令。这种模式速度慢并且耗内存，因为必须需要很多次分配空间存储中间结果。</li>
+<li>流模式（较快）：流模式会立即执行所有命令，同一时间可能在执行多条命令。前一条命令可能会产生多个结果，但是一旦产生其中一个结果，就会立即交付给下一条命令处理。这样的流模式节省比较节省内-存，可能管道的某个任务还在执行，但是已经有部分结果输出了。减少了中间结果的保存。</li>
+</ul>
+<p>重定向：把命令的输出保存到文件中，<code>></code> 为覆盖，<code>>></code> 追加。</p>
+<h2 id=数学运算>数学运算</h2>
+<p>Powershell 支持基本的数学运算，也能自动识别计算机容量单位，包括KB，MB，GB，TB，PB。通过使用 .NET 中的数学库可以使用更多的数学函数。</p>
+<h2 id=执行外部命令>执行外部命令</h2>
+<p>调用外部程序。类似传统 shell。</p>
+<h2 id=cmdlets>Cmdlets</h2>
+<p>cmdlets是Powershell的内部命令。每个命令有一个动词和名词组成，命令的作用一目了然。
+<strong>可以使用 <code>Get-Command</code> 获取所有命令，使用 <code>Get-Help</code> 获取命令帮助。</strong></p>
+<p>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>别名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Get-Location</code></td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td><code>Set-Location</code></td>
+<td><code>cd</code></td>
+</tr>
+<tr>
+<td><code>Get-ChildrenItem</code></td>
+<td><code>ls</code> <code>dir</code></td>
+</tr>
+<tr>
+<td><code>Invoke-Item</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Remove-Item</code></td>
+<td><code>rm</code> <code>del</code></td>
+</tr>
+<tr>
+<td><code>Move-Item</code></td>
+<td><code>mv</code> <code>move</code></td>
+</tr>
+<tr>
+<td><code>Copy-Item</code></td>
+<td><code>cp</code> <code>copy</code></td>
+</tr>
+<tr>
+<td><code>Get-Item</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Get-Content</code></td>
+<td><code>cat</code></td>
+</tr>
+<tr>
+<td><code>Invoke-WebRequest</code></td>
+<td><code>wget</code> <code>curl</code></td>
+</tr>
+<tr>
+<td><code>Get-Process</code></td>
+<td><code>ps</code></td>
+</tr>
+<tr>
+<td><code>Stop-Process</code></td>
+<td><code>kill</code></td>
+</tr>
+<tr>
+<td><code>Start-Process</code></td>
+<td><code>start</code></td>
+</tr>
+<tr>
+<td><code>Clear-Host</code></td>
+<td><code>cls</code> <code>clear</code></td>
+</tr>
+<tr>
+<td><code>Write-Output</code></td>
+<td><code>echo</code></td>
+</tr>
+<tr>
+<td><code>Compare-Object</code></td>
+<td><code>diff</code></td>
+</tr>
+</tbody>
+</table>
+<p>(TODO)</p>
+<h2 id=别名>别名</h2>
+<ul>
+<li><code>Get-Alias</code></li>
+<li><code>Set-Alias</code></li>
+<li><code>Export-Alias</code></li>
+<li><code>Import-Alias</code></li>
+</ul>
+<h2 id=变量>变量</h2>
+<p>变量名均是以美元符 <code>$</code> 开始，剩余字符可以是数字、字母、下划线的任意字符，并且powershell变量名大小写不敏感。某些特殊的字符在powershell中有特殊的用途，一般不推荐使用这些字符作为变量名。当然你硬要使用，请把整个变量名后缀用花括号括起来。
+Powershell将变量的相关信息的记录存放在名为 <code>variable:</code> 的驱动中。如果要查看所有定义的变量，可以直接遍历 <code>variable:</code></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$a</span> <span class=p>=</span> <span class=n>10</span>
 <span class=nv>$b</span> <span class=p>=</span> <span class=n>4</span>
 <span class=nv>$result</span> <span class=p>=</span> <span class=nv>$a</span> <span class=p>*</span> <span class=nv>$b</span>
 <span class=nv>$a</span><span class=p>,</span><span class=nv>$b</span> <span class=p>=</span> <span class=nv>$b</span><span class=p>,</span><span class=nv>$a</span>
-</code></pre></div><ul><li><code>Clear-Variable</code></li><li><code>Get-Variable</code></li><li><code>New-Variable</code></li><li><code>Remove-Variable</code></li><li><code>Set-Variable</code></li></ul><p>Powershell 自动化变量 是那些一旦打开Powershell就会自动加载的变量。这些变量一般存放的内容包括</p><ul><li>用户信息：例如用户的根目录$home</li><li>配置信息:例如powershell控制台的大小，颜色，背景等。</li><li>运行时信息：例如一个函数由谁调用，一个脚本运行的目录等。</li></ul><h2 id=数组>数组</h2><p>创建数组可以使用逗号，或使用完整表示 <code>@()</code>。</p><div class=highlight><pre class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$nums</span> <span class=p>=</span> <span class=n>2</span><span class=p>,</span><span class=n>0</span><span class=p>,</span><span class=n>1</span><span class=p>,</span><span class=n>2</span>
+</code></pre></div><ul>
+<li><code>Clear-Variable</code></li>
+<li><code>Get-Variable</code></li>
+<li><code>New-Variable</code></li>
+<li><code>Remove-Variable</code></li>
+<li><code>Set-Variable</code></li>
+</ul>
+<p>Powershell 自动化变量 是那些一旦打开Powershell就会自动加载的变量。这些变量一般存放的内容包括</p>
+<ul>
+<li>用户信息：例如用户的根目录$home</li>
+<li>配置信息:例如powershell控制台的大小，颜色，背景等。</li>
+<li>运行时信息：例如一个函数由谁调用，一个脚本运行的目录等。</li>
+</ul>
+<h2 id=数组>数组</h2>
+<p>创建数组可以使用逗号，或使用完整表示 <code>@()</code>。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$nums</span> <span class=p>=</span> <span class=n>2</span><span class=p>,</span><span class=n>0</span><span class=p>,</span><span class=n>1</span><span class=p>,</span><span class=n>2</span>
 <span class=nv>$nums</span> <span class=p>=</span> <span class=n>1</span><span class=p>..</span><span class=n>5</span>
 <span class=nv>$array</span> <span class=p>=</span> <span class=n>1</span><span class=p>,</span><span class=s2>&#34;2012世界末日&#34;</span><span class=p>,(</span><span class=no>[System.Guid]</span><span class=p>::</span><span class=n>NewGuid</span><span class=p>()),(</span><span class=nb>get-date</span><span class=p>)</span>
 
 <span class=nv>$a</span><span class=p>=@()</span> <span class=c># empty</span>
 <span class=nv>$a</span><span class=p>=,</span><span class=s2>&#34;moss&#34;</span> <span class=c># one element</span>
-</code></pre></div><p>数组的元素可以使用索引寻址，第一个元素的索引为0，第i个元素的索引为i-1，最后一个元素的索引为Count-1，但是Powershell为了使用方便，直接可以将 -1 作为最后的一个元素的索引。</p><div class=highlight><pre class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$books</span><span class=p>[</span><span class=n>0</span><span class=p>]</span>
+</code></pre></div><p>数组的元素可以使用索引寻址，第一个元素的索引为0，第i个元素的索引为i-1，最后一个元素的索引为Count-1，但是Powershell为了使用方便，直接可以将 -1 作为最后的一个元素的索引。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$books</span><span class=p>[</span><span class=n>0</span><span class=p>]</span>
 <span class=nv>$books</span><span class=p>[-</span><span class=n>1</span><span class=p>]</span>
 <span class=nv>$result</span><span class=p>[</span><span class=n>0</span><span class=p>,</span><span class=n>3</span><span class=p>,</span><span class=n>5</span><span class=p>,</span><span class=n>12</span><span class=p>]</span> <span class=c># multi-element</span>
 <span class=nv>$books</span><span class=p>[(</span><span class=nv>$books</span><span class=p>.</span><span class=n>Count</span><span class=p>)..</span><span class=n>0</span><span class=p>]</span> <span class=c># reverse</span>
 
 <span class=nv>$books</span> <span class=p>+=</span> <span class=s2>&#34;元素4&#34;</span> <span class=c># append</span>
 <span class=nv>$num</span> <span class=p>=</span> <span class=nv>$num</span><span class=p>[</span><span class=n>0</span><span class=p>..</span><span class=n>1</span><span class=p>]+</span><span class=nv>$num</span><span class=p>[</span><span class=n>3</span><span class=p>]</span> <span class=c># remove $num[2]</span>
-</code></pre></div><p>Powershell数组一般具有多态性，如果你不指定元素的具体类型，解释器会自动选择合适的类型存储每个元素。如果要统一限制所有元素的类型，可是使用类型名和一对方括号作为数组变量的类型。这样每当赋值时，会自动类型检查。如果目标数据类型不能转换成功，就会抛出一个异常。</p><div class=highlight><pre class=chroma><code class=language-powershell data-lang=powershell><span class=no>[int[]]</span> <span class=nv>$nums</span><span class=p>=@()</span>
-</code></pre></div><h2 id=哈希表>哈希表</h2><p>使用 <code>@{}</code> 创建哈希表（类似 .NET 中 Dictionary）。</p><div class=highlight><pre class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$stu</span> <span class=p>=</span> <span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s2>&#34;小明&#34;</span><span class=p>;</span><span class=n>Age</span><span class=p>=</span><span class=s2>&#34;12&#34;</span><span class=p>;</span><span class=n>sex</span><span class=p>=</span><span class=s2>&#34;男&#34;</span> <span class=p>}</span>
-</code></pre></div><h1 id=管道应用>管道应用</h1><p>(TODO)</p><h1 id=对象>对象</h1><p>(TODO)</p><h1 id=分支>分支</h1><p>(TODO)</p><h1 id=循环>循环</h1><p>(TODO)</p><h1 id=函数>函数</h1><p>(TODO)</p><h1 id=脚本>脚本</h1><p>(TODO)</p><h1 id=模块>模块</h1><p>(TODO)</p><h1 id=文本匹配>文本匹配</h1><p>(TODO)</p><h1 id=文件系统>文件系统</h1><p>(TODO)</p><h1 id=工作流>工作流</h1><p>(TODO)</p><h1 id=参考资料>参考资料</h1><ul><li><a class=link href=https://docs.microsoft.com/en-us/powershell/ target=_blank rel=noopener>PowerShell Documentation</a></li><li><a class=link href=https://www.pstips.net/powershell-online-tutorials target=_blank rel=noopener>PowerShell 教程</a></li></ul></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/tools/psake/><div class=article-details><h2 class=article-title>psake</h2></div></a></article><article><a href=/posts/tools/github-workflow/><div class=article-details><h2 class=article-title>GitHub Actions - Workflow</h2></div></a></article><article><a href=/posts/tools/proglang-dockerfile/><div class=article-details><h2 class=article-title>Dockerfile</h2></div></a></article><article class=has-image><a href=/posts/tools/proglang-yaml/><div class=article-image><img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png></div><div class=article-details><h2 class=article-title>YAML Ain't Markup Language</h2></div></a></article><article><a href=/posts/tools/gdb/><div class=article-details><h2 class=article-title>GDB - The GNU Project Debugger</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+</code></pre></div><p>Powershell数组一般具有多态性，如果你不指定元素的具体类型，解释器会自动选择合适的类型存储每个元素。如果要统一限制所有元素的类型，可是使用类型名和一对方括号作为数组变量的类型。这样每当赋值时，会自动类型检查。如果目标数据类型不能转换成功，就会抛出一个异常。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=no>[int[]]</span> <span class=nv>$nums</span><span class=p>=@()</span>
+</code></pre></div><h2 id=哈希表>哈希表</h2>
+<p>使用 <code>@{}</code> 创建哈希表（类似 .NET 中 Dictionary）。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=nv>$stu</span> <span class=p>=</span> <span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s2>&#34;小明&#34;</span><span class=p>;</span><span class=n>Age</span><span class=p>=</span><span class=s2>&#34;12&#34;</span><span class=p>;</span><span class=n>sex</span><span class=p>=</span><span class=s2>&#34;男&#34;</span> <span class=p>}</span>
+</code></pre></div><h1 id=管道应用>管道应用</h1>
+<p>(TODO)</p>
+<h1 id=对象>对象</h1>
+<p>(TODO)</p>
+<h1 id=分支>分支</h1>
+<p>(TODO)</p>
+<h1 id=循环>循环</h1>
+<p>(TODO)</p>
+<h1 id=函数>函数</h1>
+<p>(TODO)</p>
+<h1 id=脚本>脚本</h1>
+<p>(TODO)</p>
+<h1 id=模块>模块</h1>
+<p>(TODO)</p>
+<h1 id=文本匹配>文本匹配</h1>
+<p>(TODO)</p>
+<h1 id=文件系统>文件系统</h1>
+<p>(TODO)</p>
+<h1 id=工作流>工作流</h1>
+<p>(TODO)</p>
+<h1 id=参考资料>参考资料</h1>
+<ul>
+<li><a class=link href=https://docs.microsoft.com/en-us/powershell/ target=_blank rel=noopener>PowerShell Documentation</a></li>
+<li><a class=link href=https://www.pstips.net/powershell-online-tutorials target=_blank rel=noopener>PowerShell 教程</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/tools/psake/>
+<div class=article-details>
+<h2 class=article-title>psake</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/tools/github-workflow/>
+<div class=article-details>
+<h2 class=article-title>GitHub Actions - Workflow</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/tools/proglang-dockerfile/>
+<div class=article-details>
+<h2 class=article-title>Dockerfile</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/posts/tools/proglang-yaml/>
+<div class=article-image>
+<img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>YAML Ain't Markup Language</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/tools/gdb/>
+<div class=article-details>
+<h2 class=article-title>GDB - The GNU Project Debugger</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#基本信息>基本信息</a></li><li><a href=#基础知识>基础知识</a><ol><li><a href=#快捷键>快捷键</a></li><li><a href=#管道和重定向>管道和重定向</a></li><li><a href=#数学运算>数学运算</a></li><li><a href=#执行外部命令>执行外部命令</a></li><li><a href=#cmdlets>Cmdlets</a></li><li><a href=#别名>别名</a></li><li><a href=#变量>变量</a></li><li><a href=#数组>数组</a></li><li><a href=#哈希表>哈希表</a></li></ol></li><li><a href=#管道应用>管道应用</a></li><li><a href=#对象>对象</a></li><li><a href=#分支>分支</a></li><li><a href=#循环>循环</a></li><li><a href=#函数>函数</a></li><li><a href=#脚本>脚本</a></li><li><a href=#模块>模块</a></li><li><a href=#文本匹配>文本匹配</a></li><li><a href=#文件系统>文件系统</a></li><li><a href=#工作流>工作流</a></li><li><a href=#参考资料>参考资料</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#基本信息>基本信息</a></li>
+<li><a href=#基础知识>基础知识</a>
+<ol>
+<li><a href=#快捷键>快捷键</a></li>
+<li><a href=#管道和重定向>管道和重定向</a></li>
+<li><a href=#数学运算>数学运算</a></li>
+<li><a href=#执行外部命令>执行外部命令</a></li>
+<li><a href=#cmdlets>Cmdlets</a></li>
+<li><a href=#别名>别名</a></li>
+<li><a href=#变量>变量</a></li>
+<li><a href=#数组>数组</a></li>
+<li><a href=#哈希表>哈希表</a></li>
+</ol>
+</li>
+<li><a href=#管道应用>管道应用</a></li>
+<li><a href=#对象>对象</a></li>
+<li><a href=#分支>分支</a></li>
+<li><a href=#循环>循环</a></li>
+<li><a href=#函数>函数</a></li>
+<li><a href=#脚本>脚本</a></li>
+<li><a href=#模块>模块</a></li>
+<li><a href=#文本匹配>文本匹配</a></li>
+<li><a href=#文件系统>文件系统</a></li>
+<li><a href=#工作流>工作流</a></li>
+<li><a href=#参考资料>参考资料</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

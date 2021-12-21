@@ -1,23 +1,88 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
 $$ Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1}) $$
 小 A 希望将 某一些 $a_i$ 改成 $a_i'$（由于可以任意挑题目，所以这里选取的 $a_i'\in \mathbb{Z}$ 是任意的，即使是负值也可以），使得修改后的新序列 $a'$，$Q(a')$ 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 $Q(a')$ 最大。
 输入 第一行一个整数 $T$，表示 $T$ 组测试数据。 之后对于每组测试数据： 第一行一个整数 $n$，表示题目列表长度。 第二行 $n$ 个整数 $a_i$，表示每道题目的难度。
-输出 $T$ 行，每行一个整数表示答案。"><title>OJ-oriented Problem Solving 命题报告</title><link rel=canonical href=https://stardustdl.github.io/posts/learning/ojops-problem-design/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="OJ-oriented Problem Solving 命题报告"><meta property="og:description" content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
+输出 $T$ 行，每行一个整数表示答案。"><title>OJ-oriented Problem Solving 命题报告</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/learning/ojops-problem-design/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="OJ-oriented Problem Solving 命题报告">
+<meta property="og:description" content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
 $$ Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1}) $$
 小 A 希望将 某一些 $a_i$ 改成 $a_i'$（由于可以任意挑题目，所以这里选取的 $a_i'\in \mathbb{Z}$ 是任意的，即使是负值也可以），使得修改后的新序列 $a'$，$Q(a')$ 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 $Q(a')$ 最大。
 输入 第一行一个整数 $T$，表示 $T$ 组测试数据。 之后对于每组测试数据： 第一行一个整数 $n$，表示题目列表长度。 第二行 $n$ 个整数 $a_i$，表示每道题目的难度。
-输出 $T$ 行，每行一个整数表示答案。"><meta property="og:url" content="https://stardustdl.github.io/posts/learning/ojops-problem-design/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-09-11T17:30:22+08:00"><meta property="article:modified_time" content="2018-09-11T17:30:22+08:00"><meta name=twitter:title content="OJ-oriented Problem Solving 命题报告"><meta name=twitter:description content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
+输出 $T$ 行，每行一个整数表示答案。">
+<meta property="og:url" content="https://stardustdl.github.io/posts/learning/ojops-problem-design/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-09-11T17:30:22+08:00"><meta property="article:modified_time" content="2018-09-11T17:30:22+08:00">
+<meta name=twitter:title content="OJ-oriented Problem Solving 命题报告">
+<meta name=twitter:description content="题面 题目概述  时间限制：1000 ms 空间限制：128 MB 命题人：Stardust D.L. 验题人：GodCallMeGod, Pexure  题目描述 小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。 形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：
 $$ Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1}) $$
 小 A 希望将 某一些 $a_i$ 改成 $a_i'$（由于可以任意挑题目，所以这里选取的 $a_i'\in \mathbb{Z}$ 是任意的，即使是负值也可以），使得修改后的新序列 $a'$，$Q(a')$ 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 $Q(a')$ 最大。
 输入 第一行一个整数 $T$，表示 $T$ 组测试数据。 之后对于每组测试数据： 第一行一个整数 $n$，表示题目列表长度。 第二行 $n$ 个整数 $a_i$，表示每道题目的难度。
-输出 $T$ 行，每行一个整数表示答案。"><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/learning/>Learning</a></header><h2 class=article-title><a href=/posts/learning/ojops-problem-design/>OJ-oriented Problem Solving 命题报告</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Sep 11, 2018</time></footer></div></header><section class=article-content><h1 id=题面httpsvijosorgdstaroip5b95252dd3d8a13cf377eee5><a class=link href=https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5 target=_blank rel=noopener>题面</a></h1><h2 id=题目概述>题目概述</h2><ul><li>时间限制：1000 ms</li><li>空间限制：128 MB</li><li>命题人：Stardust D.L.</li><li>验题人：GodCallMeGod, Pexure</li></ul><h2 id=题目描述>题目描述</h2><p>小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。
-形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：</p><p>$$
+输出 $T$ 行，每行一个整数表示答案。">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/learning/>
+Learning
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/learning/ojops-problem-design/>OJ-oriented Problem Solving 命题报告</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Sep 11, 2018</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+4 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=题面httpsvijosorgdstaroip5b95252dd3d8a13cf377eee5><a class=link href=https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5 target=_blank rel=noopener>题面</a></h1>
+<h2 id=题目概述>题目概述</h2>
+<ul>
+<li>时间限制：1000 ms</li>
+<li>空间限制：128 MB</li>
+<li>命题人：Stardust D.L.</li>
+<li>验题人：GodCallMeGod, Pexure</li>
+</ul>
+<h2 id=题目描述>题目描述</h2>
+<p>小 A 和你我一样，正坐在电脑前刷题。但茫茫多的 OJ 和茫茫多的题目，让他感到无从下手。幸运的是，小 A 得到了一个神奇的工具，能很快生成一个指定长度的题目列表，还能标识出题目的难度等级。小 A 用这个工具生成了一个长度为 $n$ 的题目列表，但这个题目列表中难度安排不太令人满意，为了提高刷题体验，也尽快提高问题求解能力，小 A 决定把其中一些题换掉，来让题目难度安排更加合理。
+形式化的，设题目列表 $a$，$a_i(1\le i\le n)$ 表示第 $i$ 道题的难度（数值越大，难度越高），定义 对于题目列表的“难度渐进”值 $Q(a)$ 为：</p>
+<p>$$
 Q(a)=\sum_{i=2}^n \min(1,a_i-a_{i-1})
-$$</p><p>小 A 希望将 <strong>某一些</strong> $a_i$ 改成 $a_i'$（由于可以任意挑题目，所以这里选取的 $a_i'\in \mathbb{Z}$ 是任意的，即使是负值也可以），使得修改后的新序列 $a'$，$Q(a')$ 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 $Q(a')$ 最大。</p><h2 id=输入>输入</h2><p>第一行一个整数 $T$，表示 $T$ 组测试数据。
+$$</p>
+<p>小 A 希望将 <strong>某一些</strong> $a_i$ 改成 $a_i'$（由于可以任意挑题目，所以这里选取的 $a_i'\in \mathbb{Z}$ 是任意的，即使是负值也可以），使得修改后的新序列 $a'$，$Q(a')$ 最大。为了尽快开始做题，小 A 希望被替换的题目数量越少越好。请求出最少替换几道题目能使得 $Q(a')$ 最大。</p>
+<h2 id=输入>输入</h2>
+<p>第一行一个整数 $T$，表示 $T$ 组测试数据。
 之后对于每组测试数据：
 第一行一个整数 $n$，表示题目列表长度。
-第二行 $n$ 个整数 $a_i$，表示每道题目的难度。</p><h2 id=输出>输出</h2><p>$T$ 行，每行一个整数表示答案。</p><h2 id=样例>样例</h2><h3 id=输入-1>输入</h3><pre><code>4
+第二行 $n$ 个整数 $a_i$，表示每道题目的难度。</p>
+<h2 id=输出>输出</h2>
+<p>$T$ 行，每行一个整数表示答案。</p>
+<h2 id=样例>样例</h2>
+<h3 id=输入-1>输入</h3>
+<pre tabindex=0><code>4
 3
 1 1 2
 4
@@ -26,44 +91,108 @@ $$</p><p>小 A 希望将 <strong>某一些</strong> $a_i$ 改成 $a_i'$（由于
 46 42 22 45 14 33 3 21 9 5
 20
 38 35 11 86 31 47 3 6 71 93 42 74 95 3 94 47 89 46 98 10
-</code></pre><h3 id=输出-1>输出</h3><pre><code>1
+</code></pre><h3 id=输出-1>输出</h3>
+<pre tabindex=0><code>1
 1
 8
 13
-</code></pre><h3 id=解释>解释</h3><ul><li>第一组：将第一个 $1$ 改成 $0$</li><li>第二组：将第二个 $2$ 改成 $3$ 或 $4$</li></ul><h2 id=数据范围>数据范围</h2><ul><li>$1\le T \le 5$</li><li>$1\le n\le 3000$</li><li>$1\le a_i \le 10^5,a_i\in \mathbb{Z}$</li></ul><h1 id=命题思路>命题思路</h1><p>以最长上升子序列的 $O(n^2)$ 动态规划算法为核心，进行一定程度包装和扩展，实现对此算法的灵活应用。</p><h1 id=解题思路>解题思路</h1><p>首先简化题意，可以发现 $Q(a)$ 最大值为 $n-1$，当且仅当 $a$ 严格递增时达到最大值。所以问题变成：<strong>把一个序列改成严格单调递增的，至少需要改多少个数？</strong></p><h2 id=解法-1>解法 1</h2><p><strong>状态</strong>： $d_{i,j}$ 表示前 $i$ 个数，将 $a_i$ 修改为 $j$ ，使序列严格递增时，修改次数的最小值。
-**转移**：
+</code></pre><h3 id=解释>解释</h3>
+<ul>
+<li>第一组：将第一个 $1$ 改成 $0$</li>
+<li>第二组：将第二个 $2$ 改成 $3$ 或 $4$</li>
+</ul>
+<h2 id=数据范围>数据范围</h2>
+<ul>
+<li>$1\le T \le 5$</li>
+<li>$1\le n\le 3000$</li>
+<li>$1\le a_i \le 10^5,a_i\in \mathbb{Z}$</li>
+</ul>
+<h1 id=命题思路>命题思路</h1>
+<p>以最长上升子序列的 $O(n^2)$ 动态规划算法为核心，进行一定程度包装和扩展，实现对此算法的灵活应用。</p>
+<h1 id=解题思路>解题思路</h1>
+<p>首先简化题意，可以发现 $Q(a)$ 最大值为 $n-1$，当且仅当 $a$ 严格递增时达到最大值。所以问题变成：<strong>把一个序列改成严格单调递增的，至少需要改多少个数？</strong></p>
+<h2 id=解法-1>解法 1</h2>
+<p><strong>状态</strong>： $d_{i,j}$ 表示前 $i$ 个数，将 $a_i$ 修改为 $j$ ，使序列严格递增时，修改次数的最小值。
+<strong>转移</strong>：
 $$
 d_{i,j}=[j\ne a_i]+\min_{k &lt; j}d_{i-1,k}
-$$</p><ul><li>若 $j=a_i$，则不必修改，转移为 $d_{i,j}=\min_{k &lt; j}d_{i-1,k}$</li><li>若 $j\ne a_i$，则需要修改，转移为 $d_{i,j}=1+\min_{k &lt; j}d_{i-1,k}$</li><li>临界值
+$$</p>
+<ul>
+<li>若 $j=a_i$，则不必修改，转移为 $d_{i,j}=\min_{k &lt; j}d_{i-1,k}$</li>
+<li>若 $j\ne a_i$，则需要修改，转移为 $d_{i,j}=1+\min_{k &lt; j}d_{i-1,k}$</li>
+<li>临界值
 $$
 d_{1,j}=\begin{cases}
-0,&j=a_1\<br>1,&j\ne a_1
+0,&j=a_1\
+1,&j\ne a_1
 \end{cases}
-$$</li></ul><p>而问题的答案即 $d_{n,x}$ 中的最小值。
-此解法状态数 $O(n\times\max(n,m))$ （其中 $m$ 为 $a_i$ 的可能取值种数）状态转移 $O(m)$，故时间复杂度为 $O(nm^2)$。</p><blockquote><p>由于数值范围较大，通过离散化可将 $m$ 降至与 $n$ 同阶，但由于此题的“严格递增”条件，<strong>普通的离散化可能会带来错解</strong>。这一点我们在之后解决。</p></blockquote><h2 id=解法-2>解法 2</h2><blockquote><p>此方法与解法一“对偶”，但实现要容易得多。</p></blockquote><p><strong>状态</strong>： $d_{i,j}$ 表示前 $i$ 个数，修改 $0\le j\le i$ 次使序列严格递增时，$a_i$ 的最小值。
-**转移**：
+$$</li>
+</ul>
+<p>而问题的答案即 $d_{n,x}$ 中的最小值。
+此解法状态数 $O(n\times\max(n,m))$ （其中 $m$ 为 $a_i$ 的可能取值种数）状态转移 $O(m)$，故时间复杂度为 $O(nm^2)$。</p>
+<blockquote>
+<p>由于数值范围较大，通过离散化可将 $m$ 降至与 $n$ 同阶，但由于此题的“严格递增”条件，<strong>普通的离散化可能会带来错解</strong>。这一点我们在之后解决。</p>
+</blockquote>
+<h2 id=解法-2>解法 2</h2>
+<blockquote>
+<p>此方法与解法一“对偶”，但实现要容易得多。</p>
+</blockquote>
+<p><strong>状态</strong>： $d_{i,j}$ 表示前 $i$ 个数，修改 $0\le j\le i$ 次使序列严格递增时，$a_i$ 的最小值。
+<strong>转移</strong>：
 $$
 d_{i,j}=\begin{cases}
-\min (a_i,d_{i-1,j-1}+1)&d_{i-1,j} &lt; a_i\<br>d_{i-1,j-1}+1,&d_{i-1,j} \ge a_i
+\min (a_i,d_{i-1,j-1}+1)&d_{i-1,j} &lt; a_i\
+d_{i-1,j-1}+1,&d_{i-1,j} \ge a_i
 \end{cases}
-$$</p><ul><li>若不修改 $a_i$ 则要求 $d_{i-1,j} &lt; a_i$，故此时有转移 $d_{i,j}=a_i$。</li><li>若修改 $a_i$ 则由状态值定义，一定会改成前一个数 $+1$，即此时有转移 $d_{i,j}=d_{i-1,j-1}+1$</li><li>未能转移的状态都是不可行解。</li><li>临界值
+$$</p>
+<ul>
+<li>若不修改 $a_i$ 则要求 $d_{i-1,j} &lt; a_i$，故此时有转移 $d_{i,j}=a_i$。</li>
+<li>若修改 $a_i$ 则由状态值定义，一定会改成前一个数 $+1$，即此时有转移 $d_{i,j}=d_{i-1,j-1}+1$</li>
+<li>未能转移的状态都是不可行解。</li>
+<li>临界值
 $$
 d_{1,j}=\begin{cases}
-a_1,&j=0\<br>-\infty,&j=1\<br>\end{cases}
-$$</li></ul><p>而问题的答案即 $d_{n,x}$ 中最小的 $x$ 使得 $d_{n,x}$ 存在。
-此解法状态数 $O(n^2)$，状态转移 $O(1)$，故时间复杂度为 $O(n^2)$。</p><h2 id=解法-3标准解法>解法 3（标准解法）</h2><blockquote><p>其实此题的 $n$ 可提升至 $10^6$，$a_i$ 数值范围可无限制（例如 $10^{18}$）。但对于这样的数据，前两种做法显然无能为力。所以我们需要一个全新的思路。</p></blockquote><p>我们考虑一个相似的问题：把一个序列改成单调 <strong>不降</strong> 的，至少需要改多少个数？即要保证
+a_1,&j=0\
+-\infty,&j=1\
+\end{cases}
+$$</li>
+</ul>
+<p>而问题的答案即 $d_{n,x}$ 中最小的 $x$ 使得 $d_{n,x}$ 存在。
+此解法状态数 $O(n^2)$，状态转移 $O(1)$，故时间复杂度为 $O(n^2)$。</p>
+<h2 id=解法-3标准解法>解法 3（标准解法）</h2>
+<blockquote>
+<p>其实此题的 $n$ 可提升至 $10^6$，$a_i$ 数值范围可无限制（例如 $10^{18}$）。但对于这样的数据，前两种做法显然无能为力。所以我们需要一个全新的思路。</p>
+</blockquote>
+<p>我们考虑一个相似的问题：把一个序列改成单调 <strong>不降</strong> 的，至少需要改多少个数？即要保证
 $$i &lt; j \Rightarrow a_i\le a_j$$
-这个问题的解法是 <strong>保留最长不降子序列</strong>。最长非降子序列形成了一个阶梯式结构，可以将所有不属于最长非降子序列的数据改成最靠近的阶梯层。所以答案为 $n-\text{len}(LNDS)$。</p><blockquote><p>证明可以从最优解必须保留最长非降子序列，和不能改动更少的数使得满足条件两个角度出发。</p></blockquote><p>对于求解最长非降子序列，将求解 LIS 的算法 的状态转移稍作改动即可：
+这个问题的解法是 <strong>保留最长不降子序列</strong>。最长非降子序列形成了一个阶梯式结构，可以将所有不属于最长非降子序列的数据改成最靠近的阶梯层。所以答案为 $n-\text{len}(LNDS)$。</p>
+<blockquote>
+<p>证明可以从最优解必须保留最长非降子序列，和不能改动更少的数使得满足条件两个角度出发。</p>
+</blockquote>
+<p>对于求解最长非降子序列，将求解 LIS 的算法 的状态转移稍作改动即可：
 $$d_i=1+\max_{j&lt; i\wedge a_j\le a_i} d_j$$
 回到原题：一种比较自然的思路是保留最长上升子序列，即求 $n-len(LIS)$。
-但这是 **错** 的，比如这组数据：</p><pre><code>1 2 2 3
-</code></pre><p>有 $\text{len}(LIS)=3$，但显然只改一个值并不能将其变成严格递增的。</p><blockquote><p>样例数据并不能反映这一点，但有所暗示。</p></blockquote><p>所以原序列的 LIS 并不一定能完全被保留。那么什么样的子序列才是可以被完全保留的？其实仅在这种情况下，保留 LIS 可能会出现错误：$x-1,x,x,\cdots,x,x+1$，中间过多的 $x$ 使得 $x+1$ 不能被保留。
-所以我们需要考虑位置信息。可以发现 $a_i$ 至少要比 $a_0$ 大 $i$。即要保证</p><p>$$
+但这是 <strong>错</strong> 的，比如这组数据：</p>
+<pre tabindex=0><code>1 2 2 3
+</code></pre><p>有 $\text{len}(LIS)=3$，但显然只改一个值并不能将其变成严格递增的。</p>
+<blockquote>
+<p>样例数据并不能反映这一点，但有所暗示。</p>
+</blockquote>
+<p>所以原序列的 LIS 并不一定能完全被保留。那么什么样的子序列才是可以被完全保留的？其实仅在这种情况下，保留 LIS 可能会出现错误：$x-1,x,x,\cdots,x,x+1$，中间过多的 $x$ 使得 $x+1$ 不能被保留。
+所以我们需要考虑位置信息。可以发现 $a_i$ 至少要比 $a_0$ 大 $i$。即要保证</p>
+<p>$$
 i &lt; j \Rightarrow a_j>a_i \Leftrightarrow a_j-a_i\ge j-i \Leftrightarrow a_j-j\ge a_i-i
-$$</p><p>至此，我们完成了对原问题的转化。定义序列 $b:b_i=a_i-i$ 。可以发现：$a$ 的可完全保留单调递增序列和 $b$ 的不降子序列是一一对应的。
+$$</p>
+<p>至此，我们完成了对原问题的转化。定义序列 $b:b_i=a_i-i$ 。可以发现：$a$ 的可完全保留单调递增序列和 $b$ 的不降子序列是一一对应的。
 所以原问题的答案就是 $n-\text{len}(LNDS_b)$。
 求解的时间复杂度集中在求解 $\text{len}(LNDS_b)$，而这一步可以在 $O(n^2)$ 内完成。故总时间复杂度为 $O(n^2)$.
-而求解 LIS，LNDS 的长度可以在 $O(n\lg n)$ 内完成。故我们可以使用解法 3 在更短的时间内解决。</p><blockquote><p>看起来算法 3 完美地解决了这个问题，而算法 1 没有任何优势，但其实不然，在 <a class=link href=#%e9%97%ae%e9%a2%98%e6%89%a9%e5%b1%95>问题扩展</a> 部分，我们会利用算法 3 推导过程中的思路来扩展算法 1，并用其解决一个更复杂的问题。</p></blockquote><h1 id=数据构造>数据构造</h1><p>此题要求卡掉 $n-len(LIS)$ 的做法，所以构造形如 <code>1 2 2 3</code> 的数据即可。</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>random</span>
+而求解 LIS，LNDS 的长度可以在 $O(n\lg n)$ 内完成。故我们可以使用解法 3 在更短的时间内解决。</p>
+<blockquote>
+<p>看起来算法 3 完美地解决了这个问题，而算法 1 没有任何优势，但其实不然，在 <a class=link href=#%e9%97%ae%e9%a2%98%e6%89%a9%e5%b1%95>问题扩展</a> 部分，我们会利用算法 3 推导过程中的思路来扩展算法 1，并用其解决一个更复杂的问题。</p>
+</blockquote>
+<h1 id=数据构造>数据构造</h1>
+<p>此题要求卡掉 $n-len(LIS)$ 的做法，所以构造形如 <code>1 2 2 3</code> 的数据即可。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>random</span>
 <span class=kn>import</span> <span class=nn>os</span>
 
 <span class=n>maxN</span> <span class=o>=</span> <span class=mi>3000</span>
@@ -108,7 +237,8 @@ $$</p><p>至此，我们完成了对原问题的转化。定义序列 $b:b_i=a_i
         <span class=n>outputData</span><span class=p>(</span><span class=n>randData</span><span class=p>(</span><span class=n>n</span><span class=p>))</span>
     <span class=k>else</span><span class=p>:</span>
         <span class=n>outputData</span><span class=p>(</span><span class=n>waLISData</span><span class=p>(</span><span class=n>n</span><span class=p>))</span>
-</code></pre></div><h1 id=标准程序>标准程序</h1><div class=highlight><pre class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</code></pre></div><h1 id=标准程序>标准程序</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c++ data-lang=c++><span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
 </span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
 <span class=k>const</span> <span class=kt>int</span> <span class=n>MAXN</span> <span class=o>=</span> <span class=mi>3000</span><span class=p>;</span>
 <span class=k>namespace</span> <span class=n>LNDS</span>
@@ -148,21 +278,180 @@ $$</p><p>至此，我们完成了对原问题的转化。定义序列 $b:b_i=a_i
         <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>n</span> <span class=o>-</span> <span class=n>LNDS</span><span class=o>::</span><span class=n>solve</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>n</span><span class=p>)</span> <span class=o>&lt;&lt;</span> <span class=n>endl</span><span class=p>;</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=问题扩展>问题扩展</h1><h2 id=更复杂的修改费用>更复杂的修改费用</h2><p>原问题中，每次修改的费用恒为 $1$，如果将修改费用定义为 $|a_i'-a_i|$，该如何求解呢？
+</code></pre></div><h1 id=问题扩展>问题扩展</h1>
+<h2 id=更复杂的修改费用>更复杂的修改费用</h2>
+<p>原问题中，每次修改的费用恒为 $1$，如果将修改费用定义为 $|a_i'-a_i|$，该如何求解呢？
 此时解法 3 不那么奏效：保留最长可行子序列，但可能有多种最长可行子序列，而且保留后相邻段之间的值该如何更改，解法 3 难以给出足够的信息。
 但可以发现，解法 3 思路中的推导仍然成立，我们依旧将问题转化，求序列 $b:b_i=a_i-i$ 满足不降的最优解。两个问题的最优解值是相等的。
 首先一个结论，在修改后的序列中出现的所有数，都是原序列中出现过的。其证明可用反证法。
-进而我们只在处理中只关注某个数的位次（排名），仅在计算费用时使用原值，所以我们可对序列的值离散化，将 $m$ 降到 $n$ 同阶。</p><blockquote><p>由于在转化后的问题中，我们可以让一段值相等，不再存在“严格递增”条件，离散化可能错解的问题被解决。</p></blockquote><p>接下来，我们使用解法 1：设 $c_i$ 表示 ${b}$ 中第 $i$ 小的数。
+进而我们只在处理中只关注某个数的位次（排名），仅在计算费用时使用原值，所以我们可对序列的值离散化，将 $m$ 降到 $n$ 同阶。</p>
+<blockquote>
+<p>由于在转化后的问题中，我们可以让一段值相等，不再存在“严格递增”条件，离散化可能错解的问题被解决。</p>
+</blockquote>
+<p>接下来，我们使用解法 1：设 $c_i$ 表示 $\{b\}$ 中第 $i$ 小的数。
 <strong>状态</strong>： $d_{i,j}$ 表示前 $i$ 个数，将 $b_i$ 修改为 $c_j$ ，使序列不降时，修改费用的最小值。
-**转移**：
+<strong>转移</strong>：
 $$
 d_{i,j}=|c_j-b_i|+\min_{k \le j}d_{i-1,k}
-$$</p><p>而问题的答案即 $d_{n,x}$ 中的最小值。
+$$</p>
+<p>而问题的答案即 $d_{n,x}$ 中的最小值。
 此解法状态数 $O(n^2)$，状态转移 $O(n)$，故时间复杂度为 $O(n^3)$。
-通过维护 $d_i$ 的前缀最小值可将状态转移降至 $O(1)$，故时间复杂度可优化为 $O(n^2)$。</p><h2 id=相关题目>相关题目</h2><ul><li>{% post_link problem/hdu/hdu-5256 %}</li><li>{% post_link problem/poj/poj-3666 %}</li><li>{% post_link problem/codeforces/cf-713C %}</li></ul></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/learning/python-packaging/><div class=article-details><h2 class=article-title>Python 项目打包与分发</h2></div></a></article><article><a href=/posts/learning/rust-functional/><div class=article-details><h2 class=article-title>Rust 函数式编程</h2></div></a></article><article><a href=/posts/learning/rust-generic-types/><div class=article-details><h2 class=article-title>Rust 泛型</h2></div></a></article><article><a href=/posts/learning/rust-collections/><div class=article-details><h2 class=article-title>Rust 集合</h2></div></a></article><article><a href=/posts/learning/rust-modules/><div class=article-details><h2 class=article-title>Rust 模块与项目</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+通过维护 $d_i$ 的前缀最小值可将状态转移降至 $O(1)$，故时间复杂度可优化为 $O(n^2)$。</p>
+<h2 id=相关题目>相关题目</h2>
+<ul>
+<li>{% post_link problem/hdu/hdu-5256 %}</li>
+<li>{% post_link problem/poj/poj-3666 %}</li>
+<li>{% post_link problem/codeforces/cf-713C %}</li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/learning/python-packaging/>
+<div class=article-details>
+<h2 class=article-title>Python 项目打包与分发</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-functional/>
+<div class=article-details>
+<h2 class=article-title>Rust 函数式编程</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-generic-types/>
+<div class=article-details>
+<h2 class=article-title>Rust 泛型</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-collections/>
+<div class=article-details>
+<h2 class=article-title>Rust 集合</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-modules/>
+<div class=article-details>
+<h2 class=article-title>Rust 模块与项目</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#题面httpsvijosorgdstaroip5b95252dd3d8a13cf377eee5><a href=https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5>题面</a></a><ol><li><a href=#题目概述>题目概述</a></li><li><a href=#题目描述>题目描述</a></li><li><a href=#输入>输入</a></li><li><a href=#输出>输出</a></li><li><a href=#样例>样例</a><ol><li><a href=#输入-1>输入</a></li><li><a href=#输出-1>输出</a></li><li><a href=#解释>解释</a></li></ol></li><li><a href=#数据范围>数据范围</a></li></ol></li><li><a href=#命题思路>命题思路</a></li><li><a href=#解题思路>解题思路</a><ol><li><a href=#解法-1>解法 1</a></li><li><a href=#解法-2>解法 2</a></li><li><a href=#解法-3标准解法>解法 3（标准解法）</a></li></ol></li><li><a href=#数据构造>数据构造</a></li><li><a href=#标准程序>标准程序</a></li><li><a href=#问题扩展>问题扩展</a><ol><li><a href=#更复杂的修改费用>更复杂的修改费用</a></li><li><a href=#相关题目>相关题目</a></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#题面httpsvijosorgdstaroip5b95252dd3d8a13cf377eee5><a href=https://vijos.org/d/StarOI/p/5b95252dd3d8a13cf377eee5>题面</a></a>
+<ol>
+<li><a href=#题目概述>题目概述</a></li>
+<li><a href=#题目描述>题目描述</a></li>
+<li><a href=#输入>输入</a></li>
+<li><a href=#输出>输出</a></li>
+<li><a href=#样例>样例</a>
+<ol>
+<li><a href=#输入-1>输入</a></li>
+<li><a href=#输出-1>输出</a></li>
+<li><a href=#解释>解释</a></li>
+</ol>
+</li>
+<li><a href=#数据范围>数据范围</a></li>
+</ol>
+</li>
+<li><a href=#命题思路>命题思路</a></li>
+<li><a href=#解题思路>解题思路</a>
+<ol>
+<li><a href=#解法-1>解法 1</a></li>
+<li><a href=#解法-2>解法 2</a></li>
+<li><a href=#解法-3标准解法>解法 3（标准解法）</a></li>
+</ol>
+</li>
+<li><a href=#数据构造>数据构造</a></li>
+<li><a href=#标准程序>标准程序</a></li>
+<li><a href=#问题扩展>问题扩展</a>
+<ol>
+<li><a href=#更复杂的修改费用>更复杂的修改费用</a></li>
+<li><a href=#相关题目>相关题目</a></li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

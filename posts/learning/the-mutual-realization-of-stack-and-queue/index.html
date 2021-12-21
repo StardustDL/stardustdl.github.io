@@ -1,35 +1,299 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
 问题引入  栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 队列：先进先出线性结构，仅允许对队尾进行添加（enqueue）操作，以及对队首进行删除（dequeue），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 需要解决的问题，在使用常数个额外空间的条件下：  使用两个栈尽可能高效地实现一个队列 使用两个队列尽可能高效地实现一个栈    解决方法 使用栈实现队列 思路 考虑到栈先进后出与队列先进先出的特点，使用一个栈 $A$ 作为队列尾，数据从这里流入；使用另一个栈 $B$ 作为队列头，数据从这里流出。我们要求先流入的数据先流出， 通过将栈 $A$ 中的元素不断弹出，并压入栈 $B$，利用先进后出特性，$B$ 的出栈顺序即 $A$ 出栈顺序的逆序，而 $A$ 出栈顺序为其入栈顺序的逆序，故 $B$ 的出栈顺序为 $A$ 的入栈顺序，即达到先进先出的效果。
  栈能将输入逆序这一点很重要，之后我们还将用到。
  复杂度分析  空间复杂度：栈的空间复杂度是线性的，而且这里队列中的每一个数据仅会在两个栈中的某一个中存在，故此实现的空间复杂度为线性 时间复杂度：注意到每个数据从入队到出队只会经历：进入 $A$，离开 $A$，进入 $B$，离开 $B$ 四次移动，且每次移动复杂度为常数，故均摊复杂度为常数。  使用队列实现栈 思路  这里遇到了个难题：利用栈可以很容易地支持翻转操作，但队列无法直接对输入序列进行顺序的改变。
  队列中一个重要特点是，我们可以通过不断删除队列头，并将其放入队列尾，实现在不影响顺序的前提下对队列中每个元素的访问，访问一遍后，我们仍可以很容易恢复到最初的队列状态。 但这一操作的弊端是，我们访问某个元素，必须将其前面的所有元素出队，这一操作的时间复杂度是最坏情况下是线性的。
  既然我们能访问所有元素了，那只要访问最后一个就是先入后出了，很简单嘛，可是队列“滚”的次数太多了（为线性）&amp;hellip;
  为下文叙述方便，将上述操作定义为过程“循环出入队”，即将队首出队后入队，实现队列滚动。时间复杂度由以上分析，为 $O(|Q|))$。 我们使用一个类似缓冲池的技巧：设两个队列 $Q_s,Q_a$，$Q_a$ 用于存储靠近栈顶的一部分元素，$Q_s$ 用于存储其余的元素。其中 $Q_a$ 有可变的容量上限 $cap(Q_a)$，$Q_s$ 容量无限制。
- 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存"><title>栈与队列的相互实现</title><link rel=canonical href=https://stardustdl.github.io/posts/learning/the-mutual-realization-of-stack-and-queue/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="栈与队列的相互实现"><meta property="og:description" content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
+ 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存"><title>栈与队列的相互实现</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/learning/the-mutual-realization-of-stack-and-queue/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="栈与队列的相互实现">
+<meta property="og:description" content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
 问题引入  栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 队列：先进先出线性结构，仅允许对队尾进行添加（enqueue）操作，以及对队首进行删除（dequeue），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 需要解决的问题，在使用常数个额外空间的条件下：  使用两个栈尽可能高效地实现一个队列 使用两个队列尽可能高效地实现一个栈    解决方法 使用栈实现队列 思路 考虑到栈先进后出与队列先进先出的特点，使用一个栈 $A$ 作为队列尾，数据从这里流入；使用另一个栈 $B$ 作为队列头，数据从这里流出。我们要求先流入的数据先流出， 通过将栈 $A$ 中的元素不断弹出，并压入栈 $B$，利用先进后出特性，$B$ 的出栈顺序即 $A$ 出栈顺序的逆序，而 $A$ 出栈顺序为其入栈顺序的逆序，故 $B$ 的出栈顺序为 $A$ 的入栈顺序，即达到先进先出的效果。
  栈能将输入逆序这一点很重要，之后我们还将用到。
  复杂度分析  空间复杂度：栈的空间复杂度是线性的，而且这里队列中的每一个数据仅会在两个栈中的某一个中存在，故此实现的空间复杂度为线性 时间复杂度：注意到每个数据从入队到出队只会经历：进入 $A$，离开 $A$，进入 $B$，离开 $B$ 四次移动，且每次移动复杂度为常数，故均摊复杂度为常数。  使用队列实现栈 思路  这里遇到了个难题：利用栈可以很容易地支持翻转操作，但队列无法直接对输入序列进行顺序的改变。
  队列中一个重要特点是，我们可以通过不断删除队列头，并将其放入队列尾，实现在不影响顺序的前提下对队列中每个元素的访问，访问一遍后，我们仍可以很容易恢复到最初的队列状态。 但这一操作的弊端是，我们访问某个元素，必须将其前面的所有元素出队，这一操作的时间复杂度是最坏情况下是线性的。
  既然我们能访问所有元素了，那只要访问最后一个就是先入后出了，很简单嘛，可是队列“滚”的次数太多了（为线性）&amp;hellip;
  为下文叙述方便，将上述操作定义为过程“循环出入队”，即将队首出队后入队，实现队列滚动。时间复杂度由以上分析，为 $O(|Q|))$。 我们使用一个类似缓冲池的技巧：设两个队列 $Q_s,Q_a$，$Q_a$ 用于存储靠近栈顶的一部分元素，$Q_s$ 用于存储其余的元素。其中 $Q_a$ 有可变的容量上限 $cap(Q_a)$，$Q_s$ 容量无限制。
- 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存"><meta property="og:url" content="https://stardustdl.github.io/posts/learning/the-mutual-realization-of-stack-and-queue/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-08-28T17:30:22+08:00"><meta property="article:modified_time" content="2018-08-28T17:30:22+08:00"><meta name=twitter:title content="栈与队列的相互实现"><meta name=twitter:description content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
+ 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存">
+<meta property="og:url" content="https://stardustdl.github.io/posts/learning/the-mutual-realization-of-stack-and-queue/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-08-28T17:30:22+08:00"><meta property="article:modified_time" content="2018-08-28T17:30:22+08:00">
+<meta name=twitter:title content="栈与队列的相互实现">
+<meta name=twitter:description content="本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。
 问题引入  栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 队列：先进先出线性结构，仅允许对队尾进行添加（enqueue）操作，以及对队首进行删除（dequeue），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数 需要解决的问题，在使用常数个额外空间的条件下：  使用两个栈尽可能高效地实现一个队列 使用两个队列尽可能高效地实现一个栈    解决方法 使用栈实现队列 思路 考虑到栈先进后出与队列先进先出的特点，使用一个栈 $A$ 作为队列尾，数据从这里流入；使用另一个栈 $B$ 作为队列头，数据从这里流出。我们要求先流入的数据先流出， 通过将栈 $A$ 中的元素不断弹出，并压入栈 $B$，利用先进后出特性，$B$ 的出栈顺序即 $A$ 出栈顺序的逆序，而 $A$ 出栈顺序为其入栈顺序的逆序，故 $B$ 的出栈顺序为 $A$ 的入栈顺序，即达到先进先出的效果。
  栈能将输入逆序这一点很重要，之后我们还将用到。
  复杂度分析  空间复杂度：栈的空间复杂度是线性的，而且这里队列中的每一个数据仅会在两个栈中的某一个中存在，故此实现的空间复杂度为线性 时间复杂度：注意到每个数据从入队到出队只会经历：进入 $A$，离开 $A$，进入 $B$，离开 $B$ 四次移动，且每次移动复杂度为常数，故均摊复杂度为常数。  使用队列实现栈 思路  这里遇到了个难题：利用栈可以很容易地支持翻转操作，但队列无法直接对输入序列进行顺序的改变。
  队列中一个重要特点是，我们可以通过不断删除队列头，并将其放入队列尾，实现在不影响顺序的前提下对队列中每个元素的访问，访问一遍后，我们仍可以很容易恢复到最初的队列状态。 但这一操作的弊端是，我们访问某个元素，必须将其前面的所有元素出队，这一操作的时间复杂度是最坏情况下是线性的。
  既然我们能访问所有元素了，那只要访问最后一个就是先入后出了，很简单嘛，可是队列“滚”的次数太多了（为线性）&amp;hellip;
  为下文叙述方便，将上述操作定义为过程“循环出入队”，即将队首出队后入队，实现队列滚动。时间复杂度由以上分析，为 $O(|Q|))$。 我们使用一个类似缓冲池的技巧：设两个队列 $Q_s,Q_a$，$Q_a$ 用于存储靠近栈顶的一部分元素，$Q_s$ 用于存储其余的元素。其中 $Q_a$ 有可变的容量上限 $cap(Q_a)$，$Q_s$ 容量无限制。
- 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存"><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/learning/>Learning</a></header><h2 class=article-title><a href=/posts/learning/the-mutual-realization-of-stack-and-queue/>栈与队列的相互实现</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Aug 28, 2018</time></footer></div></header><section class=article-content><p>本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。</p><h1 id=问题引入>问题引入</h1><ul><li>栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数</li><li>队列：先进先出线性结构，仅允许对队尾进行添加（enqueue）操作，以及对队首进行删除（dequeue），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数</li><li>需要解决的问题，在使用常数个额外空间的条件下：<ul><li>使用两个栈尽可能高效地实现一个队列</li><li>使用两个队列尽可能高效地实现一个栈</li></ul></li></ul><h1 id=解决方法>解决方法</h1><h2 id=使用栈实现队列>使用栈实现队列</h2><h3 id=思路>思路</h3><p>考虑到栈先进后出与队列先进先出的特点，使用一个栈 $A$ 作为队列尾，数据从这里流入；使用另一个栈 $B$ 作为队列头，数据从这里流出。我们要求先流入的数据先流出，
-通过将栈 $A$ 中的元素不断弹出，并压入栈 $B$，利用先进后出特性，$B$ 的出栈顺序即 $A$ 出栈顺序的逆序，而 $A$ 出栈顺序为其入栈顺序的逆序，故 $B$ 的出栈顺序为 $A$ 的入栈顺序，即达到先进先出的效果。</p><blockquote><p>栈能将输入逆序这一点很重要，之后我们还将用到。</p></blockquote><h3 id=复杂度分析>复杂度分析</h3><ul><li><strong>空间复杂度</strong>：栈的空间复杂度是线性的，而且这里队列中的每一个数据仅会在两个栈中的某一个中存在，故此实现的空间复杂度为线性</li><li><strong>时间复杂度</strong>：注意到每个数据从入队到出队只会经历：进入 $A$，离开 $A$，进入 $B$，离开 $B$ 四次移动，且每次移动复杂度为常数，故均摊复杂度为常数。</li></ul><h2 id=使用队列实现栈>使用队列实现栈</h2><h3 id=思路-1>思路</h3><blockquote><p>这里遇到了个难题：利用栈可以很容易地支持翻转操作，但队列无法直接对输入序列进行顺序的改变。</p></blockquote><p>队列中一个重要特点是，我们可以通过不断删除队列头，并将其放入队列尾，实现在不影响顺序的前提下对队列中每个元素的访问，访问一遍后，我们仍可以很容易恢复到最初的队列状态。
-但这一操作的弊端是，我们访问某个元素，必须将其前面的所有元素出队，这一操作的时间复杂度是最坏情况下是线性的。</p><blockquote><p>既然我们能访问所有元素了，那只要访问最后一个就是先入后出了，很简单嘛，可是队列“滚”的次数太多了（为线性）&mldr;</p></blockquote><p>为下文叙述方便，将上述操作定义为过程“循环出入队”，即将队首出队后入队，实现队列滚动。时间复杂度由以上分析，为 $O(|Q|))$。
-我们使用一个类似缓冲池的技巧：设两个队列 $Q_s,Q_a$，$Q_a$ 用于存储靠近栈顶的一部分元素，$Q_s$ 用于存储其余的元素。其中 $Q_a$ 有可变的容量上限 $cap(Q_a)$，$Q_s$ 容量无限制。</p><blockquote><p>你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存</p></blockquote><p>接下来，我们依次实现栈的三个操作：</p><ol><li>入栈操作</li></ol><ul><li>若 $Q_a$ 不满，直接入队到 $Q_a$ 。时间复杂度：$O(1)$</li><li>若 $Q_a$ 满，将 $Q_a$ 出队，并将队列头入队到 $Q_s$。然后将待入栈元素入队到 $Q_a$。时间复杂度：$O(1)$</li></ul><ol start=2><li>出栈操作</li></ol><ul><li>若 $Q_a$ 非空，对 $Q_a$ 循环出入队，使得原队尾在队头，返回队尾，并出队。时间复杂度：$O(|Q_a|)$</li><li>若 $Q_a$ 空，对 $Q_s$ 循环出入队，使得原队尾部的 $|Q_a|+1$ 个元素出队，返回队尾，其余元素进入 $Q_a$，顺序不变。时间复杂度：$O(|Q_s|)$</li></ul><ol start=3><li>访问栈顶操作</li></ol><ul><li>若 $Q_a$ 非空，对 $Q_a$ 循环出入队，使得原队尾在队头，返回队尾，并恢复最初顺序，时间复杂度：$O(|Q_a|)$</li><li>若 $Q_a$ 空，对 $Q_s$ 循环出入队，使得原队尾部的 $|Q_a|$ 个元素出队，返回队尾，所有元素进入 $Q_a$，顺序不变。时间复杂度：$O(|Q_s|)$</li></ul><p>为让这个实现变得有效，我们先来分析其时间复杂度来自哪里：</p><p><strong>每个元素</strong>从入栈到出栈经历了：</p><ol><li>压入：$O(1)$</li><li>（可选）从 $Q_a$ 到 $Q_s$：$O(1)$</li><li>（可选）从 $Q_s$ 到 $Q_a$：$O(|Q_s|/|Q_a|)$（最坏情况）</li><li>弹出 以下两种二选一：<ul><li>从 $Q_s$ 出队：$O(1)$</li><li>从 $Q_a$ 出队：$O(|Q_a|)$</li></ul></li></ol><p>接下来考虑最坏情况，那么每个元素经历入队出队共计 $O(|Q_s|/|Q_a|+|Q_a|)$.
+ 你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/learning/>
+Learning
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/learning/the-mutual-realization-of-stack-and-queue/>栈与队列的相互实现</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Aug 28, 2018</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>本文介绍使用栈实现队列和使用队列实现栈的方法。为使问题更加有意义，我们将尽量选择一个较优的实现方法。</p>
+<h1 id=问题引入>问题引入</h1>
+<ul>
+<li>栈：先进后出的线性结构，仅允许对栈顶进行添加（push），删除（pop），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数</li>
+<li>队列：先进先出线性结构，仅允许对队尾进行添加（enqueue）操作，以及对队首进行删除（dequeue），访问（peek）操作，空间复杂度线性，单次操作时间复杂度为常数</li>
+<li>需要解决的问题，在使用常数个额外空间的条件下：
+<ul>
+<li>使用两个栈尽可能高效地实现一个队列</li>
+<li>使用两个队列尽可能高效地实现一个栈</li>
+</ul>
+</li>
+</ul>
+<h1 id=解决方法>解决方法</h1>
+<h2 id=使用栈实现队列>使用栈实现队列</h2>
+<h3 id=思路>思路</h3>
+<p>考虑到栈先进后出与队列先进先出的特点，使用一个栈 $A$ 作为队列尾，数据从这里流入；使用另一个栈 $B$ 作为队列头，数据从这里流出。我们要求先流入的数据先流出，
+通过将栈 $A$ 中的元素不断弹出，并压入栈 $B$，利用先进后出特性，$B$ 的出栈顺序即 $A$ 出栈顺序的逆序，而 $A$ 出栈顺序为其入栈顺序的逆序，故 $B$ 的出栈顺序为 $A$ 的入栈顺序，即达到先进先出的效果。</p>
+<blockquote>
+<p>栈能将输入逆序这一点很重要，之后我们还将用到。</p>
+</blockquote>
+<h3 id=复杂度分析>复杂度分析</h3>
+<ul>
+<li><strong>空间复杂度</strong>：栈的空间复杂度是线性的，而且这里队列中的每一个数据仅会在两个栈中的某一个中存在，故此实现的空间复杂度为线性</li>
+<li><strong>时间复杂度</strong>：注意到每个数据从入队到出队只会经历：进入 $A$，离开 $A$，进入 $B$，离开 $B$ 四次移动，且每次移动复杂度为常数，故均摊复杂度为常数。</li>
+</ul>
+<h2 id=使用队列实现栈>使用队列实现栈</h2>
+<h3 id=思路-1>思路</h3>
+<blockquote>
+<p>这里遇到了个难题：利用栈可以很容易地支持翻转操作，但队列无法直接对输入序列进行顺序的改变。</p>
+</blockquote>
+<p>队列中一个重要特点是，我们可以通过不断删除队列头，并将其放入队列尾，实现在不影响顺序的前提下对队列中每个元素的访问，访问一遍后，我们仍可以很容易恢复到最初的队列状态。
+但这一操作的弊端是，我们访问某个元素，必须将其前面的所有元素出队，这一操作的时间复杂度是最坏情况下是线性的。</p>
+<blockquote>
+<p>既然我们能访问所有元素了，那只要访问最后一个就是先入后出了，很简单嘛，可是队列“滚”的次数太多了（为线性）&mldr;</p>
+</blockquote>
+<p>为下文叙述方便，将上述操作定义为过程“循环出入队”，即将队首出队后入队，实现队列滚动。时间复杂度由以上分析，为 $O(|Q|))$。
+我们使用一个类似缓冲池的技巧：设两个队列 $Q_s,Q_a$，$Q_a$ 用于存储靠近栈顶的一部分元素，$Q_s$ 用于存储其余的元素。其中 $Q_a$ 有可变的容量上限 $cap(Q_a)$，$Q_s$ 容量无限制。</p>
+<blockquote>
+<p>你可以把 $Q_s$ 看成内存（主存），把 $Q_a$ 看成 CPU 中的高速缓存</p>
+</blockquote>
+<p>接下来，我们依次实现栈的三个操作：</p>
+<ol>
+<li>入栈操作</li>
+</ol>
+<ul>
+<li>若 $Q_a$ 不满，直接入队到 $Q_a$ 。时间复杂度：$O(1)$</li>
+<li>若 $Q_a$ 满，将 $Q_a$ 出队，并将队列头入队到 $Q_s$。然后将待入栈元素入队到 $Q_a$。时间复杂度：$O(1)$</li>
+</ul>
+<ol start=2>
+<li>出栈操作</li>
+</ol>
+<ul>
+<li>若 $Q_a$ 非空，对 $Q_a$ 循环出入队，使得原队尾在队头，返回队尾，并出队。时间复杂度：$O(|Q_a|)$</li>
+<li>若 $Q_a$ 空，对 $Q_s$ 循环出入队，使得原队尾部的 $|Q_a|+1$ 个元素出队，返回队尾，其余元素进入 $Q_a$，顺序不变。时间复杂度：$O(|Q_s|)$</li>
+</ul>
+<ol start=3>
+<li>访问栈顶操作</li>
+</ol>
+<ul>
+<li>若 $Q_a$ 非空，对 $Q_a$ 循环出入队，使得原队尾在队头，返回队尾，并恢复最初顺序，时间复杂度：$O(|Q_a|)$</li>
+<li>若 $Q_a$ 空，对 $Q_s$ 循环出入队，使得原队尾部的 $|Q_a|$ 个元素出队，返回队尾，所有元素进入 $Q_a$，顺序不变。时间复杂度：$O(|Q_s|)$</li>
+</ul>
+<p>为让这个实现变得有效，我们先来分析其时间复杂度来自哪里：</p>
+<p><strong>每个元素</strong>从入栈到出栈经历了：</p>
+<ol>
+<li>压入：$O(1)$</li>
+<li>（可选）从 $Q_a$ 到 $Q_s$：$O(1)$</li>
+<li>（可选）从 $Q_s$ 到 $Q_a$：$O(|Q_s|/|Q_a|)$（最坏情况）</li>
+<li>弹出 以下两种二选一：
+<ul>
+<li>从 $Q_s$ 出队：$O(1)$</li>
+<li>从 $Q_a$ 出队：$O(|Q_a|)$</li>
+</ul>
+</li>
+</ol>
+<p>接下来考虑最坏情况，那么每个元素经历入队出队共计 $O(|Q_s|/|Q_a|+|Q_a|)$.
 由 $|Q_s|/|Q_a|+|Q_a| \ge 2\sqrt{|Q_s|}$ 当且仅当 $|Q_s|/|Q_a|=|Q_a|$ 即 $|Q_a|=\sqrt{|Q_s|}$。故最低为 $O(\sqrt{|Q_s|})$
 故当我们将 $Q_a$ 的容量限制在 $\sqrt{|Q_s|}$ 时，对于 $n$ 个元素的栈，有 $|Q_s|\le n$ 总复杂度估计为 $O(n\sqrt n)$.
-平均每次操作复杂度$O(n\sqrt n/(2n))=O(\sqrt n)$，由此可见，性能的确有较大提高。</p><blockquote><p>如果你像上面那样类比了计算机中的组件，那么我们的算法所做的，就可以看成从内存中读取一段，放入高速缓存中，利用高命中率来减少我们对相对低速的内存的访问</p></blockquote><h3 id=复杂度分析-1>复杂度分析</h3><ul><li><strong>空间复杂度</strong>：队列的空间复杂度是线性的，而且这里栈中的每一个数据仅会在两个队列中的某一个中存在，故此实现的空间复杂度为线性</li><li><strong>时间复杂度</strong>：通过思路中的分析，单次操作均摊复杂度为 $O(\sqrt{n})$。</li></ul><h1 id=扩展阅读与参考资料>扩展阅读与参考资料</h1><ul><li><a class=link href=https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/5655#5655 target=_blank rel=noopener>时间复杂度下限的讨论</a></li><li><a class=link href=https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/2589#2589 target=_blank rel=noopener>队列实现栈的 C# 代码实现</a></li></ul></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/learning/python-packaging/><div class=article-details><h2 class=article-title>Python 项目打包与分发</h2></div></a></article><article><a href=/posts/learning/rust-functional/><div class=article-details><h2 class=article-title>Rust 函数式编程</h2></div></a></article><article><a href=/posts/learning/rust-generic-types/><div class=article-details><h2 class=article-title>Rust 泛型</h2></div></a></article><article><a href=/posts/learning/rust-collections/><div class=article-details><h2 class=article-title>Rust 集合</h2></div></a></article><article><a href=/posts/learning/rust-modules/><div class=article-details><h2 class=article-title>Rust 模块与项目</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+平均每次操作复杂度$O(n\sqrt n/(2n))=O(\sqrt n)$，由此可见，性能的确有较大提高。</p>
+<blockquote>
+<p>如果你像上面那样类比了计算机中的组件，那么我们的算法所做的，就可以看成从内存中读取一段，放入高速缓存中，利用高命中率来减少我们对相对低速的内存的访问</p>
+</blockquote>
+<h3 id=复杂度分析-1>复杂度分析</h3>
+<ul>
+<li><strong>空间复杂度</strong>：队列的空间复杂度是线性的，而且这里栈中的每一个数据仅会在两个队列中的某一个中存在，故此实现的空间复杂度为线性</li>
+<li><strong>时间复杂度</strong>：通过思路中的分析，单次操作均摊复杂度为 $O(\sqrt{n})$。</li>
+</ul>
+<h1 id=扩展阅读与参考资料>扩展阅读与参考资料</h1>
+<ul>
+<li><a class=link href=https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/5655#5655 target=_blank rel=noopener>时间复杂度下限的讨论</a></li>
+<li><a class=link href=https://cstheory.stackexchange.com/questions/2562/one-stack-two-queues/2589#2589 target=_blank rel=noopener>队列实现栈的 C# 代码实现</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/learning/python-packaging/>
+<div class=article-details>
+<h2 class=article-title>Python 项目打包与分发</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-functional/>
+<div class=article-details>
+<h2 class=article-title>Rust 函数式编程</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-generic-types/>
+<div class=article-details>
+<h2 class=article-title>Rust 泛型</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-collections/>
+<div class=article-details>
+<h2 class=article-title>Rust 集合</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-modules/>
+<div class=article-details>
+<h2 class=article-title>Rust 模块与项目</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#问题引入>问题引入</a></li><li><a href=#解决方法>解决方法</a><ol><li><a href=#使用栈实现队列>使用栈实现队列</a><ol><li><a href=#思路>思路</a></li><li><a href=#复杂度分析>复杂度分析</a></li></ol></li><li><a href=#使用队列实现栈>使用队列实现栈</a><ol><li><a href=#思路-1>思路</a></li><li><a href=#复杂度分析-1>复杂度分析</a></li></ol></li></ol></li><li><a href=#扩展阅读与参考资料>扩展阅读与参考资料</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#问题引入>问题引入</a></li>
+<li><a href=#解决方法>解决方法</a>
+<ol>
+<li><a href=#使用栈实现队列>使用栈实现队列</a>
+<ol>
+<li><a href=#思路>思路</a></li>
+<li><a href=#复杂度分析>复杂度分析</a></li>
+</ol>
+</li>
+<li><a href=#使用队列实现栈>使用队列实现栈</a>
+<ol>
+<li><a href=#思路-1>思路</a></li>
+<li><a href=#复杂度分析-1>复杂度分析</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href=#扩展阅读与参考资料>扩展阅读与参考资料</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

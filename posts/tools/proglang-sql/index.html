@@ -1,88 +1,341 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
 数据操作语言 SELECT SELECT 语句用于从表中选取数据。
 SELECTcolumnFROMtable_name 从名为 &amp;ldquo;Persons&amp;rdquo; 的数据库表，获取名为 &amp;ldquo;LastName&amp;rdquo; 和 &amp;ldquo;FirstName&amp;rdquo; 的列的内容  SELECTLastName,FirstNameFROMPersons 从 &amp;ldquo;Persons&amp;rdquo; 表中选取所有的列。  SELECT*FROMPersonsDISTINCT 关键词 DISTINCT 用于返回唯一不同的值。
  从 Company&amp;quot; 列中仅选取唯一不同的值  SELECTDISTINCTCompanyFROMOrdersWHERE 如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
  选取居住在城市 &amp;ldquo;Beijing&amp;rdquo; 中的人  SELECT*FROMPersonsWHERECity=&amp;#39;Beijing&amp;#39;可用运算符：
-   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。"><title>Structured Query Language</title><link rel=canonical href=https://stardustdl.github.io/posts/tools/proglang-sql/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Structured Query Language"><meta property="og:description" content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
+   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。"><title>Structured Query Language</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/tools/proglang-sql/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Structured Query Language">
+<meta property="og:description" content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
 数据操作语言 SELECT SELECT 语句用于从表中选取数据。
 SELECTcolumnFROMtable_name 从名为 &amp;ldquo;Persons&amp;rdquo; 的数据库表，获取名为 &amp;ldquo;LastName&amp;rdquo; 和 &amp;ldquo;FirstName&amp;rdquo; 的列的内容  SELECTLastName,FirstNameFROMPersons 从 &amp;ldquo;Persons&amp;rdquo; 表中选取所有的列。  SELECT*FROMPersonsDISTINCT 关键词 DISTINCT 用于返回唯一不同的值。
  从 Company&amp;quot; 列中仅选取唯一不同的值  SELECTDISTINCTCompanyFROMOrdersWHERE 如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
  选取居住在城市 &amp;ldquo;Beijing&amp;rdquo; 中的人  SELECT*FROMPersonsWHERECity=&amp;#39;Beijing&amp;#39;可用运算符：
-   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。"><meta property="og:url" content="https://stardustdl.github.io/posts/tools/proglang-sql/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2018-09-03T18:51:10+08:00"><meta property="article:modified_time" content="2018-09-03T18:51:10+08:00"><meta name=twitter:title content="Structured Query Language"><meta name=twitter:description content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
+   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。">
+<meta property="og:url" content="https://stardustdl.github.io/posts/tools/proglang-sql/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2018-09-03T18:51:10+08:00"><meta property="article:modified_time" content="2018-09-03T18:51:10+08:00">
+<meta name=twitter:title content="Structured Query Language">
+<meta name=twitter:description content="基本信息  介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但许多相似语义的内容其具体写法可能会有不同。  SQL 对大小写不敏感。 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。 使用 SQL 需先了解具体数据库的描述方法。
 数据操作语言 SELECT SELECT 语句用于从表中选取数据。
 SELECTcolumnFROMtable_name 从名为 &amp;ldquo;Persons&amp;rdquo; 的数据库表，获取名为 &amp;ldquo;LastName&amp;rdquo; 和 &amp;ldquo;FirstName&amp;rdquo; 的列的内容  SELECTLastName,FirstNameFROMPersons 从 &amp;ldquo;Persons&amp;rdquo; 表中选取所有的列。  SELECT*FROMPersonsDISTINCT 关键词 DISTINCT 用于返回唯一不同的值。
  从 Company&amp;quot; 列中仅选取唯一不同的值  SELECTDISTINCTCompanyFROMOrdersWHERE 如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
  选取居住在城市 &amp;ldquo;Beijing&amp;rdquo; 中的人  SELECT*FROMPersonsWHERECity=&amp;#39;Beijing&amp;#39;可用运算符：
-   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。"><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/tools/>Tools</a></header><h2 class=article-title><a href=/posts/tools/proglang-sql/>Structured Query Language</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Sep 03, 2018</time></footer></div></header><section class=article-content><h1 id=基本信息>基本信息</h1><ul><li>介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但<strong>许多相似语义的内容其具体写法可能会有不同</strong>。</li></ul><p>SQL 对大小写不敏感。
+   操作符 描述     = 等于   &amp;lt;&amp;gt; 不等于   &amp;gt; 大于   &amp;lt; 小于   &amp;gt;= 大于等于   &amp;lt;= 小于等于   BETWEEN 在某个范围内   IN 规定多个可能取值   LIKE 搜索某种模式   AND 合取两个条件   OR 析取两个条件   NOT 条件取反    SELECT*FROMPersonsWHERE(FirstName=&amp;#39;Thomas&amp;#39;ORFirstName=&amp;#39;William&amp;#39;)ANDLastName=&amp;#39;Carter&amp;#39;LIKE LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/tools/>
+Tools
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/tools/proglang-sql/>Structured Query Language</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Sep 03, 2018</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+2 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=基本信息>基本信息</h1>
+<ul>
+<li>介绍：结构化查询语言，用于存取数据以及查询、更新和管理关系数据库系统。存在着很多不同版本的 SQL 语言，但是为了与 ANSI 标准相兼容，它们必须以相似的方式共同地来支持一些主要的关键词。但<strong>许多相似语义的内容其具体写法可能会有不同</strong>。</li>
+</ul>
+<p>SQL 对大小写不敏感。
 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。
-使用 SQL 需先了解具体数据库的描述方法。</p><h1 id=数据操作语言>数据操作语言</h1><h2 id=select>SELECT</h2><p>SELECT 语句用于从表中选取数据。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
-</span></code></pre></div><ul><li>从名为 &ldquo;Persons&rdquo; 的数据库表，获取名为 &ldquo;LastName&rdquo; 和 &ldquo;FirstName&rdquo; 的列的内容</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>LastName</span><span class=p>,</span><span class=n>FirstName</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
-</span></code></pre></div><ul><li>从 &ldquo;Persons&rdquo; 表中选取所有的列。</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
-</span></code></pre></div><h3 id=distinct>DISTINCT</h3><p>关键词 DISTINCT 用于返回唯一不同的值。</p><ul><li>从 Company" 列中仅选取唯一不同的值</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>DISTINCT</span><span class=w> </span><span class=n>Company</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> 
-</span></code></pre></div><h3 id=where>WHERE</h3><p>如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。</p><ul><li>选取居住在城市 &ldquo;Beijing&rdquo; 中的人</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=o>=</span><span class=s1>&#39;Beijing&#39;</span><span class=w>
-</span></code></pre></div><p>可用运算符：</p><table><thead><tr><th>操作符</th><th>描述</th></tr></thead><tbody><tr><td>=</td><td>等于</td></tr><tr><td>&lt;></td><td>不等于</td></tr><tr><td>></td><td>大于</td></tr><tr><td>&lt;</td><td>小于</td></tr><tr><td>>=</td><td>大于等于</td></tr><tr><td>&lt;=</td><td>小于等于</td></tr><tr><td>BETWEEN</td><td>在某个范围内</td></tr><tr><td>IN</td><td>规定多个可能取值</td></tr><tr><td>LIKE</td><td>搜索某种模式</td></tr><tr><td>AND</td><td>合取两个条件</td></tr><tr><td>OR</td><td>析取两个条件</td></tr><tr><td>NOT</td><td>条件取反</td></tr></tbody></table><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=p>(</span><span class=n>FirstName</span><span class=o>=</span><span class=s1>&#39;Thomas&#39;</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=n>FirstName</span><span class=o>=</span><span class=s1>&#39;William&#39;</span><span class=p>)</span><span class=w> </span><span class=k>AND</span><span class=w> </span><span class=n>LastName</span><span class=o>=</span><span class=s1>&#39;Carter&#39;</span><span class=w>
-</span></code></pre></div><h4 id=like>LIKE</h4><p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p><table><thead><tr><th>通配符</th><th>描述</th></tr></thead><tbody><tr><td><code>%</code></td><td>替代一个或多个字符</td></tr><tr><td><code>_</code></td><td>仅替代一个字符</td></tr><tr><td><code>[charlist]</code></td><td>字符列中的任何单一字符</td></tr><tr><td><code>[^charlist]</code> 或 <code>[!charlist]</code></td><td>不在字符列中的任何单一字符</td></tr></tbody></table><ul><li>选取居住在以 &ldquo;N&rdquo; 开始的城市里的人</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;N%&#39;</span><span class=w>
+使用 SQL 需先了解具体数据库的描述方法。</p>
+<h1 id=数据操作语言>数据操作语言</h1>
+<h2 id=select>SELECT</h2>
+<p>SELECT 语句用于从表中选取数据。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><ul>
+<li>从名为 &ldquo;Persons&rdquo; 的数据库表，获取名为 &ldquo;LastName&rdquo; 和 &ldquo;FirstName&rdquo; 的列的内容</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>LastName</span><span class=p>,</span><span class=n>FirstName</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
+</span></code></pre></div><ul>
+<li>从 &ldquo;Persons&rdquo; 表中选取所有的列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
+</span></code></pre></div><h3 id=distinct>DISTINCT</h3>
+<p>关键词 DISTINCT 用于返回唯一不同的值。</p>
+<ul>
+<li>从 Company" 列中仅选取唯一不同的值</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>DISTINCT</span><span class=w> </span><span class=n>Company</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> 
+</span></code></pre></div><h3 id=where>WHERE</h3>
+<p>如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。</p>
+<ul>
+<li>选取居住在城市 &ldquo;Beijing&rdquo; 中的人</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=o>=</span><span class=s1>&#39;Beijing&#39;</span><span class=w>
+</span></code></pre></div><p>可用运算符：</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;></td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>></td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>>=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某个范围内</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>规定多个可能取值</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>搜索某种模式</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>合取两个条件</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>析取两个条件</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>条件取反</td>
+</tr>
+</tbody>
+</table>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=p>(</span><span class=n>FirstName</span><span class=o>=</span><span class=s1>&#39;Thomas&#39;</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=n>FirstName</span><span class=o>=</span><span class=s1>&#39;William&#39;</span><span class=p>)</span><span class=w> </span><span class=k>AND</span><span class=w> </span><span class=n>LastName</span><span class=o>=</span><span class=s1>&#39;Carter&#39;</span><span class=w>
+</span></code></pre></div><h4 id=like>LIKE</h4>
+<p>LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</p>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%</code></td>
+<td>替代一个或多个字符</td>
+</tr>
+<tr>
+<td><code>_</code></td>
+<td>仅替代一个字符</td>
+</tr>
+<tr>
+<td><code>[charlist]</code></td>
+<td>字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td><code>[^charlist]</code> 或 <code>[!charlist]</code></td>
+<td>不在字符列中的任何单一字符</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>选取居住在以 &ldquo;N&rdquo; 开始的城市里的人</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;N%&#39;</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;%lon%&#39;</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;C_r_er&#39;</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;[ALN]%&#39;</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=k>LIKE</span><span class=w> </span><span class=s1>&#39;[!ALN]%&#39;</span><span class=w>
-</span></code></pre></div><h4 id=in>IN</h4><p>IN 操作符允许我们在 WHERE 子句中规定多个可能的取值。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><h4 id=in>IN</h4>
+<p>IN 操作符允许我们在 WHERE 子句中规定多个可能的取值。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
 </span><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=k>IN</span><span class=w> </span><span class=p>(</span><span class=n>value1</span><span class=p>,</span><span class=n>value2</span><span class=p>,...)</span><span class=w>
-</span></code></pre></div><h4 id=between-and>BETWEEN AND</h4><p>操作符 BETWEEN &mldr; AND 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><h4 id=between-and>BETWEEN AND</h4>
+<p>操作符 BETWEEN &mldr; AND 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
 </span><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=k>BETWEEN</span><span class=w> </span><span class=n>value1</span><span class=w> </span><span class=k>AND</span><span class=w> </span><span class=n>value2</span><span class=w>
-</span></code></pre></div><p>不同的数据库对 BETWEEN&mldr;AND 操作符的处理方式是有差异的。区间端点的选择是不确定的。</p><h3 id=order-by>ORDER BY</h3><p>ORDER BY 语句用于对结果集进行排序。如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=w>
+</span></code></pre></div><p>不同的数据库对 BETWEEN&mldr;AND 操作符的处理方式是有差异的。区间端点的选择是不确定的。</p>
+<h3 id=order-by>ORDER BY</h3>
+<p>ORDER BY 语句用于对结果集进行排序。如果您希望按照降序对记录进行排序，可以使用 DESC 关键字。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=w> </span><span class=k>DESC</span><span class=w>
-</span></code></pre></div><p>主次关键字，以及主次关键字采用不同顺序：</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w>
+</span></code></pre></div><p>主次关键字，以及主次关键字采用不同顺序：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=n>Company</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Orders</span><span class=w> </span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Company</span><span class=w> </span><span class=k>DESC</span><span class=p>,</span><span class=w> </span><span class=n>OrderNumber</span><span class=w> </span><span class=k>ASC</span><span class=w>
-</span></code></pre></div><h3 id=top>TOP</h3><p>TOP 子句用于规定要返回的记录的数目。</p><ul><li>从 &ldquo;Persons&rdquo; 表中选取头两条记录</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TOP</span><span class=w> </span><span class=mi>2</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
-</span></code></pre></div><ul><li>从 &ldquo;Persons&rdquo; 表中选取选取 50% 的记录。</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TOP</span><span class=w> </span><span class=mi>50</span><span class=w> </span><span class=n>PERCENT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
-</span></code></pre></div><h3 id=as>AS</h3><ul><li>表的 SQL Alias 语法</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>alias_name</span><span class=w>
-</span></code></pre></div><p>可以使用别名简化书写。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>po</span><span class=p>.</span><span class=n>OrderID</span><span class=p>,</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>LastName</span><span class=p>,</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>FirstName</span><span class=w>
+</span></code></pre></div><h3 id=top>TOP</h3>
+<p>TOP 子句用于规定要返回的记录的数目。</p>
+<ul>
+<li>从 &ldquo;Persons&rdquo; 表中选取头两条记录</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TOP</span><span class=w> </span><span class=mi>2</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
+</span></code></pre></div><ul>
+<li>从 &ldquo;Persons&rdquo; 表中选取选取 50% 的记录。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TOP</span><span class=w> </span><span class=mi>50</span><span class=w> </span><span class=n>PERCENT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
+</span></code></pre></div><h3 id=as>AS</h3>
+<ul>
+<li>表的 SQL Alias 语法</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>alias_name</span><span class=w>
+</span></code></pre></div><p>可以使用别名简化书写。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>po</span><span class=p>.</span><span class=n>OrderID</span><span class=p>,</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>LastName</span><span class=p>,</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>FirstName</span><span class=w>
 </span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>p</span><span class=p>,</span><span class=w> </span><span class=n>Product_Orders</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>po</span><span class=w>
 </span><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>LastName</span><span class=o>=</span><span class=s1>&#39;Adams&#39;</span><span class=w> </span><span class=k>AND</span><span class=w> </span><span class=n>p</span><span class=p>.</span><span class=n>FirstName</span><span class=o>=</span><span class=s1>&#39;John&#39;</span><span class=w>
-</span></code></pre></div><ul><li>列的 SQL Alias 语法</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>alias_name</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
-</span></code></pre></div><p>可以改变返回列表的列名。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Family</span><span class=p>,</span><span class=w> </span><span class=n>FirstName</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Name</span><span class=w>
+</span></code></pre></div><ul>
+<li>列的 SQL Alias 语法</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>alias_name</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><p>可以改变返回列表的列名。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Family</span><span class=p>,</span><span class=w> </span><span class=n>FirstName</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Name</span><span class=w>
 </span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
-</span></code></pre></div><h3 id=join>JOIN</h3><p>JOIN 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。</p><p>数据库中的表可通过键将彼此联系起来。主键（Primary Key）是一个列，在这个列中的每一行的值都是唯一的。在表中，每个主键的值都是唯一的。这样做的目的是在不重复每个表中的所有数据的情况下，把表间的数据交叉捆绑在一起。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>LastName</span><span class=p>,</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>FirstName</span><span class=p>,</span><span class=w> </span><span class=n>Orders</span><span class=p>.</span><span class=n>OrderNo</span><span class=w>
+</span></code></pre></div><h3 id=join>JOIN</h3>
+<p>JOIN 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。</p>
+<p>数据库中的表可通过键将彼此联系起来。主键（Primary Key）是一个列，在这个列中的每一行的值都是唯一的。在表中，每个主键的值都是唯一的。这样做的目的是在不重复每个表中的所有数据的情况下，把表间的数据交叉捆绑在一起。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>LastName</span><span class=p>,</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>FirstName</span><span class=p>,</span><span class=w> </span><span class=n>Orders</span><span class=p>.</span><span class=n>OrderNo</span><span class=w>
 </span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>Persons</span><span class=w>
 </span><span class=w></span><span class=k>INNER</span><span class=w> </span><span class=k>JOIN</span><span class=w> </span><span class=n>Orders</span><span class=w>
 </span><span class=w></span><span class=k>ON</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>Id_P</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>Orders</span><span class=p>.</span><span class=n>Id_P</span><span class=w>
 </span><span class=w></span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Persons</span><span class=p>.</span><span class=n>LastName</span><span class=w>
-</span></code></pre></div><ul><li>JOIN 或 INNER JOIN: 如果两个表中有至少一个匹配，则返回行</li><li>LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行</li><li>RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行</li><li>FULL JOIN: 即使没有匹配，也从返回两表所有的行</li></ul><h3 id=union>UNION</h3><p>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。另外，UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>table_name1</span><span class=w>
+</span></code></pre></div><ul>
+<li>JOIN 或 INNER JOIN: 如果两个表中有至少一个匹配，则返回行</li>
+<li>LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行</li>
+<li>RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行</li>
+<li>FULL JOIN: 即使没有匹配，也从返回两表所有的行</li>
+</ul>
+<h3 id=union>UNION</h3>
+<p>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。默认地，UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。另外，UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>table_name1</span><span class=w>
 </span><span class=w></span><span class=k>UNION</span><span class=w>
 </span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>table_name2</span><span class=w>
-</span></code></pre></div><h2 id=update>UPDATE</h2><p>Update 语句用于修改表中的数据。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>new_value</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>a_value</span><span class=w>
-</span></code></pre></div><p>为 lastname 是 &ldquo;Wilson&rdquo; 的人添加 firstname：</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=n>FirstName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Fred&#39;</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Wilson&#39;</span><span class=w> 
-</span></code></pre></div><p>更新多列：</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=n>Address</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Zhongshan 23&#39;</span><span class=p>,</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Nanjing&#39;</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Wilson&#39;</span><span class=w>
-</span></code></pre></div><h2 id=delete>DELETE</h2><p>DELETE 语句用于删除表中的行。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>DELETE</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>a_value</span><span class=w>
-</span></code></pre></div><p>删除所有行：</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>DELETE</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><h2 id=update>UPDATE</h2>
+<p>Update 语句用于修改表中的数据。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>new_value</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>a_value</span><span class=w>
+</span></code></pre></div><p>为 lastname 是 &ldquo;Wilson&rdquo; 的人添加 firstname：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=n>FirstName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Fred&#39;</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Wilson&#39;</span><span class=w> 
+</span></code></pre></div><p>更新多列：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>UPDATE</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=k>SET</span><span class=w> </span><span class=n>Address</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Zhongshan 23&#39;</span><span class=p>,</span><span class=w> </span><span class=n>City</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Nanjing&#39;</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>LastName</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;Wilson&#39;</span><span class=w>
+</span></code></pre></div><h2 id=delete>DELETE</h2>
+<p>DELETE 语句用于删除表中的行。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>DELETE</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>a_value</span><span class=w>
+</span></code></pre></div><p>删除所有行：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>DELETE</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
 </span><span class=w></span><span class=k>DELETE</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=k>table_name</span><span class=w>
-</span></code></pre></div><h2 id=insert-into>INSERT INTO</h2><p>INSERT INTO 语句用于向表格中插入新的行。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>INSERT</span><span class=w> </span><span class=k>INTO</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>VALUES</span><span class=w> </span><span class=p>(</span><span class=n>value1</span><span class=p>,</span><span class=w> </span><span class=n>value2</span><span class=p>,....)</span><span class=w>
+</span></code></pre></div><h2 id=insert-into>INSERT INTO</h2>
+<p>INSERT INTO 语句用于向表格中插入新的行。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>INSERT</span><span class=w> </span><span class=k>INTO</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>VALUES</span><span class=w> </span><span class=p>(</span><span class=n>value1</span><span class=p>,</span><span class=w> </span><span class=n>value2</span><span class=p>,....)</span><span class=w>
 </span><span class=w></span><span class=k>INSERT</span><span class=w> </span><span class=k>INTO</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=p>(</span><span class=n>column1</span><span class=p>,</span><span class=w> </span><span class=n>column2</span><span class=p>,...)</span><span class=w> </span><span class=k>VALUES</span><span class=w> </span><span class=p>(</span><span class=n>value1</span><span class=p>,</span><span class=w> </span><span class=n>value2</span><span class=p>,....)</span><span class=w>
-</span></code></pre></div><h2 id=select-into>SELECT INTO</h2><p>SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中。
-SELECT INTO 语句常用于创建表的备份复件或者用于对记录进行存档。</p><ul><li>把所有的列插入新表</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w>
+</span></code></pre></div><h2 id=select-into>SELECT INTO</h2>
+<p>SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中。
+SELECT INTO 语句常用于创建表的备份复件或者用于对记录进行存档。</p>
+<ul>
+<li>把所有的列插入新表</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w>
 </span><span class=w></span><span class=k>INTO</span><span class=w> </span><span class=n>new_table_name</span><span class=w> </span><span class=p>[</span><span class=k>IN</span><span class=w> </span><span class=n>externaldatabase</span><span class=p>]</span><span class=w> 
 </span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>old_tablename</span><span class=w>
-</span></code></pre></div><ul><li>只把希望的列插入新表</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w>
+</span></code></pre></div><ul>
+<li>只把希望的列插入新表</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=k>column_name</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=w>
 </span><span class=w></span><span class=k>INTO</span><span class=w> </span><span class=n>new_table_name</span><span class=w> </span><span class=p>[</span><span class=k>IN</span><span class=w> </span><span class=n>externaldatabase</span><span class=p>]</span><span class=w> 
 </span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>old_tablename</span><span class=w>
-</span></code></pre></div><p>可结合 WHERE 子句，JOIN 子句等。</p><h1 id=数据定义语言>数据定义语言</h1><h2 id=create-database>CREATE DATABASE</h2><p>CREATE DATABASE 用于创建数据库。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>database_name</span><span class=w>
-</span></code></pre></div><h2 id=create-table>CREATE TABLE</h2><p>CREATE TABLE 语句用于创建数据库中的表。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w>
+</span></code></pre></div><p>可结合 WHERE 子句，JOIN 子句等。</p>
+<h1 id=数据定义语言>数据定义语言</h1>
+<h2 id=create-database>CREATE DATABASE</h2>
+<p>CREATE DATABASE 用于创建数据库。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>database_name</span><span class=w>
+</span></code></pre></div><h2 id=create-table>CREATE TABLE</h2>
+<p>CREATE TABLE 语句用于创建数据库中的表。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w>
 </span><span class=w></span><span class=p>(</span><span class=w>
 </span><span class=w></span><span class=n>column_name1</span><span class=w> </span><span class=n>datatype</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=n>column_name2</span><span class=w> </span><span class=n>datatype</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=n>column_name3</span><span class=w> </span><span class=n>datatype</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=p>....</span><span class=w>
 </span><span class=w></span><span class=p>)</span><span class=w>
-</span></code></pre></div><p>关于数据类型，不同数据库有一定差别，参见 <a class=link href=http://www.w3school.com.cn/sql/sql_datatypes.asp target=_blank rel=noopener>SQL 数据类型</a>。</p><h2 id=create-index>CREATE INDEX</h2><p>CREATE INDEX 语句用于在表中创建索引。
-在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据。用户无法看到索引，它们只能被用来加速搜索/查询。更新一个包含索引的表需要比更新一个没有索引的表更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。</p><ul><li>在表上创建一个简单的索引。允许使用重复的值：&ldquo;column_name&rdquo; 规定需要索引的列。</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>index_name</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=p>(</span><span class=k>column_name</span><span class=p>)</span><span class=w>
-</span></code></pre></div><ul><li>在表上创建一个唯一的索引。唯一的索引意味着两个行不能拥有相同的索引值。</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>UNIQUE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>index_name</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=p>(</span><span class=k>column_name</span><span class=p>)</span><span class=w>
-</span></code></pre></div><ul><li>以降序索引某个列中的值</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>PersonIndex</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=p>(</span><span class=n>LastName</span><span class=w> </span><span class=k>DESC</span><span class=p>)</span><span class=w> 
-</span></code></pre></div><h2 id=alter-table>ALTER TABLE</h2><p>ALTER TABLE 语句用于在已有的表中添加、修改或删除列。</p><ul><li>在表中添加列</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>ADD</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=n>datatype</span><span class=w>
-</span></code></pre></div><ul><li>删除表中的列</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>DROP</span><span class=w> </span><span class=k>COLUMN</span><span class=w> </span><span class=k>column_name</span><span class=w>
-</span></code></pre></div><ul><li>改变表中列的数据类型</li></ul><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>ALTER</span><span class=w> </span><span class=k>COLUMN</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=n>datatype</span><span class=w>
-</span></code></pre></div><h2 id=drop>DROP</h2><p>通过使用 DROP 语句，可以轻松地删除索引、表和数据库。</p><ul><li>DROP INDEX index_name</li><li>DROP TABLE table_name</li><li>DROP DATABASE database_name</li><li>TRUNCATE TABLE table_name 仅仅删除表格中的数据</li></ul><h2 id=auto-increment>AUTO INCREMENT</h2><p>Auto-increment 会在新记录插入表中时生成一个唯一的数字。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Persons</span><span class=w>
+</span></code></pre></div><p>关于数据类型，不同数据库有一定差别，参见 <a class=link href=http://www.w3school.com.cn/sql/sql_datatypes.asp target=_blank rel=noopener>SQL 数据类型</a>。</p>
+<h2 id=create-index>CREATE INDEX</h2>
+<p>CREATE INDEX 语句用于在表中创建索引。
+在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据。用户无法看到索引，它们只能被用来加速搜索/查询。更新一个包含索引的表需要比更新一个没有索引的表更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引。</p>
+<ul>
+<li>在表上创建一个简单的索引。允许使用重复的值：&ldquo;column_name&rdquo; 规定需要索引的列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>index_name</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=p>(</span><span class=k>column_name</span><span class=p>)</span><span class=w>
+</span></code></pre></div><ul>
+<li>在表上创建一个唯一的索引。唯一的索引意味着两个行不能拥有相同的索引值。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>UNIQUE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>index_name</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=p>(</span><span class=k>column_name</span><span class=p>)</span><span class=w>
+</span></code></pre></div><ul>
+<li>以降序索引某个列中的值</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>INDEX</span><span class=w> </span><span class=n>PersonIndex</span><span class=w> </span><span class=k>ON</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=p>(</span><span class=n>LastName</span><span class=w> </span><span class=k>DESC</span><span class=p>)</span><span class=w> 
+</span></code></pre></div><h2 id=alter-table>ALTER TABLE</h2>
+<p>ALTER TABLE 语句用于在已有的表中添加、修改或删除列。</p>
+<ul>
+<li>在表中添加列</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>ADD</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=n>datatype</span><span class=w>
+</span></code></pre></div><ul>
+<li>删除表中的列</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>DROP</span><span class=w> </span><span class=k>COLUMN</span><span class=w> </span><span class=k>column_name</span><span class=w>
+</span></code></pre></div><ul>
+<li>改变表中列的数据类型</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=k>table_name</span><span class=w> </span><span class=k>ALTER</span><span class=w> </span><span class=k>COLUMN</span><span class=w> </span><span class=k>column_name</span><span class=w> </span><span class=n>datatype</span><span class=w>
+</span></code></pre></div><h2 id=drop>DROP</h2>
+<p>通过使用 DROP 语句，可以轻松地删除索引、表和数据库。</p>
+<ul>
+<li>DROP INDEX index_name</li>
+<li>DROP TABLE table_name</li>
+<li>DROP DATABASE database_name</li>
+<li>TRUNCATE TABLE table_name 仅仅删除表格中的数据</li>
+</ul>
+<h2 id=auto-increment>AUTO INCREMENT</h2>
+<p>Auto-increment 会在新记录插入表中时生成一个唯一的数字。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Persons</span><span class=w>
 </span><span class=w></span><span class=p>(</span><span class=w>
 </span><span class=w></span><span class=n>P_Id</span><span class=w> </span><span class=nb>int</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=n>AUTO_INCREMENT</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=n>LastName</span><span class=w> </span><span class=nb>varchar</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=p>,</span><span class=w>
@@ -93,13 +346,23 @@ SELECT INTO 语句常用于创建表的备份复件或者用于对记录进行�
 </span><span class=w></span><span class=p>)</span><span class=w>
 </span><span class=w>
 </span><span class=w></span><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Persons</span><span class=w> </span><span class=n>AUTO_INCREMENT</span><span class=o>=</span><span class=mi>100</span><span class=w>
-</span></code></pre></div><h2 id=数据约束>数据约束</h2><p>约束用于限制加入表的数据的类型。
+</span></code></pre></div><h2 id=数据约束>数据约束</h2>
+<p>约束用于限制加入表的数据的类型。
 可以在创建表时规定约束（通过 CREATE TABLE 语句，在数据类型后标注），或者在表创建之后也可以（通过 ALTER TABLE 语句）。
-约束可命名，用于取消约束。</p><h3 id=not-null>NOT NULL</h3><p>NOT NULL 约束强制列不接受 NULL 值。</p><h3 id=unique>UNIQUE</h3><p>UNIQUE 约束唯一标识数据库表中的每条记录。
+约束可命名，用于取消约束。</p>
+<h3 id=not-null>NOT NULL</h3>
+<p>NOT NULL 约束强制列不接受 NULL 值。</p>
+<h3 id=unique>UNIQUE</h3>
+<p>UNIQUE 约束唯一标识数据库表中的每条记录。
 UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。PRIMARY KEY 拥有自动定义的 UNIQUE 约束。
-请注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。</p><h3 id=primary-key>PRIMARY KEY</h3><p>PRIMARY KEY 约束唯一标识数据库表中的每条记录。
+请注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。</p>
+<h3 id=primary-key>PRIMARY KEY</h3>
+<p>PRIMARY KEY 约束唯一标识数据库表中的每条记录。
 主键必须包含唯一的值。主键列不能包含 NULL 值。
-每个表都应该有一个主键，并且每个表只能有一个主键。</p><h3 id=foreign-key>FOREIGN KEY</h3><p>一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。</p><div class=highlight><pre class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Orders</span><span class=w>
+每个表都应该有一个主键，并且每个表只能有一个主键。</p>
+<h3 id=foreign-key>FOREIGN KEY</h3>
+<p>一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Orders</span><span class=w>
 </span><span class=w></span><span class=p>(</span><span class=w>
 </span><span class=w></span><span class=n>Id_O</span><span class=w> </span><span class=nb>int</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>PRIMARY</span><span class=w> </span><span class=k>KEY</span><span class=p>,</span><span class=w>
 </span><span class=w></span><span class=n>OrderNo</span><span class=w> </span><span class=nb>int</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=p>,</span><span class=w>
@@ -130,12 +393,189 @@ UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。
 </span><span class=w>
 </span><span class=w></span><span class=k>ALTER</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Orders</span><span class=w>
 </span><span class=w></span><span class=k>DROP</span><span class=w> </span><span class=k>CONSTRAINT</span><span class=w> </span><span class=n>fk_PerOrders</span><span class=w>
-</span></code></pre></div><h3 id=check>CHECK</h3><p>CHECK 约束用于限制列中的值的范围。
+</span></code></pre></div><h3 id=check>CHECK</h3>
+<p>CHECK 约束用于限制列中的值的范围。
 如果对单个列定义 CHECK 约束，那么该列只允许特定的值。
-如果对一个表定义 CHECK 约束，那么此约束会在特定的列中对值进行限制。</p><h3 id=default>DEFAULT</h3><p>DEFAULT 约束用于向列中插入默认值。如果没有规定其他的值，那么会将默认值添加到所有的新记录。</p><h1 id=参考资料>参考资料</h1><ul><li><a class=link href=http://www.w3school.com.cn/sql/index.asp target=_blank rel=noopener>SQL 教程</a></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/tools/proglang-dockerfile/><div class=article-details><h2 class=article-title>Dockerfile</h2></div></a></article><article class=has-image><a href=/posts/tools/proglang-yaml/><div class=article-image><img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png></div><div class=article-details><h2 class=article-title>YAML Ain't Markup Language</h2></div></a></article><article><a href=/posts/tools/proglang-makefile/><div class=article-details><h2 class=article-title>Makefile</h2></div></a></article><article><a href=/posts/tools/proglang-verilog/><div class=article-details><h2 class=article-title>Verilog HDL</h2></div></a></article><article class=has-image><a href=/posts/tools/proglang-css/><div class=article-image><img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png></div><div class=article-details><h2 class=article-title>Cascading Style Sheets</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+如果对一个表定义 CHECK 约束，那么此约束会在特定的列中对值进行限制。</p>
+<h3 id=default>DEFAULT</h3>
+<p>DEFAULT 约束用于向列中插入默认值。如果没有规定其他的值，那么会将默认值添加到所有的新记录。</p>
+<h1 id=参考资料>参考资料</h1>
+<ul>
+<li><a class=link href=http://www.w3school.com.cn/sql/index.asp target=_blank rel=noopener>SQL 教程</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/tools/proglang-dockerfile/>
+<div class=article-details>
+<h2 class=article-title>Dockerfile</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/posts/tools/proglang-yaml/>
+<div class=article-image>
+<img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>YAML Ain't Markup Language</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/tools/proglang-makefile/>
+<div class=article-details>
+<h2 class=article-title>Makefile</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/tools/proglang-verilog/>
+<div class=article-details>
+<h2 class=article-title>Verilog HDL</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/posts/tools/proglang-css/>
+<div class=article-image>
+<img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>Cascading Style Sheets</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#基本信息>基本信息</a></li><li><a href=#数据操作语言>数据操作语言</a><ol><li><a href=#select>SELECT</a><ol><li><a href=#distinct>DISTINCT</a></li><li><a href=#where>WHERE</a><ol><li><a href=#like>LIKE</a></li><li><a href=#in>IN</a></li><li><a href=#between-and>BETWEEN AND</a></li></ol></li><li><a href=#order-by>ORDER BY</a></li><li><a href=#top>TOP</a></li><li><a href=#as>AS</a></li><li><a href=#join>JOIN</a></li><li><a href=#union>UNION</a></li></ol></li><li><a href=#update>UPDATE</a></li><li><a href=#delete>DELETE</a></li><li><a href=#insert-into>INSERT INTO</a></li><li><a href=#select-into>SELECT INTO</a></li></ol></li><li><a href=#数据定义语言>数据定义语言</a><ol><li><a href=#create-database>CREATE DATABASE</a></li><li><a href=#create-table>CREATE TABLE</a></li><li><a href=#create-index>CREATE INDEX</a></li><li><a href=#alter-table>ALTER TABLE</a></li><li><a href=#drop>DROP</a></li><li><a href=#auto-increment>AUTO INCREMENT</a></li><li><a href=#数据约束>数据约束</a><ol><li><a href=#not-null>NOT NULL</a></li><li><a href=#unique>UNIQUE</a></li><li><a href=#primary-key>PRIMARY KEY</a></li><li><a href=#foreign-key>FOREIGN KEY</a></li><li><a href=#check>CHECK</a></li><li><a href=#default>DEFAULT</a></li></ol></li></ol></li><li><a href=#参考资料>参考资料</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#基本信息>基本信息</a></li>
+<li><a href=#数据操作语言>数据操作语言</a>
+<ol>
+<li><a href=#select>SELECT</a>
+<ol>
+<li><a href=#distinct>DISTINCT</a></li>
+<li><a href=#where>WHERE</a>
+<ol>
+<li><a href=#like>LIKE</a></li>
+<li><a href=#in>IN</a></li>
+<li><a href=#between-and>BETWEEN AND</a></li>
+</ol>
+</li>
+<li><a href=#order-by>ORDER BY</a></li>
+<li><a href=#top>TOP</a></li>
+<li><a href=#as>AS</a></li>
+<li><a href=#join>JOIN</a></li>
+<li><a href=#union>UNION</a></li>
+</ol>
+</li>
+<li><a href=#update>UPDATE</a></li>
+<li><a href=#delete>DELETE</a></li>
+<li><a href=#insert-into>INSERT INTO</a></li>
+<li><a href=#select-into>SELECT INTO</a></li>
+</ol>
+</li>
+<li><a href=#数据定义语言>数据定义语言</a>
+<ol>
+<li><a href=#create-database>CREATE DATABASE</a></li>
+<li><a href=#create-table>CREATE TABLE</a></li>
+<li><a href=#create-index>CREATE INDEX</a></li>
+<li><a href=#alter-table>ALTER TABLE</a></li>
+<li><a href=#drop>DROP</a></li>
+<li><a href=#auto-increment>AUTO INCREMENT</a></li>
+<li><a href=#数据约束>数据约束</a>
+<ol>
+<li><a href=#not-null>NOT NULL</a></li>
+<li><a href=#unique>UNIQUE</a></li>
+<li><a href=#primary-key>PRIMARY KEY</a></li>
+<li><a href=#foreign-key>FOREIGN KEY</a></li>
+<li><a href=#check>CHECK</a></li>
+<li><a href=#default>DEFAULT</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href=#参考资料>参考资料</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

@@ -1,14 +1,62 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
 UTF-8 字符串 // 创建 letmuts=String::new();// 更新 letmuts=String::from(&amp;#34;foo&amp;#34;);s.push_str(&amp;#34;bar&amp;#34;);s.push(&amp;#39;l&amp;#39;);// 合并 lets1=String::from(&amp;#34;Hello, &amp;#34;);lets2=String::from(&amp;#34;world!&amp;#34;);lets3=s1+&amp;amp;s2;// note s1 has been moved here and can no longer be used // 格式化 lets1=String::from(&amp;#34;tic&amp;#34;);lets2=String::from(&amp;#34;tac&amp;#34;);lets3=String::from(&amp;#34;toe&amp;#34;);lets=format!(&amp;#34;{}-{}-{}&amp;#34;,s1,s2,s3);// do not take onwership 字符串内部对 Vec&amp;lt;u8&amp;gt; 进行包装。不支持直接索引。
-切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0."><title>Rust 集合</title><link rel=canonical href=https://stardustdl.github.io/posts/learning/rust-collections/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Rust 集合"><meta property="og:description" content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
+切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0."><title>Rust 集合</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/learning/rust-collections/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Rust 集合">
+<meta property="og:description" content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
 UTF-8 字符串 // 创建 letmuts=String::new();// 更新 letmuts=String::from(&amp;#34;foo&amp;#34;);s.push_str(&amp;#34;bar&amp;#34;);s.push(&amp;#39;l&amp;#39;);// 合并 lets1=String::from(&amp;#34;Hello, &amp;#34;);lets2=String::from(&amp;#34;world!&amp;#34;);lets3=s1+&amp;amp;s2;// note s1 has been moved here and can no longer be used // 格式化 lets1=String::from(&amp;#34;tic&amp;#34;);lets2=String::from(&amp;#34;tac&amp;#34;);lets3=String::from(&amp;#34;toe&amp;#34;);lets=format!(&amp;#34;{}-{}-{}&amp;#34;,s1,s2,s3);// do not take onwership 字符串内部对 Vec&amp;lt;u8&amp;gt; 进行包装。不支持直接索引。
-切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0."><meta property="og:url" content="https://stardustdl.github.io/posts/learning/rust-collections/"><meta property="og:site_name" content="StardustDL's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="Rust"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2021-07-06T17:50:46+08:00"><meta property="article:modified_time" content="2021-07-06T17:50:46+08:00"><meta name=twitter:title content="Rust 集合"><meta name=twitter:description content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
+切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0.">
+<meta property="og:url" content="https://stardustdl.github.io/posts/learning/rust-collections/">
+<meta property="og:site_name" content="StardustDL's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="Rust"><meta property="article:tag" content="编程语言"><meta property="article:published_time" content="2021-07-06T17:50:46+08:00"><meta property="article:modified_time" content="2021-07-06T17:50:46+08:00">
+<meta name=twitter:title content="Rust 集合">
+<meta name=twitter:description content="变长列表 // 创建 letv: Vec&amp;lt;i32&amp;gt;=Vec::new();letv=vec![1,2,3];// 修改 letmutv=Vec::new();v.push(5);// 访问 letthird: &amp;amp;i32 =&amp;amp;v[2];println!(&amp;#34;The third element is {}&amp;#34;,third);matchv.get(2){Some(third)=&amp;gt;println!(&amp;#34;The third element is {}&amp;#34;,third),None=&amp;gt;println!(&amp;#34;There is no third element.&amp;#34;),}// 遍历 letv=vec![100,32,57];foriin&amp;amp;v{println!(&amp;#34;{}&amp;#34;,i);}letmutv=vec![100,32,57];foriin&amp;amp;mutv{*i+=50;}在有引用的情况下无法对列表进行修改。
 UTF-8 字符串 // 创建 letmuts=String::new();// 更新 letmuts=String::from(&amp;#34;foo&amp;#34;);s.push_str(&amp;#34;bar&amp;#34;);s.push(&amp;#39;l&amp;#39;);// 合并 lets1=String::from(&amp;#34;Hello, &amp;#34;);lets2=String::from(&amp;#34;world!&amp;#34;);lets3=s1+&amp;amp;s2;// note s1 has been moved here and can no longer be used // 格式化 lets1=String::from(&amp;#34;tic&amp;#34;);lets2=String::from(&amp;#34;tac&amp;#34;);lets3=String::from(&amp;#34;toe&amp;#34;);lets=format!(&amp;#34;{}-{}-{}&amp;#34;,s1,s2,s3);// do not take onwership 字符串内部对 Vec&amp;lt;u8&amp;gt; 进行包装。不支持直接索引。
-切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0."><link rel="shortcut icon" href=/favicon.png><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
-extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/learning/>Learning</a></header><h2 class=article-title><a href=/posts/learning/rust-collections/>Rust 集合</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jul 06, 2021</time></footer></div></header><section class=article-content><h1 id=变长列表>变长列表</h1><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
+切片 lethello=&amp;#34;Здравствуйте&amp;#34;;// each of these characters was 2 bytes lets=&amp;amp;hello[0..4];// s == Зд lets=&amp;amp;hello[0.">
+<link rel="shortcut icon" href=/favicon.png>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/learning/>
+Learning
+</a>
+</header>
+<h2 class=article-title>
+<a href=/posts/learning/rust-collections/>Rust 集合</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 06, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h1 id=变长列表>变长列表</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
 </span><span class=c1></span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>v</span>: <span class=nb>Vec</span><span class=o>&lt;</span><span class=kt>i32</span><span class=o>&gt;</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>Vec</span>::<span class=n>new</span><span class=p>();</span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>];</span><span class=w>
 </span><span class=w>
 </span><span class=w></span><span class=c1>// 修改
 </span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>Vec</span>::<span class=n>new</span><span class=p>();</span><span class=w>
@@ -16,22 +64,24 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w>
 </span><span class=w></span><span class=c1>// 访问
 </span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>third</span>: <span class=kp>&amp;</span><span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>v</span><span class=p>[</span><span class=mi>2</span><span class=p>];</span><span class=w>
-</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The third element is {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>third</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;The third element is {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>third</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=k>match</span><span class=w> </span><span class=n>v</span><span class=p>.</span><span class=n>get</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=nb>Some</span><span class=p>(</span><span class=n>third</span><span class=p>)</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The third element is {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>third</span><span class=p>),</span><span class=w>
-</span><span class=w>    </span><span class=nb>None</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;There is no third element.&#34;</span><span class=p>),</span><span class=w>
+</span><span class=w>    </span><span class=nb>Some</span><span class=p>(</span><span class=n>third</span><span class=p>)</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;The third element is {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>third</span><span class=p>),</span><span class=w>
+</span><span class=w>    </span><span class=nb>None</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;There is no third element.&#34;</span><span class=p>),</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
 </span><span class=w>
 </span><span class=w></span><span class=c1>// 遍历
-</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>100</span><span class=p>,</span><span class=w> </span><span class=mi>32</span><span class=p>,</span><span class=w> </span><span class=mi>57</span><span class=p>];</span><span class=w>
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=mi>100</span><span class=p>,</span><span class=w> </span><span class=mi>32</span><span class=p>,</span><span class=w> </span><span class=mi>57</span><span class=p>];</span><span class=w>
 </span><span class=w></span><span class=k>for</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=o>&amp;</span><span class=n>v</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>i</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>i</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>100</span><span class=p>,</span><span class=w> </span><span class=mi>32</span><span class=p>,</span><span class=w> </span><span class=mi>57</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=mi>100</span><span class=p>,</span><span class=w> </span><span class=mi>32</span><span class=p>,</span><span class=w> </span><span class=mi>57</span><span class=p>];</span><span class=w>
 </span><span class=w></span><span class=k>for</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=p>{</span><span class=w>
 </span><span class=w>    </span><span class=o>*</span><span class=n>i</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=mi>50</span><span class=p>;</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><p>在有引用的情况下无法对列表进行修改。</p><h1 id=utf-8-字符串>UTF-8 字符串</h1><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
+</span></code></pre></div><p>在有引用的情况下无法对列表进行修改。</p>
+<h1 id=utf-8-字符串>UTF-8 字符串</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
 </span><span class=c1></span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>new</span><span class=p>();</span><span class=w>
 </span><span class=w>
@@ -53,19 +103,24 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;tac&#34;</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;toe&#34;</span><span class=p>);</span><span class=w>
 </span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>format</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}-{}-{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>s1</span><span class=p>,</span><span class=w> </span><span class=n>s2</span><span class=p>,</span><span class=w> </span><span class=n>s3</span><span class=p>);</span><span class=w> </span><span class=c1>// do not take onwership
-</span></code></pre></div><p>字符串内部对 <code>Vec&lt;u8></code> 进行包装。不支持直接索引。</p><h2 id=切片>切片</h2><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>hello</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;Здравствуйте&#34;</span><span class=p>;</span><span class=w> </span><span class=c1>// each of these characters was 2 bytes
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>format!</span><span class=p>(</span><span class=s>&#34;{}-{}-{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>s1</span><span class=p>,</span><span class=w> </span><span class=n>s2</span><span class=p>,</span><span class=w> </span><span class=n>s3</span><span class=p>);</span><span class=w> </span><span class=c1>// do not take onwership
+</span></code></pre></div><p>字符串内部对 <code>Vec&lt;u8></code> 进行包装。不支持直接索引。</p>
+<h2 id=切片>切片</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>hello</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;Здравствуйте&#34;</span><span class=p>;</span><span class=w> </span><span class=c1>// each of these characters was 2 bytes
 </span><span class=c1></span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>hello</span><span class=p>[</span><span class=mi>0</span><span class=p>..</span><span class=mi>4</span><span class=p>];</span><span class=w> </span><span class=c1>// s == Зд
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>hello</span><span class=p>[</span><span class=mi>0</span><span class=o>..</span><span class=mi>4</span><span class=p>];</span><span class=w> </span><span class=c1>// s == Зд
 </span><span class=c1></span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>hello</span><span class=p>[</span><span class=mi>0</span><span class=p>..</span><span class=mi>1</span><span class=p>];</span><span class=w> </span><span class=c1>// panic at runtime in the same way as if an invalid index were accessed in a vector
-</span></code></pre></div><h2 id=遍历>遍历</h2><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=k>for</span><span class=w> </span><span class=n>c</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=s>&#34;नमस्ते&#34;</span><span class=p>.</span><span class=n>chars</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>c</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>s</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>hello</span><span class=p>[</span><span class=mi>0</span><span class=o>..</span><span class=mi>1</span><span class=p>];</span><span class=w> </span><span class=c1>// panic at runtime in the same way as if an invalid index were accessed in a vector
+</span></code></pre></div><h2 id=遍历>遍历</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>for</span><span class=w> </span><span class=n>c</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=s>&#34;नमस्ते&#34;</span><span class=p>.</span><span class=n>chars</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>c</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
 </span><span class=w></span><span class=k>for</span><span class=w> </span><span class=n>b</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=s>&#34;नमस्ते&#34;</span><span class=p>.</span><span class=n>bytes</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>b</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>b</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><h1 id=哈希表>哈希表</h1><p>对于不支持 <code>Copy</code> 特征的对象，哈希表将获取其所有权。</p><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
+</span></code></pre></div><h1 id=哈希表>哈希表</h1>
+<p>对于不支持 <code>Copy</code> 特征的对象，哈希表将获取其所有权。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// 创建
 </span><span class=c1></span><span class=w>
 </span><span class=w></span><span class=k>use</span><span class=w> </span><span class=n>std</span>::<span class=n>collections</span>::<span class=n>HashMap</span><span class=p>;</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>scores</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>HashMap</span>::<span class=n>new</span><span class=p>();</span><span class=w>
@@ -76,8 +131,8 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=n>scores</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Yellow&#34;</span><span class=p>),</span><span class=w> </span><span class=mi>50</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=n>scores</span><span class=p>.</span><span class=n>entry</span><span class=p>(</span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Yellow&#34;</span><span class=p>)).</span><span class=n>or_insert</span><span class=p>(</span><span class=mi>50</span><span class=p>);</span><span class=w>
 </span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>teams</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Blue&#34;</span><span class=p>),</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Yellow&#34;</span><span class=p>)];</span><span class=w>
-</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>initial_scores</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>10</span><span class=p>,</span><span class=w> </span><span class=mi>50</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>teams</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Blue&#34;</span><span class=p>),</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Yellow&#34;</span><span class=p>)];</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>initial_scores</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=fm>vec!</span><span class=p>[</span><span class=mi>10</span><span class=p>,</span><span class=w> </span><span class=mi>50</span><span class=p>];</span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>scores</span>: <span class=nc>HashMap</span><span class=o>&lt;</span><span class=n>_</span><span class=p>,</span><span class=w> </span><span class=n>_</span><span class=o>&gt;</span><span class=w> </span><span class=o>=</span><span class=w>
 </span><span class=w>    </span><span class=n>teams</span><span class=p>.</span><span class=n>into_iter</span><span class=p>().</span><span class=n>zip</span><span class=p>(</span><span class=n>initial_scores</span><span class=p>.</span><span class=n>into_iter</span><span class=p>()).</span><span class=n>collect</span><span class=p>();</span><span class=w>
 </span><span class=w>
@@ -89,9 +144,10 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w></span><span class=c1>// 遍历
 </span><span class=c1></span><span class=w>
 </span><span class=w></span><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>key</span><span class=p>,</span><span class=w> </span><span class=n>value</span><span class=p>)</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=o>&amp;</span><span class=n>scores</span><span class=w> </span><span class=p>{</span><span class=w>
-</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}: {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>key</span><span class=p>,</span><span class=w> </span><span class=n>value</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;{}: {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>key</span><span class=p>,</span><span class=w> </span><span class=n>value</span><span class=p>);</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div><p><code>entry.or_insert</code> 返回一个可变引用。</p><div class=highlight><pre class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>text</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;hello world wonderful world&#34;</span><span class=p>;</span><span class=w>
+</span></code></pre></div><p><code>entry.or_insert</code> 返回一个可变引用。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>text</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;hello world wonderful world&#34;</span><span class=p>;</span><span class=w>
 </span><span class=w>
 </span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>map</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>HashMap</span>::<span class=n>new</span><span class=p>();</span><span class=w>
 </span><span class=w>
@@ -99,11 +155,136 @@ extended"><div id=article-toolbar><a href=https://stardustdl.github.io/ class=ba
 </span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>count</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>map</span><span class=p>.</span><span class=n>entry</span><span class=p>(</span><span class=n>word</span><span class=p>).</span><span class=n>or_insert</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=w>
 </span><span class=w>    </span><span class=o>*</span><span class=n>count</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
-</span></code></pre></div></section><footer class=article-footer><section class=article-tags><a href=/tags/rust/>Rust</a>
-<a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/posts/learning/rust-functional/><div class=article-details><h2 class=article-title>Rust 函数式编程</h2></div></a></article><article><a href=/posts/learning/rust-generic-types/><div class=article-details><h2 class=article-title>Rust 泛型</h2></div></a></article><article><a href=/posts/learning/rust-modules/><div class=article-details><h2 class=article-title>Rust 模块与项目</h2></div></a></article><article><a href=/posts/learning/rust-onwership/><div class=article-details><h2 class=article-title>Rust 所有权特性</h2></div></a></article><article><a href=/posts/learning/rust-startup/><div class=article-details><h2 class=article-title>Rust 语言基础使用</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+</span></code></pre></div>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/rust/>Rust</a>
+<a href=/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/posts/learning/rust-functional/>
+<div class=article-details>
+<h2 class=article-title>Rust 函数式编程</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-generic-types/>
+<div class=article-details>
+<h2 class=article-title>Rust 泛型</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-modules/>
+<div class=article-details>
+<h2 class=article-title>Rust 模块与项目</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-onwership/>
+<div class=article-details>
+<h2 class=article-title>Rust 所有权特性</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/posts/learning/rust-startup/>
+<div class=article-details>
+<h2 class=article-title>Rust 语言基础使用</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=https://utteranc.es/client.js repo=StardustDL/stardustdl.github.io issue-term=pathname label=comment crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2017 -
-2021 StardustDL's Blog</section><section class=powerby><a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a><br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 StardustDL's Blog
+</section>
+<section class=powerby>
+<a style=color:gray href=http://www.beian.miit.gov.cn>冀ICP备19021004号</a> <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#变长列表>变长列表</a></li><li><a href=#utf-8-字符串>UTF-8 字符串</a><ol><li><a href=#切片>切片</a></li><li><a href=#遍历>遍历</a></li></ol></li><li><a href=#哈希表>哈希表</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#变长列表>变长列表</a></li>
+<li><a href=#utf-8-字符串>UTF-8 字符串</a>
+<ol>
+<li><a href=#切片>切片</a></li>
+<li><a href=#遍历>遍历</a></li>
+</ol>
+</li>
+<li><a href=#哈希表>哈希表</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

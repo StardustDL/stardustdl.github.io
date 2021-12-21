@@ -1,17 +1,26 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基本信息  官网 介绍：一个能处理依赖关系，进行自动化编译的工具。 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务  基础知识 GNU的 make 工作时的执行步骤如下：
- 读入所有的Makefile。 读入被include的其它Makefile。 初始化文件中的变量。 推导隐晦规则，并分析所有规则。 为所有的目标文件创建依赖关系链。 根据依赖关系，决定哪些目标要重新生成。 执行生成命令。  "><title>Make</title>
-<link rel=canonical href=https://stardustdl.github.io/posts/tools/make/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Make">
-<meta property="og:description" content="基本信息  官网 介绍：一个能处理依赖关系，进行自动化编译的工具。 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务  基础知识 GNU的 make 工作时的执行步骤如下：
- 读入所有的Makefile。 读入被include的其它Makefile。 初始化文件中的变量。 推导隐晦规则，并分析所有规则。 为所有的目标文件创建依赖关系链。 根据依赖关系，决定哪些目标要重新生成。 执行生成命令。  ">
-<meta property="og:url" content="https://stardustdl.github.io/posts/tools/make/">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Codesim A similarity measurer on two programming assignments on Online Judge.
+ GitHub  The code similarity measuring algorithm originates from
+ Jiang Y, Xu C. Needle: Detecting code plagiarism on student submissions[C]//Proceedings of ACM Turing Celebration Conference-China. 2018: 27-32.
+ Goals  From PA1&amp;rsquo;s goals and Needle&amp;rsquo;s paper
+ We want to measure similarity between two programming assignments $A$ and $B$ on Online Judge to find possible plagiarism. We assume that each input program is a single-file C++ program that can be compiled by g++ -std=c++17 -pedantic."><title>Codesim</title>
+<link rel=canonical href=https://stardustdl.github.io/posts/projects/codesim/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Codesim">
+<meta property="og:description" content="Codesim A similarity measurer on two programming assignments on Online Judge.
+ GitHub  The code similarity measuring algorithm originates from
+ Jiang Y, Xu C. Needle: Detecting code plagiarism on student submissions[C]//Proceedings of ACM Turing Celebration Conference-China. 2018: 27-32.
+ Goals  From PA1&amp;rsquo;s goals and Needle&amp;rsquo;s paper
+ We want to measure similarity between two programming assignments $A$ and $B$ on Online Judge to find possible plagiarism. We assume that each input program is a single-file C++ program that can be compiled by g++ -std=c++17 -pedantic.">
+<meta property="og:url" content="https://stardustdl.github.io/posts/projects/codesim/">
 <meta property="og:site_name" content="StardustDL's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2018-09-16T18:58:19+08:00"><meta property="article:modified_time" content="2018-09-16T18:58:19+08:00">
-<meta name=twitter:title content="Make">
-<meta name=twitter:description content="基本信息  官网 介绍：一个能处理依赖关系，进行自动化编译的工具。 make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务  基础知识 GNU的 make 工作时的执行步骤如下：
- 读入所有的Makefile。 读入被include的其它Makefile。 初始化文件中的变量。 推导隐晦规则，并分析所有规则。 为所有的目标文件创建依赖关系链。 根据依赖关系，决定哪些目标要重新生成。 执行生成命令。  ">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:published_time" content="2021-12-21T14:14:53+08:00"><meta property="article:modified_time" content="2021-12-21T14:14:53+08:00">
+<meta name=twitter:title content="Codesim">
+<meta name=twitter:description content="Codesim A similarity measurer on two programming assignments on Online Judge.
+ GitHub  The code similarity measuring algorithm originates from
+ Jiang Y, Xu C. Needle: Detecting code plagiarism on student submissions[C]//Proceedings of ACM Turing Celebration Conference-China. 2018: 27-32.
+ Goals  From PA1&amp;rsquo;s goals and Needle&amp;rsquo;s paper
+ We want to measure similarity between two programming assignments $A$ and $B$ on Online Judge to find possible plagiarism. We assume that each input program is a single-file C++ program that can be compiled by g++ -std=c++17 -pedantic.">
 <link rel="shortcut icon" href=/favicon.png>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-111573521-1','auto'),ga('send','pageview'))</script>
 </head>
@@ -29,43 +38,100 @@ extended">
 <header class=article-header>
 <div class=article-details>
 <header class=article-category>
-<a href=/categories/tools/>
-Tools
+<a href=/categories/projects/>
+Projects
 </a>
 </header>
 <h2 class=article-title>
-<a href=/posts/tools/make/>Make</a>
+<a href=/posts/projects/codesim/>Codesim</a>
 </h2>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Sep 16, 2018</time>
+<time class=article-time--published>Dec 21, 2021</time>
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-1 minute read
+3 minute read
 </time>
 </div>
 </footer>
 </div>
 </header>
 <section class=article-content>
-<h1 id=基本信息>基本信息</h1>
+<h1 id=codesim>Codesim</h1>
+<p>A similarity measurer on two programming assignments on Online Judge.</p>
 <ul>
-<li><a class=link href=http://www.gnu.org/software/make/ target=_blank rel=noopener>官网</a></li>
-<li>介绍：一个能处理依赖关系，进行自动化编译的工具。</li>
-<li>make 不仅可以用于处理程序编译过程，也可以处理更多的含依赖关系的事务</li>
+<li><a class=link href=https://github.com/StardustDL/codesim target=_blank rel=noopener>GitHub</a></li>
 </ul>
-<h1 id=基础知识>基础知识</h1>
-<p>GNU的 make 工作时的执行步骤如下：</p>
-<ol>
-<li>读入所有的Makefile。</li>
-<li>读入被include的其它Makefile。</li>
-<li>初始化文件中的变量。</li>
-<li>推导隐晦规则，并分析所有规则。</li>
-<li>为所有的目标文件创建依赖关系链。</li>
-<li>根据依赖关系，决定哪些目标要重新生成。</li>
-<li>执行生成命令。</li>
-</ol>
+<p>The code similarity measuring algorithm originates from</p>
+<blockquote>
+<p>Jiang Y, Xu C. Needle: Detecting code plagiarism on student submissions[C]//Proceedings of ACM Turing Celebration Conference-China. 2018: 27-32.</p>
+</blockquote>
+<h2 id=goals>Goals</h2>
+<blockquote>
+<p>From PA1&rsquo;s goals and Needle&rsquo;s paper</p>
+</blockquote>
+<p>We want to measure similarity between two programming assignments $A$ and $B$ on Online Judge to find possible plagiarism.
+We assume that each input program is a single-file C++ program that can be compiled by <code>g++ -std=c++17 -pedantic</code>.</p>
+<h2 id=preprocessing>Preprocessing</h2>
+<p>The compiling and optimization removes comments, macros and unnessesary code, ignores local variable names and code format.
+Many redundant changes will have zero or minor impacts after compiler optimization and it is a good way to normalize a program.
+To decrease obfuscation changes' impacts further, we use opcode sequence as a function&rsquo;s figureprint and ignore operands.</p>
+<p>A program is a set of functions, and a function is a sequence of opcodes.</p>
+<p>We first compile the input code by <code>g++</code> with <code>-O2</code> optimization level.
+To keep the generated object file clean, we use <code>-c</code> option to prevent generating initializing function.</p>
+<p>Then we use <code>objdump</code> to disassembly object files, collect and filter (ignore <code>nop</code> and unrecogized opcodes) opcode sequence.</p>
+<h2 id=similarity>Similarity</h2>
+<p>One common kind of obfuscation changes is splitting one function into many functions.
+To address this, we calculate inter-function similarity (as same as the program similarity) with intra-function similarity.
+The main idea is mapping each instruction in program $A$ to the most similar instruction in program $B$.</p>
+<h3 id=intra-function-similarity>Intra-function Similarity</h3>
+<p>Intra-function similarity models the similarity of a instruction in a specific function context.</p>
+<p>Let $f\in A$ be a function from program $A$, and $g$ be a function from program $B$.
+If $f$ can be extended to $g$, then there may be a code copy case.
+We use longest common subsequence (LCS) to calculate the cost to extend $f$ to $g$.
+To preserve integrity of $f$ during extending, we calculate the longest LCS in a fixed window size $\omega=\frac{3}{2}|f|$.</p>
+<p>$$\sigma(f,g)=\max_{k\in\{1,2,\dots,|g|\}}\text{LCS}(f,g[k:k+\omega])$$</p>
+<p>Formally, the intra-function similarity between $f$ and $g$ is defined as</p>
+<p>$$\rho(f,g)=\frac{\max\{\sigma(f_i,g_j),\sigma(g_j,f_i)\}}{\min\{|f_i|,|g_j|\}}$$</p>
+<p>For efficiency, we use the following strategies</p>
+<ul>
+<li>Use integer for opcode to speed up comparison.</li>
+<li>Calculate $\sigma(f,g)$ by the following formula.</li>
+</ul>
+<p>$$\sigma(f,g)=\begin{cases}
+\text{LCS}(f,g) & \omega>=|g| \\
+\max_{k\in\{1,2,\dots,|g|-\omega\}}\text{LCS}(f,g[k:k+\omega]) & \text{otherwise}
+\end{cases}$$</p>
+<h3 id=inter-function-similarity>Inter-function Similarity</h3>
+<p>We models the mapping problem by a weighted flow network graph $G=(V,E,c:E\rightarrow \mathbb{N},w:E\rightarrow \mathbb{R})$.</p>
+<p>Let $n=|A|,m=|B|,i\in[n], j\in [m],f_i\in A,g_j\in B$.</p>
+<p>$$\begin{aligned}
+V&=\{s,t\}\cup\{l_i\}\cup\{r_j\}\\
+E&=\{(s,l_i)\}\cup\{(r_j,t)\}\cup \{(l_i,r_j)\}\\
+c(s,l_i)&=|f_i|,w(s,l_i)=0\\
+c(r_j,t)&=|g_j|,w(r_j,t)=0\\
+c(l_i,r_j)&=\sigma(f_i,g_j)\\
+w(l_i,r_j)&=\text{sigmoid}'(\rho(f,g))
+\end{aligned}$$</p>
+<p>We use sigmoid function&rsquo;s center part, $\text{sigmoid}'(x)=\text{sigmoid}(\alpha x+\beta)$, with constants $\alpha=2,\beta=-1/2$ to normalize $\rho(f,g)$.</p>
+<p>Then the unnormalized inter-function similarity from $A$ to $B$ is defined as</p>
+<p>$$
+\rho'(A\rightarrow B)=\frac{\text{MaximumWeightFlow(G)}}{\sum_{i}|f_i|}
+$$</p>
+<p>Then normalize $\rho'(A\rightarrow B)$ onto $[0,1]$.</p>
+<p>$$
+\rho(A\rightarrow B)=\frac{\rho'(A\rightarrow B)}{\text{sigmoid}'(1)}
+$$</p>
+<p>Finally the inter-function similarity between $A$ and $B$ is defined as the average of the two directions.</p>
+<p>$$
+\rho(A,B)=\frac{\rho(A\rightarrow B)+\rho(B\rightarrow A)}{2}
+$$</p>
+<p>For efficiency, we use the following strategies</p>
+<ul>
+<li>Calculate $\sigma(f_i,g_j)$ for all $(i,j)$ pairs parallel and cache the results.</li>
+<li>Use integer $\lfloor \theta \cdot w(l_i,r_j) \rfloor$, in which $\theta=10000$, to replace the real number $w(l_i,r_j)$.</li>
+</ul>
 </section>
 <footer class=article-footer>
 <section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
@@ -78,41 +144,23 @@ Tools
 <h2 class=section-title>Related contents</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
-<article>
-<a href=/posts/tools/psake/>
-<div class=article-details>
-<h2 class=article-title>psake</h2>
+<article class=has-image>
+<a href=/posts/projects/acblog-staticgen/>
+<div class=article-image>
+<img src=/posts/projects/acblog-staticgen/head.1953b2dd64e2e7e1cbeac076ef8398b4_hu9efe531bff7b440f821e48b9e03327e7_46403_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post AcBlog 静态博客生成器使用说明" data-hash="md5-GVOy3WTi5+HL6sB274OYtA==">
 </div>
-</a>
-</article>
-<article>
-<a href=/posts/tools/github-workflow/>
 <div class=article-details>
-<h2 class=article-title>GitHub Actions - Workflow</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/posts/tools/proglang-dockerfile/>
-<div class=article-details>
-<h2 class=article-title>Dockerfile</h2>
+<h2 class=article-title>AcBlog 静态博客生成器使用说明</h2>
 </div>
 </a>
 </article>
 <article class=has-image>
-<a href=/posts/tools/proglang-yaml/>
+<a href=/posts/projects/images-dev/>
 <div class=article-image>
-<img src=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png loading=lazy data-key data-hash=https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png>
+<img src=/posts/projects/images-dev/head.2b9e292191d99c769569191d6d994d0a_hu305c74f0c0f0b5e138f098c149d6d1b0_54241_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post ImagingS 开发笔记" data-hash="md5-K54pIZHZnHaVaRkdbZlNCg==">
 </div>
 <div class=article-details>
-<h2 class=article-title>YAML Ain't Markup Language</h2>
-</div>
-</a>
-</article>
-<article>
-<a href=/posts/tools/gdb/>
-<div class=article-details>
-<h2 class=article-title>GDB - The GNU Project Debugger</h2>
+<h2 class=article-title>ImagingS 开发笔记</h2>
 </div>
 </a>
 </article>
@@ -179,8 +227,18 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <div class=widget--toc>
 <nav id=TableOfContents>
 <ol>
-<li><a href=#基本信息>基本信息</a></li>
-<li><a href=#基础知识>基础知识</a></li>
+<li><a href=#codesim>Codesim</a>
+<ol>
+<li><a href=#goals>Goals</a></li>
+<li><a href=#preprocessing>Preprocessing</a></li>
+<li><a href=#similarity>Similarity</a>
+<ol>
+<li><a href=#intra-function-similarity>Intra-function Similarity</a></li>
+<li><a href=#inter-function-similarity>Inter-function Similarity</a></li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 </nav>
 </div>
